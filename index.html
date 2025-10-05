@@ -10,10 +10,23 @@
 </head>
 
 <body class="min-h-screen bg-white text-black flex flex-col justify-between">
-  <!-- Top banner (taller + grey) -->
-  <div class="w-full text-center text-sm sm:text-base tracking-wide bg-gray-100 text-black py-3 sm:py-4 border-b border-black/10">
+  <!-- Top banner (grey, no border to avoid double lines) -->
+  <div class="w-full text-center text-sm sm:text-base tracking-wide bg-gray-100 text-black py-3 sm:py-4">
     Limited first drop — <a href="#waitlistForm" class="underline underline-offset-2 hover:no-underline">join the waitlist</a>
   </div>
+
+  <!-- Thin menu strip with very faint lines -->
+  <nav class="w-full bg-white border-y border-black/10">
+    <div class="max-w-3xl mx-auto px-4">
+      <ul class="flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
+        <li><a href="#" class="hover:text-black">Home</a></li>
+        <li><a href="#" class="hover:text-black">About</a></li>
+        <li><a href="#" class="hover:text-black">Collectibles</a></li>
+        <li><a href="#" class="hover:text-black">Merch</a></li>
+        <li><a href="#waitlistForm" class="hover:text-black">Waitlist</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <header class="py-0 text-center">
     <img 
@@ -25,54 +38,7 @@
 
   <main class="flex-1 flex flex-col items-center justify-center px-4 text-center">
     <div class="max-w-2xl w-full">
-      <!-- Hero moved up further -->
+      <!-- Hero moved up -->
       <section class="relative flex justify-center items-center overflow-hidden mt-[-3rem] sm:mt-[-4rem]">
         <img 
-          src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
-          alt="Starface Hero Image" 
-          class="w-full max-w-screen-md object-contain object-center rounded-xl shadow-sm"
-          style="max-height: 550px;"
-        />
-      </section>
-
-      <p class="mt-8 text-base text-black/70 tracking-wide">
-        Join the waitlist for our first limited edition drop.
-      </p>
-
-      <form id="waitlistForm" class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-        <input id="email" type="email" placeholder="Enter your email"
-          class="rounded-2xl border border-black/20 px-4 py-3 text-sm w-full sm:w-72 placeholder:text-black/40 focus:border-black/40 outline-none" />
-        <button type="submit"
-          class="rounded-2xl border border-black bg-black text-white px-6 py-3 text-sm font-medium hover:bg-white hover:text-black transition">
-          Join Waitlist
-        </button>
-      </form>
-
-      <p class="mt-2 text-xs text-black/40">No spam. We’ll only email you about the drop.</p>
-    </div>
-  </main>
-
-  <!-- Bottom-left brand block (logo + footer note) -->
-  <div class="fixed bottom-6 left-6 flex flex-col items-start gap-1">
-    <img 
-      src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png" 
-      alt="Starface secondary logo" 
-      class="h-32 sm:h-44 w-auto opacity-50 hover:opacity-100 transition duration-300 select-none pointer-events-none"
-    />
-    <p class="text-[11px] sm:text-xs text-black/50 tracking-wide leading-snug">
-      STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
-    </p>
-  </div>
-
-  <script>
-    document.getElementById('waitlistForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const ok = /^([^\s@]+)@([^\s@]+)\.[^\s@]+$/.test(email);
-      if(!ok){ alert('Please enter a valid email.'); return; }
-      alert("You're on the list. We'll share the reveal soon.");
-      document.getElementById('email').value = '';
-    });
-  </script>
-</body>
-</html>
+          src="h
