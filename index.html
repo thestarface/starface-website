@@ -3,13 +3,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>STARFACE</title>
-  <meta name="description" content="Join the waitlist for our first limited edition drop." />
+  <title>STARFACE — Coming Soon</title>
+  <meta name="description" content="A collectible from the culture is coming soon. Join the waitlist for the first reveal." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>★</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Matte gradient + subtle paper grain -->
+  <style>
+    /* Tunable variables */
+    :root{
+      --matte-top: #fafafa;     /* top of gradient */
+      --matte-bottom: #f1f1f1;  /* bottom of gradient */
+      --vignette: rgba(0,0,0,0.06); /* subtle corner shading */
+      --grain-opacity: 0.06;    /* 0.04–0.10 recommended */
+    }
+
+    /* Base matte gradient + faint vignette */
+    body.sf-matte {
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(0,0,0,0.04), transparent 55%),
+        radial-gradient(900px 500px at 50% 110%, var(--vignette), transparent 55%),
+        linear-gradient(180deg, var(--matte-top), var(--matte-bottom));
+      /* Keeps text crisp over the texture */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Paper/grain overlay using a tiny inline SVG noise texture */
+    .sf-grain::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      /* Lightweight SVG noise (monochrome), repeats seamlessly */
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'>\
+<filter id='n' x='0' y='0'>\
+  <feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/>\
+  <feColorMatrix type='saturate' values='0'/>\
+  <feComponentTransfer>\
+    <feFuncA type='table' tableValues='0 0.2'/>\
+  </feComponentTransfer>\
+</filter>\
+<rect width='100%' height='100%' filter='url(%23n)'/>\
+</svg>");
+      background-repeat: repeat;
+      opacity: var(--grain-opacity);
+      mix-blend-mode: multiply;
+      z-index: 0;
+    }
+
+    /* Ensure content stays above the grain layer */
+    .sf-content { position: relative; z-index: 1; }
+  </style>
 </head>
-<body class="min-h-screen bg-white text-black flex flex-col justify-between">
-  <header class="py-6 text-center">
+
+<body class="sf-matte sf-grain min-h-screen bg-transparent text-black flex flex-col justify-between">
+  <header class="py-6 text-center sf-content">
     <img 
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/7.png" 
       alt="Starface logo" 
@@ -17,7 +67,7 @@
     />
   </header>
 
-  <main class="flex-1 flex flex-col items-center justify-center px-4 text-center">
+  <main class="sf-content flex-1 flex flex-col items-center justify-center px-4 text-center">
     <div class="max-w-2xl w-full">
       <section class="relative flex justify-center items-center overflow-hidden mt-[-2rem]">
         <img 
@@ -27,23 +77,23 @@
           style="max-height: 550px;"
         />
       </section>
-      <p class="mt-10 text-base text-black/70 tracking-wide">Coming soon.....</p>
-      <p class="mt-1 text-sm text-black/50">Join the waitlist for our first limited edition drop.</p>
+      <p class="mt-10 text-base text-black/70 tracking-wide">A collectible from the culture is coming soon.</p>
+      <p class="mt-1 text-sm text-black/50">Join the waitlist for the first reveal.</p>
 
       <form id="waitlistForm" class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
         <input id="email" type="email" placeholder="Enter your email" class="rounded-2xl border border-black/20 px-4 py-3 text-sm w-full sm:w-72 placeholder:text-black/40 focus:border-black/40 outline-none" />
         <button type="submit" class="rounded-2xl border border-black bg-black text-white px-6 py-3 text-sm font-medium hover:bg-white hover:text-black transition">Join Waitlist</button>
       </form>
-      <p class="mt-2 text-xs text-black/40">No spam. We’ll only email you about the drop.</p>
+      <p class="mt-2 text-xs text-black/40">No spam. We’ll only email you about the reveal.</p>
     </div>
   </main>
 
-  <footer class="py-10 text-center text-xs tracking-wide text-black/50">
+  <footer class="sf-content py-10 text-center text-xs tracking-wide text-black/50">
     <p>STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.</p>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year')?.textContent = new Date().getFullYear();
     document.getElementById('waitlistForm').addEventListener('submit', function(e){
       e.preventDefault();
       const email = document.getElementById('email').value.trim();
