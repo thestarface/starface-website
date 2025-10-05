@@ -7,57 +7,15 @@
   <meta name="description" content="Join the waitlist for our first limited edition drop." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>★</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Matte gradient + subtle paper grain -->
-  <style>
-    /* Tunable variables */
-    :root{
-      --matte-top: #fafafa;     /* top of gradient */
-      --matte-bottom: #f1f1f1;  /* bottom of gradient */
-      --vignette: rgba(0,0,0,0.06); /* subtle corner shading */
-      --grain-opacity: 0.06;    /* 0.04–0.10 recommended */
-    }
-
-    /* Base matte gradient + faint vignette */
-    body.sf-matte {
-      background:
-        radial-gradient(1200px 600px at 50% -10%, rgba(0,0,0,0.04), transparent 55%),
-        radial-gradient(900px 500px at 50% 110%, var(--vignette), transparent 55%),
-        linear-gradient(180deg, var(--matte-top), var(--matte-bottom));
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Paper/grain overlay using a tiny inline SVG noise texture */
-    .sf-grain::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'>\
-<filter id='n' x='0' y='0'>\
-  <feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/>\
-  <feColorMatrix type='saturate' values='0'/>\
-  <feComponentTransfer>\
-    <feFuncA type='table' tableValues='0 0.2'/>\
-  </feComponentTransfer>\
-</filter>\
-<rect width='100%' height='100%' filter='url(%23n)'/>\
-</svg>");
-      background-repeat: repeat;
-      opacity: var(--grain-opacity);
-      mix-blend-mode: multiply;
-      z-index: 0;
-    }
-
-    .sf-content { position: relative; z-index: 1; }
-  </style>
 </head>
 
-<body class="sf-matte sf-grain min-h-screen bg-transparent text-black flex flex-col justify-between">
+<body class="min-h-screen bg-white text-black flex flex-col justify-between">
+  <!-- Top banner -->
+  <div class="w-full text-center text-xs sm:text-sm tracking-wide bg-black text-white py-2">
+    Limited first drop — <a href="#waitlistForm" class="underline underline-offset-2 hover:no-underline">join the waitlist</a>
+  </div>
 
-  <header class="py-6 text-center sf-content">
+  <header class="py-4 text-center">
     <img 
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" 
       alt="Starface logo" 
@@ -65,9 +23,10 @@
     />
   </header>
 
-  <main class="sf-content flex-1 flex flex-col items-center justify-center px-4 text-center">
+  <main class="flex-1 flex flex-col items-center justify-center px-4 text-center">
     <div class="max-w-2xl w-full">
-      <section class="relative flex justify-center items-center overflow-hidden mt-[-2rem]">
+      <!-- moved hero up -->
+      <section class="relative flex justify-center items-center overflow-hidden mt-[-3rem]">
         <img 
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
           alt="Starface Hero Image" 
@@ -75,40 +34,37 @@
           style="max-height: 550px;"
         />
       </section>
-      <p class="mt-10 text-base text-black/70 tracking-wide">
+
+      <p class="mt-8 text-base text-black/70 tracking-wide">
         Join the waitlist for our first limited edition drop.
       </p>
 
       <form id="waitlistForm" class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-        <input id="email" type="email" placeholder="Enter your email" 
-          class="rounded-2xl border border-black/20 px-4 py-3 text-sm w-full sm:w-72 
-                 placeholder:text-black/40 focus:border-black/40 outline-none" />
-        <button type="submit" 
-          class="rounded-2xl border border-black bg-black text-white px-6 py-3 text-sm 
-                 font-medium hover:bg-white hover:text-black transition">
+        <input id="email" type="email" placeholder="Enter your email"
+          class="rounded-2xl border border-black/20 px-4 py-3 text-sm w-full sm:w-72 placeholder:text-black/40 focus:border-black/40 outline-none" />
+        <button type="submit"
+          class="rounded-2xl border border-black bg-black text-white px-6 py-3 text-sm font-medium hover:bg-white hover:text-black transition">
           Join Waitlist
         </button>
       </form>
-      <p class="mt-2 text-xs text-black/40">
-        No spam. We’ll only email you about the drop.
-      </p>
+
+      <p class="mt-2 text-xs text-black/40">No spam. We’ll only email you about the drop.</p>
     </div>
   </main>
 
-  <!-- Bottom-left logo and footer text -->
-  <div class="fixed bottom-6 left-6 flex flex-col items-start space-y-2">
+  <!-- Bottom-left brand block (logo + footer note, same indentation) -->
+  <div class="fixed bottom-6 left-6 flex flex-col items-start gap-1">
     <img 
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png" 
       alt="Starface secondary logo" 
       class="h-32 sm:h-44 w-auto opacity-50 hover:opacity-100 transition duration-300 select-none pointer-events-none"
     />
-    <p class="text-[11px] sm:text-xs text-black/50 tracking-wide">
+    <p class="text-[11px] sm:text-xs text-black/50 tracking-wide leading-snug">
       STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
     </p>
   </div>
 
   <script>
-    document.getElementById('year')?.textContent = new Date().getFullYear();
     document.getElementById('waitlistForm').addEventListener('submit', function(e){
       e.preventDefault();
       const email = document.getElementById('email').value.trim();
@@ -118,6 +74,5 @@
       document.getElementById('email').value = '';
     });
   </script>
-
 </body>
 </html>
