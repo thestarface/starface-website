@@ -9,18 +9,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="min-h-screen bg-white text-black flex flex-col">
-  <!-- Compact grey banner with large logo (banner stays small) -->
+<body class="bg-white text-black">
+  <!-- Compact grey banner with centered logo + countdown on the right -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
+    <!-- centered logo -->
     <img
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
       alt="Starface logo"
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-32 sm:h-40 w-auto select-none pointer-events-none"
     />
+    <!-- countdown moved to banner (top-right) -->
+    <div class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 rounded-full border border-black/10 bg-white/80 backdrop-blur px-3 sm:px-4 py-1.5 text-[11px] sm:text-sm text-black/80 shadow-sm">
+      <span class="font-medium tracking-wide">Reveal in</span>
+      <span id="dd" class="mx-0.5 tabular-nums">00</span>d
+      <span id="hh" class="mx-0.5 tabular-nums">00</span>h
+      <span id="mm" class="mx-0.5 tabular-nums">00</span>m
+      <span id="ss" class="mx-0.5 tabular-nums">00</span>s
+    </div>
   </div>
 
-  <!-- Menu strip with faint divider (Gallery removed) -->
-  <nav class="w-full bg-white border-b border-black/10">
+  <!-- Menu strip with faint divider -->
+  <nav class="w-full bg-white border-b border-black/10 z-10">
     <div class="max-w-3xl mx-auto px-4">
       <ul class="flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
         <li><a href="#" class="hover:text-black">Home</a></li>
@@ -31,24 +40,16 @@
     </div>
   </nav>
 
-  <main class="flex-1 px-4 text-center">
+  <!-- Main content (hero below the menu; no negative margins) -->
+  <main class="px-4 text-center">
     <div class="max-w-2xl mx-auto">
-      <!-- Hero -->
-      <section class="relative flex justify-center items-center overflow-hidden mt-[-2.5rem] sm:mt-[-3.5rem]">
+      <section class="relative flex justify-center items-center overflow-hidden mt-6 sm:mt-8">
         <img 
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
           alt="Starface Hero Image"
           class="w-full max-w-screen-md object-contain object-center rounded-xl shadow-sm"
           style="max-height: 550px;"
         />
-        <!-- Countdown badge overlay -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-black/10 bg-white/80 backdrop-blur px-4 py-2 text-xs sm:text-sm text-black/80 shadow-sm">
-          <span class="font-medium tracking-wide">Reveal in</span>
-          <span id="dd" class="mx-1 tabular-nums">00</span>d
-          <span id="hh" class="mx-1 tabular-nums">00</span>h
-          <span id="mm" class="mx-1 tabular-nums">00</span>m
-          <span id="ss" class="mx-1 tabular-nums">00</span>s
-        </div>
       </section>
     </div>
   </main>
@@ -117,15 +118,15 @@
   </div>
 
   <script>
-    // Countdown to Oct 31, 2025 00:00 local time
+    // Countdown to Oct 31, 2025 00:00 local time (now lives in the banner)
     (function(){
       const d = document.getElementById('dd'),
             h = document.getElementById('hh'),
             m = document.getElementById('mm'),
             s = document.getElementById('ss');
       if(!d || !h || !m || !s) return;
-      const target = new Date(2025, 9, 31, 0, 0, 0); // 0-indexed months; 9 = Oct
-      function pad(n){ return String(n).padStart(2,'0'); }
+      const target = new Date(2025, 9, 31, 0, 0, 0); // 9 = October
+      const pad = n => String(n).padStart(2, '0');
       function tick(){
         const now = new Date();
         let ms = Math.max(0, target - now);
