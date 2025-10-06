@@ -27,14 +27,14 @@
         <li><a href="#" class="hover:text-black">Waitlist</a></li>
         <li><a href="#" class="hover:text-black">Gallery</a></li>
         <li><a href="#" class="hover:text-black">FAQs</a></li>
-        <li><a href="#waitlistForm" class="hover:text-black">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-black">Privacy Policy</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="flex-1 flex flex-col items-center justify-center px-4 text-center">
     <div class="max-w-2xl w-full">
-      <!-- Hero pulled up a bit more -->
+      <!-- Hero only (waitlist section removed) -->
       <section class="relative flex justify-center items-center overflow-hidden mt-[-2.5rem] sm:mt-[-3.5rem]">
         <img 
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
@@ -43,47 +43,36 @@
           style="max-height: 550px;"
         />
       </section>
-
-      <p class="mt-8 text-base text-black/70 tracking-wide">
-        Join the waitlist for our first limited edition drop.
-      </p>
-
-      <form id="waitlistForm" class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-        <input id="email" type="email" placeholder="Enter your email"
-          class="rounded-2xl border border-black/20 px-4 py-3 text-sm w-full sm:w-72 placeholder:text-black/40 focus:border-black/40 outline-none" />
-        <button type="submit"
-          class="rounded-2xl border border-black bg-black text-white px-6 py-3 text-sm font-medium hover:bg-white hover:text-black transition">
-          Join Waitlist
-        </button>
-      </form>
-
-      <p class="mt-2 text-xs text-black/40">No spam. We’ll only email you about the drop.</p>
     </div>
   </main>
 
-<!-- Bottom-left brand row (logo ~75% larger) -->
-<div class="fixed bottom-2 left-2 sm:bottom-3 sm:left-3">
-  <div class="flex items-center gap-0">
-    <img
-      src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
-      alt="Starface secondary logo"
-      class="block h-[5.25rem] sm:h-[7rem] w-auto opacity-50 select-none pointer-events-none align-middle -ml-[4px] -mr-[21px] sm:-mr-[28px]"
-    />
-    <p class="text-[11px] sm:text-xs text-black/50 tracking-wide leading-none relative top-[1px]">
-      STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
-    </p>
+  <!-- Bottom-left brand row (logo ~75% larger) -->
+  <div class="fixed bottom-2 left-2 sm:bottom-3 sm:left-3">
+    <div class="flex items-center gap-0">
+      <img
+        src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
+        alt="Starface secondary logo"
+        class="block h-[5.25rem] sm:h-[7rem] w-auto opacity-70 select-none pointer-events-none align-middle -ml-[4px] -mr-[21px] sm:-mr-[28px]"
+      />
+      <p class="text-[11px] sm:text-xs text-black/50 tracking-wide leading-none relative top-[1px]">
+        STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
+      </p>
+    </div>
   </div>
-</div>
-  
+
   <script>
-    document.getElementById('waitlistForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const ok = /^([^\s@]+)@([^\s@]+)\.[^\s@]+$/.test(email);
-      if(!ok){ alert('Please enter a valid email.'); return; }
-      alert("You're on the list. We'll share the reveal soon.");
-      document.getElementById('email').value = '';
-    });
+    // Safe: only attaches if a form exists (you removed it for now)
+    const form = document.getElementById('waitlistForm');
+    if (form) {
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const email = document.getElementById('email').value.trim();
+        const ok = /^([^\s@]+)@([^\s@]+)\.[^\s@]+$/.test(email);
+        if(!ok){ alert('Please enter a valid email.'); return; }
+        alert("You're on the list. We'll share the reveal soon.");
+        document.getElementById('email').value = '';
+      });
+    }
   </script>
 </body>
 </html>
