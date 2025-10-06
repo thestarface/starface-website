@@ -10,13 +10,29 @@
 </head>
 
 <body class="bg-white text-black">
-  <!-- Compact grey banner with centered logo (no countdown here) -->
+  <!-- Compact grey banner with centered logo + profile icon on the right -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
+    <!-- centered logo -->
     <img
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
       alt="Starface logo"
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-32 sm:h-40 w-auto select-none pointer-events-none"
     />
+    <!-- profile icon (hover: 'Register') -->
+    <a href="#" aria-label="Register" class="group absolute right-3 sm:right-4 top-1/2 -translate-y-1/2">
+      <!-- simple user/profile svg icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition"
+           fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21a8 8 0 0 0-16 0" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+      <!-- tooltip -->
+      <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap
+                   px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs
+                   opacity-0 group-hover:opacity-100 transition pointer-events-none shadow
+                   translate-y-1">Register</span>
+    </a>
   </div>
 
   <!-- Menu strip with faint divider -->
@@ -24,6 +40,7 @@
     <div class="max-w-3xl mx-auto px-4">
       <ul class="flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
         <li><a href="#" class="hover:text-black">Home</a></li>
+        <li><a href="#" class="hover:text-black">Shop</a></li>
         <li><a href="#" class="hover:text-black">Waitlist</a></li>
         <li><a href="#" class="hover:text-black">FAQs</a></li>
         <li><a href="#" class="hover:text-black">Privacy Policy</a></li>
@@ -79,7 +96,7 @@
     <div class="max-w-6xl mx-auto px-6 py-6 sm:py-8 flex items-center gap-8 text-sm">
       <span class="text-xl sm:text-2xl font-semibold tracking-wide">FOLLOW US ON</span>
       <div class="flex items-center gap-6">
-        <!-- Replace text links with icons -->
+        <!-- Social icons -->
         <a href="#" aria-label="Instagram" class="opacity-80 hover:opacity-100 transition">
           <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
         </a>
@@ -91,8 +108,10 @@
         </a>
       </div>
     </div>
+
     <!-- bottom padding so the fixed brand row never covers footer content -->
-    <div class="max-w-6xl mx-auto px-6 pb-28 pt-6 grid grid-cols-1 sm:grid-cols-4 gap-10 text-sm">
+    <div class="max-w-6xl mx-auto px-6 pb-28 pt-6 grid grid-cols-1 sm:grid-cols-3 gap-10 text-sm">
+      <!-- JOIN THE COMMUNITY (kept) -->
       <div class="space-y-3">
         <h3 class="text-white/90 font-semibold tracking-wide">JOIN THE COMMUNITY</h3>
         <p class="text-white/50">Be the first to know about drops and reveals.</p>
@@ -102,14 +121,8 @@
           <button class="rounded-md bg-white text-black px-3 py-2 font-medium hover:bg-white/90">Sign Me Up</button>
         </div>
       </div>
-      <div class="space-y-2">
-        <h3 class="text-white/90 font-semibold tracking-wide">SHOP</h3>
-        <ul class="space-y-1 text-white/60">
-          <li><a href="#" class="hover:text-white">All Figures</a></li>
-          <li><a href="#" class="hover:text-white">All Blind Box</a></li>
-          <li><a href="#" class="hover:text-white">Accessories</a></li>
-        </ul>
-      </div>
+
+      <!-- INFORMATION (kept) -->
       <div class="space-y-2">
         <h3 class="text-white/90 font-semibold tracking-wide">INFORMATION</h3>
         <ul class="space-y-1 text-white/60">
@@ -119,6 +132,8 @@
           <li><a href="#" class="hover:text-white">Contact us</a></li>
         </ul>
       </div>
+
+      <!-- HELP (kept) -->
       <div class="space-y-2">
         <h3 class="text-white/90 font-semibold tracking-wide">HELP</h3>
         <ul class="space-y-1 text-white/60">
