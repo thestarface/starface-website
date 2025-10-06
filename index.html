@@ -44,16 +44,32 @@
         />
       </section>
 
-      <!-- Countdown UNDER the hero (digital style, no background) -->
+      <!-- Countdown UNDER the hero (label above; stacked units below each number) -->
       <div class="mt-4 sm:mt-5">
-        <div class="font-mono tabular-nums text-lg sm:text-2xl tracking-wider text-black/80 select-none">
-          <span class="sr-only">Reveal in</span>
-          <span id="dd">00</span><span class="mx-1">:</span>
-          <span id="hh">00</span><span class="mx-1">:</span>
-          <span id="mm">00</span><span class="mx-1">:</span>
-          <span id="ss">00</span>
+        <!-- label directly above the timer -->
+        <div class="uppercase tracking-widest text-[11px] sm:text-xs text-black/50 mb-2">
+          Limited launch edition
         </div>
-        <div class="mt-1 text-[10px] sm:text-xs text-black/40 tracking-wide">DD:HH:MM:SS</div>
+
+        <!-- digital clock: four columns, each with number and its unit under -->
+        <div class="flex items-end justify-center gap-4 sm:gap-6 font-mono tabular-nums text-2xl sm:text-3xl text-black/80 select-none">
+          <div class="flex flex-col items-center">
+            <span id="dd">00</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black">DD</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span id="hh">00</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black">HH</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span id="mm">00</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black">MM</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span id="ss">00</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black">SS</span>
+          </div>
+        </div>
       </div>
     </div>
   </main>
