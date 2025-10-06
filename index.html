@@ -10,26 +10,17 @@
 </head>
 
 <body class="bg-white text-black">
-  <!-- Compact grey banner with centered logo + countdown on the right -->
+  <!-- Compact grey banner with centered logo (no countdown here) -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
-    <!-- centered logo -->
     <img
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
       alt="Starface logo"
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-32 sm:h-40 w-auto select-none pointer-events-none"
     />
-    <!-- countdown moved to banner (top-right) -->
-    <div class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 rounded-full border border-black/10 bg-white/80 backdrop-blur px-3 sm:px-4 py-1.5 text-[11px] sm:text-sm text-black/80 shadow-sm">
-      <span class="font-medium tracking-wide">Reveal in</span>
-      <span id="dd" class="mx-0.5 tabular-nums">00</span>d
-      <span id="hh" class="mx-0.5 tabular-nums">00</span>h
-      <span id="mm" class="mx-0.5 tabular-nums">00</span>m
-      <span id="ss" class="mx-0.5 tabular-nums">00</span>s
-    </div>
   </div>
 
   <!-- Menu strip with faint divider -->
-  <nav class="w-full bg-white border-b border-black/10 z-10">
+  <nav class="w-full bg-white border-b border-black/10">
     <div class="max-w-3xl mx-auto px-4">
       <ul class="flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
         <li><a href="#" class="hover:text-black">Home</a></li>
@@ -40,10 +31,11 @@
     </div>
   </nav>
 
-  <!-- Main content (hero below the menu; no negative margins) -->
+  <!-- Main content -->
   <main class="px-4 text-center">
     <div class="max-w-2xl mx-auto">
-      <section class="relative flex justify-center items-center overflow-hidden mt-6 sm:mt-8">
+      <!-- Hero below menu (no negative margins) -->
+      <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
         <img 
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
           alt="Starface Hero Image"
@@ -51,6 +43,18 @@
           style="max-height: 550px;"
         />
       </section>
+
+      <!-- Countdown UNDER the hero (digital style, no background) -->
+      <div class="mt-4 sm:mt-5">
+        <div class="font-mono tabular-nums text-lg sm:text-2xl tracking-wider text-black/80 select-none">
+          <span class="sr-only">Reveal in</span>
+          <span id="dd">00</span><span class="mx-1">:</span>
+          <span id="hh">00</span><span class="mx-1">:</span>
+          <span id="mm">00</span><span class="mx-1">:</span>
+          <span id="ss">00</span>
+        </div>
+        <div class="mt-1 text-[10px] sm:text-xs text-black/40 tracking-wide">DD:HH:MM:SS</div>
+      </div>
     </div>
   </main>
 
@@ -64,6 +68,7 @@
         <a href="#" class="hover:text-white">Facebook</a>
       </div>
     </div>
+    <!-- add bottom padding so the fixed brand row never covers footer content -->
     <div class="max-w-6xl mx-auto px-6 pb-28 pt-6 grid grid-cols-1 sm:grid-cols-4 gap-10 text-sm">
       <div class="space-y-3">
         <h3 class="text-white/90 font-semibold tracking-wide">JOIN THE COMMUNITY</h3>
@@ -103,7 +108,7 @@
     </div>
   </footer>
 
-  <!-- Bottom-left brand row (unchanged) -->
+  <!-- Bottom-left brand row (fixed) -->
   <div class="fixed bottom-2 left-2 sm:bottom-3 sm:left-3 z-50">
     <div class="flex items-center gap-0">
       <img
@@ -118,15 +123,15 @@
   </div>
 
   <script>
-    // Countdown to Oct 31, 2025 00:00 local time (now lives in the banner)
+    // Countdown to Oct 31, 2025 00:00 local time (DD:HH:MM:SS)
     (function(){
       const d = document.getElementById('dd'),
             h = document.getElementById('hh'),
             m = document.getElementById('mm'),
             s = document.getElementById('ss');
       if(!d || !h || !m || !s) return;
-      const target = new Date(2025, 9, 31, 0, 0, 0); // 9 = October
-      const pad = n => String(n).padStart(2, '0');
+      const target = new Date(2025, 9, 31, 0, 0, 0); // 9 = October (0-indexed)
+      const pad = n => String(n).padStart(2,'0');
       function tick(){
         const now = new Date();
         let ms = Math.max(0, target - now);
@@ -134,8 +139,10 @@
         const hrs  = Math.floor(ms / 3600000);  ms -= hrs*3600000;
         const mins = Math.floor(ms / 60000);    ms -= mins*60000;
         const secs = Math.floor(ms / 1000);
-        d.textContent = pad(days); h.textContent = pad(hrs);
-        m.textContent = pad(mins); s.textContent = pad(secs);
+        d.textContent = pad(days);
+        h.textContent = pad(hrs);
+        m.textContent = pad(mins);
+        s.textContent = pad(secs);
       }
       tick(); setInterval(tick, 1000);
     })();
