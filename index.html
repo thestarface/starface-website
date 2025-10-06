@@ -38,7 +38,7 @@
         <li><a href="#" class="hover:text-black">Shop</a></li>
         <li><a href="#" class="hover:text-black">Waitlist</a></li>
         <li><a href="#" class="hover:text-black">FAQs</a></li>
-        <!-- Privacy Policy moved to Information -->
+        <!-- Privacy Policy is listed under Information in the footer -->
       </ul>
     </div>
   </nav>
@@ -81,6 +81,23 @@
           </div>
         </div>
       </div>
+
+      <!-- Newsletter (moved here, under the timer) -->
+      <section class="mt-6 sm:mt-8">
+        <h3 class="text-base sm:text-lg font-semibold tracking-wide">GET DROP UPDATES</h3>
+        <p class="text-black/60 mt-1">Be the first to know about drops and reveals.</p>
+
+        <div class="flex items-center gap-3 max-w-md mx-auto w-full mt-3">
+          <input type="email" placeholder="Your email address"
+            class="flex-1 min-w-[220px] h-10 sm:h-11 rounded-md border border-black/15 px-3
+                   text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
+          <button
+            class="shrink-0 whitespace-nowrap h-10 sm:h-11 rounded-md bg-black text-white px-4
+                   font-medium hover:bg-black/90">
+            Sign Me Up
+          </button>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -102,29 +119,10 @@
       </div>
     </div>
 
-    <!-- Centered footer content (three columns) -->
-    <div class="max-w-3xl mx-auto px-6 pb-10 pt-6 grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center">
-      <!-- GET DROP UPDATES -->
-      <div class="space-y-3 w-full text-center">
-        <h3 class="text-white/90 font-semibold tracking-wide">GET DROP UPDATES</h3>
-        <p class="text-white/50">Be the first to know about drops and reveals.</p>
-
-        <!-- No wrap, constrained width, centered -->
-        <div class="flex items-center gap-3 max-w-sm mx-auto w-full">
-          <input type="email" placeholder="Your email address"
-            class="flex-1 min-w-[220px] h-10 sm:h-11 rounded-md bg-white/5 border border-white/15 px-3
-                   text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-white/30" />
-
-          <button
-            class="shrink-0 whitespace-nowrap h-10 sm:h-11 rounded-md bg-white text-black px-4
-                   font-medium hover:bg-white/90">
-            Sign Me Up
-          </button>
-        </div>
-      </div>
-
+    <!-- Two centered footer columns only: Information + Help -->
+    <div class="max-w-3xl mx-auto px-6 pb-10 pt-6 grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center text-center">
       <!-- INFORMATION -->
-      <div class="space-y-2 w-full text-center">
+      <div class="space-y-2 w-full">
         <h3 class="text-white/90 font-semibold tracking-wide">INFORMATION</h3>
         <ul class="space-y-1 text-white/60">
           <li><a href="#" class="hover:text-white">News</a></li>
@@ -134,7 +132,7 @@
       </div>
 
       <!-- HELP -->
-      <div class="space-y-2 w-full text-center">
+      <div class="space-y-2 w-full">
         <h3 class="text-white/90 font-semibold tracking-wide">HELP</h3>
         <ul class="space-y-1 text-white/60">
           <li><a href="#" class="hover:text-white">FAQs</a></li>
@@ -147,13 +145,13 @@
 
     <!-- Separator + centered brand row at the page base -->
     <div class="border-t border-white/15">
-      <div class="max-w-3xl mx-auto px-6 py-5 flex items-center justify-center gap-3">
+      <div class="max-w-3xl mx-auto px-6 py-6 flex items-center justify-center gap-3">
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
           alt="Starface secondary logo"
-          class="h-8 sm:h-9 w-auto invert brightness-200 contrast-200 opacity-100 select-none"
+          class="h-16 sm:h-[4.5rem] w-auto invert brightness-200 contrast-200 opacity-100 select-none"
         />
-        <p class="text-[11px] sm:text-xs text-white/80 tracking-wide leading-none text-center">
+        <p class="text-[11px] sm:text-xs text-white/85 tracking-wide leading-none text-center">
           STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
         </p>
       </div>
