@@ -61,17 +61,19 @@
     </div>
   </main>
 
-<!-- Bottom-left brand block (logo + footer note) -->
-<div class="fixed bottom-2 left-3 sm:bottom-3 sm:left-4 flex flex-col items-start gap-0">
-  <img 
-    src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png" 
-    alt="Starface secondary logo" 
-    class="h-32 sm:h-44 w-auto opacity-50 hover:opacity-100 transition duration-300 select-none pointer-events-none"
-  />
-  <p class="mt-1 text-[11px] sm:text-xs text-black/50 tracking-wide leading-tight">
-    STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
-  </p>
-</div>
+<!-- Bottom-left brand row (logo + footer text on one line) -->
+<div class="fixed bottom-2 left-3 sm:bottom-3 sm:left-4">
+  <div class="flex items-center gap-2 sm:gap-3">
+    <img 
+      src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png" 
+      alt="Starface secondary logo" 
+      class="block h-5 sm:h-6 w-auto opacity-50 select-none pointer-events-none -ml-[2px] sm:-ml-[3px]"
+    />
+    <p class="text-[11px] sm:text-xs text-black/50 tracking-wide leading-tight">
+      STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
+    </p>
+  </div>
+</div>  
   
   <script>
     document.getElementById('waitlistForm').addEventListener('submit', function(e){
