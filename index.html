@@ -111,14 +111,22 @@
 
     <!-- bottom padding so the fixed brand row never covers footer content -->
     <div class="max-w-6xl mx-auto px-6 pb-28 pt-6 grid grid-cols-1 sm:grid-cols-3 gap-10 text-sm">
-      <!-- JOIN THE COMMUNITY (kept) -->
+      <!-- JOIN THE COMMUNITY (updated form inserted here) -->
       <div class="space-y-3">
         <h3 class="text-white/90 font-semibold tracking-wide">JOIN THE COMMUNITY</h3>
         <p class="text-white/50">Be the first to know about drops and reveals.</p>
-        <div class="flex gap-2">
+
+        <!-- fixed alignment + no wrap + centered within column -->
+        <div class="flex items-center gap-3 max-w-md mx-auto w-full">
           <input type="email" placeholder="Your email address"
-            class="w-full rounded-md bg-white/5 border border-white/15 px-3 py-2 text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-white/30" />
-          <button class="rounded-md bg-white text-black px-3 py-2 font-medium hover:bg-white/90">Sign Me Up</button>
+            class="flex-1 min-w-[220px] h-10 sm:h-11 rounded-md bg-white/5 border border-white/15 px-3
+                   text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-white/30" />
+
+          <button
+            class="shrink-0 whitespace-nowrap h-10 sm:h-11 rounded-md bg-white text-black px-4
+                   font-medium hover:bg-white/90">
+            Sign Me Up
+          </button>
         </div>
       </div>
 
