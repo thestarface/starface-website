@@ -19,13 +19,12 @@
     />
   </div>
 
-  <!-- Menu strip with faint divider -->
+  <!-- Menu strip with faint divider (Gallery removed) -->
   <nav class="w-full bg-white border-b border-black/10">
     <div class="max-w-3xl mx-auto px-4">
       <ul class="flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
         <li><a href="#" class="hover:text-black">Home</a></li>
         <li><a href="#" class="hover:text-black">Waitlist</a></li>
-        <li><a href="#gallery" class="hover:text-black">Gallery</a></li>
         <li><a href="#" class="hover:text-black">FAQs</a></li>
         <li><a href="#" class="hover:text-black">Privacy Policy</a></li>
       </ul>
@@ -34,7 +33,7 @@
 
   <main class="flex-1 px-4 text-center">
     <div class="max-w-2xl mx-auto">
-      <!-- Hero pulled up -->
+      <!-- Hero -->
       <section class="relative flex justify-center items-center overflow-hidden mt-[-2.5rem] sm:mt-[-3.5rem]">
         <img 
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
@@ -42,7 +41,7 @@
           class="w-full max-w-screen-md object-contain object-center rounded-xl shadow-sm"
           style="max-height: 550px;"
         />
-        <!-- Countdown badge overlay (optional position tweak with sm:bottom-6) -->
+        <!-- Countdown badge overlay -->
         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-black/10 bg-white/80 backdrop-blur px-4 py-2 text-xs sm:text-sm text-black/80 shadow-sm">
           <span class="font-medium tracking-wide">Reveal in</span>
           <span id="dd" class="mx-1 tabular-nums">00</span>d
@@ -52,42 +51,10 @@
         </div>
       </section>
     </div>
-
-    <!-- Gallery with transparent film -->
-    <section id="gallery" class="max-w-5xl mx-auto mt-14 sm:mt-16">
-      <h2 class="text-sm tracking-widest text-black/60 mb-4">GALLERY</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card -->
-        <a class="group relative overflow-hidden rounded-xl shadow-sm block">
-          <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg"
-               alt="Space Kid — Detail"
-               class="w-full h-full object-cover object-center aspect-[3/4]" />
-          <!-- transparent film -->
-          <div class="absolute inset-0 bg-white/35 backdrop-blur-[1px] transition group-hover:bg-white/20"></div>
-          <div class="absolute bottom-3 left-3 text-[11px] tracking-widest text-black/60">STARFACE</div>
-        </a>
-
-        <!-- Duplicate cards for layout; replace URLs as you add more images -->
-        <a class="group relative overflow-hidden rounded-xl shadow-sm block">
-          <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg"
-               alt="Space Kid — Profile" class="w-full h-full object-cover aspect-[3/4]" />
-          <div class="absolute inset-0 bg-white/35 backdrop-blur-[1px] transition group-hover:bg-white/20"></div>
-          <div class="absolute bottom-3 left-3 text-[11px] tracking-widest text-black/60">STARFACE</div>
-        </a>
-
-        <a class="group relative overflow-hidden rounded-xl shadow-sm block">
-          <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg"
-               alt="Space Kid — Studio" class="w-full h-full object-cover aspect-[3/4]" />
-          <div class="absolute inset-0 bg-white/35 backdrop-blur-[1px] transition group-hover:bg-white/20"></div>
-          <div class="absolute bottom-3 left-3 text-[11px] tracking-widest text-black/60">STARFACE</div>
-        </a>
-      </div>
-    </section>
   </main>
 
-  <!-- Footer (scroll target; inspired by your screenshot) -->
+  <!-- Footer -->
   <footer class="mt-16 sm:mt-20 bg-black text-white">
-    <!-- Follow row -->
     <div class="max-w-6xl mx-auto px-6 py-6 sm:py-8 flex items-center gap-8 text-sm">
       <span class="text-xl sm:text-2xl font-semibold tracking-wide">FOLLOW US ON</span>
       <div class="flex items-center gap-6 text-white/80">
@@ -96,9 +63,7 @@
         <a href="#" class="hover:text-white">Facebook</a>
       </div>
     </div>
-    <!-- Columns -->
     <div class="max-w-6xl mx-auto px-6 pb-28 pt-6 grid grid-cols-1 sm:grid-cols-4 gap-10 text-sm">
-      <!-- Join -->
       <div class="space-y-3">
         <h3 class="text-white/90 font-semibold tracking-wide">JOIN THE COMMUNITY</h3>
         <p class="text-white/50">Be the first to know about drops and reveals.</p>
@@ -108,7 +73,6 @@
           <button class="rounded-md bg-white text-black px-3 py-2 font-medium hover:bg-white/90">Sign Me Up</button>
         </div>
       </div>
-      <!-- Shop -->
       <div class="space-y-2">
         <h3 class="text-white/90 font-semibold tracking-wide">SHOP</h3>
         <ul class="space-y-1 text-white/60">
@@ -117,7 +81,6 @@
           <li><a href="#" class="hover:text-white">Accessories</a></li>
         </ul>
       </div>
-      <!-- Information -->
       <div class="space-y-2">
         <h3 class="text-white/90 font-semibold tracking-wide">INFORMATION</h3>
         <ul class="space-y-1 text-white/60">
@@ -127,7 +90,6 @@
           <li><a href="#" class="hover:text-white">Contact us</a></li>
         </ul>
       </div>
-      <!-- Help -->
       <div class="space-y-2">
         <h3 class="text-white/90 font-semibold tracking-wide">HELP</h3>
         <ul class="space-y-1 text-white/60">
@@ -140,7 +102,7 @@
     </div>
   </footer>
 
-  <!-- Bottom-left brand row (unchanged; room reserved by footer pb-28) -->
+  <!-- Bottom-left brand row (unchanged) -->
   <div class="fixed bottom-2 left-2 sm:bottom-3 sm:left-3 z-50">
     <div class="flex items-center gap-0">
       <img
@@ -162,7 +124,7 @@
             m = document.getElementById('mm'),
             s = document.getElementById('ss');
       if(!d || !h || !m || !s) return;
-      const target = new Date(2025, 9, 31, 0, 0, 0); // month is 0-indexed (9 = Oct)
+      const target = new Date(2025, 9, 31, 0, 0, 0); // 0-indexed months; 9 = Oct
       function pad(n){ return String(n).padStart(2,'0'); }
       function tick(){
         const now = new Date();
