@@ -46,28 +46,28 @@
 
       <!-- Countdown UNDER the hero (label above; stacked units below each number) -->
       <div class="mt-4 sm:mt-5">
-        <!-- label directly above the timer -->
-        <div class="uppercase tracking-widest text-[11px] sm:text-xs text-black/50 mb-2">
-          Limited launch edition
+        <!-- label directly above the timer (black font) -->
+        <div class="uppercase tracking-widest text-[11px] sm:text-xs text-black mb-2">
+          Limited Edition Launch
         </div>
 
         <!-- digital clock: four columns, each with number and its unit under -->
         <div class="flex items-end justify-center gap-4 sm:gap-6 font-mono tabular-nums text-2xl sm:text-3xl text-black/80 select-none">
           <div class="flex flex-col items-center">
             <span id="dd">00</span>
-            <span class="mt-1 text-[10px] sm:text-xs text-black">DD</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black/50">DD</span>
           </div>
           <div class="flex flex-col items-center">
             <span id="hh">00</span>
-            <span class="mt-1 text-[10px] sm:text-xs text-black">HH</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black/50">HH</span>
           </div>
           <div class="flex flex-col items-center">
             <span id="mm">00</span>
-            <span class="mt-1 text-[10px] sm:text-xs text-black">MM</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black/50">MM</span>
           </div>
           <div class="flex flex-col items-center">
             <span id="ss">00</span>
-            <span class="mt-1 text-[10px] sm:text-xs text-black">SS</span>
+            <span class="mt-1 text-[10px] sm:text-xs text-black/50">SS</span>
           </div>
         </div>
       </div>
@@ -140,14 +140,14 @@
   </div>
 
   <script>
-    // Countdown to Oct 31, 2025 00:00 local time (DD:HH:MM:SS)
+    // Countdown to Dec 25, 2025 00:00 local time (DD:HH:MM:SS)
     (function(){
       const d = document.getElementById('dd'),
             h = document.getElementById('hh'),
             m = document.getElementById('mm'),
             s = document.getElementById('ss');
       if(!d || !h || !m || !s) return;
-      const target = new Date(2025, 12, 25, 0, 0, 0); // 9 = October (0-indexed)
+      const target = new Date(2025, 11, 25, 0, 0, 0); // 11 = December (0-indexed)
       const pad = n => String(n).padStart(2,'0');
       function tick(){
         const now = new Date();
