@@ -106,9 +106,9 @@
   </main>
 
   <!-- Footer -->
-  <footer id="siteFooter" class="mt-16 sm:mt-20 bg-black text-white">
-    <!-- Top row: socials left, Info/Help right -->
-    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+  <footer id="siteFooter" class="mt-14 sm:mt-16 bg-black text-white">
+    <!-- Top row: socials left, Info/Help right (reduced padding to shrink the black area) -->
+    <div class="max-w-6xl mx-auto px-6 py-5 sm:py-6 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
       <!-- Socials (left) -->
       <div class="flex items-center gap-6">
         <span class="text-xl sm:text-2xl font-semibold tracking-wide">FOLLOW US ON</span>
@@ -126,7 +126,7 @@
       </div>
 
       <!-- Info + Help (right) -->
-      <div class="grid grid-cols-2 gap-10 text-sm md:text-base">
+      <div class="grid grid-cols-2 gap-8 text-sm md:text-base">
         <!-- INFORMATION -->
         <div class="space-y-2">
           <h3 class="text-white/90 font-semibold tracking-wide">INFORMATION</h3>
@@ -149,16 +149,15 @@
       </div>
     </div>
 
-    <!-- Separator + centered brand row at the page base -->
+    <!-- Separator moved DOWN (closer to the brand row) + tighter brand row -->
     <div class="border-t border-white/15">
-      <!-- gap-0 to remove space; bigger logo; nudge text left with -ml-1 -->
-      <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-center gap-0">
+      <div class="max-w-6xl mx-auto px-6 pt-2 pb-4 flex items-center justify-center gap-0">
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
           alt="Starface secondary logo"
-          class="h-48 sm:h-[15rem] w-auto invert brightness-200 contrast-200 opacity-100 select-none"
+          class="h-48 sm:h-[15rem] w-auto invert brightness-200 contrast-200 opacity-100 select-none -mr-2 sm:-mr-3"
         />
-        <p class="text-[11px] sm:text-xs text-white/85 tracking-wide leading-none -ml-1">
+        <p class="text-[11px] sm:text-xs text-white/85 tracking-wide leading-none -ml-[10px]">
           STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
         </p>
       </div>
