@@ -17,6 +17,7 @@
       alt="Starface logo"
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-32 sm:h-40 w-auto select-none pointer-events-none"
     />
+    <!-- profile icon (hover: 'Register') -->
     <a href="#" aria-label="Register" class="group absolute right-3 sm:right-4 top-1/2 -translate-y-1/2">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
            class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition"
@@ -24,7 +25,10 @@
         <path d="M20 21a8 8 0 0 0-16 0" />
         <circle cx="12" cy="7" r="4" />
       </svg>
-      <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">Register</span>
+      <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap
+                   px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs
+                   opacity-0 group-hover:opacity-100 transition pointer-events-none shadow
+                   translate-y-1">Register</span>
     </a>
   </div>
 
@@ -69,26 +73,9 @@
             <span class="mt-1 text-[10px] sm:text-xs text-black/50">SS</span>
           </div>
         </div>
-
-        <!-- Newsletter directly under the timer -->
-        <section class="mt-6 sm:mt-7">
-          <h3 class="text-base sm:text-lg font-semibold text-black">Get updates</h3>
-          <p class="text-black/60 mt-1">Be the first to know about drops and reveals.</p>
-
-          <div class="flex items-center gap-3 max-w-md mx-auto w-full mt-3">
-            <input type="email" placeholder="Your email address"
-              class="flex-1 min-w-[220px] h-10 sm:h-11 rounded-md border border-black/15 px-3
-                     text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
-            <button
-              class="shrink-0 whitespace-nowrap h-10 sm:h-11 rounded-md bg-black text-white px-4
-                     font-medium hover:bg-black/90">
-              Sign Me Up
-            </button>
-          </div>
-        </section>
       </div>
 
-      <!-- Hero image (now below timer + updates) -->
+      <!-- Hero image -->
       <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
         <img 
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
@@ -96,6 +83,23 @@
           class="w-full max-w-screen-md object-contain object-center rounded-xl shadow-sm"
           style="max-height: 550px;"
         />
+      </section>
+
+      <!-- Get updates (now UNDER the image) -->
+      <section class="mt-6 sm:mt-8">
+        <h3 class="text-base sm:text-lg font-semibold text-black">Get updates</h3>
+        <p class="text-black/60 mt-1">Be the first to know about drops and reveals.</p>
+
+        <div class="flex items-center gap-3 max-w-md mx-auto w-full mt-3">
+          <input type="email" placeholder="Your email address"
+            class="flex-1 min-w-[220px] h-10 sm:h-11 rounded-md border border-black/15 px-3
+                   text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
+          <button
+            class="shrink-0 whitespace-nowrap h-10 sm:h-11 rounded-md bg-black text-white px-4
+                   font-medium hover:bg-black/90">
+            Sign Me Up
+          </button>
+        </div>
       </section>
 
     </div>
