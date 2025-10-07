@@ -12,13 +12,11 @@
 <body class="bg-white text-black">
   <!-- Compact grey banner with centered logo + profile icon on the right -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
-    <!-- centered logo -->
     <img
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
       alt="Starface logo"
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-32 sm:h-40 w-auto select-none pointer-events-none"
     />
-    <!-- profile icon (hover: 'Register') -->
     <a href="#" aria-label="Register" class="group absolute right-3 sm:right-4 top-1/2 -translate-y-1/2">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
            class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition"
@@ -46,18 +44,9 @@
   <!-- Main content -->
   <main class="px-4 text-center">
     <div class="max-w-2xl mx-auto">
-      <!-- Hero below menu -->
-      <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
-        <img 
-          src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
-          alt="Starface Hero Image"
-          class="w-full max-w-screen-md object-contain object-center rounded-xl shadow-sm"
-          style="max-height: 550px;"
-        />
-      </section>
 
-      <!-- Countdown UNDER the hero -->
-      <div class="mt-4 sm:mt-5">
+      <!-- Countdown ABOVE the hero -->
+      <div class="mt-6 sm:mt-8">
         <div class="uppercase tracking-widest text-[11px] sm:text-xs text-black mb-2">
           Limited Edition Launch
         </div>
@@ -80,24 +69,35 @@
             <span class="mt-1 text-[10px] sm:text-xs text-black/50">SS</span>
           </div>
         </div>
+
+        <!-- Newsletter directly under the timer -->
+        <section class="mt-6 sm:mt-7">
+          <h3 class="text-base sm:text-lg font-semibold text-black">Get updates</h3>
+          <p class="text-black/60 mt-1">Be the first to know about drops and reveals.</p>
+
+          <div class="flex items-center gap-3 max-w-md mx-auto w-full mt-3">
+            <input type="email" placeholder="Your email address"
+              class="flex-1 min-w-[220px] h-10 sm:h-11 rounded-md border border-black/15 px-3
+                     text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
+            <button
+              class="shrink-0 whitespace-nowrap h-10 sm:h-11 rounded-md bg-black text-white px-4
+                     font-medium hover:bg-black/90">
+              Sign Me Up
+            </button>
+          </div>
+        </section>
       </div>
 
-      <!-- Newsletter (under the timer) -->
-      <section class="mt-6 sm:mt-8">
-        <h3 class="text-base sm:text-lg font-semibold tracking-wide">GET DROP UPDATES</h3>
-        <p class="text-black/60 mt-1">Be the first to know about drops and reveals.</p>
-
-        <div class="flex items-center gap-3 max-w-md mx-auto w-full mt-3">
-          <input type="email" placeholder="Your email address"
-            class="flex-1 min-w-[220px] h-10 sm:h-11 rounded-md border border-black/15 px-3
-                   text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
-          <button
-            class="shrink-0 whitespace-nowrap h-10 sm:h-11 rounded-md bg-black text-white px-4
-                   font-medium hover:bg-black/90">
-            Sign Me Up
-          </button>
-        </div>
+      <!-- Hero image (now below timer + updates) -->
+      <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
+        <img 
+          src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacekidzoom.jpg" 
+          alt="Starface Hero Image"
+          class="w-full max-w-screen-md object-contain object-center rounded-xl shadow-sm"
+          style="max-height: 550px;"
+        />
       </section>
+
     </div>
   </main>
 
