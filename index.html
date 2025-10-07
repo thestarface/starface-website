@@ -128,20 +128,17 @@
 
   <!-- Footer (reduced height) -->
   <footer id="siteFooter" class="mt-12 sm:mt-14 bg-black text-white">
-    <!-- Top row: socials left, Info/Help right (more compact) -->
+    <!-- Top row: socials left, Info/Help right (compact) -->
     <div class="max-w-6xl mx-auto px-6 py-4 sm:py-5 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-      <!-- Socials (left) with COLORED brand icons -->
+      <!-- Socials (left) with WHITE icons; Facebook removed -->
       <div class="flex items-center gap-5">
         <span class="text-lg sm:text-xl font-semibold tracking-wide">FOLLOW US ON</span>
         <div class="flex items-center gap-5">
-          <a href="#" aria-label="Instagram" class="opacity-95 hover:opacity-100 transition">
-            <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
+          <a href="#" aria-label="Instagram" class="opacity-90 hover:opacity-100 transition">
+            <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
           </a>
-          <a href="#" aria-label="TikTok" class="opacity-95 hover:opacity-100 transition">
-            <img src="https://cdn.simpleicons.org/tiktok/69C9D0" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
-          </a>
-          <a href="#" aria-label="Facebook" class="opacity-95 hover:opacity-100 transition">
-            <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
+          <a href="#" aria-label="TikTok" class="opacity-90 hover:opacity-100 transition">
+            <img src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
           </a>
         </div>
       </div>
@@ -168,15 +165,16 @@
       </div>
     </div>
 
-    <!-- Separator placed directly above the brand row (minimal gap) -->
-    <div class="border-t border-white/15">
-      <div class="max-w-6xl mx-auto px-6 pt-0 pb-2 flex items-center justify-center gap-0">
+    <!-- Push the separator down by ~1 inch, then brand row -->
+    <div class="mt-24 border-t border-white/15">
+      <!-- Brand row: trim transparent padding & kill the gap with optical margins -->
+      <div class="max-w-6xl mx-auto px-6 pt-1 pb-3 flex items-center justify-center">
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
           alt="Starface secondary logo"
-          class="h-40 sm:h-[12rem] w-auto invert brightness-200 contrast-200 opacity-100 select-none -mr-[6px]"
-        />
-        <p class="text-[11px] sm:text-xs text-white/85 tracking-wide leading-none -ml-[6px]">
+          class="h-40 sm:h-[12rem] w-auto invert brightness-200 contrast-200 select-none align-middle -mr-[6px]"
+          style="clip-path: inset(0 10px 0 10px);" />
+        <p class="text-[11px] sm:text-xs text-white/90 tracking-wide leading-none -ml-[6px]">
           STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
         </p>
       </div>
