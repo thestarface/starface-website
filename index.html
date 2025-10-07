@@ -12,6 +12,7 @@
 <body class="bg-white text-black">
   <!-- Compact grey banner with centered logo + cart + profile on the right -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
+    <!-- centered logo -->
     <img
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
       alt="Starface logo"
@@ -29,7 +30,11 @@
           <circle cx="20" cy="21" r="1" />
           <path d="M1 1h4l2.3 11.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L23 6H6" />
         </svg>
-        <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">Cart</span>
+        <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap
+                     px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs
+                     opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">
+          Cart
+        </span>
       </a>
 
       <!-- Profile -->
@@ -40,7 +45,11 @@
           <path d="M20 21a8 8 0 0 0-16 0" />
           <circle cx="12" cy="7" r="4" />
         </svg>
-        <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">Register</span>
+        <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap
+                     px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs
+                     opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">
+          Register
+        </span>
       </a>
     </div>
   </div>
@@ -117,9 +126,9 @@
     </div>
   </main>
 
-  <!-- Footer (compact) -->
+  <!-- Footer (reduced height) -->
   <footer id="siteFooter" class="mt-12 sm:mt-14 bg-black text-white">
-    <!-- Top row: socials left, Info/Help right -->
+    <!-- Top row: socials left, Info/Help right (more compact) -->
     <div class="max-w-6xl mx-auto px-6 py-4 sm:py-5 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
       <!-- Socials (left) with COLORED brand icons -->
       <div class="flex items-center gap-5">
@@ -159,16 +168,15 @@
       </div>
     </div>
 
-    <!-- Separator moved DOWN by ~1 inch before the brand row -->
-    <div class="mt-24 border-t border-white/15">
-      <!-- Brand row: crop padded PNG + remove gap + align baselines -->
-      <div class="max-w-6xl mx-auto px-6 pt-1 pb-3 flex items-center justify-center">
+    <!-- Separator placed directly above the brand row (minimal gap) -->
+    <div class="border-t border-white/15">
+      <div class="max-w-6xl mx-auto px-6 pt-0 pb-2 flex items-center justify-center gap-0">
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
           alt="Starface secondary logo"
-          class="h-40 sm:h-[12rem] w-auto invert brightness-200 contrast-200 select-none align-middle -mr-[6px]"
-          style="clip-path: inset(0 10px 0 10px);" />
-        <p class="text-[11px] sm:text-xs text-white/90 tracking-wide leading-none -ml-[6px]">
+          class="h-40 sm:h-[12rem] w-auto invert brightness-200 contrast-200 opacity-100 select-none -mr-[6px]"
+        />
+        <p class="text-[11px] sm:text-xs text-white/85 tracking-wide leading-none -ml-[6px]">
           STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
         </p>
       </div>
