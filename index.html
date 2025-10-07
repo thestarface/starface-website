@@ -12,15 +12,15 @@
 <body class="bg-white text-black">
   <!-- Compact grey banner with centered logo + cart + profile on the right -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
-    <!-- centered logo -->
+    <!-- centered logo (slightly larger) -->
     <img
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
       alt="Starface logo"
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-32 sm:h-40 w-auto select-none pointer-events-none"
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
     />
 
-    <!-- right-side icons: Cart + Profile -->
-    <div class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4">
+    <!-- right-side icons: Cart + Profile (nudged left) -->
+    <div class="absolute right-6 sm:right-8 top-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4">
       <!-- Cart -->
       <a href="#" aria-label="Cart" class="group relative">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -130,7 +130,7 @@
   <footer id="siteFooter" class="mt-12 sm:mt-14 bg-black text-white">
     <!-- Top row: socials left, Info/Help right (compact) -->
     <div class="max-w-6xl mx-auto px-6 py-4 sm:py-5 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-      <!-- Socials (left) with WHITE icons; Facebook removed -->
+      <!-- Socials (left) with WHITE icons -->
       <div class="flex items-center gap-5">
         <span class="text-lg sm:text-xl font-semibold tracking-wide">FOLLOW US ON</span>
         <div class="flex items-center gap-5">
@@ -165,16 +165,16 @@
       </div>
     </div>
 
-    <!-- Push the separator down, then brand row with ZERO visible gap -->
-    <div class="mt-24 border-t border-white/15">
+    <!-- Separator + brand row; ultra-tight optical alignment -->
+    <div class="mt-24 border-top border-white/15">
       <div class="max-w-6xl mx-auto px-6 pt-1 pb-3 flex items-center justify-center">
-        <!-- Crop transparent padding aggressively + negative margin to remove any space -->
+        <!-- Extra crop + stronger negative margins to eliminate remaining visual gap -->
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
           alt="Starface secondary logo"
-          class="h-40 sm:h-[12rem] w-auto invert brightness-200 contrast-200 select-none align-middle -mr-[22px]"
-          style="clip-path: inset(0 26px 0 26px);" />
-        <p class="text-[11px] sm:text-xs text-white/90 tracking-wide leading-none -ml-[22px]">
+          class="h-40 sm:h-[12rem] w-auto invert brightness-200 contrast-200 select-none align-middle -mr-[26px]"
+          style="clip-path: inset(0 30px 0 30px);" />
+        <p class="text-[11px] sm:text-xs text-white/90 tracking-wide leading-none -ml-[26px]">
           STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
         </p>
       </div>
