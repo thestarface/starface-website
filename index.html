@@ -17,7 +17,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root{ --font-head:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    :root{
+      --font-head:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
     body{ font-family:var(--font-body); }
     .display, h1,h2,h3,.countdown-label{ font-family:var(--font-head); letter-spacing:.02em; }
 
@@ -26,11 +29,59 @@
     .nav a::after{ content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px; transform:scaleX(0); transform-origin:left; transition:transform .25s ease; background:currentColor; }
     .nav a:hover::after{ transform:scaleX(1); }
 
-    /* Hero crossfade */
-    .hero-wrap{ position:relative; display:inline-block; }
+    /* Hero container */
+    .hero-wrap{ position:relative; display:inline-block; overflow:hidden; }
     .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
-    .hero-bw{ opacity:1; transition:opacity .45s ease; }
-    .hero-wrap:hover .hero-bw{ opacity:0; }
+
+    /* Subtle wipe-glow reveal:
+       We keep the B&W image on top and apply a moving mask on hover.
+       The mask has a soft transparent band that sweeps left→right to reveal color.
+    */
+    .hero-bw{
+      /* Start fully covered (opaque mask across entire image) */
+      -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+              mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+      -webkit-mask-size: 200% 100%;
+              mask-size: 200% 100%;
+      -webkit-mask-position: 0% 0%;
+              mask-position: 0% 0%;
+      transition: -webkit-mask-position .9s ease, mask-position .9s ease;
+    }
+    .hero-wrap:hover .hero-bw{
+      /* Sweep a transparent (window) band across the image */
+      -webkit-mask-image:
+        linear-gradient(90deg,
+          rgba(0,0,0,1) 0%,
+          rgba(0,0,0,1) 40%,
+          rgba(0,0,0,0) 50%,
+          rgba(0,0,0,1) 60%,
+          rgba(0,0,0,1) 100%);
+              mask-image:
+        linear-gradient(90deg,
+          rgba(0,0,0,1) 0%,
+          rgba(0,0,0,1) 40%,
+          rgba(0,0,0,0) 50%,
+          rgba(0,0,0,1) 60%,
+          rgba(0,0,0,1) 100%);
+      -webkit-mask-size: 200% 100%;
+              mask-size: 200% 100%;
+      -webkit-mask-position: 100% 0%;
+              mask-position: 100% 0%;
+    }
+    /* Faint glow highlight strip traveling with the wipe */
+    .hero-wrap::after{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,0.18) 50%,
+        rgba(255,255,255,0) 65%,
+        rgba(255,255,255,0) 100%);
+      opacity:.8; pointer-events:none;
+      transform: translateX(-100%);
+      transition: transform .9s ease, opacity .2s ease;
+    }
+    .hero-wrap:hover::after{ transform: translateX(0%); }
 
     /* Star cursor on interactive */
     .use-star-cursor:hover{
@@ -51,11 +102,19 @@
     }
     @media (min-width:1024px){ .side-stars{ display:block; } }
 
-    /* Sticky mini countdown bar (always visible, sticks on scroll) */
-    .mini-bar{ position:sticky; top:0; z-index:40; backdrop-filter:blur(8px); }
+    /* Mini countdown bar: hidden until big timer is scrolled out */
+    .mini-bar{
+      position:fixed; top:0; left:0; right:0; z-index:40;
+      transform: translateY(-100%); opacity:0;
+      transition: transform .3s ease, opacity .3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .mini-bar.visible{ transform: translateY(0); opacity:1; }
 
     /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){ .nav a, .nav a::after, .hero-bw{ transition:none; } }
+    @media (prefers-reduced-motion: reduce){
+      .nav a, .nav a::after, .hero-bw, .hero-wrap::after, .mini-bar{ transition:none; }
+    }
   </style>
 </head>
 
@@ -93,26 +152,28 @@
     </div>
   </nav>
 
-  <!-- Sticky mini countdown bar (visible immediately) -->
-  <div class="mini-bar bg-white/85 border-b border-black/10">
+  <!-- Mini countdown bar (appears after scroll past big timer) -->
+  <div id="miniBar" class="mini-bar bg-white/85 border-b border-black/10">
     <div class="max-w-5xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-      <div class="text-xs sm:text-sm tracking-widest text-black/80 countdown-label">THE REVEAL IN</div>
+      <div class="text-xs sm:text-sm tracking-[0.15em] text-black/80 countdown-label">FULL REVEAL IN</div>
       <div class="flex items-end gap-4 text-sm sm:text-base text-black/80">
         <div class="flex flex-col items-center"><span id="dd2">00</span><span class="text-[10px] text-black/50 -mt-0.5">DD</span></div>
         <div class="flex flex-col items-center"><span id="hh2">00</span><span class="text-[10px] text-black/50 -mt-0.5">HH</span></div>
         <div class="flex flex-col items-center"><span id="mm2">00</span><span class="text-[10px] text-black/50 -mt-0.5">MM</span></div>
         <div class="flex flex-col items-center"><span id="ss2">00</span><span class="text-[10px] text-black/50 -mt-0.5">SS</span></div>
       </div>
-      <button id="miniOpen" class="use-star-cursor hidden sm:inline-block h-9 px-4 rounded-md bg-gray-200 text-black text-sm font-medium hover:bg-gray-300 transition">Get Early Access</button>
     </div>
   </div>
 
   <!-- Main -->
   <main class="px-4 text-center">
     <div class="max-w-2xl mx-auto">
+
       <!-- Big countdown -->
-      <div class="mt-6 sm:mt-8">
-        <div class="countdown-label uppercase tracking-widest text-2xl sm:text-3xl font-semibold text-black mb-2">THE REVEAL IN</div>
+      <div id="bigCountdown" class="mt-6 sm:mt-8">
+        <div class="countdown-label uppercase tracking-[0.2em] text-2xl sm:text-3xl font-semibold text-black mb-2">
+          FULL REVEAL IN
+        </div>
         <div class="flex items-end justify-center gap-4 sm:gap-6 font-mono tabular-nums text-2xl sm:text-3xl text-black/80 select-none">
           <div class="flex flex-col items-center"><span id="dd">00</span><span class="mt-1 text-[10px] sm:text-xs text-black/50">DD</span></div>
           <div class="flex flex-col items-center"><span id="hh">00</span><span class="mt-1 text-[10px] sm:text-xs text-black/50">HH</span></div>
@@ -121,10 +182,12 @@
         </div>
       </div>
 
-      <!-- Hero (B&W over Color) -->
+      <!-- Hero (B&W default, wipe glow to color on hover) -->
       <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
         <div class="hero-wrap w-full max-w-screen-md rounded-xl shadow-sm" style="max-height:550px; aspect-ratio: 3 / 4;">
+          <!-- Color (bottom layer) -->
           <img src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG" alt="Space Kid — Color" class="hero-img" loading="lazy" decoding="async"/>
+          <!-- B&W (top layer with wipe mask) -->
           <img src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Greyscale.jpg" alt="Space Kid — Greyscale" class="hero-img hero-bw" loading="lazy" decoding="async"/>
         </div>
       </section>
@@ -140,6 +203,7 @@
           </button>
         </div>
       </section>
+
     </div>
   </main>
 
@@ -147,7 +211,7 @@
   <footer id="siteFooter" class="mt-12 sm:mt-14 bg-white text-black border-t border-black/10">
     <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
       <div class="flex items-center gap-5">
-        <span class="display text-sm sm:text-base font-semibold tracking-wide">FOLLOW US ON</span>
+        <span class="display text-sm sm:text-base font-semibold tracking-[0.15em]">FOLLOW US ON</span>
         <div class="flex items-center gap-5">
           <a href="https://www.instagram.com/thestarfaceco" target="_blank" aria-label="Instagram" class="opacity-80 hover:opacity-100 transition use-star-cursor">
             <img src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram" class="h-5 w-5 sm:h-6 sm:w-6" loading="lazy" decoding="async" />
@@ -204,16 +268,26 @@
       tick(); setInterval(tick,1000);
     })();
 
+    // Mini bar visibility: only show when big countdown is out of view
+    (function(){
+      const mini=document.getElementById('miniBar');
+      const anchor=document.getElementById('bigCountdown');
+      if(!mini || !anchor || !('IntersectionObserver' in window)) return;
+      const io=new IntersectionObserver((entries)=>{
+        const e=entries[0];
+        mini.classList.toggle('visible', !e.isIntersecting);
+      }, { root:null, threshold:0 });
+      io.observe(anchor);
+    })();
+
     // Modal open/close
     (function(){
       const modal=document.getElementById('emailModal');
       const openBtn=document.getElementById('openModalBtn');
       const closeBtn=document.getElementById('closeModalBtn');
-      const miniOpen=document.getElementById('miniOpen');
       function open(){ modal.classList.remove('hidden'); modal.classList.add('flex'); }
       function close(){ modal.classList.add('hidden'); modal.classList.remove('flex'); }
       openBtn?.addEventListener('click',e=>{ e.preventDefault(); open(); });
-      miniOpen?.addEventListener('click',e=>{ e.preventDefault(); open(); });
       closeBtn?.addEventListener('click',close);
       modal?.addEventListener('click',e=>{ if(e.target===modal) close(); });
       document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
@@ -229,10 +303,15 @@
         e.preventDefault();
         const email=(emailInput.value||'').trim(); if(!email) return;
         try{
-          const key='starface_waitlist'; const arr=JSON.parse(localStorage.getItem(key)||'[]');
-          if(!arr.includes(email)) arr.push(email); localStorage.setItem(key,JSON.stringify(arr));
+          const key='starface_waitlist';
+          const arr=JSON.parse(localStorage.getItem(key)||'[]');
+          if(!arr.includes(email)) arr.push(email);
+          localStorage.setItem(key, JSON.stringify(arr)); // fixed typo
           success.classList.remove('hidden'); errorMsg.classList.add('hidden'); form.reset();
-        }catch(err){ success.classList.add('hidden'); errorMsg.classList.remove('hidden'); }
+        }catch(err){
+          success.classList.add('hidden'); errorMsg.classList.remove('hidden');
+          console.error(err);
+        }
       });
     })();
   </script>
