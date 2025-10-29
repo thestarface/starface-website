@@ -6,88 +6,56 @@
   <title>STARFACE</title>
   <meta name="description" content="Be first to know when our collectible drops." />
 
-  <!-- Brand-correct 4-point straight-cross star favicon -->
+  <!-- Brand 4-point straight-cross star favicon -->
   <link
     rel="icon"
-    href="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-        <path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill="black"/>
-      </svg>"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
   />
 
-  <!-- Fonts: Headings = Space Grotesk, Body = Inter -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root{
-      --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-    body{ font-family: var(--font-body); }
-    .display, h1,h2,h3,.countdown-label{ font-family: var(--font-head); letter-spacing:.02em; }
+    :root{ --font-head:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    body{ font-family:var(--font-body); }
+    .display, h1,h2,h3,.countdown-label{ font-family:var(--font-head); letter-spacing:.02em; }
 
-    /* NAV underline slide-in */
+    /* Nav underline */
     .nav a{ position:relative; cursor:pointer; transition:opacity .2s ease; }
-    .nav a::after{
-      content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px;
-      transform:scaleX(0); transform-origin:left; transition:transform .25s ease; background: currentColor;
-    }
+    .nav a::after{ content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px; transform:scaleX(0); transform-origin:left; transition:transform .25s ease; background:currentColor; }
     .nav a:hover::after{ transform:scaleX(1); }
 
-    /* Hero crossfade (B&W over color) */
+    /* Hero crossfade */
     .hero-wrap{ position:relative; display:inline-block; }
     .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
     .hero-bw{ opacity:1; transition:opacity .45s ease; }
     .hero-wrap:hover .hero-bw{ opacity:0; }
 
-    /* Brand 4-point star cursor (straight-cross) on hovers */
-    .use-star-cursor:hover {
-      cursor: url("data:image/svg+xml;utf8, \
-        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 100 100'> \
-          <path d='M50 8 L56 38 L92 50 L56 62 L50 92 L44 62 L8 50 L44 38 Z' fill='%23000'/> \
-        </svg>") 12 12, pointer;
+    /* Star cursor on interactive */
+    .use-star-cursor:hover{
+      cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 100 100'><path d='M50 8 L56 38 L92 50 L56 62 L50 92 L44 62 L8 50 L44 38 Z' fill='%23000'/></svg>") 12 12, pointer;
     }
 
     /* Side star motifs (desktop only) */
     .side-stars{ position:fixed; top:0; bottom:0; width:28px; opacity:.06; pointer-events:none; display:none; }
-    .side-stars.left{ left:10px; }
-    .side-stars.right{ right:10px; }
+    .side-stars.left{ left:10px; } .side-stars.right{ right:10px; }
     .side-stars::before{
       content:""; position:absolute; inset:0;
-      background-image: url("data:image/svg+xml;utf8, \
+      background-image:url("data:image/svg+xml;utf8, \
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='60' viewBox='0 0 24 60'> \
-          <svg x='0' y='0' width='24' height='24' viewBox='0 0 100 100'> \
-            <path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='%23000'/> \
-          </svg> \
-          <svg x='0' y='36' width='24' height='24' viewBox='0 0 100 100'> \
-            <path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='%23000'/> \
-          </svg> \
+          <svg x='0' y='0' width='24' height='24' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='%23000'/></svg> \
+          <svg x='0' y='36' width='24' height='24' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='%23000'/></svg> \
         </svg>");
-      background-repeat: repeat-y;
-      background-position: center top;
+      background-repeat:repeat-y; background-position:center top;
     }
-    @media (min-width: 1024px){
-      .side-stars{ display:block; }
-    }
+    @media (min-width:1024px){ .side-stars{ display:block; } }
 
-    /* Sticky mini countdown bar (appears after scroll) */
-    .mini-bar{ position:fixed; top:-64px; left:0; right:0; z-index:40;
-      transition: transform .35s ease, opacity .35s ease;
-      transform: translateY(-100%); opacity:0;
-      backdrop-filter: blur(8px);
-    }
-    .mini-bar.visible{ transform: translateY(0); opacity:1; }
-    .mini-bar .digits{ font-family: var(--font-head); letter-spacing:.04em; }
+    /* Sticky mini countdown bar (always visible, sticks on scroll) */
+    .mini-bar{ position:sticky; top:0; z-index:40; backdrop-filter:blur(8px); }
 
-    /* Modal backdrop */
-    .modal-backdrop{ background: rgba(0,0,0,.5); }
-
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .nav a, .nav a::after, .hero-bw, .mini-bar{ transition:none; }
-    }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){ .nav a, .nav a::after, .hero-bw{ transition:none; } }
   </style>
 </head>
 
@@ -96,44 +64,20 @@
   <div class="side-stars left" aria-hidden="true"></div>
   <div class="side-stars right" aria-hidden="true"></div>
 
-  <!-- Sticky mini countdown bar -->
-  <div id="miniBar" class="mini-bar bg-white/85 border-b border-black/10">
-    <div class="max-w-5xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-      <div class="text-xs sm:text-sm tracking-widest text-black/80 countdown-label">THE REVEAL IN</div>
-      <div class="digits flex items-end gap-4 text-sm sm:text-base text-black/80">
-        <div class="flex flex-col items-center"><span id="dd2">00</span><span class="text-[10px] text-black/50 -mt-0.5">DD</span></div>
-        <div class="flex flex-col items-center"><span id="hh2">00</span><span class="text-[10px] text-black/50 -mt-0.5">HH</span></div>
-        <div class="flex flex-col items-center"><span id="mm2">00</span><span class="text-[10px] text-black/50 -mt-0.5">MM</span></div>
-        <div class="flex flex-col items-center"><span id="ss2">00</span><span class="text-[10px] text-black/50 -mt-0.5">SS</span></div>
-      </div>
-      <button id="miniOpen" class="use-star-cursor hidden sm:inline-block h-9 px-4 rounded-md bg-gray-200 text-black text-sm font-medium hover:bg-gray-300 transition">Get Early Access</button>
-    </div>
-  </div>
-
   <!-- Top banner -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
-    <img
-      src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
-      alt="Starface logo"
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
-      loading="lazy" decoding="async"
-      />
+    <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo"
+         class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
+         loading="lazy" decoding="async"/>
     <div class="absolute right-6 sm:right-8 top-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4">
       <a href="#" aria-label="Cart" class="group relative use-star-cursor">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition"
-             fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
-          <path d="M1 1h4l2.3 11.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L23 6H6" />
-        </svg>
+             class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.3 11.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
         <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">Cart</span>
       </a>
       <a href="#" aria-label="Register" class="group relative use-star-cursor">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition"
-             fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21a8 8 0 0 0-16 0" /><circle cx="12" cy="7" r="4" />
-        </svg>
+             class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
         <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">Register</span>
       </a>
     </div>
@@ -149,15 +93,26 @@
     </div>
   </nav>
 
+  <!-- Sticky mini countdown bar (visible immediately) -->
+  <div class="mini-bar bg-white/85 border-b border-black/10">
+    <div class="max-w-5xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+      <div class="text-xs sm:text-sm tracking-widest text-black/80 countdown-label">THE REVEAL IN</div>
+      <div class="flex items-end gap-4 text-sm sm:text-base text-black/80">
+        <div class="flex flex-col items-center"><span id="dd2">00</span><span class="text-[10px] text-black/50 -mt-0.5">DD</span></div>
+        <div class="flex flex-col items-center"><span id="hh2">00</span><span class="text-[10px] text-black/50 -mt-0.5">HH</span></div>
+        <div class="flex flex-col items-center"><span id="mm2">00</span><span class="text-[10px] text-black/50 -mt-0.5">MM</span></div>
+        <div class="flex flex-col items-center"><span id="ss2">00</span><span class="text-[10px] text-black/50 -mt-0.5">SS</span></div>
+      </div>
+      <button id="miniOpen" class="use-star-cursor hidden sm:inline-block h-9 px-4 rounded-md bg-gray-200 text-black text-sm font-medium hover:bg-gray-300 transition">Get Early Access</button>
+    </div>
+  </div>
+
   <!-- Main -->
   <main class="px-4 text-center">
     <div class="max-w-2xl mx-auto">
-
-      <!-- Countdown -->
+      <!-- Big countdown -->
       <div class="mt-6 sm:mt-8">
-        <div class="countdown-label uppercase tracking-widest text-2xl sm:text-3xl font-semibold text-black mb-2">
-          THE REVEAL IN
-        </div>
+        <div class="countdown-label uppercase tracking-widest text-2xl sm:text-3xl font-semibold text-black mb-2">THE REVEAL IN</div>
         <div class="flex items-end justify-center gap-4 sm:gap-6 font-mono tabular-nums text-2xl sm:text-3xl text-black/80 select-none">
           <div class="flex flex-col items-center"><span id="dd">00</span><span class="mt-1 text-[10px] sm:text-xs text-black/50">DD</span></div>
           <div class="flex flex-col items-center"><span id="hh">00</span><span class="mt-1 text-[10px] sm:text-xs text-black/50">HH</span></div>
@@ -177,7 +132,7 @@
       <!-- Waitlist CTA -->
       <section class="mt-6 sm:mt-8">
         <div class="flex flex-col items-center justify-center gap-4 max-w-md mx-auto w-full">
-          <p class="text-black/70 text-sm sm:text-base leading-snug max-w-xs">
+          <p class="text-black/70 text-sm sm:text-base leading-snug whitespace-nowrap">
             Be first to know when our collectible drops.
           </p>
           <button id="openModalBtn" class="use-star-cursor w-full sm:w-auto whitespace-nowrap h-10 sm:h-11 rounded-md bg-gray-200 text-black px-6 font-medium hover:bg-gray-300 transition">
@@ -185,11 +140,10 @@
           </button>
         </div>
       </section>
-
     </div>
   </main>
 
-  <!-- Footer (centered, minimal) -->
+  <!-- Footer -->
   <footer id="siteFooter" class="mt-12 sm:mt-14 bg-white text-black border-t border-black/10">
     <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
       <div class="flex items-center gap-5">
@@ -208,15 +162,13 @@
         <a href="#" class="hover:text-black use-star-cursor">Terms</a>
         <a href="#" class="hover:text-black use-star-cursor">Contact</a>
       </div>
-      <div class="text-xs text-black/70">
-        STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
-      </div>
+      <div class="text-xs text-black/70">STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- Modal: Email capture -->
+  <!-- Modal -->
   <div id="emailModal" class="fixed inset-0 hidden items-center justify-center z-50">
-    <div class="absolute inset-0 modal-backdrop"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
     <div class="relative bg-white rounded-xl shadow-xl w-[92%] max-w-md p-6">
       <button id="closeModalBtn" aria-label="Close" class="absolute top-3 right-3 text-black/60 hover:text-black use-star-cursor">✕</button>
       <h2 class="display text-lg font-semibold mb-2">Get Early Access</h2>
@@ -224,9 +176,7 @@
       <form id="waitlistForm" class="space-y-3">
         <input type="email" id="emailInput" required placeholder="Enter your email"
           class="w-full h-11 rounded-md border border-black/15 px-3 text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
-        <button type="submit" class="use-star-cursor w-full h-11 rounded-md bg-gray-200 text-black px-6 font-medium hover:bg-gray-300 transition">
-          Notify Me
-        </button>
+        <button type="submit" class="use-star-cursor w-full h-11 rounded-md bg-gray-200 text-black px-6 font-medium hover:bg-gray-300 transition">Notify Me</button>
         <p id="formNote" class="text-[11px] text-black/50">We’ll only email about the drop. You can unsubscribe anytime.</p>
         <p id="successMsg" class="hidden text-sm text-green-600">You’re in. Check your inbox for a confirmation.</p>
         <p id="errorMsg" class="hidden text-sm text-red-600">Something went wrong. Please try again.</p>
@@ -237,81 +187,52 @@
   <script>
     // Countdown to Nov 20, 2025 19:00 UK (UK on GMT late Nov)
     (function(){
-      const d = document.getElementById('dd'), h = document.getElementById('hh'),
-            m = document.getElementById('mm'), s = document.getElementById('ss');
-      const d2 = document.getElementById('dd2'), h2 = document.getElementById('hh2'),
-            m2 = document.getElementById('mm2'), s2 = document.getElementById('ss2');
-      if(!d || !h || !m || !s) return;
-
-      const target = new Date('2025-11-20T19:00:00Z'); // 7pm UK (GMT)
-
-      const pad = n => String(n).padStart(2,'0');
+      const d=document.getElementById('dd'),h=document.getElementById('hh'),m=document.getElementById('mm'),s=document.getElementById('ss');
+      const d2=document.getElementById('dd2'),h2=document.getElementById('hh2'),m2=document.getElementById('mm2'),s2=document.getElementById('ss2');
+      if(!d||!h||!m||!s) return;
+      const target=new Date('2025-11-20T19:00:00Z');
+      const pad=n=>String(n).padStart(2,'0');
       function update(dd,hh,mm,ss){
-        const now = new Date();
-        let ms = Math.max(0, target - now);
-        const days = Math.floor(ms / 86400000); ms -= days*86400000;
-        const hrs  = Math.floor(ms / 3600000);  ms -= hrs*3600000;
-        const mins = Math.floor(ms / 60000);    ms -= mins*60000;
-        const secs = Math.floor(ms / 1000);
-        dd.textContent = pad(days); hh.textContent = pad(hrs);
-        mm.textContent = pad(mins); ss.textContent = pad(secs);
+        const now=new Date(); let ms=Math.max(0,target-now);
+        const days=Math.floor(ms/86400000); ms-=days*86400000;
+        const hrs=Math.floor(ms/3600000); ms-=hrs*3600000;
+        const mins=Math.floor(ms/60000); ms-=mins*60000;
+        const secs=Math.floor(ms/1000);
+        dd.textContent=pad(days); hh.textContent=pad(hrs); mm.textContent=pad(mins); ss.textContent=pad(secs);
       }
-      function tick(){
-        update(d,h,m,s);
-        if(d2 && h2 && m2 && s2) update(d2,h2,m2,s2);
-      }
-      tick(); setInterval(tick, 1000);
-    })();
-
-    // Sticky mini bar show/hide after scroll
-    (function(){
-      const bar = document.getElementById('miniBar');
-      let shown = false;
-      function onScroll(){
-        const y = window.scrollY || document.documentElement.scrollTop;
-        const shouldShow = y > 220;
-        if(shouldShow !== shown){
-          shown = shouldShow;
-          bar.classList.toggle('visible', shown);
-        }
-      }
-      onScroll(); window.addEventListener('scroll', onScroll, { passive:true });
-      document.getElementById('miniOpen')?.addEventListener('click', (e)=>{
-        e.preventDefault();
-        document.getElementById('openModalBtn')?.click();
-      });
+      function tick(){ update(d,h,m,s); if(d2&&h2&&m2&&s2) update(d2,h2,m2,s2); }
+      tick(); setInterval(tick,1000);
     })();
 
     // Modal open/close
     (function(){
-      const modal = document.getElementById('emailModal');
-      const openBtn = document.getElementById('openModalBtn');
-      const closeBtn = document.getElementById('closeModalBtn');
+      const modal=document.getElementById('emailModal');
+      const openBtn=document.getElementById('openModalBtn');
+      const closeBtn=document.getElementById('closeModalBtn');
+      const miniOpen=document.getElementById('miniOpen');
       function open(){ modal.classList.remove('hidden'); modal.classList.add('flex'); }
       function close(){ modal.classList.add('hidden'); modal.classList.remove('flex'); }
-      openBtn?.addEventListener('click', (e)=>{ e.preventDefault(); open(); });
-      closeBtn?.addEventListener('click', close);
-      modal?.addEventListener('click', (e)=>{ if(e.target === modal) close(); });
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+      openBtn?.addEventListener('click',e=>{ e.preventDefault(); open(); });
+      miniOpen?.addEventListener('click',e=>{ e.preventDefault(); open(); });
+      closeBtn?.addEventListener('click',close);
+      modal?.addEventListener('click',e=>{ if(e.target===modal) close(); });
+      document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
     })();
 
-    // Email capture (temporary local storage; swap to Klaviyo later)
+    // Temporary email storage (swap to Klaviyo later)
     (function(){
-      const form = document.getElementById('waitlistForm');
-      const emailInput = document.getElementById('emailInput');
-      const success = document.getElementById('successMsg');
-      const errorMsg = document.getElementById('errorMsg');
-      form?.addEventListener('submit', async (e)=>{
+      const form=document.getElementById('waitlistForm');
+      const emailInput=document.getElementById('emailInput');
+      const success=document.getElementById('successMsg');
+      const errorMsg=document.getElementById('errorMsg');
+      form?.addEventListener('submit',async e=>{
         e.preventDefault();
-        const email = (emailInput.value || '').trim();
-        if(!email) return;
-        try {
-          const key = 'starface_waitlist';
-          const arr = JSON.parse(localStorage.getItem(key) || '[]');
-          if(!arr.includes(email)) arr.push(email);
-          localStorage.setItem(key, JSON.stringify(arr));
+        const email=(emailInput.value||'').trim(); if(!email) return;
+        try{
+          const key='starface_waitlist'; const arr=JSON.parse(localStorage.getItem(key)||'[]');
+          if(!arr.includes(email)) arr.push(email); localStorage.setItem(key,JSON.stringify(arr));
           success.classList.remove('hidden'); errorMsg.classList.add('hidden'); form.reset();
-        } catch(err){ success.classList.add('hidden'); errorMsg.classList.remove('hidden'); }
+        }catch(err){ success.classList.add('hidden'); errorMsg.classList.remove('hidden'); }
       });
     })();
   </script>
