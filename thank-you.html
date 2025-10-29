@@ -4,36 +4,44 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Thank You — STARFACE</title>
-  <meta name="description" content="Thanks for joining the STARFACE waitlist."/>
+  <meta name="description" content="You're in. Thanks for joining the STARFACE waitlist. You'll be first to know when we launch."/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root{ --font-head:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-    body{ font-family:var(--font-body); }
-    .display, h1,h2,h3{ font-family:var(--font-head); letter-spacing:.02em; }
+    :root {
+      --font-head:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    body { font-family:var(--font-body); background:white; color:black; }
+    .display, h1,h2,h3 { font-family:var(--font-head); letter-spacing:.02em; }
+    .use-star-cursor:hover {
+      cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 100 100'><path d='M50 8 L56 38 L92 50 L56 62 L50 92 L44 62 L8 50 L44 38 Z' fill='%23000'/></svg>") 12 12, pointer;
+    }
   </style>
 </head>
-<body class="bg-white text-black">
+
+<body class="flex flex-col min-h-screen bg-white text-black">
+
+  <!-- Logo Banner -->
   <div class="w-full bg-gray-100 border-b border-black/10 relative h-12 sm:h-14">
     <a href="index.html" class="absolute inset-0 flex items-center justify-center">
       <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo" class="h-36 sm:h-44 w-auto select-none pointer-events-none"/>
     </a>
   </div>
 
-  <main class="max-w-xl mx-auto px-4 py-14 text-center">
-    <h1 class="display text-3xl sm:text-4xl font-semibold mb-3">You're on the list.</h1>
-    <p class="text-black/70">We’ve sent a confirmation to your inbox. You’ll be first to know when the reveal and preorder window opens.</p>
-
-    <div class="mt-8">
-      <a href="index.html" class="inline-flex items-center justify-center h-11 px-6 rounded-md bg-gray-200 hover:bg-gray-300 transition">
-        Back to Home
-      </a>
-    </div>
-
-    <p class="display text-lg sm:text-xl mt-10"><strong>Because your dreams are valid.</strong></p>
+  <!-- Main content -->
+  <main class="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
+    <h1 class="display text-3xl sm:text-4xl font-semibold mb-4">You’re in.</h1>
+    <p class="text-black/80 text-base sm:text-lg max-w-md leading-relaxed">
+      Thanks for joining the waitlist. You’ll be first to know when we launch.
+    </p>
+    <a href="index.html" class="use-star-cursor mt-8 inline-block text-sm sm:text-base font-medium text-black border border-black/20 rounded-md px-6 py-2 hover:bg-gray-100 transition">
+      ← Back to Home
+    </a>
   </main>
 
-  <footer class="mt-8 bg-white text-black border-t border-black/10">
+  <!-- Footer -->
+  <footer class="bg-white text-black border-t border-black/10">
     <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
       <div class="flex items-center gap-6 text-[13px] sm:text-sm text-black/60">
         <a href="privacy.html" class="hover:text-black">Privacy</a>
@@ -43,5 +51,6 @@
       <div class="text-xs text-black/70">STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.</div>
     </div>
   </footer>
+
 </body>
 </html>
