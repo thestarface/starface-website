@@ -6,6 +6,17 @@
   <title>STARFACE</title>
   <meta name="description" content="Be first to own our debut, limited-edition collectible." />
 
+  <!-- Open Graph & Twitter Meta (for clean link previews) -->
+  <meta property="og:title" content="STARFACE — Debut collectible coming soon" />
+  <meta property="og:description" content="Be first to own our debut, limited-edition collectible." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/thestarface/starface-website/main/Colour.JPG" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thestarface.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="STARFACE — Debut collectible coming soon" />
+  <meta name="twitter:description" content="Be first to own our debut, limited-edition collectible." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/thestarface/starface-website/main/Colour.JPG" />
+
   <!-- Brand 4-point straight-cross star favicon -->
   <link
     rel="icon"
@@ -50,7 +61,7 @@
     .hero-wrap{ position:relative; display:inline-block; overflow:hidden; }
     .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
 
-    /* Subtle wipe-glow reveal (tuned) */
+    /* Subtle wipe-glow reveal */
     .hero-bw{
       -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
               mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
@@ -80,7 +91,6 @@
       -webkit-mask-position: 100% 0%;
               mask-position: 100% 0%;
     }
-    /* Faint glow highlight strip (reduced intensity) */
     .hero-wrap::after{
       content:""; position:absolute; inset:0;
       background: linear-gradient(90deg,
@@ -95,12 +105,12 @@
     }
     .hero-wrap:hover::after{ transform: translateX(0%); }
 
-    /* Star cursor on interactive */
+    /* Star cursor */
     .use-star-cursor:hover{
       cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 100 100'><path d='M50 8 L56 38 L92 50 L56 62 L50 92 L44 62 L8 50 L44 38 Z' fill='%23000'/></svg>") 12 12, pointer;
     }
 
-    /* Side star motifs (desktop only) */
+    /* Side star motifs */
     .side-stars{ position:fixed; top:0; bottom:0; width:28px; opacity:.06; pointer-events:none; display:none; }
     .side-stars.left{ left:10px; } .side-stars.right{ right:10px; }
     .side-stars::before{
@@ -114,7 +124,7 @@
     }
     @media (min-width:1024px){ .side-stars{ display:block; } }
 
-    /* Mini countdown bar: hidden until big timer is scrolled out */
+    /* Mini countdown bar */
     .mini-bar{
       position:fixed; top:0; left:0; right:0; z-index:40;
       transform: translateY(-100%); opacity:0;
@@ -123,7 +133,6 @@
     }
     .mini-bar.visible{ transform: translateY(0); opacity:1; }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .nav a, .nav a::after, .hero-bw, .hero-wrap::after, .mini-bar{ transition:none; }
     }
