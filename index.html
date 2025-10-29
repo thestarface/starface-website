@@ -131,7 +131,6 @@
     <div class="max-w-3xl mx-auto px-4">
       <ul class="nav flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
         <li><a href="about.html" class="hover:text-black use-star-cursor">About</a></li>
-        <li><a href="contact.html" class="hover:text-black use-star-cursor">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -300,17 +299,29 @@
       }
 
       form?.addEventListener('submit',async e=>{
-        e.preventDefault();
-        const email=(emailInput.value||'').trim(); if(!email) return;
-        try{
-          if(!CK_FORM_ID || CK_FORM_ID.includes('YOUR_') || !CK_API_KEY || CK_API_KEY.includes('YOUR_')){
-            throw new Error('Missing ConvertKit credentials');
-          }
-          await subscribe(email);
-          success.classList.remove('hidden'); errorMsg.classList.add('hidden'); form.reset();
-        }catch(err){
-          console.error(err);
-          success.classList.add('hidden'); errorMsg.classList.remove('hidden');
+  e.preventDefault();
+  const email=(emailInput.value||'').trim(); 
+  if(!email) return;
+
+  try{
+    if(!CK_FORM_ID || CK_FORM_ID.includes('YOUR_') || !CK_API_KEY || CK_API_KEY.includes('YOUR_')){
+      throw new Error('Missing ConvertKit credentials');
+    }
+
+    await subscribe(email);
+    success.classList.remove('hidden');
+    errorMsg.classList.add('hidden');
+    form.reset();
+
+    // Redirect to thank-you page after a short pause
+    setTimeout(() => {
+      window.location.href = 'thank-you.html';
+    }, 600);
+
+  }catch(err){
+    console.error(err);
+    success.classList.add('hidden');
+    errorMsg.classList.remove('hidden');
         }
       });
     })();
