@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>STARFACE</title>
-  <meta name="description" content="Be first to know when our collectible drops." />
+  <meta name="description" content="Be first to own our debut, limited-edition collectible." />
 
   <!-- Brand 4-point straight-cross star favicon -->
   <link
@@ -33,53 +33,48 @@
     .hero-wrap{ position:relative; display:inline-block; overflow:hidden; }
     .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
 
-    /* Subtle wipe-glow reveal:
-       We keep the B&W image on top and apply a moving mask on hover.
-       The mask has a soft transparent band that sweeps left→right to reveal color.
-    */
+    /* Subtle wipe-glow reveal (tuned) */
     .hero-bw{
-      /* Start fully covered (opaque mask across entire image) */
       -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
               mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
       -webkit-mask-size: 200% 100%;
               mask-size: 200% 100%;
       -webkit-mask-position: 0% 0%;
               mask-position: 0% 0%;
-      transition: -webkit-mask-position .9s ease, mask-position .9s ease;
+      transition: -webkit-mask-position 1.25s ease, mask-position 1.25s ease;
     }
     .hero-wrap:hover .hero-bw{
-      /* Sweep a transparent (window) band across the image */
       -webkit-mask-image:
         linear-gradient(90deg,
           rgba(0,0,0,1) 0%,
-          rgba(0,0,0,1) 40%,
+          rgba(0,0,0,1) 38%,
           rgba(0,0,0,0) 50%,
-          rgba(0,0,0,1) 60%,
+          rgba(0,0,0,1) 62%,
           rgba(0,0,0,1) 100%);
               mask-image:
         linear-gradient(90deg,
           rgba(0,0,0,1) 0%,
-          rgba(0,0,0,1) 40%,
+          rgba(0,0,0,1) 38%,
           rgba(0,0,0,0) 50%,
-          rgba(0,0,0,1) 60%,
+          rgba(0,0,0,1) 62%,
           rgba(0,0,0,1) 100%);
       -webkit-mask-size: 200% 100%;
               mask-size: 200% 100%;
       -webkit-mask-position: 100% 0%;
               mask-position: 100% 0%;
     }
-    /* Faint glow highlight strip traveling with the wipe */
+    /* Faint glow highlight strip (reduced intensity) */
     .hero-wrap::after{
       content:""; position:absolute; inset:0;
       background: linear-gradient(90deg,
         rgba(255,255,255,0) 0%,
         rgba(255,255,255,0) 35%,
-        rgba(255,255,255,0.18) 50%,
+        rgba(255,255,255,0.12) 50%,
         rgba(255,255,255,0) 65%,
         rgba(255,255,255,0) 100%);
-      opacity:.8; pointer-events:none;
+      opacity:.85; pointer-events:none;
       transform: translateX(-100%);
-      transition: transform .9s ease, opacity .2s ease;
+      transition: transform 1.25s ease, opacity .2s ease;
     }
     .hero-wrap:hover::after{ transform: translateX(0%); }
 
@@ -196,7 +191,7 @@
       <section class="mt-6 sm:mt-8">
         <div class="flex flex-col items-center justify-center gap-4 max-w-md mx-auto w-full">
           <p class="text-black/70 text-sm sm:text-base leading-snug whitespace-nowrap">
-            Be first to know when our collectible drops.
+            Be first to own our debut, limited-edition collectible.
           </p>
           <button id="openModalBtn" class="use-star-cursor w-full sm:w-auto whitespace-nowrap h-10 sm:h-11 rounded-md bg-gray-200 text-black px-6 font-medium hover:bg-gray-300 transition">
             Get Early Access
@@ -236,7 +231,7 @@
     <div class="relative bg-white rounded-xl shadow-xl w-[92%] max-w-md p-6">
       <button id="closeModalBtn" aria-label="Close" class="absolute top-3 right-3 text-black/60 hover:text-black use-star-cursor">✕</button>
       <h2 class="display text-lg font-semibold mb-2">Get Early Access</h2>
-      <p class="text-sm text-black/70 mb-4">Join the list to be first in line for the reveal and preorder window.</p>
+      <p class="text-sm text-black/70 mb-4">Join the list to be first in line for the reveal and preorder window of our limited-edition debut.</p>
       <form id="waitlistForm" class="space-y-3">
         <input type="email" id="emailInput" required placeholder="Enter your email"
           class="w-full h-11 rounded-md border border-black/15 px-3 text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
@@ -306,7 +301,7 @@
           const key='starface_waitlist';
           const arr=JSON.parse(localStorage.getItem(key)||'[]');
           if(!arr.includes(email)) arr.push(email);
-          localStorage.setItem(key, JSON.stringify(arr)); // fixed typo
+          localStorage.setItem(key, JSON.stringify(arr));
           success.classList.remove('hidden'); errorMsg.classList.add('hidden'); form.reset();
         }catch(err){
           success.classList.add('hidden'); errorMsg.classList.remove('hidden');
