@@ -3,78 +3,50 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Page Not Found — STARFACE</title>
-  <meta name="description" content="This page doesn't exist. Head back to STARFACE."/>
+
+  <title>404 — STARFACE</title>
+  <meta name="description" content="The page you’re looking for doesn’t exist. Return to STARFACE home."/>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
+  />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    :root{
-      --font-head:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    :root {
+      --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-    body{ font-family:var(--font-body); }
-    .display, h1,h2,h3{ font-family:var(--font-head); letter-spacing:.02em; }
+    body { font-family: var(--font-body); background-color: white; color: black; text-align: center; }
+    .display { font-family: var(--font-head); letter-spacing: .02em; }
 
-    /* Top banner glow (matches index) */
-    .banner-glow{
-      position:relative; overflow:hidden;
-      background: linear-gradient(90deg, #f7f7f7, #f2f2f2);
+    a {
+      color: black;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity .2s ease;
     }
-    .banner-glow::after{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
-      transform: translateX(-100%); transition: transform 1.2s ease; opacity:.4;
-    }
-    .banner-glow:hover::after{ transform: translateX(100%); }
-
-    /* Link underline like nav */
-    .navish a{ position:relative; }
-    .navish a::after{
-      content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px; background:currentColor;
-      transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
-    }
-    .navish a:hover::after{ transform:scaleX(1); }
+    a:hover { opacity: .6; }
   </style>
 </head>
-<body class="bg-white text-black">
-  <!-- Top banner -->
-  <div class="w-full text-black border-b border-black/10 relative h-12 sm:h-14 banner-glow">
-    <a href="index.html" class="absolute inset-0 flex items-center justify-center" aria-label="Go to home">
-      <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="STARFACE logo"
-           class="h-36 sm:h-44 w-auto select-none pointer-events-none"/>
-    </a>
-  </div>
 
-  <main class="max-w-2xl mx-auto px-4 py-14 text-center">
-    <p class="display text-sm tracking-[0.2em] text-black/60 mb-2 uppercase">404</p>
-    <h1 class="display text-3xl sm:text-4xl font-semibold">This page is lost in space.</h1>
-    <p class="text-black/70 mt-3">The link may be broken or the page may have moved.</p>
+<body class="flex flex-col items-center justify-center h-screen px-6">
+  <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo" class="h-28 w-auto mb-8 select-none pointer-events-none"/>
 
-    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-      <a href="index.html" class="use-star-cursor inline-flex items-center justify-center h-11 px-6 rounded-md bg-gray-200 hover:bg-gray-300 transition">
-        ← Back to Home
-      </a>
-      <a href="about.html" class="use-star-cursor inline-flex items-center justify-center h-11 px-6 rounded-md border border-black/15 hover:bg-gray-50 transition">
-        About STARFACE
-      </a>
-    </div>
+  <h1 class="display text-3xl sm:text-4xl font-semibold mb-3">Page not found</h1>
+  <p class="text-black/70 text-sm sm:text-base mb-6">The page you’re looking for doesn’t exist or may have been moved.</p>
 
-    <div class="mt-8 navish text-black/70 text-sm flex items-center justify-center gap-6">
-      <a href="privacy.html" class="hover:text-black">Privacy</a>
-      <a href="terms.html" class="hover:text-black">Terms</a>
-      <a href="contact.html" class="hover:text-black">Contact</a>
-    </div>
+  <a href="index.html" class="inline-block border border-black/20 rounded-md px-5 py-2 text-sm sm:text-base hover:bg-black hover:text-white transition">
+    Back to Home
+  </a>
 
-    <p class="display text-lg sm:text-xl mt-10"><strong>Because your dreams are valid.</strong></p>
-  </main>
-
-  <footer class="mt-6 bg-white text-black border-t border-black/10">
-    <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-4">
-      <div class="text-xs text-black/70 text-center">
-        STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.<br/>
-        Registered in England &amp; Wales. Company No. 16710422. Leicester, United Kingdom.
-      </div>
-    </div>
+  <footer class="mt-10 text-xs text-black/60">
+    STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
   </footer>
 </body>
 </html>
