@@ -126,60 +126,50 @@
     </div>
   </main>
 
-  <!-- Footer (reduced height) -->
-  <footer id="siteFooter" class="mt-12 sm:mt-14 bg-black text-white">
-    <!-- Top row: socials left, Info/Help right (compact) -->
-    <div class="max-w-6xl mx-auto px-6 py-4 sm:py-5 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-      <!-- Socials (left) with WHITE icons -->
+  <!-- Footer (white, clean version) -->
+<footer id="siteFooter" class="mt-12 sm:mt-14 bg-white text-black border-t border-black/10">
+  <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+    <!-- Socials (left) -->
+    <div class="flex items-center gap-5">
+      <span class="text-sm sm:text-base font-semibold tracking-wide">FOLLOW US ON</span>
       <div class="flex items-center gap-5">
-        <span class="text-lg sm:text-xl font-semibold tracking-wide">FOLLOW US ON</span>
-        <div class="flex items-center gap-5">
-          <a href="#" aria-label="Instagram" class="opacity-90 hover:opacity-100 transition">
-            <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
-          </a>
-          <a href="#" aria-label="TikTok" class="opacity-90 hover:opacity-100 transition">
-            <img src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="" class="h-5 w-5 sm:h-6 sm:w-6" />
-          </a>
-        </div>
-      </div>
-
-      <!-- Info + Help (right) -->
-      <div class="grid grid-cols-2 gap-6 text-[13px] sm:text-sm">
-        <div class="space-y-2">
-          <h3 class="text-white/90 font-semibold tracking-wide">INFORMATION</h3>
-          <ul class="space-y-1 text-white/70">
-            <li><a href="#" class="hover:text-white">News</a></li>
-            <li><a href="#" class="hover:text-white">Contact us</a></li>
-            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="space-y-2">
-          <h3 class="text-white/90 font-semibold tracking-wide">HELP</h3>
-          <ul class="space-y-1 text-white/70">
-            <li><a href="#" class="hover:text-white">FAQs</a></li>
-            <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
-            <li><a href="#" class="hover:text-white">Returns & Refunds</a></li>
-            <li><a href="#" class="hover:text-white">Order Status</a></li>
-          </ul>
-        </div>
+        <a href="https://www.instagram.com/thestarface.co" target="_blank" aria-label="Instagram" class="opacity-80 hover:opacity-100 transition">
+          <img src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram" class="h-5 w-5 sm:h-6 sm:w-6" />
+        </a>
+        <a href="https://www.tiktok.com/@thestarface.co" target="_blank" aria-label="TikTok" class="opacity-80 hover:opacity-100 transition">
+          <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok" class="h-5 w-5 sm:h-6 sm:w-6" />
+        </a>
       </div>
     </div>
 
-    <!-- Separator + brand row; ultra-tight optical alignment -->
-    <div class="mt-24 border-top border-white/15">
-      <div class="max-w-6xl mx-auto px-6 pt-1 pb-3 flex items-center justify-center">
-        <!-- Extra crop + stronger negative margins to eliminate remaining visual gap -->
-        <img
-          src="https://raw.githubusercontent.com/thestarface/starface-website/main/2.png"
-          alt="Starface secondary logo"
-          class="h-40 sm:h-[12rem] w-auto invert brightness-200 contrast-200 select-none align-middle -mr-[26px]"
-          style="clip-path: inset(0 30px 0 30px);" />
-        <p class="text-[11px] sm:text-xs text-white/90 tracking-wide leading-none -ml-[26px]">
-          STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
-        </p>
+    <!-- Info + Help (right) -->
+    <div class="grid grid-cols-2 gap-6 text-[13px] sm:text-sm">
+      <div class="space-y-2">
+        <h3 class="text-black font-semibold tracking-wide">INFORMATION</h3>
+        <ul class="space-y-1 text-black/70">
+          <li><a href="#" class="hover:text-black">News</a></li>
+          <li><a href="#" class="hover:text-black">Contact us</a></li>
+          <li><a href="#" class="hover:text-black">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-black font-semibold tracking-wide">HELP</h3>
+        <ul class="space-y-1 text-black/70">
+          <li><a href="#" class="hover:text-black">FAQs</a></li>
+          <li><a href="#" class="hover:text-black">Shipping Policy</a></li>
+          <li><a href="#" class="hover:text-black">Returns & Refunds</a></li>
+          <li><a href="#" class="hover:text-black">Order Status</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </div>
+
+  <div class="border-t border-black/10 mt-8">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center text-center text-xs text-black/70">
+      STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
+    </div>
+  </div>
+</footer>
 
   <script>
     // Countdown to Dec 25, 2025 00:00 local time (DD:HH:MM:SS)
