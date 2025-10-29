@@ -149,7 +149,6 @@
     <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo"
          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
          loading="lazy" decoding="async"/>
-    <!-- (icons removed) -->
   </div>
 
   <!-- Menu -->
@@ -302,48 +301,37 @@
       document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
     })();
 
-    // ConvertKit integration
+    // ConvertKit – frontend-safe submit (no API key needed)
     (function(){
       const form=document.getElementById('waitlistForm');
       const emailInput=document.getElementById('emailInput');
       const success=document.getElementById('successMsg');
       const errorMsg=document.getElementById('errorMsg');
 
-      // TODO: Replace with your real values from ConvertKit
       const CK_FORM_ID = '8718149';
-      const CK_API_KEY = '11G9AJEcl1ZQw8ol_CEtCw'; // public key is fine on frontend
+      const CK_FORM_ACTION = `https://app.convertkit.com/forms/${CK_FORM_ID}/subscriptions`;
 
       async function subscribe(email){
-        const url = `https://api.convertkit.com/v3/forms/${CK_FORM_ID}/subscribe`;
-        const res = await fetch(url,{
+        const res = await fetch(CK_FORM_ACTION, {
           method:'POST',
-          headers:{ 'Content-Type':'application/json' },
-          body: JSON.stringify({ api_key: CK_API_KEY, email })
+          headers:{ 'Content-Type':'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ email_address: email })
         });
-        if(!res.ok) throw new Error('ConvertKit error');
-        return res.json();
+        if(!res.ok){ throw new Error('Subscription failed'); }
+        return true;
       }
 
-      form?.addEventListener('submit',async e=>{
+      form?.addEventListener('submit', async e=>{
         e.preventDefault();
-        const email=(emailInput.value||'').trim(); 
+        const email=(emailInput.value||'').trim();
         if(!email) return;
 
         try{
-          if(!CK_FORM_ID || CK_FORM_ID.includes('YOUR_') || !CK_API_KEY || CK_API_KEY.includes('YOUR_')){
-            throw new Error('Missing ConvertKit credentials');
-          }
-
           await subscribe(email);
           success.classList.remove('hidden');
           errorMsg.classList.add('hidden');
           form.reset();
-
-          // Redirect to thank-you page after a short pause
-          setTimeout(() => {
-            window.location.href = 'thank-you.html';
-          }, 600);
-
+          setTimeout(()=>{ window.location.href='thank-you.html'; }, 600);
         }catch(err){
           console.error(err);
           success.classList.add('hidden');
