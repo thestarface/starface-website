@@ -123,26 +123,15 @@
     <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo"
          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
          loading="lazy" decoding="async"/>
-    <div class="absolute right-6 sm:right-8 top-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4">
-      <a href="#" aria-label="Cart" class="group relative use-star-cursor">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.3 11.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-        <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">Cart</span>
-      </a>
-      <a href="#" aria-label="Register" class="group relative use-star-cursor">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
-        <span class="absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap px-2 py-1 rounded bg-black text-white text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none shadow translate-y-1">Register</span>
-      </a>
-    </div>
+    <!-- (icons removed) -->
   </div>
 
   <!-- Menu -->
   <nav class="w-full bg-white border-b border-black/10">
     <div class="max-w-3xl mx-auto px-4">
       <ul class="nav flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
-        <li><a href="#" class="hover:text-black use-star-cursor">Home</a></li>
-        <li><a href="#" class="hover:text-black use-star-cursor">Shop</a></li>
+        <li><a href="about.html" class="hover:text-black use-star-cursor">About</a></li>
+        <li><a href="contact.html" class="hover:text-black use-star-cursor">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -217,9 +206,9 @@
         </div>
       </div>
       <div class="flex items-center gap-6 text-[13px] sm:text-sm text-black/60">
-        <a href="#" class="hover:text-black use-star-cursor">Privacy</a>
-        <a href="#" class="hover:text-black use-star-cursor">Terms</a>
-        <a href="#" class="hover:text-black use-star-cursor">Contact</a>
+        <a href="privacy.html" class="hover:text-black use-star-cursor">Privacy</a>
+        <a href="terms.html" class="hover:text-black use-star-cursor">Terms</a>
+        <a href="contact.html" class="hover:text-black use-star-cursor">Contact</a>
       </div>
       <div class="text-xs text-black/70">STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.</div>
     </div>
@@ -288,24 +277,40 @@
       document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
     })();
 
-    // Temporary email storage (swap to Klaviyo later)
+    // ConvertKit integration
     (function(){
       const form=document.getElementById('waitlistForm');
       const emailInput=document.getElementById('emailInput');
       const success=document.getElementById('successMsg');
       const errorMsg=document.getElementById('errorMsg');
+
+      // TODO: Replace with your real values from ConvertKit
+      const CK_FORM_ID = 'YOUR_CONVERTKIT_FORM_ID';
+      const CK_API_KEY = 'YOUR_CONVERTKIT_PUBLIC_API_KEY'; // public key is fine on frontend
+
+      async function subscribe(email){
+        const url = `https://api.convertkit.com/v3/forms/${CK_FORM_ID}/subscribe`;
+        const res = await fetch(url,{
+          method:'POST',
+          headers:{ 'Content-Type':'application/json' },
+          body: JSON.stringify({ api_key: CK_API_KEY, email })
+        });
+        if(!res.ok) throw new Error('ConvertKit error');
+        return res.json();
+      }
+
       form?.addEventListener('submit',async e=>{
         e.preventDefault();
         const email=(emailInput.value||'').trim(); if(!email) return;
         try{
-          const key='starface_waitlist';
-          const arr=JSON.parse(localStorage.getItem(key)||'[]');
-          if(!arr.includes(email)) arr.push(email);
-          localStorage.setItem(key, JSON.stringify(arr));
+          if(!CK_FORM_ID || CK_FORM_ID.includes('YOUR_') || !CK_API_KEY || CK_API_KEY.includes('YOUR_')){
+            throw new Error('Missing ConvertKit credentials');
+          }
+          await subscribe(email);
           success.classList.remove('hidden'); errorMsg.classList.add('hidden'); form.reset();
         }catch(err){
-          success.classList.add('hidden'); errorMsg.classList.remove('hidden');
           console.error(err);
+          success.classList.add('hidden'); errorMsg.classList.remove('hidden');
         }
       });
     })();
