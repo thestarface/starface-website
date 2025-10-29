@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>STARFACE</title>
   <meta name="description" content="Be first to know when our collectible drops." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>★</text></svg>">
+
+  <!-- Brand-correct 4-point straight-cross star favicon -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml;utf8,
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+        <path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/>
+      </svg>"
+  />
+
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Minimal custom CSS for nav underline + hero crossfade -->
   <style>
-    /* NAV underline slide-in */
-    .nav a{
-      position:relative; cursor:pointer; transition:opacity .2s ease;
-    }
+    /* --- NAV underline slide-in --- */
+    .nav a{ position:relative; cursor:pointer; transition:opacity .2s ease; }
     .nav a::after{
       content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px;
       transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
@@ -21,36 +27,42 @@
     }
     .nav a:hover::after{ transform:scaleX(1); }
 
-    /* Hero crossfade (B&W over color) */
+    /* --- Hero crossfade (B&W over color) --- */
     .hero-wrap{ position:relative; display:inline-block; }
     .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
     .hero-bw{ opacity:1; transition:opacity .45s ease; }
     .hero-wrap:hover .hero-bw{ opacity:0; }
 
+    /* --- Brand 4-point star cursor (straight-cross) on hovers --- */
+    .use-star-cursor:hover {
+      cursor: url("data:image/svg+xml;utf8, \
+        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 100 100'> \
+          <path d='M50 8 L56 38 L92 50 L56 62 L50 92 L44 62 L8 50 L44 38 Z' fill='%23000'/> \
+        </svg>") 12 12, pointer;
+    }
+
+    /* Modal base (backdrop) */
+    .modal-backdrop{ background: rgba(0,0,0,.5); }
+
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .nav a{ transition:none; }
-      .nav a::after{ transition:none; }
-      .hero-bw{ transition:none; }
+      .nav a, .nav a::after, .hero-bw{ transition:none; }
     }
   </style>
 </head>
 
 <body class="bg-white text-black">
-  <!-- Compact grey banner with centered logo + cart + profile on the right -->
+  <!-- Top banner -->
   <div class="w-full bg-gray-100 text-black border-b border-black/10 relative h-12 sm:h-14">
-    <!-- centered logo (slightly larger) -->
     <img
       src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
       alt="Starface logo"
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
       loading="lazy" decoding="async"
     />
-
-    <!-- right-side icons: Cart + Profile (nudged left) -->
     <div class="absolute right-6 sm:right-8 top-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4">
       <!-- Cart -->
-      <a href="#" aria-label="Cart" class="group relative">
+      <a href="#" aria-label="Cart" class="group relative use-star-cursor">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
              class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition"
              fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -64,9 +76,8 @@
           Cart
         </span>
       </a>
-
       <!-- Profile -->
-      <a href="#" aria-label="Register" class="group relative">
+      <a href="#" aria-label="Register" class="group relative use-star-cursor">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
              class="h-5 w-5 sm:h-6 sm:w-6 text-black/70 group-hover:text-black transition"
              fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -82,27 +93,24 @@
     </div>
   </div>
 
-  <!-- Menu strip with faint divider -->
+  <!-- Menu -->
   <nav class="w-full bg-white border-b border-black/10">
     <div class="max-w-3xl mx-auto px-4">
       <ul class="nav flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
-        <li><a href="#" class="hover:text-black">Home</a></li>
-        <li><a href="#" class="hover:text-black">Shop</a></li>
+        <li><a href="#" class="hover:text-black use-star-cursor">Home</a></li>
+        <li><a href="#" class="hover:text-black use-star-cursor">Shop</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Main content -->
+  <!-- Main -->
   <main class="px-4 text-center">
     <div class="max-w-2xl mx-auto">
-
-      <!-- Countdown ABOVE the hero -->
+      <!-- Countdown -->
       <div class="mt-6 sm:mt-8">
-        <!-- Label (big, to match numerals) -->
         <div class="uppercase tracking-widest text-2xl sm:text-3xl font-semibold text-black mb-2">
-          DROPPING SOON
+          THE REVEAL IN
         </div>
-
         <div class="flex items-end justify-center gap-4 sm:gap-6 font-mono tabular-nums text-2xl sm:text-3xl text-black/80 select-none">
           <div class="flex flex-col items-center">
             <span id="dd">00</span>
@@ -123,18 +131,17 @@
         </div>
       </div>
 
-      <!-- Hero image (B&W over Color; same scaling) -->
+      <!-- Hero (B&W over Color) -->
       <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
-        <!-- Wrapper establishes a fixed visual box so both images scale identically -->
         <div class="hero-wrap w-full max-w-screen-md rounded-xl shadow-sm" style="max-height:550px; aspect-ratio: 3 / 4;">
-          <!-- Color (bottom layer) -->
+          <!-- Color (bottom) -->
           <img
             src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG"
             alt="Space Kid — Color"
             class="hero-img"
             loading="lazy" decoding="async"
           />
-          <!-- B&W (top layer) -->
+          <!-- Greyscale (top) -->
           <img
             src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Greyscale.jpg"
             alt="Space Kid — Greyscale"
@@ -144,70 +151,91 @@
         </div>
       </section>
 
-      <!-- Waitlist (UNDER the image) -->
+      <!-- Waitlist CTA -->
       <section class="mt-6 sm:mt-8">
         <div class="flex flex-col items-center justify-center gap-4 max-w-md mx-auto w-full">
-
           <p class="text-black/70 text-sm sm:text-base leading-snug max-w-xs">
             Be first to know when our collectible drops.
           </p>
-
           <button
-            class="w-full sm:w-auto whitespace-nowrap h-10 sm:h-11 rounded-md bg-gray-200 text-black px-6 font-medium hover:bg-gray-300 transition">
-            Join the Waitlist
+            id="openModalBtn"
+            class="use-star-cursor w-full sm:w-auto whitespace-nowrap h-10 sm:h-11 rounded-md bg-gray-200 text-black px-6 font-medium hover:bg-gray-300 transition">
+            Get Early Access
           </button>
-
         </div>
       </section>
-
     </div>
   </main>
 
-  <!-- Footer (white, clean version) -->
+  <!-- Footer (centered, minimal) -->
   <footer id="siteFooter" class="mt-12 sm:mt-14 bg-white text-black border-t border-black/10">
-    <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-      <!-- Socials (left) -->
+    <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
+      <!-- Socials -->
       <div class="flex items-center gap-5">
         <span class="text-sm sm:text-base font-semibold tracking-wide">FOLLOW US ON</span>
         <div class="flex items-center gap-5">
-          <a href="https://www.instagram.com/thestarfaceco" target="_blank" aria-label="Instagram" class="opacity-80 hover:opacity-100 transition">
+          <a href="https://www.instagram.com/thestarfaceco" target="_blank" aria-label="Instagram" class="opacity-80 hover:opacity-100 transition use-star-cursor">
             <img src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram" class="h-5 w-5 sm:h-6 sm:w-6" loading="lazy" decoding="async" />
           </a>
-          <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" aria-label="TikTok" class="opacity-80 hover:opacity-100 transition">
+          <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" aria-label="TikTok" class="opacity-80 hover:opacity-100 transition use-star-cursor">
             <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok" class="h-5 w-5 sm:h-6 sm:w-6" loading="lazy" decoding="async" />
           </a>
         </div>
       </div>
-
-      <!-- Info + Help (right) -->
-      <div class="grid grid-cols-2 gap-6 text-[13px] sm:text-sm">
-        <div class="space-y-2">
-          <h3 class="text-black font-semibold tracking-wide">INFORMATION</h3>
-          <ul class="space-y-1 text-black/70">
-            <li><a href="#" class="hover:text-black">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-black">Terms of Service</a></li>
-            <li><a href="#" class="hover:text-black">Contact Information</a></li>
-          </ul>
-        </div>
+      <!-- Info links -->
+      <div class="flex items-center gap-6 text-[13px] sm:text-sm text-black/60">
+        <a href="#" class="hover:text-black use-star-cursor">Privacy</a>
+        <a href="#" class="hover:text-black use-star-cursor">Terms</a>
+        <a href="#" class="hover:text-black use-star-cursor">Contact</a>
       </div>
-    </div>
-
-    <div class="border-t border-black/10 mt-8">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center text-center text-xs text-black/70">
+      <!-- Copyright -->
+      <div class="text-xs text-black/70">
         STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
       </div>
     </div>
   </footer>
 
+  <!-- Modal: Email capture -->
+  <div id="emailModal" class="fixed inset-0 hidden items-center justify-center z-50">
+    <!-- backdrop -->
+    <div class="absolute inset-0 modal-backdrop"></div>
+    <!-- dialog -->
+    <div class="relative bg-white rounded-xl shadow-xl w-[92%] max-w-md p-6">
+      <button id="closeModalBtn" aria-label="Close"
+        class="absolute top-3 right-3 text-black/60 hover:text-black use-star-cursor">
+        ✕
+      </button>
+      <h2 class="text-lg font-semibold mb-2">Get Early Access</h2>
+      <p class="text-sm text-black/70 mb-4">Join the list to be first in line for the reveal and preorder window.</p>
+
+      <form id="waitlistForm" class="space-y-3">
+        <input type="email" id="emailInput" required placeholder="Enter your email"
+          class="w-full h-11 rounded-md border border-black/15 px-3 text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30" />
+        <button type="submit"
+          class="use-star-cursor w-full h-11 rounded-md bg-gray-200 text-black px-6 font-medium hover:bg-gray-300 transition">
+          Notify Me
+        </button>
+        <p id="formNote" class="text-[11px] text-black/50">We’ll only email about the drop. You can unsubscribe anytime.</p>
+        <p id="successMsg" class="hidden text-sm text-green-600">You’re in. Check your inbox for a confirmation.</p>
+        <p id="errorMsg" class="hidden text-sm text-red-600">Something went wrong. Please try again.</p>
+      </form>
+    </div>
+  </div>
+
   <script>
-    // Countdown to Dec 25, 2025 00:00 local time (DD:HH:MM:SS)
+    // =======================
+    // Countdown: Nov 20, 2025 19:00 UK time
+    // UK is on GMT in late November; use UTC Z time.
+    // =======================
     (function(){
       const d = document.getElementById('dd'),
             h = document.getElementById('hh'),
             m = document.getElementById('mm'),
             s = document.getElementById('ss');
       if(!d || !h || !m || !s) return;
-      const target = new Date(2025, 11, 25, 0, 0, 0); // 11 = December
+
+      const target = new Date('2025-11-20T19:00:00Z'); // 7pm UK (GMT) in late Nov
+
       const pad = n => String(n).padStart(2,'0');
       function tick(){
         const now = new Date();
@@ -222,6 +250,66 @@
         s.textContent = pad(secs);
       }
       tick(); setInterval(tick, 1000);
+    })();
+
+    // =======================
+    // Modal open/close
+    // =======================
+    (function(){
+      const modal = document.getElementById('emailModal');
+      const openBtn = document.getElementById('openModalBtn');
+      const closeBtn = document.getElementById('closeModalBtn');
+
+      function open(){ modal.classList.remove('hidden'); modal.classList.add('flex'); }
+      function close(){ modal.classList.add('hidden'); modal.classList.remove('flex'); }
+
+      openBtn?.addEventListener('click', (e)=>{ e.preventDefault(); open(); });
+      closeBtn?.addEventListener('click', close);
+      modal?.addEventListener('click', (e)=>{ if(e.target === modal) close(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+    })();
+
+    // =======================
+    // Email capture (Klaviyo-ready stub)
+    // For now, store locally & show success.
+    // To integrate Klaviyo later:
+    // - Replace the handler with a fetch() to your Klaviyo list endpoint
+    // =======================
+    (function(){
+      const form = document.getElementById('waitlistForm');
+      const emailInput = document.getElementById('emailInput');
+      const success = document.getElementById('successMsg');
+      const errorMsg = document.getElementById('errorMsg');
+
+      form?.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const email = (emailInput.value || '').trim();
+        if(!email){ return; }
+
+        try {
+          // Temporary: save to localStorage as a holding pattern
+          const key = 'starface_waitlist';
+          const arr = JSON.parse(localStorage.getItem(key) || '[]');
+          if(!arr.includes(email)) arr.push(email);
+          localStorage.setItem(key, JSON.stringify(arr));
+
+          // TODO: Replace with Klaviyo API POST here.
+          // Example (pseudo):
+          // await fetch('https://a.klaviyo.com/api/v2/list/<LIST_ID>/members', {
+          //   method:'POST',
+          //   headers:{ 'Content-Type':'application/json', 'Authorization':'Klaviyo-API-Key <KEY>' },
+          //   body: JSON.stringify({ profiles: [{ email }] })
+          // });
+
+          success.classList.remove('hidden');
+          errorMsg.classList.add('hidden');
+          form.reset();
+        } catch(err){
+          success.classList.add('hidden');
+          errorMsg.classList.remove('hidden');
+          console.error(err);
+        }
+      });
     })();
   </script>
 </body>
