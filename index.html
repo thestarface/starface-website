@@ -155,11 +155,11 @@
     <header class="bg-white pt-10 pb-6">
       <div class="max-w-5xl mx-auto px-4">
         <img
-  src="https://raw.githubusercontent.com/thestarface/starface-website/main/starfacelogo.png"
-  alt="STARFACE"
-  class="mx-auto h-32 sm:h-44 md:h-52 w-auto select-none pointer-events-none"
-  loading="lazy"
-  decoding="async"
+          src="https://raw.githubusercontent.com/thestarface/starface-website/main/STARFACELOGO.png"
+          alt="STARFACE"
+          class="mx-auto h-32 sm:h-44 md:h-52 w-auto select-none pointer-events-none"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </header>
@@ -191,9 +191,9 @@
           </div>
         </section>
 
-        <!-- BIG COUNTDOWN (NOW UNDER HERO) -->
+        <!-- BIG COUNTDOWN (UNDER HERO) -->
         <section id="bigCountdown" class="mt-6 sm:mt-8">
-          <div class="countdown-label uppercase tracking-[0.2em] text-2xl sm:text-3xl font-semibold text-black mb-2">
+          <div class="countdown-label uppercase tracking-[0.2em] text-2xl sm:3xl font-semibold text-black mb-2">
             FULL REVEAL IN
           </div>
           <div class="flex items-end justify-center gap-4 sm:gap-6 font-mono tabular-nums text-2xl sm:text-3xl text-black/80 select-none">
@@ -233,7 +233,7 @@
       </div>
     </main>
 
-    <!-- FOOTER (no border at the top so no line under CTA) -->
+    <!-- FOOTER -->
     <footer class="bg-white text-black">
       <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
         <div class="flex items-center gap-5">
@@ -330,7 +330,7 @@
   </div>
 
   <script>
-    // COUNTDOWN (same target date/time)
+    // COUNTDOWN
     (function () {
       const d  = document.getElementById('dd');
       const h  = document.getElementById('hh');
@@ -343,7 +343,7 @@
 
       if (!d || !h || !m || !s) return;
 
-      const target = new Date('2025-11-20T19:00:00Z'); // adjust if needed
+      const target = new Date('2025-11-20T19:00:00Z');
       const pad = (n) => String(n).padStart(2, '0');
 
       function update(set1, set2) {
@@ -427,10 +427,10 @@
 
     // CONVERTKIT SUBSCRIPTION
     (function () {
-      const form      = document.getElementById('waitlistForm');
+      const form       = document.getElementById('waitlistForm');
       const emailInput = document.getElementById('emailInput');
-      const success   = document.getElementById('successMsg');
-      const errorMsg  = document.getElementById('errorMsg');
+      const success    = document.getElementById('successMsg');
+      const errorMsg   = document.getElementById('errorMsg');
 
       const CK_FORM_ID     = '8718149';
       const CK_FORM_ACTION = `https://app.convertkit.com/forms/${CK_FORM_ID}/subscriptions`;
