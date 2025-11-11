@@ -3,19 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>STARFACE</title>
-  <meta name="description" content="Be first to own our debut, limited-edition collectible." />
 
-  <!-- Open Graph & Twitter Meta -->
-  <meta property="og:title" content="STARFACE — Debut collectible coming soon" />
-  <meta property="og:description" content="Be first to own our debut, limited-edition collectible." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/thestarface/starface-website/main/Colour.JPG" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://thestarface.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="STARFACE — Debut collectible coming soon" />
-  <meta name="twitter:description" content="Be first to own our debut, limited-edition collectible." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/thestarface/starface-website/main/Colour.JPG" />
+  <title>STARFACE — Coming Soon</title>
+  <meta
+    name="description"
+    content="STARFACE™ is a collectible from the culture. Join the waitlist for the first reveal."
+  />
 
   <!-- Favicon -->
   <link
@@ -23,8 +16,13 @@
     href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
   />
 
-  <!-- Fonts & Tailwind -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -44,115 +42,98 @@
       letter-spacing: 0.02em;
     }
 
-    .hero-wrap {
-      position: relative;
-      overflow: hidden;
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
     }
 
-    .hero-img {
-      position: absolute;
-      inset: 0;
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 1rem;
+      max-width: 420px;
       width: 100%;
-      height: 100%;
-      object-fit: contain;
+      margin: 1.5rem;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.18),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
     }
 
-    .hero-bw {
-      opacity: 1;
-      transition: opacity 1.8s ease-in-out;
+    .modal-header {
+      padding: 1.25rem 1.5rem 0.75rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
-    .hero-wrap:hover .hero-bw {
-      opacity: 0;
-    }
-
-    .hero-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0) 35%,
-        rgba(255, 255, 255, 0.12) 50%,
-        rgba(255, 255, 255, 0) 65%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      opacity: 0.85;
-      pointer-events: none;
-      transform: translateX(-100%);
-      transition: transform 1.8s ease;
-    }
-
-    .hero-wrap:hover::after {
-      transform: translateX(0%);
+    .modal-body {
+      padding: 1.25rem 1.5rem 1.5rem;
     }
 
     .use-star-cursor:hover {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 100 100'><path d='M50 8 L56 38 L92 50 L56 62 L50 92 L44 62 L8 50 L44 38 Z' fill='%23000'/></svg>") 12 12,
-              pointer;
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='black'/></svg>"),
+        auto;
     }
 
-    /* Mini sticky countdown at the very top */
-    .mini-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 40;
-      transform: translateY(-100%);
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      backdrop-filter: blur(8px);
+    .marquee-container {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
-    .mini-bar.visible {
-      transform: translateY(0);
-      opacity: 1;
+    .marquee-inner {
+      display: inline-block;
+      padding-right: 50%;
+      will-change: transform;
+      animation: marquee 18s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-bw,
-      .hero-wrap::after,
-      .mini-bar {
-        transition: none;
+      .marquee-inner {
+        animation: none;
       }
     }
   </style>
+
+  <!-- Social meta -->
+  <meta property="og:title" content="STARFACE — Coming Soon" />
+  <meta
+    property="og:description"
+    content="A debut collectible from the culture. Join the waitlist for the first reveal."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thestarface.com" />
+  <meta property="og:image" content="https://thestarface.com/STARFACELOGO.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="STARFACE — Coming Soon" />
+  <meta
+    name="twitter:description"
+    content="A debut collectible from the culture. Join the waitlist for the first reveal."
+  />
+  <meta name="twitter:image" content="https://thestarface.com/STARFACELOGO.png" />
 </head>
 
 <body class="bg-white text-black">
-  <!-- MINI COUNTDOWN BAR (hidden until you scroll past the big countdown) -->
-  <div id="miniBar" class="mini-bar bg-white/90 border-b border-black/10">
-    <div class="max-w-5xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-      <div class="text-xs sm:text-sm tracking-[0.15em] text-black/80 countdown-label">
-        FULL REVEAL IN
-      </div>
-      <div class="flex items-end gap-4 text-sm sm:text-base text-black/80 font-mono">
-        <div class="flex flex-col items-center">
-          <span id="dd2">00</span>
-          <span class="text-[10px] text-black/50 -mt-0.5">DD</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <span id="hh2">00</span>
-          <span class="text-[10px] text-black/50 -mt-0.5">HH</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <span id="mm2">00</span>
-          <span class="text-[10px] text-black/50 -mt-0.5">MM</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <span id="ss2">00</span>
-          <span class="text-[10px] text-black/50 -mt-0.5">SS</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- MAIN PAGE CONTENT -->
-  <div class="min-h-screen flex flex-col">
-    <!-- HEADER (logo only, no separator line, logo scaled up) -->
-    <header class="bg-white pt-10 pb-6">
+  <div class="min-h-[120vh] flex flex-col">
+    <!-- HEADER -->
+    <header class="bg-white pt-6 pb-4">
       <div class="max-w-5xl mx-auto px-4">
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/STARFACELOGO.png"
@@ -164,54 +145,49 @@
       </div>
     </header>
 
-    <main class="flex-1 px-4 text-center">
-      <div class="max-w-2xl mx-auto">
-        <!-- HERO IMAGE -->
-        <section class="mt-4 sm:mt-6 flex justify-center">
-          <div
-            class="hero-wrap w-full max-w-screen-md rounded-xl shadow-sm"
-            style="max-height: 550px; aspect-ratio: 3 / 4;"
-          >
-            <!-- Colour version (bottom layer) -->
-            <img
-              src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG"
-              alt="Space Kid — Colour"
-              class="hero-img"
-              loading="lazy"
-              decoding="async"
-            />
-            <!-- Greyscale overlay (top layer) -->
-            <img
-              src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Greyscale.jpg"
-              alt="Space Kid — Greyscale"
-              class="hero-img hero-bw"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </section>
+    <main class="flex-1 text-center">
+      <!-- HERO IMAGE (edge-to-edge, no inner white border) -->
+      <section class="mt-3 sm:mt-4 -mx-4">
+        <img
+          src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG"
+          alt="Space Kid — Colour"
+          class="w-full h-auto block object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
 
+      <div class="max-w-2xl mx-auto px-4">
         <!-- BIG COUNTDOWN (UNDER HERO) -->
-        <section id="bigCountdown" class="mt-6 sm:mt-8">
-          <div class="countdown-label uppercase tracking-[0.2em] text-2xl sm:3xl font-semibold text-black mb-2">
-            FULL REVEAL IN
+        <section id="bigCountdown" class="mt-8 sm:mt-10">
+          <!-- Full-width marquee -->
+          <div class="-mx-4">
+            <div class="marquee-container bg-black text-white py-3 mb-4">
+              <div class="marquee-inner uppercase tracking-[0.3em] font-semibold text-3xl sm:text-5xl md:text-6xl">
+                FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN
+              </div>
+            </div>
           </div>
-          <div class="flex items-end justify-center gap-4 sm:gap-6 font-mono tabular-nums text-2xl sm:text-3xl text-black/80 select-none">
+
+          <!-- Countdown digits -->
+          <div
+            class="flex items-end justify-center gap-6 sm:gap-8 font-mono tabular-nums text-4xl sm:text-5xl md:text-6xl text-black/90 select-none"
+          >
             <div class="flex flex-col items-center">
               <span id="dd">00</span>
-              <span class="mt-1 text-[10px] sm:text-xs text-black/50">DD</span>
+              <span class="mt-1 text-[11px] sm:text-sm text-black/60">DD</span>
             </div>
             <div class="flex flex-col items-center">
               <span id="hh">00</span>
-              <span class="mt-1 text-[10px] sm:text-xs text-black/50">HH</span>
+              <span class="mt-1 text-[11px] sm:text-sm text-black/60">HH</span>
             </div>
             <div class="flex flex-col items-center">
               <span id="mm">00</span>
-              <span class="mt-1 text-[10px] sm:text-xs text-black/50">MM</span>
+              <span class="mt-1 text-[11px] sm:text-sm text-black/60">MM</span>
             </div>
             <div class="flex flex-col items-center">
               <span id="ss">00</span>
-              <span class="mt-1 text-[10px] sm:text-xs text-black/50">SS</span>
+              <span class="mt-1 text-[11px] sm:text-sm text-black/60">SS</span>
             </div>
           </div>
         </section>
@@ -219,14 +195,14 @@
         <!-- CTA SECTION -->
         <section class="mt-6 sm:mt-8 mb-10">
           <div class="flex flex-col items-center justify-center gap-4 max-w-md mx-auto w-full">
-            <p class="text-black/70 text-sm sm:text-base leading-snug">
+            <p class="text-black/80 text-lg sm:text-xl md:text-2xl leading-snug italic">
               Be first to own our debut, limited-edition collectible.
             </p>
             <button
               id="openModalBtn"
-              class="use-star-cursor w-full sm:w-auto h-10 sm:h-11 rounded-md bg-black text-white px-6 font-medium hover:bg-black/80 transition"
+              class="use-star-cursor w-full sm:w-64 h-11 sm:h-12 rounded-md bg-black text-white px-8 font-semibold tracking-wide hover:bg-black/80 transition"
             >
-              Get Early Access
+              GET EARLY ACCESS!
             </button>
           </div>
         </section>
@@ -234,239 +210,134 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-white text-black">
-      <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
-        <div class="flex items-center gap-5">
-          <span class="display text-sm sm:text-base font-semibold tracking-[0.15em]">
-            FOLLOW US ON
-          </span>
-          <div class="flex items-center gap-5">
-            <a
-              href="https://www.instagram.com/thestarfaceco"
-              target="_blank"
-              aria-label="Instagram"
-              class="opacity-80 hover:opacity-100 transition use-star-cursor"
-            >
-              <img
-                src="https://cdn.simpleicons.org/instagram/000000"
-                alt="Instagram"
-                class="h-5 w-5 sm:h-6 sm:w-6"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-            <a
-              href="https://www.tiktok.com/@thestarfaceco"
-              target="_blank"
-              aria-label="TikTok"
-              class="opacity-80 hover:opacity-100 transition use-star-cursor"
-            >
-              <img
-                src="https://cdn.simpleicons.org/tiktok/000000"
-                alt="TikTok"
-                class="h-5 w-5 sm:h-6 sm:w-6"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap items-center justify-center gap-6 text-[13px] sm:text-sm text-black/60">
-          <a href="about.html" class="hover:text-black use-star-cursor">About</a>
-          <a href="privacy.html" class="hover:text-black use-star-cursor">Privacy</a>
-          <a href="terms.html" class="hover:text-black use-star-cursor">Terms</a>
-          <a href="contact.html" class="hover:text-black use-star-cursor">Contact</a>
-        </div>
-
-        <div class="text-xs text-black/70">
+    <footer class="border-t border-black/10 mt-auto">
+      <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col items-center gap-3 text-xs sm:text-sm text-black/60">
+        <div class="text-center">
           STARFACE™ &amp; © 2025 STARFACE Ltd. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 justify-center">
+          <a
+            href="https://www.instagram.com/thestarface_"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-black"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://www.tiktok.com/@thestarface_"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-black"
+          >
+            TikTok
+          </a>
+        </div>
+
+        <!-- Lower-right links (right-aligned on larger screens) -->
+        <div class="w-full flex justify-center sm:justify-end mt-1">
+          <div class="flex flex-wrap gap-3 text-[11px] sm:text-xs text-black/55">
+            <a href="/about" class="hover:text-black">About</a>
+            <a href="/privacy" class="hover:text-black">Privacy</a>
+            <a href="/terms" class="hover:text-black">Terms</a>
+            <a href="/contact" class="hover:text-black">Contact</a>
+          </div>
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- EMAIL MODAL -->
-  <div id="emailModal" class="fixed inset-0 hidden items-center justify-center z-50">
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="relative bg-white rounded-xl shadow-xl w-[92%] max-w-md p-6">
-      <button
-        id="closeModalBtn"
-        aria-label="Close"
-        class="absolute top-3 right-3 text-black/60 hover:text-black use-star-cursor"
-      >
-        ✕
-      </button>
-      <h2 class="display text-lg font-semibold mb-2">Get Early Access</h2>
-      <p class="text-sm text-black/70 mb-4">
-        Join the list to be first in line for the reveal and preorder window of our limited-edition debut.
-      </p>
-
-      <form id="waitlistForm" class="space-y-3">
-        <input
-          type="email"
-          id="emailInput"
-          required
-          placeholder="Enter your email"
-          class="w-full h-11 rounded-md border border-black/15 px-3 text-black placeholder-black/40 focus:outline-none focus:ring-1 focus:ring-black/30"
-        />
-        <button
-          type="submit"
-          class="use-star-cursor w-full h-11 rounded-md bg-black text-white px-6 font-medium hover:bg-black/80 transition"
-        >
-          Notify Me
-        </button>
-        <p id="formNote" class="text-[11px] text-black/50">
-          We’ll only email about the drop. You can unsubscribe anytime.
+  <!-- MODAL -->
+  <div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-header flex items-center justify-between">
+        <h2 class="text-base sm:text-lg font-semibold tracking-wide">Get Early Access</h2>
+        <button id="closeModalBtn" class="text-black/60 hover:text-black text-sm">Close</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-sm text-black/70 mb-3">
+          Drop your email to be first in line when Space Kid arrives.
         </p>
-        <p id="successMsg" class="hidden text-sm text-green-600">
-          You’re in. Check your inbox for a confirmation.
-        </p>
-        <p id="errorMsg" class="hidden text-sm text-red-600">
-          Something went wrong. Please try again.
-        </p>
-      </form>
+        <form id="waitlistForm" class="space-y-3">
+          <input
+            type="email"
+            id="emailInput"
+            required
+            placeholder="Enter your email"
+            class="w-full h-11 rounded-md border border-black/15 px-3 text-sm focus:border-black/40 focus:outline-none focus:ring-1 focus:ring-black/30"
+          />
+          <button
+            type="submit"
+            class="use-star-cursor w-full h-11 rounded-md bg-black text-white px-6 font-medium hover:bg-black/80 transition"
+          >
+            Notify Me
+          </button>
+          <p id="formNote" class="text-[11px] text-black/50">
+            We’ll only email about the drop. You can unsubscribe anytime.
+          </p>
+          <p id="successMsg" class="text-[11px] text-emerald-600 hidden">
+            You’re in. We’ll be in touch before the reveal.
+          </p>
+        </form>
+      </div>
     </div>
   </div>
 
+  <!-- SCRIPTS -->
   <script>
-    // COUNTDOWN
-    (function () {
-      const d  = document.getElementById('dd');
-      const h  = document.getElementById('hh');
-      const m  = document.getElementById('mm');
-      const s  = document.getElementById('ss');
-      const d2 = document.getElementById('dd2');
-      const h2 = document.getElementById('hh2');
-      const m2 = document.getElementById('mm2');
-      const s2 = document.getElementById('ss2');
+    // Countdown setup — until 30 November 2025, 20:00 (UTC / UK time in winter)
+    const launchDate = new Date('2025-11-30T20:00:00Z').getTime();
 
-      if (!d || !h || !m || !s) return;
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = launchDate - now;
 
-      const target = new Date('2025-11-20T19:00:00Z');
+      const dd = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+      const hh = Math.max(0, Math.floor((distance / (1000 * 60 * 60)) % 24));
+      const mm = Math.max(0, Math.floor((distance / (1000 * 60)) % 60));
+      const ss = Math.max(0, Math.floor((distance / 1000) % 60));
+
       const pad = (n) => String(n).padStart(2, '0');
 
-      function update(set1, set2) {
-        const now = new Date();
-        let ms = Math.max(0, target - now);
+      // Big countdown
+      document.getElementById('dd').textContent = pad(dd);
+      document.getElementById('hh').textContent = pad(hh);
+      document.getElementById('mm').textContent = pad(mm);
+      document.getElementById('ss').textContent = pad(ss);
+    }
 
-        const days = Math.floor(ms / 86400000); ms -= days * 86400000;
-        const hrs  = Math.floor(ms / 3600000);  ms -= hrs  * 3600000;
-        const mins = Math.floor(ms / 60000);    ms -= mins * 60000;
-        const secs = Math.floor(ms / 1000);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-        set1.dd.textContent = pad(days);
-        set1.hh.textContent = pad(hrs);
-        set1.mm.textContent = pad(mins);
-        set1.ss.textContent = pad(secs);
+    // Modal logic
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const waitlistForm = document.getElementById('waitlistForm');
+    const formNote = document.getElementById('formNote');
+    const successMsg = document.getElementById('successMsg');
 
-        if (set2) {
-          set2.dd.textContent = pad(days);
-          set2.hh.textContent = pad(hrs);
-          set2.mm.textContent = pad(mins);
-          set2.ss.textContent = pad(secs);
-        }
-      }
+    function openModal() {
+      modalBackdrop.classList.add('active');
+    }
 
-      const big  = { dd: d,  hh: h,  mm: m,  ss: s };
-      const mini = (d2 && h2 && m2 && s2) ? { dd: d2, hh: h2, mm: m2, ss: s2 } : null;
+    function closeModal() {
+      modalBackdrop.classList.remove('active');
+    }
 
-      function tick() {
-        update(big, mini);
-      }
+    openModalBtn.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
 
-      tick();
-      setInterval(tick, 1000);
-    })();
-
-    // MINI BAR VISIBILITY
-    (function () {
-      const miniBar = document.getElementById('miniBar');
-      const anchor  = document.getElementById('bigCountdown');
-      if (!miniBar || !anchor || !('IntersectionObserver' in window)) return;
-
-      const io = new IntersectionObserver((entries) => {
-        const e = entries[0];
-        miniBar.classList.toggle('visible', !e.isIntersecting);
-      }, { threshold: 0 });
-
-      io.observe(anchor);
-    })();
-
-    // MODAL OPEN/CLOSE
-    (function () {
-      const modal    = document.getElementById('emailModal');
-      const openBtn  = document.getElementById('openModalBtn');
-      const closeBtn = document.getElementById('closeModalBtn');
-
-      function open() {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-      }
-
-      function close() {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-      }
-
-      openBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        open();
-      });
-
-      closeBtn?.addEventListener('click', close);
-
-      modal?.addEventListener('click', (e) => {
-        if (e.target === modal) close();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') close();
-      });
-    })();
-
-    // CONVERTKIT SUBSCRIPTION
-    (function () {
-      const form       = document.getElementById('waitlistForm');
-      const emailInput = document.getElementById('emailInput');
-      const success    = document.getElementById('successMsg');
-      const errorMsg   = document.getElementById('errorMsg');
-
-      const CK_FORM_ID     = '8718149';
-      const CK_FORM_ACTION = `https://app.convertkit.com/forms/${CK_FORM_ID}/subscriptions`;
-
-      async function subscribe(email) {
-        const res = await fetch(CK_FORM_ACTION, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({ email_address: email })
-        });
-
-        if (!res.ok) {
-          throw new Error('Subscription failed');
-        }
-      }
-
-      form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = (emailInput.value || '').trim();
-        if (!email) return;
-
-        try {
-          await subscribe(email);
-          success.classList.remove('hidden');
-          errorMsg.classList.add('hidden');
-          form.reset();
-          setTimeout(() => {
-            window.location.href = 'thank-you.html';
-          }, 600);
-        } catch (err) {
-          console.error(err);
-          success.classList.add('hidden');
-          errorMsg.classList.remove('hidden');
-        }
-      });
-    })();
+    waitlistForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // TODO: hook this up to your real backend / form tool
+      formNote.classList.add('hidden');
+      successMsg.classList.remove('hidden');
+      waitlistForm.reset();
+    });
   </script>
 </body>
 </html>
