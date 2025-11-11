@@ -35,7 +35,6 @@
     body{ font-family:var(--font-body); }
     .display, h1,h2,h3,.countdown-label{ font-family:var(--font-head); letter-spacing:.02em; }
 
-    /* Banner light whip animation */
     .banner-glow{
       position:relative; overflow:hidden;
       background: linear-gradient(90deg, #f7f7f7, #f2f2f2);
@@ -52,25 +51,20 @@
     }
     .banner-glow:hover::after{ transform: translateX(100%); }
 
-    /* Nav underline */
     .nav a{ position:relative; cursor:pointer; transition:opacity .2s ease; }
     .nav a::after{ content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px; transform:scaleX(0); transform-origin:left; transition:transform .25s ease; background:currentColor; }
     .nav a:hover::after{ transform:scaleX(1); }
 
-    /* Hero container */
     .hero-wrap{ position:relative; display:inline-block; overflow:hidden; }
     .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
 
-    /* Hero hover reveal — show color on hover, revert to B&W off hover */
     .hero-bw {
       opacity: 1;
       transition: opacity 1.8s ease-in-out;
     }
-
     .hero-wrap:hover .hero-bw {
       opacity: 0;
     }
-
     .hero-wrap::after{
       content:""; position:absolute; inset:0;
       background: linear-gradient(90deg,
@@ -85,12 +79,10 @@
     }
     .hero-wrap:hover::after{ transform: translateX(0%); }
 
-    /* Star cursor */
     .use-star-cursor:hover{
       cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 100 100'><path d='M50 8 L56 38 L92 50 L56 62 L50 92 L44 62 L8 50 L44 38 Z' fill='%23000'/></svg>") 12 12, pointer;
     }
 
-    /* Side star motifs */
     .side-stars{ position:fixed; top:0; bottom:0; width:28px; opacity:.06; pointer-events:none; display:none; }
     .side-stars.left{ left:10px; } .side-stars.right{ right:10px; }
     .side-stars::before{
@@ -104,7 +96,6 @@
     }
     @media (min-width:1024px){ .side-stars{ display:block; } }
 
-    /* Mini countdown bar */
     .mini-bar{
       position:fixed; top:0; left:0; right:0; z-index:40;
       transform: translateY(-100%); opacity:0;
@@ -124,11 +115,15 @@
   <div class="side-stars left" aria-hidden="true"></div>
   <div class="side-stars right" aria-hidden="true"></div>
 
-  <!-- Top banner (logo only, on plain white) -->
+  <!-- Top banner (logo only, now 200% bigger) -->
   <div class="w-full text-black border-b border-black/10 relative h-12 sm:h-14 bg-white">
-    <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo"
-         class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
-         loading="lazy" decoding="async"/>
+    <img
+      src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
+      alt="Starface logo"
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 sm:h-[11rem] w-auto select-none pointer-events-none"
+      loading="lazy"
+      decoding="async"
+    />
   </div>
 
   <!-- Mini countdown bar (appears after scroll past big timer) -->
@@ -148,7 +143,17 @@
   <main class="px-4 text-center">
     <div class="max-w-2xl mx-auto">
 
-      <!-- Big countdown -->
+      <!-- Hero (B&W default, wipe glow to color on hover) -->
+      <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
+        <div class="hero-wrap w-full max-w-screen-md rounded-xl shadow-sm" style="max-height:550px; aspect-ratio: 3 / 4;">
+          <!-- Color (bottom layer) -->
+          <img src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG" alt="Space Kid — Color" class="hero-img" loading="lazy" decoding="async"/>
+          <!-- B&W (top layer with wipe mask) -->
+          <img src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Greyscale.jpg" alt="Space Kid — Greyscale" class="hero-img hero-bw" loading="lazy" decoding="async"/>
+        </div>
+      </section>
+
+      <!-- Big countdown (moved UNDER hero) -->
       <div id="bigCountdown" class="mt-6 sm:mt-8">
         <div class="countdown-label uppercase tracking-[0.2em] text-2xl sm:text-3xl font-semibold text-black mb-2">
           FULL REVEAL IN
@@ -160,16 +165,6 @@
           <div class="flex flex-col items-center"><span id="ss">00</span><span class="mt-1 text-[10px] sm:text-xs text-black/50">SS</span></div>
         </div>
       </div>
-
-      <!-- Hero (B&W default, wipe glow to color on hover) -->
-      <section class="relative flex justify-center items-center overflow-hidden mt-8 sm:mt-10">
-        <div class="hero-wrap w-full max-w-screen-md rounded-xl shadow-sm" style="max-height:550px; aspect-ratio: 3 / 4;">
-          <!-- Color (bottom layer) -->
-          <img src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG" alt="Space Kid — Color" class="hero-img" loading="lazy" decoding="async"/>
-          <!-- B&W (top layer with wipe mask) -->
-          <img src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Greyscale.jpg" alt="Space Kid — Greyscale" class="hero-img hero-bw" loading="lazy" decoding="async"/>
-        </div>
-      </section>
 
       <!-- Waitlist CTA -->
       <section class="mt-6 sm:mt-8">
