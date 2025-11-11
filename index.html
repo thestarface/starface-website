@@ -145,31 +145,35 @@
       </div>
     </header>
 
-    <main class="flex-1 text-center">
-      <!-- HERO IMAGE (edge-to-edge, no inner white border) -->
-      <section class="mt-3 sm:mt-4 -mx-4">
-        <img
-          src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG"
-          alt="Space Kid — Colour"
-          class="w-full h-auto block object-cover"
-          loading="lazy"
-          decoding="async"
-        />
+    <main class="flex-1">
+      <!-- HERO (centered, no rounded white edges / shadows) -->
+      <div class="max-w-2xl mx-auto px-4 text-center">
+        <section class="mt-3 sm:mt-4 flex justify-center">
+          <div class="w-full">
+            <img
+              src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG"
+              alt="Space Kid — Colour"
+              class="w-full h-auto object-contain block"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </section>
+      </div>
+
+      <!-- FULL-WIDTH MARQUEE -->
+      <section class="mt-8 sm:mt-10">
+        <div class="marquee-container bg-black text-white py-3">
+          <div class="marquee-inner uppercase tracking-[0.3em] font-semibold text-3xl sm:text-5xl md:text-6xl">
+            FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN
+          </div>
+        </div>
       </section>
 
-      <div class="max-w-2xl mx-auto px-4">
-        <!-- BIG COUNTDOWN (UNDER HERO) -->
-        <section id="bigCountdown" class="mt-8 sm:mt-10">
-          <!-- Full-width marquee -->
-          <div class="-mx-4">
-            <div class="marquee-container bg-black text-white py-3 mb-4">
-              <div class="marquee-inner uppercase tracking-[0.3em] font-semibold text-3xl sm:text-5xl md:text-6xl">
-                FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN FULL REVEAL IN
-              </div>
-            </div>
-          </div>
-
-          <!-- Countdown digits -->
+      <!-- COUNTDOWN + CTA -->
+      <div class="max-w-2xl mx-auto px-4 text-center">
+        <!-- Countdown -->
+        <section id="bigCountdown" class="mt-6 sm:mt-8">
           <div
             class="flex items-end justify-center gap-6 sm:gap-8 font-mono tabular-nums text-4xl sm:text-5xl md:text-6xl text-black/90 select-none"
           >
@@ -192,10 +196,10 @@
           </div>
         </section>
 
-        <!-- CTA SECTION -->
+        <!-- CTA -->
         <section class="mt-6 sm:mt-8 mb-10">
-          <div class="flex flex-col items-center justify-center gap-4 max-w-md mx-auto w-full">
-            <p class="text-black/80 text-lg sm:text-xl md:text-2xl leading-snug italic">
+          <div class="flex flex-col items-center justify-center gap-4 w-full">
+            <p class="text-black/80 text-lg sm:text-xl md:text-2xl leading-snug italic sm:whitespace-nowrap">
               Be first to own our debut, limited-edition collectible.
             </p>
             <button
@@ -210,38 +214,49 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-black/10 mt-auto">
-      <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col items-center gap-3 text-xs sm:text-sm text-black/60">
+    <footer class="mt-auto">
+      <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col items-center gap-3 text-xs sm:text-sm text-black/60">
         <div class="text-center">
           STARFACE™ &amp; © 2025 STARFACE Ltd. All rights reserved.
         </div>
+
+        <!-- Social row with icon-style badges -->
         <div class="flex items-center gap-4 justify-center">
+          <span class="text-[11px] sm:text-xs tracking-wide uppercase text-black/65">
+            Follow us on
+          </span>
+
           <a
             href="https://www.instagram.com/thestarface_"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="flex items-center gap-1 hover:text-black"
           >
-            Instagram
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border border-black/60 text-[9px] font-semibold">
+              IG
+            </span>
+            <span>Instagram</span>
           </a>
+
           <a
             href="https://www.tiktok.com/@thestarface_"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="flex items-center gap-1 hover:text-black"
           >
-            TikTok
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border border-black/60 text-[9px] font-semibold">
+              TT
+            </span>
+            <span>TikTok</span>
           </a>
         </div>
 
-        <!-- Lower-right links (right-aligned on larger screens) -->
-        <div class="w-full flex justify-center sm:justify-end mt-1">
-          <div class="flex flex-wrap gap-3 text-[11px] sm:text-xs text-black/55">
-            <a href="/about" class="hover:text-black">About</a>
-            <a href="/privacy" class="hover:text-black">Privacy</a>
-            <a href="/terms" class="hover:text-black">Terms</a>
-            <a href="/contact" class="hover:text-black">Contact</a>
-          </div>
+        <!-- Legal links, centred and visible -->
+        <div class="flex flex-wrap gap-4 justify-center text-[11px] sm:text-xs text-black/70 mt-2">
+          <a href="/about" class="hover:text-black">About</a>
+          <a href="/privacy" class="hover:text-black">Privacy</a>
+          <a href="/terms" class="hover:text-black">Terms</a>
+          <a href="/contact" class="hover:text-black">Contact</a>
         </div>
       </div>
     </footer>
@@ -285,7 +300,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Countdown setup — until 30 November 2025, 20:00 (UTC / UK time in winter)
+    // Countdown setup — until 30 November 2025, 20:00 UTC
     const launchDate = new Date('2025-11-30T20:00:00Z').getTime();
 
     function updateCountdown() {
@@ -299,7 +314,6 @@
 
       const pad = (n) => String(n).padStart(2, '0');
 
-      // Big countdown
       document.getElementById('dd').textContent = pad(dd);
       document.getElementById('hh').textContent = pad(hh);
       document.getElementById('mm').textContent = pad(mm);
@@ -333,7 +347,7 @@
 
     waitlistForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      // TODO: hook this up to your real backend / form tool
+      // TODO: connect to your backend / form service
       formNote.classList.add('hidden');
       successMsg.classList.remove('hidden');
       waitlistForm.reset();
