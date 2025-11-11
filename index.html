@@ -62,29 +62,28 @@
     .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
 
     /* Hero hover reveal — show color on hover, revert to B&W off hover */
-.hero-bw {
-  opacity: 1;                /* B&W fully visible by default */
-  transition: opacity 1.8s ease-in-out;
-}
+    .hero-bw {
+      opacity: 1;
+      transition: opacity 1.8s ease-in-out;
+    }
 
-.hero-wrap:hover .hero-bw {
-  opacity: 0;                /* Fade B&W out to reveal color below */
-}
+    .hero-wrap:hover .hero-bw {
+      opacity: 0;
+    }
 
-/* (Optional) keep the subtle highlight sweep on hover */
-.hero-wrap::after{
-  content:""; position:absolute; inset:0;
-  background: linear-gradient(90deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0) 35%,
-    rgba(255,255,255,0.12) 50%,
-    rgba(255,255,255,0) 65%,
-    rgba(255,255,255,0) 100%);
-  opacity:.85; pointer-events:none;
-  transform: translateX(-100%);
-  transition: transform 1.8s ease, opacity .2s ease; /* match the fade timing */
-}
-.hero-wrap:hover::after{ transform: translateX(0%); }
+    .hero-wrap::after{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,0.12) 50%,
+        rgba(255,255,255,0) 65%,
+        rgba(255,255,255,0) 100%);
+      opacity:.85; pointer-events:none;
+      transform: translateX(-100%);
+      transition: transform 1.8s ease, opacity .2s ease;
+    }
+    .hero-wrap:hover::after{ transform: translateX(0%); }
 
     /* Star cursor */
     .use-star-cursor:hover{
@@ -125,21 +124,12 @@
   <div class="side-stars left" aria-hidden="true"></div>
   <div class="side-stars right" aria-hidden="true"></div>
 
-  <!-- Top banner (now with animated glow) -->
-  <div class="w-full text-black border-b border-black/10 relative h-12 sm:h-14 banner-glow">
+  <!-- Top banner (logo only, on plain white) -->
+  <div class="w-full text-black border-b border-black/10 relative h-12 sm:h-14 bg-white">
     <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo"
          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-36 sm:h-44 w-auto select-none pointer-events-none"
          loading="lazy" decoding="async"/>
   </div>
-
-  <!-- Menu -->
-  <nav class="w-full bg-white border-b border-black/10">
-    <div class="max-w-3xl mx-auto px-4">
-      <ul class="nav flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-black/70">
-        <li><a href="about.html" class="hover:text-black use-star-cursor">About</a></li>
-      </ul>
-    </div>
-  </nav>
 
   <!-- Mini countdown bar (appears after scroll past big timer) -->
   <div id="miniBar" class="mini-bar bg-white/85 border-b border-black/10">
@@ -211,6 +201,7 @@
         </div>
       </div>
       <div class="flex items-center gap-6 text-[13px] sm:text-sm text-black/60">
+        <a href="about.html" class="hover:text-black use-star-cursor">About</a>
         <a href="privacy.html" class="hover:text-black use-star-cursor">Privacy</a>
         <a href="terms.html" class="hover:text-black use-star-cursor">Terms</a>
         <a href="contact.html" class="hover:text-black use-star-cursor">Contact</a>
