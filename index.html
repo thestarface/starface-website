@@ -7,7 +7,7 @@
   <title>STARFACE</title>
   <meta
     name="description"
-    content="STARFACE™ is a collectibles company. Meet Starface SpaceKid and join the waitlist for the first drop."
+    content="STARFACE™ is a collectibles company. Meet Starface SpaceKid — our debut art toy."
   />
 
   <!-- Favicon -->
@@ -104,7 +104,6 @@
       }
     }
 
-    /* Blinking text for the tagline */
     .blink-text {
       animation: blink 1.4s ease-in-out infinite;
     }
@@ -130,17 +129,18 @@
   <meta property="og:title" content="STARFACE" />
   <meta
     property="og:description"
-    content="Meet Starface SpaceKid and join the waitlist for the first drop."
+    content="Meet Starface SpaceKid — our debut art toy collectible."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thestarface.com" />
   <meta property="og:image" content="https://thestarface.com/STARFACELOGOBLACK.png" />
 
+  <!-- You don't need a Twitter/X account for these; they just control how links preview -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="STARFACE" />
   <meta
     name="twitter:description"
-    content="Meet Starface SpaceKid and join the waitlist for the first drop."
+    content="Meet Starface SpaceKid — our debut art toy collectible."
   />
   <meta name="twitter:image" content="https://thestarface.com/STARFACELOGOBLACK.png" />
 </head>
@@ -148,12 +148,12 @@
 <body class="bg-black text-white">
   <div class="min-h-[120vh] flex flex-col">
     <!-- HEADER -->
-    <header class="bg-black pt-3 pb-1">
+    <header class="bg-black pt-4 pb-2">
       <div class="max-w-5xl mx-auto px-4">
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/STARFACELOGOBLACK.png"
           alt="STARFACE"
-          class="mx-auto h-24 sm:h-32 md:h-40 w-auto select-none pointer-events-none"
+          class="mx-auto h-28 sm:h-40 md:h-52 w-auto select-none pointer-events-none"
           loading="lazy"
           decoding="async"
         />
@@ -161,21 +161,21 @@
     </header>
 
     <main class="flex-1">
-      <!-- HERO: VIDEO REVEAL -->
-      <div class="max-w-3xl mx-auto px-4 text-center">
-        <section class="mt-4 sm:mt-6 flex flex-col items-center gap-4">
-          <div class="w-full rounded-3xl overflow-hidden border border-white/10 shadow-lg">
+      <!-- HERO: VIDEO -->
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <section class="mt-2 sm:mt-4 flex flex-col items-center">
+          <div class="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/10 bg-black">
             <video
               src="https://raw.githubusercontent.com/thestarface/starface-website/main/origin_reveal.mp4"
               autoplay
               muted
               loop
               playsinline
-              class="w-full h-full object-cover"
+              class="w-full h-auto max-h-[80vh] object-contain bg-black"
             ></video>
           </div>
-          <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-white/60 mt-2">
-            STARFACE SPACEKID — ORIGIN VARIANT
+          <p class="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide">
+            STARFACE SPACEKID — <span class="text-white/90">ORIGIN VARIANT</span>
           </p>
         </section>
       </div>
@@ -183,8 +183,11 @@
       <!-- FULL-WIDTH MARQUEE -->
       <section class="mt-8 sm:mt-10">
         <div class="marquee-container bg-black text-white py-5 border-y border-white/10">
-          <div class="marquee-inner uppercase tracking-[0.3em] font-semibold text-3xl sm:text-5xl md:text-6xl">
-            THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING
+          <div class="marquee-inner uppercase tracking-[0.3em] font-semibold text-2xl sm:text-4xl md:text-5xl">
+            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
         </div>
       </section>
@@ -192,9 +195,9 @@
       <!-- COUNTDOWN + CTA -->
       <div class="max-w-2xl mx-auto px-4 text-center">
         <!-- Countdown -->
-        <section id="bigCountdown" class="mt-6 sm:mt-8">
+        <section id="bigCountdown" class="mt-8 sm:mt-10">
           <div
-            class="flex items-end justify-center gap-6 sm:gap-10 font-mono tabular-nums text-6xl sm:text-7xl md:text-8xl text-white/90 select-none"
+            class="flex items-end justify-center gap-6 sm:gap-10 font-mono tabular-nums text-5xl sm:text-6xl md:text-7xl text-white/90 select-none"
           >
             <div class="flex flex-col items-center">
               <span id="dd">00</span>
@@ -219,7 +222,7 @@
         <section class="mt-6 sm:mt-8 mb-10">
           <div class="flex flex-col items-center justify-center gap-4 w-full">
             <p class="blink-text text-white/70 text-lg sm:text-xl md:text-2xl leading-snug italic sm:whitespace-nowrap">
-              The stars are aligning.
+              Be first to own our debut, limited-edition collectible.
             </p>
             <button
               id="openModalBtn"
@@ -234,64 +237,145 @@
         </section>
       </div>
 
-      <!-- GALLERY SECTION -->
-      <section class="max-w-5xl mx-auto px-4 pb-14">
-        <h2 class="text-sm tracking-[0.25em] uppercase text-white/60 mb-4">
+      <!-- ORIGIN VARIANT GALLERY -->
+      <section class="mt-4 sm:mt-8 max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
           Origin Variant — First Look
         </h2>
-        <div class="grid gap-4 sm:gap-6 md:grid-cols-3">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <img
             src="https://raw.githubusercontent.com/thestarface/starface-website/main/Frontview.jpg"
-            alt="SpaceKid — Front view"
-            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/Front%20tilt.jpg"
-            alt="SpaceKid — Front tilt"
-            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/Front%20zoom.jpg"
-            alt="SpaceKid — Necklace detail"
-            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            alt="SpaceKid front view"
+            class="w-full h-auto rounded-xl object-cover"
             loading="lazy"
             decoding="async"
           />
           <img
             src="https://raw.githubusercontent.com/thestarface/starface-website/main/leftside.jpg"
-            alt="SpaceKid — Left side"
-            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            alt="SpaceKid left side view"
+            class="w-full h-auto rounded-xl object-cover"
             loading="lazy"
             decoding="async"
           />
           <img
             src="https://raw.githubusercontent.com/thestarface/starface-website/main/rightSide.jpg"
-            alt="SpaceKid — Right side"
-            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            alt="SpaceKid right side view"
+            class="w-full h-auto rounded-xl object-cover"
             loading="lazy"
             decoding="async"
           />
           <img
             src="https://raw.githubusercontent.com/thestarface/starface-website/main/rear.jpg"
-            alt="SpaceKid — Rear view"
-            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            alt="SpaceKid rear view"
+            class="w-full h-auto rounded-xl object-cover"
             loading="lazy"
             decoding="async"
           />
-          <!-- If your sketch has a different filename/path, update below -->
-          <!--
+        </div>
+      </section>
+
+      <!-- MEET SPACEKID -->
+      <section class="mt-10 sm:mt-14 max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-4">
+          Meet SpaceKid
+        </h2>
+        <p class="text-sm sm:text-base text-white/80 max-w-3xl mx-auto text-center">
+          Starface SpaceKid is a symbol of quiet potential — a kid from ordinary beginnings
+          who believes there is a star inside everyone. He explores new worlds without
+          forgetting where he comes from.
+        </p>
+
+        <div class="mt-8 grid gap-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-start">
+          <div class="space-y-4 text-sm sm:text-base text-white/80">
+            <div>
+              <h3 class="font-semibold text-white">Star Eyes</h3>
+              <p>
+                His eyes are stars because he sees beyond what is in front of him — always
+                looking for possibility, not limitation.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-white">Helmet</h3>
+              <p>
+                The helmet is his protection as he steps into unknown spaces — a reminder
+                that it’s okay to explore new worlds while keeping your mind guarded.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-white">Necklace of Stars</h3>
+              <p>
+                Each star on his chain represents a talent — some he already knows, others
+                he’s still discovering along the journey. His gifts are collected, not
+                rushed.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-white">Locs</h3>
+              <p>
+                His locs are a nod to his roots, his culture, and the people he comes from.
+                No matter how far he travels, his identity travels with him.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-white">Boots</h3>
+              <p>
+                Heavy boots keep him grounded. They’re built for long walks, slow progress
+                and big dreams.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-white">Silver Bracelet</h3>
+              <p>
+                The bracelet is a simple band — a quiet reminder to stay disciplined,
+                consistent and faithful to the journey.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-white">Backpack</h3>
+              <p>
+                His backpack carries memories, tools and ideas. Everything he needs to turn
+                small opportunities into something cosmic.
+              </p>
+            </div>
+          </div>
+
+          <!-- Necklace detail image -->
+          <div class="md:pl-4">
+            <img
+              src="https://raw.githubusercontent.com/thestarface/starface-website/main/Front%20zoom.jpg"
+              alt="Close-up of SpaceKid's star necklace"
+              class="w-full h-auto rounded-2xl object-cover border border-white/10"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SKETCH SECTION -->
+      <section class="mt-10 sm:mt-14 max-w-4xl mx-auto px-4 pb-12">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-4">
+          From Sketchbook to Space
+        </h2>
+        <p class="text-sm sm:text-base text-white/75 max-w-2xl mx-auto text-center mb-6">
+          SpaceKid began as a pencil sketch — a simple idea of a kid in locs, boots and a
+          star necklace, staring quietly into the future. This is where the journey started.
+        </p>
+        <div class="rounded-2xl overflow-hidden border border-white/10">
+          <!-- Upload your sketch as spacekid-sketch.png in the repo root -->
           <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/sketch.jpg"
-            alt="SpaceKid concept sketch"
-            class="w-full h-auto rounded-2xl border border-white/10 object-cover md:col-span-3"
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/spacekid-sketch.png"
+            alt="Original SpaceKid sketch"
+            class="w-full h-auto object-cover"
             loading="lazy"
             decoding="async"
           />
-          -->
         </div>
       </section>
     </main>
@@ -305,7 +389,7 @@
             Follow us on
           </span>
 
-          <!-- Instagram icon -->
+          <!-- Instagram -->
           <a
             href="https://www.instagram.com/thestarfaceco/"
             target="_blank"
@@ -329,7 +413,7 @@
             </svg>
           </a>
 
-          <!-- TikTok icon -->
+          <!-- TikTok -->
           <a
             href="https://www.tiktok.com/@thestarfaceco"
             target="_blank"
@@ -402,7 +486,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Countdown setup — adjust date/time if you change your reveal
+    // Countdown setup — adjust date/time as needed
     const launchDate = new Date('2025-11-30T20:00:00Z').getTime();
 
     function updateCountdown() {
