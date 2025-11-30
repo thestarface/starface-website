@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>STARFACE — Coming Soon</title>
+  <title>STARFACE</title>
   <meta
     name="description"
-    content="STARFACE™ is a collectibles company. Join the waitlist for the first reveal."
+    content="STARFACE™ is a collectibles company. Meet Starface SpaceKid and join the waitlist for the first drop."
   />
 
   <!-- Favicon -->
@@ -100,7 +100,7 @@
         transform: translateX(0);
       }
       100% {
-      transform: translateX(-50%);
+        transform: translateX(-50%);
       }
     }
 
@@ -130,17 +130,17 @@
   <meta property="og:title" content="STARFACE" />
   <meta
     property="og:description"
-    content="Join the waitlist."
+    content="Meet Starface SpaceKid and join the waitlist for the first drop."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thestarface.com" />
   <meta property="og:image" content="https://thestarface.com/STARFACELOGOBLACK.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="STARFACE — Coming Soon" />
+  <meta name="twitter:title" content="STARFACE" />
   <meta
     name="twitter:description"
-    content="A debut collectible. Join the waitlist for the first reveal."
+    content="Meet Starface SpaceKid and join the waitlist for the first drop."
   />
   <meta name="twitter:image" content="https://thestarface.com/STARFACELOGOBLACK.png" />
 </head>
@@ -149,38 +149,42 @@
   <div class="min-h-[120vh] flex flex-col">
     <!-- HEADER -->
     <header class="bg-black pt-3 pb-1">
-  <div class="max-w-5xl mx-auto px-4">
-    <img
-      src="https://raw.githubusercontent.com/thestarface/starface-website/main/STARFACELOGOBLACK.png"
-      alt="STARFACE"
-      class="mx-auto h-24 sm:h-32 md:h-40 w-auto select-none pointer-events-none"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
-</header>
+      <div class="max-w-5xl mx-auto px-4">
+        <img
+          src="https://raw.githubusercontent.com/thestarface/starface-website/main/STARFACELOGOBLACK.png"
+          alt="STARFACE"
+          class="mx-auto h-24 sm:h-32 md:h-40 w-auto select-none pointer-events-none"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </header>
 
     <main class="flex-1">
-      <!-- HERO -->
-      <div class="max-w-2xl mx-auto px-4 text-center">
-        <section class="mt-0 sm:mt-1 flex justify-center">
-          <div class="w-full">
-            <img
-              src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Colour.JPG"
-              alt="Space Kid — Colour"
-              class="w-full h-auto object-contain block"
-              loading="lazy"
-              decoding="async"
-            />
+      <!-- HERO: VIDEO REVEAL -->
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <section class="mt-4 sm:mt-6 flex flex-col items-center gap-4">
+          <div class="w-full rounded-3xl overflow-hidden border border-white/10 shadow-lg">
+            <video
+              src="https://raw.githubusercontent.com/thestarface/starface-website/main/origin_reveal.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              class="w-full h-full object-cover"
+            ></video>
           </div>
+          <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-white/60 mt-2">
+            STARFACE SPACEKID — ORIGIN VARIANT
+          </p>
         </section>
       </div>
 
       <!-- FULL-WIDTH MARQUEE -->
       <section class="mt-8 sm:mt-10">
-        <div class="marquee-container bg-black text-white py-5">
+        <div class="marquee-container bg-black text-white py-5 border-y border-white/10">
           <div class="marquee-inner uppercase tracking-[0.3em] font-semibold text-3xl sm:text-5xl md:text-6xl">
-            FULL REVEAL IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FULL REVEAL IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FULL REVEAL IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FULL REVEAL IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FULL REVEAL IN
+            THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THE STARS ARE ALIGNING
           </div>
         </div>
       </section>
@@ -190,23 +194,23 @@
         <!-- Countdown -->
         <section id="bigCountdown" class="mt-6 sm:mt-8">
           <div
-            class="flex items-end justify-center gap-6 sm:gap-10 font-mono tabular-nums text-6xl sm:text-7xl md:text-8xl text-black/90 select-none"
+            class="flex items-end justify-center gap-6 sm:gap-10 font-mono tabular-nums text-6xl sm:text-7xl md:text-8xl text-white/90 select-none"
           >
             <div class="flex flex-col items-center">
               <span id="dd">00</span>
-              <span class="mt-1 text-xs sm:text-sm text-black/60">DD</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">DD</span>
             </div>
             <div class="flex flex-col items-center">
               <span id="hh">00</span>
-              <span class="mt-1 text-xs sm:text-sm text-black/60">HH</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">HH</span>
             </div>
             <div class="flex flex-col items-center">
               <span id="mm">00</span>
-              <span class="mt-1 text-xs sm:text-sm text-black/60">MM</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">MM</span>
             </div>
             <div class="flex flex-col items-center">
               <span id="ss">00</span>
-              <span class="mt-1 text-xs sm:text-sm text-black/60">SS</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">SS</span>
             </div>
           </div>
         </section>
@@ -214,8 +218,8 @@
         <!-- CTA -->
         <section class="mt-6 sm:mt-8 mb-10">
           <div class="flex flex-col items-center justify-center gap-4 w-full">
-            <p class="blink-text text-black/60 text-lg sm:text-xl md:text-2xl leading-snug italic sm:whitespace-nowrap">
-              Be first to own our debut, limited-edition collectible.
+            <p class="blink-text text-white/70 text-lg sm:text-xl md:text-2xl leading-snug italic sm:whitespace-nowrap">
+              The stars are aligning.
             </p>
             <button
               id="openModalBtn"
@@ -229,23 +233,84 @@
           </div>
         </section>
       </div>
+
+      <!-- GALLERY SECTION -->
+      <section class="max-w-5xl mx-auto px-4 pb-14">
+        <h2 class="text-sm tracking-[0.25em] uppercase text-white/60 mb-4">
+          Origin Variant — First Look
+        </h2>
+        <div class="grid gap-4 sm:gap-6 md:grid-cols-3">
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/Frontview.jpg"
+            alt="SpaceKid — Front view"
+            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/Front%20tilt.jpg"
+            alt="SpaceKid — Front tilt"
+            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/Front%20zoom.jpg"
+            alt="SpaceKid — Necklace detail"
+            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/leftside.jpg"
+            alt="SpaceKid — Left side"
+            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/rightSide.jpg"
+            alt="SpaceKid — Right side"
+            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/rear.jpg"
+            alt="SpaceKid — Rear view"
+            class="w-full h-auto rounded-2xl border border-white/10 object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- If your sketch has a different filename/path, update below -->
+          <!--
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/main/sketch.jpg"
+            alt="SpaceKid concept sketch"
+            class="w-full h-auto rounded-2xl border border-white/10 object-cover md:col-span-3"
+            loading="lazy"
+            decoding="async"
+          />
+          -->
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="mt-auto">
-      <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col items-center gap-3 text-xs sm:text-sm text-black/60">
+    <footer class="mt-auto border-t border-white/10">
+      <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col items-center gap-3 text-xs sm:text-sm text-white/60">
         <!-- Social row -->
         <div class="flex items-center gap-4 justify-center">
-          <span class="text-sm sm:text-base tracking-wide uppercase text-black/70">
+          <span class="text-sm sm:text-base tracking-wide uppercase text-white/70">
             Follow us on
           </span>
 
-          <!-- Instagram icon (outline but accurate) -->
+          <!-- Instagram icon -->
           <a
             href="https://www.instagram.com/thestarfaceco/"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="hover:text-white"
             aria-label="Instagram"
           >
             <svg
@@ -264,12 +329,12 @@
             </svg>
           </a>
 
-          <!-- TikTok icon (filled, closer to official mark) -->
+          <!-- TikTok icon -->
           <a
             href="https://www.tiktok.com/@thestarfaceco"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="hover:text-white"
             aria-label="TikTok"
           >
             <svg
@@ -283,15 +348,15 @@
           </a>
         </div>
 
-        <!-- Legal links (now correctly linked to HTML pages) -->
-        <div class="flex flex-wrap gap-4 justify-center text-[11px] sm:text-xs text-black/70 mt-2">
-          <a href="/about.html" class="hover:text-black">About</a>
-          <a href="/privacy.html" class="hover:text-black">Privacy</a>
-          <a href="/terms.html" class="hover:text-black">Terms</a>
-          <a href="/contact.html" class="hover:text-black">Contact</a>
+        <!-- Legal links -->
+        <div class="flex flex-wrap gap-4 justify-center text-[11px] sm:text-xs text-white/70 mt-2">
+          <a href="/about.html" class="hover:text-white">About</a>
+          <a href="/privacy.html" class="hover:text-white">Privacy</a>
+          <a href="/terms.html" class="hover:text-white">Terms</a>
+          <a href="/contact.html" class="hover:text-white">Contact</a>
         </div>
 
-        <!-- Copyright: always last line -->
+        <!-- Copyright -->
         <div class="text-center mt-2">
           STARFACE™ &amp; © 2025 STARFACE Ltd. All rights reserved.
         </div>
@@ -337,7 +402,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Countdown setup — until 30 November 2025, 20:00 UTC
+    // Countdown setup — adjust date/time if you change your reveal
     const launchDate = new Date('2025-11-30T20:00:00Z').getTime();
 
     function updateCountdown() {
