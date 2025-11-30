@@ -7,13 +7,13 @@
   <title>STARFACE</title>
   <meta
     name="description"
-    content="STARFACE™ is a collectibles company. Meet Starface SpaceKid — our debut art toy."
+    content="STARFACE™ is a collectibles company. The stars are aligning for our debut figure, SpaceKid."
   />
 
   <!-- Favicon -->
   <link
     rel="icon"
-    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='white'/></svg>"
   />
 
   <!-- Fonts -->
@@ -46,7 +46,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.55);
       display: none;
       align-items: center;
       justify-content: center;
@@ -58,19 +58,20 @@
     }
 
     .modal {
-      background: white;
+      background: #030712;
       border-radius: 1rem;
       max-width: 420px;
       width: 100%;
       margin: 1.5rem;
       box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.18),
-        0 0 0 1px rgba(0, 0, 0, 0.05);
+        0 18px 40px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(148, 163, 184, 0.35);
+      color: #e5e7eb;
     }
 
     .modal-header {
       padding: 1.25rem 1.5rem 0.75rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     }
 
     .modal-body {
@@ -78,7 +79,7 @@
     }
 
     .use-star-cursor:hover {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='black'/></svg>"),
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='%23ffffff'/></svg>"),
         auto;
     }
 
@@ -113,7 +114,7 @@
         opacity: 1;
       }
       55%, 85% {
-        opacity: 0.25;
+        opacity: 0.35;
       }
     }
 
@@ -129,18 +130,17 @@
   <meta property="og:title" content="STARFACE" />
   <meta
     property="og:description"
-    content="Meet Starface SpaceKid — our debut art toy collectible."
+    content="The stars are aligning. Join the waitlist for our debut collectible, SpaceKid."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thestarface.com" />
   <meta property="og:image" content="https://thestarface.com/STARFACELOGOBLACK.png" />
 
-  <!-- You don't need a Twitter/X account for these; they just control how links preview -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="STARFACE" />
   <meta
     name="twitter:description"
-    content="Meet Starface SpaceKid — our debut art toy collectible."
+    content="The stars are aligning. Join the waitlist for our debut collectible, SpaceKid."
   />
   <meta name="twitter:image" content="https://thestarface.com/STARFACELOGOBLACK.png" />
 </head>
@@ -153,7 +153,7 @@
         <img
           src="https://raw.githubusercontent.com/thestarface/starface-website/main/STARFACELOGOBLACK.png"
           alt="STARFACE"
-          class="mx-auto h-28 sm:h-40 md:h-52 w-auto select-none pointer-events-none"
+          class="mx-auto h-28 sm:h-40 md:h-48 w-auto select-none pointer-events-none"
           loading="lazy"
           decoding="async"
         />
@@ -161,39 +161,52 @@
     </header>
 
     <main class="flex-1">
-      <!-- HERO: VIDEO -->
+      <!-- HERO: VIDEO + TITLE -->
       <div class="max-w-4xl mx-auto px-4 text-center">
-        <section class="mt-2 sm:mt-4 flex flex-col items-center">
-          <div class="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/10 bg-black">
+        <section class="mt-2 sm:mt-4 flex flex-col items-center gap-4">
+          <div class="w-full max-w-xl rounded-3xl overflow-hidden">
             <video
-              src="https://raw.githubusercontent.com/thestarface/starface-website/main/origin_reveal.mp4"
+              class="w-full h-full block object-cover"
               autoplay
               muted
               loop
               playsinline
-              class="w-full h-auto max-h-[80vh] object-contain bg-black"
-            ></video>
+            >
+              <source src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/origin_reveal.mp4" type="video/mp4" />
+            </video>
           </div>
-          <p class="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide">
-            STARFACE SPACEKID — <span class="text-white/90">ORIGIN VARIANT</span>
+
+          <p class="mt-3 text-sm sm:text-base md:text-lg uppercase tracking-[0.3em] text-slate-100">
+            STARFACE SPACEKID — ORIGIN VARIANT
           </p>
         </section>
       </div>
 
-      <!-- FULL-WIDTH MARQUEE -->
+      <!-- MARQUEE -->
       <section class="mt-8 sm:mt-10">
-        <div class="marquee-container bg-black text-white py-5 border-y border-white/10">
-          <div class="marquee-inner uppercase tracking-[0.3em] font-semibold text-2xl sm:text-4xl md:text-5xl">
-            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            THE STARS ARE <span class="text-[#8CF57A]">ALIGNING ★</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="marquee-container border-y border-white/10 bg-black py-4">
+          <div class="marquee-inner uppercase tracking-[0.4em] text-sm sm:text-base md:text-lg">
+            <span class="text-[#4ade80]">
+              THE STARS ARE ALIGNING ✦
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-[#4ade80]">
+              THE STARS ARE ALIGNING ✦
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-[#4ade80]">
+              THE STARS ARE ALIGNING ✦
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-[#4ade80]">
+              THE STARS ARE ALIGNING ✦
+            </span>
           </div>
         </div>
       </section>
 
       <!-- COUNTDOWN + CTA -->
-      <div class="max-w-2xl mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto px-4 text-center">
         <!-- Countdown -->
         <section id="bigCountdown" class="mt-8 sm:mt-10">
           <div
@@ -221,7 +234,7 @@
         <!-- CTA -->
         <section class="mt-6 sm:mt-8 mb-10">
           <div class="flex flex-col items-center justify-center gap-4 w-full">
-            <p class="blink-text text-white/70 text-lg sm:text-xl md:text-2xl leading-snug italic sm:whitespace-nowrap">
+            <p class="blink-text text-white/70 text-lg sm:text-xl md:text-2xl leading-snug italic">
               Be first to own our debut, limited-edition collectible.
             </p>
             <button
@@ -237,142 +250,68 @@
         </section>
       </div>
 
-      <!-- ORIGIN VARIANT GALLERY -->
-      <section class="mt-4 sm:mt-8 max-w-5xl mx-auto px-4">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-6">
-          Origin Variant — First Look
+      <!-- FIRST LOOK GALLERY -->
+      <section class="max-w-5xl mx-auto px-4 mt-4 sm:mt-2">
+        <h2 class="display text-center text-xl sm:text-2xl md:text-3xl tracking-[0.35em] uppercase">
+          FIRST LOOK
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/Frontview.jpg"
-            alt="SpaceKid front view"
-            class="w-full h-auto rounded-xl object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/leftside.jpg"
-            alt="SpaceKid left side view"
-            class="w-full h-auto rounded-xl object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/rightSide.jpg"
-            alt="SpaceKid right side view"
-            class="w-full h-auto rounded-xl object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/rear.jpg"
-            alt="SpaceKid rear view"
-            class="w-full h-auto rounded-xl object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </section>
 
-      <!-- MEET SPACEKID -->
-      <section class="mt-10 sm:mt-14 max-w-5xl mx-auto px-4">
-        <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-4">
-          Meet SpaceKid
-        </h2>
-        <p class="text-sm sm:text-base text-white/80 max-w-3xl mx-auto text-center">
-          Starface SpaceKid is a symbol of quiet potential — a kid from ordinary beginnings
-          who believes there is a star inside everyone. He explores new worlds without
-          forgetting where he comes from.
-        </p>
-
-        <div class="mt-8 grid gap-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-start">
-          <div class="space-y-4 text-sm sm:text-base text-white/80">
-            <div>
-              <h3 class="font-semibold text-white">Star Eyes</h3>
-              <p>
-                His eyes are stars because he sees beyond what is in front of him — always
-                looking for possibility, not limitation.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="font-semibold text-white">Helmet</h3>
-              <p>
-                The helmet is his protection as he steps into unknown spaces — a reminder
-                that it’s okay to explore new worlds while keeping your mind guarded.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="font-semibold text-white">Necklace of Stars</h3>
-              <p>
-                Each star on his chain represents a talent — some he already knows, others
-                he’s still discovering along the journey. His gifts are collected, not
-                rushed.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="font-semibold text-white">Locs</h3>
-              <p>
-                His locs are a nod to his roots, his culture, and the people he comes from.
-                No matter how far he travels, his identity travels with him.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="font-semibold text-white">Boots</h3>
-              <p>
-                Heavy boots keep him grounded. They’re built for long walks, slow progress
-                and big dreams.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="font-semibold text-white">Silver Bracelet</h3>
-              <p>
-                The bracelet is a simple band — a quiet reminder to stay disciplined,
-                consistent and faithful to the journey.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="font-semibold text-white">Backpack</h3>
-              <p>
-                His backpack carries memories, tools and ideas. Everything he needs to turn
-                small opportunities into something cosmic.
-              </p>
-            </div>
-          </div>
-
-          <!-- Necklace detail image -->
-          <div class="md:pl-4">
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+          <div class="col-span-2 sm:col-span-3">
             <img
-              src="https://raw.githubusercontent.com/thestarface/starface-website/main/Front%20zoom.jpg"
-              alt="Close-up of SpaceKid's star necklace"
-              class="w-full h-auto rounded-2xl object-cover border border-white/10"
+              src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Frontview.jpg"
+              alt="SpaceKid Origin Variant — front view"
+              class="w-full h-auto rounded-3xl object-contain"
               loading="lazy"
               decoding="async"
             />
           </div>
+
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/leftside.jpg"
+            alt="SpaceKid Origin Variant — left side"
+            class="w-full h-auto rounded-2xl object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/rightSide.jpg"
+            alt="SpaceKid Origin Variant — right side"
+            class="w-full h-auto rounded-2xl object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Left%20tilt.jpg"
+            alt="SpaceKid Origin Variant — angled view"
+            class="w-full h-auto rounded-2xl object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/rear.jpg"
+            alt="SpaceKid Origin Variant — rear view"
+            class="w-full h-auto rounded-2xl object-contain"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
-      <!-- SKETCH SECTION -->
-      <section class="mt-10 sm:mt-14 max-w-4xl mx-auto px-4 pb-12">
-        <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-4">
-          From Sketchbook to Space
-        </h2>
-        <p class="text-sm sm:text-base text-white/75 max-w-2xl mx-auto text-center mb-6">
-          SpaceKid began as a pencil sketch — a simple idea of a kid in locs, boots and a
-          star necklace, staring quietly into the future. This is where the journey started.
-        </p>
-        <div class="rounded-2xl overflow-hidden border border-white/10">
-          <!-- Upload your sketch as spacekid-sketch.png in the repo root -->
+      <!-- FROM SKETCH TO SPACE -->
+      <section class="max-w-3xl mx-auto px-4 mt-12 sm:mt-14 mb-16">
+        <h3 class="display text-center text-base sm:text-lg md:text-xl tracking-[0.3em] uppercase">
+          From Sketch to Space
+        </h3>
+
+        <div class="mt-5 rounded-3xl overflow-hidden border border-white/10 bg-zinc-900/60">
           <img
-            src="https://raw.githubusercontent.com/thestarface/starface-website/main/spacekid-sketch.png"
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/spacekid-sketch.png"
             alt="Original SpaceKid sketch"
-            class="w-full h-auto object-cover"
+            class="w-full h-auto object-contain block"
             loading="lazy"
             decoding="async"
           />
@@ -453,11 +392,11 @@
     <div class="modal">
       <div class="modal-header flex items-center justify-between">
         <h2 class="text-base sm:text-lg font-semibold tracking-wide">Get Early Access</h2>
-        <button id="closeModalBtn" class="text-black/60 hover:text-black text-sm">Close</button>
+        <button id="closeModalBtn" class="text-slate-300 hover:text-white text-sm">Close</button>
       </div>
       <div class="modal-body">
-        <p class="text-sm text-black/70 mb-3">
-          Drop your email to be first in line when Space Kid arrives.
+        <p class="text-sm text-slate-300/80 mb-3">
+          Drop your email to be first in line when SpaceKid arrives.
         </p>
         <form id="waitlistForm" class="space-y-3">
           <input
@@ -465,18 +404,18 @@
             id="emailInput"
             required
             placeholder="Enter your email"
-            class="w-full h-11 rounded-md border border-black/15 px-3 text-sm focus:border-black/40 focus:outline-none focus:ring-1 focus:ring-black/30"
+            class="w-full h-11 rounded-md border border-slate-500/60 bg-black/60 px-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-white focus:outline-none focus:ring-1 focus:ring-white/70"
           />
           <button
             type="submit"
-            class="use-star-cursor w-full h-11 rounded-md bg-black text-white px-6 font-medium hover:bg-black/80 transition"
+            class="use-star-cursor w-full h-11 rounded-md bg-white text-black px-6 font-medium hover:bg-slate-200 transition"
           >
             Notify Me
           </button>
-          <p id="formNote" class="text-[11px] text-black/50">
+          <p id="formNote" class="text-[11px] text-slate-400">
             We’ll only email about the drop. You can unsubscribe anytime.
           </p>
-          <p id="successMsg" class="text-[11px] text-emerald-600 hidden">
+          <p id="successMsg" class="text-[11px] text-emerald-400 hidden">
             You’re in. We’ll be in touch before the reveal.
           </p>
         </form>
@@ -486,7 +425,7 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Countdown setup — adjust date/time as needed
+    // Countdown setup — until 30 November 2025, 20:00 UTC
     const launchDate = new Date('2025-11-30T20:00:00Z').getTime();
 
     function updateCountdown() {
