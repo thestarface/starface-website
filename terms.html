@@ -10,7 +10,7 @@
   <!-- Favicon -->
   <link
     rel="icon"
-    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='white'/></svg>"
   />
 
   <!-- Fonts -->
@@ -41,44 +41,69 @@
     .nav a:hover::after { transform: scaleX(1); }
   </style>
 </head>
-<body class="bg-white text-black">
-  <div class="w-full bg-gray-100 border-b border-black/10 relative h-12 sm:h-14">
+
+<body class="bg-black text-white">
+  <!-- Header -->
+  <div class="w-full bg-black border-b border-white/10 relative h-12 sm:h-14">
     <a href="index.html" class="absolute inset-0 flex items-center justify-center">
-      <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo" class="h-36 sm:h-44 w-auto select-none pointer-events-none"/>
+      <img
+        src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
+        alt="Starface logo"
+        class="h-36 sm:h-44 w-auto select-none pointer-events-none"
+      />
     </a>
   </div>
 
-  <!-- Back to Home link -->
+  <!-- Back to Home -->
   <div class="text-center mt-3">
-    <a href="index.html" class="text-sm text-black/70 hover:text-black underline">← Back to Home</a>
+    <a href="index.html" class="text-sm text-white/70 hover:text-white underline">
+      ← Back to Home
+    </a>
   </div>
-  
+
+  <!-- Main Content -->
   <main class="max-w-2xl mx-auto px-4 py-10">
     <h1 class="display text-3xl sm:text-4xl font-semibold mb-4">Terms of Use</h1>
-    <div class="space-y-4 text-black/80 leading-relaxed text-[15px]">
+
+    <div class="space-y-4 text-white/80 leading-relaxed text-[15px]">
       <p><strong>Last updated:</strong> October 2025</p>
 
       <ol class="list-decimal pl-5 space-y-3">
         <li><strong>Purpose.</strong> This website provides information and allows you to join our waitlist for early access. Purchases are not processed here yet.</li>
-        <li><strong>Content.</strong> All visuals, designs, logos, and text are owned by STARFACE Ltd. Please don’t copy, reproduce, or adapt them without permission.</li>
-        <li><strong>Waitlist &amp; Emails.</strong> By joining, you agree to receive occasional updates. You can unsubscribe anytime via the link in our emails.</li>
-        <li><strong>Acceptable Use.</strong> Don’t misuse the site (e.g., attempt to break security, automate scraping, or interfere with availability).</li>
-        <li><strong>Changes.</strong> We may update these terms from time to time. If we do, we’ll refresh the date above.</li>
-        <li><strong>Company Information.</strong> STARFACE Ltd is a company registered in England &amp; Wales under Company No. <strong>16710422</strong>.  
-          Registered office: 75 Glenfield Road, Leicester, LE3 6AW, United Kingdom.</li>
-        <li><strong>Contact.</strong> Questions about these terms? Email <a href="mailto:support@thestarface.com" class="underline hover:no-underline">support@thestarface.com</a>.</li>
+
+        <li><strong>Content.</strong> All visuals, designs, logos, and text are owned by STARFACE Ltd. Do not copy, reproduce, or adapt them without permission.</li>
+
+        <li><strong>Waitlist &amp; Emails.</strong> By joining, you agree to receive occasional updates. You can unsubscribe anytime using the link included in our emails.</li>
+
+        <li><strong>Acceptable Use.</strong> Do not misuse the site (e.g., attempting to bypass security, automate scraping, or interfere with site availability).</li>
+
+        <li><strong>Changes.</strong> We may update these terms periodically. When we do, the date above will be refreshed.</li>
+
+        <li><strong>Company Information.</strong>  
+          STARFACE Ltd is registered in England &amp; Wales under Company No. <strong>16710422</strong>.<br/>
+          Registered office: 75 Glenfield Road, Leicester, LE3 6AW, United Kingdom.
+        </li>
+
+        <li><strong>Contact.</strong>  
+          Questions about these terms? Email  
+          <a href="mailto:support@thestarface.com" class="underline hover:no-underline">
+            support@thestarface.com
+          </a>.
+        </li>
       </ol>
     </div>
   </main>
 
-  <footer class="mt-8 bg-white text-black border-t border-black/10">
+  <!-- Footer -->
+  <footer class="mt-8 bg-black text-white border-t border-white/10">
     <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
-      <div class="flex items-center gap-6 text-[13px] sm:text-sm text-black/60">
-        <a href="privacy.html" class="hover:text-black">Privacy</a>
-        <a href="terms.html" class="hover:text-black">Terms</a>
-        <a href="contact.html" class="hover:text-black">Contact</a>
+      <div class="flex items-center gap-6 text-[13px] sm:text-sm text-white/60">
+        <a href="privacy.html" class="hover:text-white">Privacy</a>
+        <a href="terms.html" class="hover:text-white">Terms</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
       </div>
-      <div class="text-xs text-black/70 text-center">
+
+      <div class="text-xs text-white/70 text-center">
         STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.<br/>
         Registered in England &amp; Wales. Company No. 16710422. Leicester, United Kingdom.
       </div>
