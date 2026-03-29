@@ -351,6 +351,30 @@
   </div>
 </section>
 
+<!-- VARIANT VIEWER -->
+<section class="max-w-6xl mx-auto px-4 mt-16">
+  <h2 class="display text-center text-xl sm:text-2xl md:text-3xl tracking-[0.35em] uppercase">
+    EXPLORE SPACEKID
+  </h2>
+
+  <p class="text-center text-white/60 text-sm sm:text-base mt-3">
+    Select a variant to explore every detail.
+  </p>
+
+  <!-- Variant Buttons -->
+  <div class="mt-8 flex flex-wrap justify-center gap-3">
+    <button onclick="showVariant('origin')" class="variant-btn">Origin</button>
+    <button onclick="showVariant('autumn')" class="variant-btn">Autumn</button>
+    <button onclick="showVariant('urban')" class="variant-btn">Urban</button>
+    <button onclick="showVariant('chrome')" class="variant-btn">Chrome</button>
+    <button onclick="showVariant('midnight')" class="variant-btn">Midnight</button>
+    <button onclick="showVariant('bubblegum')" class="variant-btn">Bubblegum</button>
+  </div>
+
+  <!-- Image Display -->
+  <div id="variantGallery" class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+</section>
+      
      <!-- MEET SPACEKID -->
 <section class="max-w-3xl mx-auto px-4 mt-12 sm:mt-14 mb-20">
   <h3 class="display text-center text-base sm:text-lg md:text-xl tracking-[0.3em] uppercase mb-6">
