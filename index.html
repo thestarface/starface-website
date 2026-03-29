@@ -144,12 +144,145 @@
       transition: color 0.3s ease;
     }
 
+    /* ENTRY SCREEN */
+    .entry-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.55s ease, visibility 0.55s ease;
+    }
+
+    .entry-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .entry-wrap {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+    }
+
+    .entry-panel {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .entry-logo {
+      width: min(420px, 72vw);
+      height: auto;
+      display: block;
+      margin: 0 auto 1.5rem;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: entryFadeUp 0.8s ease forwards;
+    }
+
+    .entry-silhouette {
+      width: min(330px, 64vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: entryFadeUp 0.85s ease forwards;
+      animation-delay: 0.12s;
+    }
+
+    .entry-actions {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.55rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: entryFadeUp 0.85s ease forwards;
+      animation-delay: 0.24s;
+    }
+
+    .entry-enter {
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .entry-enter:hover {
+      transform: translateY(-1px) scale(1.01);
+      opacity: 0.92;
+    }
+
+    .entry-skip {
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,0.48);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .entry-skip:hover {
+      color: rgba(255,255,255,0.75);
+    }
+
+    @keyframes entryFadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .entry-logo {
+        width: min(360px, 78vw);
+        margin-bottom: 1rem;
+      }
+
+      .entry-silhouette {
+        width: min(280px, 64vw);
+      }
+
+      .entry-enter {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .marquee-inner,
       .variant-card,
-      .variant-card img {
+      .variant-card img,
+      .entry-logo,
+      .entry-silhouette,
+      .entry-actions,
+      .entry-enter,
+      .entry-screen {
         animation: none;
         transition: none;
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -174,6 +307,34 @@
 </head>
 
 <body class="bg-black text-white">
+  <!-- ENTRY SCREEN -->
+  <div id="entryScreen" class="entry-screen">
+    <div class="entry-wrap">
+      <div class="entry-panel">
+        <img
+          src="STARFACELOGOBLACK.png"
+          alt="STARFACE"
+          class="entry-logo select-none pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
+
+        <img
+          src="images/silhouette-clean.png"
+          alt="SpaceKid silhouette"
+          class="entry-silhouette select-none pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
+
+        <div class="entry-actions">
+          <button id="enterSiteBtn" class="entry-enter use-star-cursor">Enter</button>
+          <button id="skipIntroBtn" class="entry-skip">Don’t show again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="min-h-screen flex flex-col">
     <!-- HEADER -->
     <header class="bg-black pt-4 pb-2">
@@ -200,7 +361,7 @@
         </h1>
 
         <p class="mt-5 text-white/75 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          The first figure in the Starface universe — a 14-inch collectible built around potential, forward motion, and making something lasting out of what you have.
+          A 14-inch collectible built around potential, forward motion, and making something lasting out of what you have.
         </p>
 
         <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs sm:text-sm uppercase tracking-[0.18em] text-white/70">
@@ -591,12 +752,30 @@
 
   <!-- SCRIPTS -->
   <script>
+    const entryScreen = document.getElementById('entryScreen');
+    const enterSiteBtn = document.getElementById('enterSiteBtn');
+    const skipIntroBtn = document.getElementById('skipIntroBtn');
+
     const modalBackdrop = document.getElementById('modalBackdrop');
     const openModalBtn = document.getElementById('openModalBtn');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const waitlistForm = document.getElementById('waitlistForm');
     const formNote = document.getElementById('formNote');
     const successMsg = document.getElementById('successMsg');
+
+    function hideEntryScreen(rememberChoice = false) {
+      if (rememberChoice) {
+        localStorage.setItem('starface_skip_intro', 'true');
+      }
+      entryScreen.classList.add('hidden');
+    }
+
+    if (localStorage.getItem('starface_skip_intro') === 'true') {
+      entryScreen.classList.add('hidden');
+    }
+
+    enterSiteBtn.addEventListener('click', () => hideEntryScreen(false));
+    skipIntroBtn.addEventListener('click', () => hideEntryScreen(true));
 
     function openModal() {
       modalBackdrop.classList.add('active');
