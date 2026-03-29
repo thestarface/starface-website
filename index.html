@@ -608,6 +608,78 @@
       successMsg.classList.remove('hidden');
       waitlistForm.reset();
     });
+  // Variant viewer logic
+const variantImages = {
+  origin: [
+    "images/origin.JPG",
+    "images/originleft.JPG",
+    "images/originright.JPG",
+    "images/originback.JPG",
+    "images/originside.JPG",
+    "images/originflat.JPG",
+    "images/originzoom.JPG"
+  ],
+  autumn: [
+    "images/autumn.JPG",
+    "images/autumnleft.JPG",
+    "images/autumnright.JPG",
+    "images/autumnback.JPG",
+    "images/autumnside.JPG",
+    "images/autumnflat.JPG",
+    "images/autumnzoom.JPG"
+  ],
+  urban: [
+    "images/urban.JPG",
+    "images/urbanleft.JPG",
+    "images/urbanright.JPG",
+    "images/urbanback.JPG",
+    "images/urbanside.JPG",
+    "images/urbanflat.JPG",
+    "images/urbanzoom.JPG"
+  ],
+  chrome: [
+    "images/chrome.JPG",
+    "images/chromeleft.JPG",
+    "images/chromeright.JPG",
+    "images/chromeback.JPG",
+    "images/chromeside.JPG",
+    "images/chromeflat.JPG",
+    "images/chromezoom.JPG"
+  ],
+  midnight: [
+    "images/midnight.JPG",
+    "images/midnightleft.JPG",
+    "images/midnightright.JPG",
+    "images/midnightback.JPG",
+    "images/midnightside.JPG",
+    "images/midnightflat.JPG",
+    "images/midnightzoom.JPG"
+  ],
+  bubblegum: [
+    "images/bubblegum.JPG",
+    "images/bubblegumleft.JPG",
+    "images/bubblegumright.JPG",
+    "images/bubblegumback.JPG",
+    "images/bubblegumside.JPG",
+    "images/bubblegumflat.JPG",
+    "images/bubblegumzoom.JPG"
+  ]
+};
+
+function showVariant(name) {
+  const gallery = document.getElementById("variantGallery");
+  gallery.innerHTML = "";
+
+  variantImages[name].forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = "w-full rounded-xl object-contain bg-white/[0.03] p-2";
+    gallery.appendChild(img);
+  });
+}
+
+// Load default variant
+showVariant("origin");
   </script>
 </body>
 </html>
