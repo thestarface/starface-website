@@ -7,7 +7,7 @@
   <title>STARFACE</title>
   <meta
     name="description"
-    content="STARFACE™ is a collectibles company. SpaceKid is our debut 14-inch collectible — limited, intentional, and built to last."
+    content="STARFACE™ is a collectibles company. The stars are aligning for our debut figure, SpaceKid."
   />
 
   <!-- Favicon -->
@@ -31,19 +31,14 @@
       --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: var(--font-body);
-      background: #000;
-      color: #fff;
     }
 
     .display,
-    h1, h2, h3 {
+    h1, h2, h3,
+    .countdown-label {
       font-family: var(--font-head);
       letter-spacing: 0.02em;
     }
@@ -102,187 +97,31 @@
     }
 
     @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
-    .glass-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
+    .blink-text {
+      animation: blink 1.4s ease-in-out infinite;
     }
 
-    .variant-card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .variant-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    }
-
-    .variant-card img {
-      transition: transform 0.45s ease;
-    }
-
-    .variant-card:hover img {
-      transform: scale(1.03);
-    }
-
-    .variant-card:hover .variant-title,
-    .variant-card:hover .variant-price,
-    .variant-card:hover .variant-view {
-      color: #ffffff;
-    }
-
-    .variant-view {
-      transition: color 0.3s ease;
-    }
-
-    /* ENTRY SCREEN */
-    .entry-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.55s ease, visibility 0.55s ease;
-    }
-
-    .entry-screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .entry-wrap {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.25rem;
-    }
-
-    .entry-panel {
-      width: 100%;
-      max-width: 760px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .entry-logo {
-      width: min(420px, 72vw);
-      height: auto;
-      display: block;
-      margin: 0 auto 1.5rem;
-      opacity: 0;
-      transform: translateY(14px);
-      animation: entryFadeUp 0.8s ease forwards;
-    }
-
-    .entry-silhouette {
-      width: min(330px, 64vw);
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(16px);
-      animation: entryFadeUp 0.85s ease forwards;
-      animation-delay: 0.12s;
-    }
-
-    .entry-actions {
-      margin-top: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.55rem;
-      opacity: 0;
-      transform: translateY(16px);
-      animation: entryFadeUp 0.85s ease forwards;
-      animation-delay: 0.24s;
-    }
-
-    .entry-enter {
-      border: 0;
-      background: transparent;
-      color: #fff;
-      font-family: var(--font-head);
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      line-height: 1;
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .entry-enter:hover {
-      transform: translateY(-1px) scale(1.01);
-      opacity: 0.92;
-    }
-
-    .entry-skip {
-      border: 0;
-      background: transparent;
-      color: rgba(255,255,255,0.48);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      cursor: pointer;
-      transition: color 0.2s ease;
-    }
-
-    .entry-skip:hover {
-      color: rgba(255,255,255,0.75);
-    }
-
-    @keyframes entryFadeUp {
-      to {
+    @keyframes blink {
+      0%, 40%, 100% {
         opacity: 1;
-        transform: translateY(0);
       }
-    }
-
-    @media (max-width: 640px) {
-      .entry-logo {
-        width: min(360px, 78vw);
-        margin-bottom: 1rem;
-      }
-
-      .entry-silhouette {
-        width: min(280px, 64vw);
-      }
-
-      .entry-enter {
-        font-size: clamp(1.8rem, 8vw, 2.5rem);
+      55%, 85% {
+        opacity: 0.35;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .marquee-inner,
-      .variant-card,
-      .variant-card img,
-      .entry-logo,
-      .entry-silhouette,
-      .entry-actions,
-      .entry-enter,
-      .entry-screen {
+      .blink-text {
         animation: none;
-        transition: none;
-        opacity: 1;
-        transform: none;
       }
     }
   </style>
@@ -291,7 +130,7 @@
   <meta property="og:title" content="STARFACE" />
   <meta
     property="og:description"
-    content="The stars are aligning. SpaceKid is our debut 14-inch collectible."
+    content="The stars are aligning. Join the waitlist for our debut collectible, SpaceKid."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thestarface.com" />
@@ -301,41 +140,13 @@
   <meta name="twitter:title" content="STARFACE" />
   <meta
     name="twitter:description"
-    content="The stars are aligning. SpaceKid is our debut 14-inch collectible."
+    content="The stars are aligning. Join the waitlist for our debut collectible, SpaceKid."
   />
   <meta name="twitter:image" content="https://thestarface.com/STARFACELOGOBLACK.png" />
 </head>
 
 <body class="bg-black text-white">
-  <!-- ENTRY SCREEN -->
-  <div id="entryScreen" class="entry-screen">
-    <div class="entry-wrap">
-      <div class="entry-panel">
-        <img
-          src="STARFACELOGOBLACK.png"
-          alt="STARFACE"
-          class="entry-logo select-none pointer-events-none"
-          loading="eager"
-          decoding="async"
-        />
-
-        <img
-          src="images/silhouette-clean.png"
-          alt="SpaceKid silhouette"
-          class="entry-silhouette select-none pointer-events-none"
-          loading="eager"
-          decoding="async"
-        />
-
-        <div class="entry-actions">
-          <button id="enterSiteBtn" class="entry-enter use-star-cursor">Enter</button>
-          <button id="skipIntroBtn" class="entry-skip">Don’t show again</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-[120vh] flex flex-col">
     <!-- HEADER -->
     <header class="bg-black pt-4 pb-2">
       <div class="max-w-5xl mx-auto px-4">
@@ -350,301 +161,203 @@
     </header>
 
     <main class="flex-1">
-      <!-- INTRO -->
-      <section class="max-w-4xl mx-auto px-4 text-center mt-6 sm:mt-8">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.35em] text-white/55">
-          STARFACE™ — DROP 01
-        </p>
+      <!-- HERO: VIDEO + TITLE -->
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <section class="mt-2 sm:mt-4 flex flex-col items-center gap-4">
+          <div class="w-full max-w-xl rounded-3xl overflow-hidden">
+            <video
+              class="w-full h-full block object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/origin_reveal.mp4" type="video/mp4" />
+            </video>
+          </div>
 
-        <h1 class="display mt-5 text-3xl sm:text-4xl md:text-5xl uppercase tracking-[0.08em]">
-          SpaceKid
-        </h1>
+          <p class="mt-3 text-sm sm:text-base md:text-lg uppercase tracking-[0.3em] text-slate-100">
+            STARFACE SPACEKID — ORIGIN VARIANT
+          </p>
+        </section>
+      </div>
 
-        <p class="mt-5 text-white/75 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          A 14-inch collectible built around potential, forward motion, and making something lasting out of what you have.
-        </p>
+     <!-- MARQUEE -->
+<section class="mt-8 sm:mt-10">
+  <div class="marquee-container border-y border-white/10 bg-black py-5">
+    <div class="marquee-inner uppercase tracking-[0.35em] font-semibold text-3xl sm:text-5xl md:text-6xl">
 
-        <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs sm:text-sm uppercase tracking-[0.18em] text-white/70">
-          <span class="border border-white/15 rounded-full px-4 py-2">14-inch collectible</span>
-          <span class="border border-white/15 rounded-full px-4 py-2">6 variants</span>
-          <span class="border border-white/15 rounded-full px-4 py-2">25 per variant</span>
-          <span class="border border-white/15 rounded-full px-4 py-2">Shipping included</span>
-        </div>
+      <span class="text-[#4ade80]">
+        DEBUT DROP ✦ SIX COLOUR VARIANTS ✦ LIMITED UNITS ✦ LAUNCHING SOON ✦
+      </span>
 
-        <div class="mt-8">
-          <button
-            id="openModalBtn"
-            class="use-star-cursor h-11 sm:h-12 rounded-md text-white px-8 font-semibold tracking-wide transition"
-            style="background-color:#EF3364;"
-            onmouseover="this.style.backgroundColor='#d42c58';"
-            onmouseout="this.style.backgroundColor='#EF3364';"
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <span class="text-[#4ade80]">
+        DEBUT DROP ✦ SIX COLOUR VARIANTS ✦ LIMITED UNITS ✦ LAUNCHING SOON ✦
+      </span>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <span class="text-[#4ade80]">
+        DEBUT DROP ✦ SIX COLOUR VARIANTS ✦ LIMITED UNITS ✦ LAUNCHING SOON ✦
+      </span>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <span class="text-[#4ade80]">
+        DEBUT DROP ✦ SIX COLOUR VARIANTS ✦ LIMITED UNITS ✦ LAUNCHING SOON ✦
+      </span>
+
+    </div>
+  </div>
+</section>
+
+      <!-- COUNTDOWN + CTA -->
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <!-- Countdown -->
+        <section id="bigCountdown" class="mt-8 sm:mt-10">
+          <div
+            class="flex items-end justify-center gap-6 sm:gap-10 font-mono tabular-nums text-5xl sm:text-6xl md:text-7xl text-white/90 select-none"
           >
-            GET EARLY ACCESS
-          </button>
-        </div>
-      </section>
-
-      <!-- MARQUEE -->
-      <section class="mt-10 sm:mt-12">
-        <div class="marquee-container border-y border-white/10 bg-black py-5">
-          <div class="marquee-inner uppercase tracking-[0.35em] font-semibold text-2xl sm:text-4xl md:text-5xl">
-            <span class="text-[#4ade80]">
-              SPACEKID ✦ DROP 01 ✦ LIMITED RELEASE ✦ SIX VARIANTS ✦ 25 PER COLOUR ✦
-            </span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="text-[#4ade80]">
-              SPACEKID ✦ DROP 01 ✦ LIMITED RELEASE ✦ SIX VARIANTS ✦ 25 PER COLOUR ✦
-            </span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="text-[#4ade80]">
-              SPACEKID ✦ DROP 01 ✦ LIMITED RELEASE ✦ SIX VARIANTS ✦ 25 PER COLOUR ✦
-            </span>
+            <div class="flex flex-col items-center">
+              <span id="dd">00</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">DD</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span id="hh">00</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">HH</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span id="mm">00</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">MM</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span id="ss">00</span>
+              <span class="mt-1 text-xs sm:text-sm text-white/60">SS</span>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- DEBUT DROP -->
-      <section id="variants" class="max-w-6xl mx-auto px-4 mt-14 sm:mt-16">
-        <div class="text-center">
-          <p class="text-xs sm:text-sm uppercase tracking-[0.3em] text-white/55">
-            The Debut Drop
-          </p>
-          <h2 class="display mt-3 text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.2em]">
-            Six Variants
-          </h2>
-          <p class="mt-4 text-white/70 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
-            Each variant opens into its own page with additional views and details.
-          </p>
-        </div>
-
-        <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
-          <!-- ORIGIN -->
-          <a href="origin.html" class="variant-card glass-card rounded-3xl overflow-hidden text-center">
-            <div class="overflow-hidden">
-              <img
-                src="images/origin.JPG"
-                alt="Origin Variant"
-                class="w-full h-[320px] object-contain p-4"
-              />
-            </div>
-            <div class="px-4 pb-5">
-              <h3 class="variant-title mt-2 text-lg tracking-[0.2em] uppercase text-white/90">Origin</h3>
-              <p class="text-white/50 text-sm mt-1">The flagship colourway.</p>
-              <div class="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/45">
-                <span class="variant-price">£250</span>
-                <span class="variant-view">View</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- AUTUMN -->
-          <a href="autumn.html" class="variant-card glass-card rounded-3xl overflow-hidden text-center">
-            <div class="overflow-hidden">
-              <img
-                src="images/autumn.JPG"
-                alt="Autumn Variant"
-                class="w-full h-[320px] object-contain p-4"
-              />
-            </div>
-            <div class="px-4 pb-5">
-              <h3 class="variant-title mt-2 text-lg tracking-[0.2em] uppercase text-white/90">Autumn</h3>
-              <p class="text-white/50 text-sm mt-1">Warm tones. Quiet confidence.</p>
-              <div class="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/45">
-                <span class="variant-price">£285</span>
-                <span class="variant-view">View</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- URBAN -->
-          <a href="urban.html" class="variant-card glass-card rounded-3xl overflow-hidden text-center">
-            <div class="overflow-hidden">
-              <img
-                src="images/urban.JPG"
-                alt="Urban Variant"
-                class="w-full h-[320px] object-contain p-4"
-              />
-            </div>
-            <div class="px-4 pb-5">
-              <h3 class="variant-title mt-2 text-lg tracking-[0.2em] uppercase text-white/90">Urban</h3>
-              <p class="text-white/50 text-sm mt-1">Built for movement.</p>
-              <div class="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/45">
-                <span class="variant-price">£285</span>
-                <span class="variant-view">View</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- CHROME -->
-          <a href="chrome.html" class="variant-card glass-card rounded-3xl overflow-hidden text-center">
-            <div class="overflow-hidden">
-              <img
-                src="images/chrome.JPG"
-                alt="Chrome Variant"
-                class="w-full h-[320px] object-contain p-4"
-              />
-            </div>
-            <div class="px-4 pb-5">
-              <h3 class="variant-title mt-2 text-lg tracking-[0.2em] uppercase text-white/90">Chrome</h3>
-              <p class="text-white/50 text-sm mt-1">The sharpest expression.</p>
-              <div class="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/45">
-                <span class="variant-price">£325</span>
-                <span class="variant-view">View</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- MIDNIGHT -->
-          <a href="midnight.html" class="variant-card glass-card rounded-3xl overflow-hidden text-center">
-            <div class="overflow-hidden">
-              <img
-                src="images/midnight.JPG"
-                alt="Midnight Variant"
-                class="w-full h-[320px] object-contain p-4"
-              />
-            </div>
-            <div class="px-4 pb-5">
-              <h3 class="variant-title mt-2 text-lg tracking-[0.2em] uppercase text-white/90">Midnight</h3>
-              <p class="text-white/50 text-sm mt-1">Minimal. Sharp. Understated.</p>
-              <div class="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/45">
-                <span class="variant-price">£250</span>
-                <span class="variant-view">View</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- BUBBLEGUM -->
-          <a href="bubblegum.html" class="variant-card glass-card rounded-3xl overflow-hidden text-center">
-            <div class="overflow-hidden">
-              <img
-                src="images/bubblegum.JPG"
-                alt="Bubblegum Variant"
-                class="w-full h-[320px] object-contain p-4"
-              />
-            </div>
-            <div class="px-4 pb-5">
-              <h3 class="variant-title mt-2 text-lg tracking-[0.2em] uppercase text-white/90">Bubblegum</h3>
-              <p class="text-white/50 text-sm mt-1">Playful but still premium.</p>
-              <div class="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/45">
-                <span class="variant-price">£325</span>
-                <span class="variant-view">View</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- THE DETAILS -->
-      <section class="max-w-6xl mx-auto px-4 mt-20">
-        <div class="text-center">
-          <p class="text-xs sm:text-sm uppercase tracking-[0.3em] text-white/55">The Details</p>
-          <h2 class="display mt-3 text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.2em]">
-            Why SpaceKid Looks Like This
-          </h2>
-          <p class="mt-4 max-w-2xl mx-auto text-white/70 text-sm sm:text-base md:text-lg">
-            SpaceKid isn’t random. Every part of him is intentional.
-          </p>
-        </div>
-
-        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <div class="glass-card rounded-2xl p-6">
-            <h3 class="display text-lg uppercase tracking-[0.16em]">Helmet</h3>
-            <p class="mt-3 text-white/75 text-sm leading-relaxed">
-              He’s not built for where he started. He’s built for where he’s going.
+        <!-- CTA -->
+        <section class="mt-6 sm:mt-8 mb-10">
+          <div class="flex flex-col items-center justify-center gap-4 w-full">
+            <p class="blink-text text-white/70 text-lg sm:text-xl md:text-2xl leading-snug italic">
+              The stars are aligning. Get early access to the Debut Drop.
             </p>
+            <button
+              id="openModalBtn"
+              class="use-star-cursor w-full sm:w-64 h-11 sm:h-12 rounded-md text-white px-8 font-semibold tracking-wide transition"
+              style="background-color:#EF3364;"
+              onmouseover="this.style.backgroundColor='#d42c58';"
+              onmouseout="this.style.backgroundColor='#EF3364';"
+            >
+              GET EARLY ACCESS!
+            </button>
           </div>
+        </section>
+      </div>
 
-          <div class="glass-card rounded-2xl p-6">
-            <h3 class="display text-lg uppercase tracking-[0.16em]">Backpack</h3>
-            <p class="mt-3 text-white/75 text-sm leading-relaxed">
-              Everything he needs is already with him. It might not look like much, but it’s enough.
-            </p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-6">
-            <h3 class="display text-lg uppercase tracking-[0.16em]">Shirtless Form</h3>
-            <p class="mt-3 text-white/75 text-sm leading-relaxed">
-              He didn’t start with much. That didn’t stop anything.
-            </p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-6">
-            <h3 class="display text-lg uppercase tracking-[0.16em]">Star Eyes</h3>
-            <p class="mt-3 text-white/75 text-sm leading-relaxed">
-              A constant focus on what’s ahead. A belief that the future can be shaped.
-            </p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-6">
-            <h3 class="display text-lg uppercase tracking-[0.16em]">Chain</h3>
-            <p class="mt-3 text-white/75 text-sm leading-relaxed">
-              A sign of what can come from belief, effort, and following through.
-            </p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-6">
-            <h3 class="display text-lg uppercase tracking-[0.16em]">Star Necklace</h3>
-            <p class="mt-3 text-white/75 text-sm leading-relaxed">
-              A reminder that small signs of progress can become something much bigger.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- STORY -->
-      <section class="max-w-4xl mx-auto px-4 mt-20 mb-20 text-center">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.3em] text-white/55">The Origin</p>
-        <h2 class="display mt-3 text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.2em]">
-          Why Starface Exists
+      <!-- FIRST LOOK GALLERY -->
+      <section class="max-w-5xl mx-auto px-4 mt-4 sm:mt-2">
+        <h2 class="display text-center text-xl sm:text-2xl md:text-3xl tracking-[0.35em] uppercase">
+          FIRST LOOK
         </h2>
 
-        <div class="mt-8 space-y-5 text-white/78 text-sm sm:text-base md:text-lg leading-relaxed">
-          <p>
-            SpaceKid began long before the first figure was made.
-          </p>
-
-          <p>
-            After years in the corporate world, something still felt unfinished — not wrong, just incomplete. A book, <span class="text-white">Drawing on the Right Side of the Brain</span>, reconnected something that had always been there: the instinct to create.
-          </p>
-
-          <p>
-            But creating came with a different problem. Each time a piece of art was sold, it felt like something was lost with it.
-          </p>
-
-          <p>
-            SpaceKid became the answer to that — a collectible form that could be shared without losing the original idea.
-          </p>
-
-          <p>
-            What started as a personal solution became something more: a figure built around potential, resilience, and the decision to make something lasting out of what you have.
-          </p>
-        </div>
-
-        <div class="mt-10 flex flex-wrap justify-center gap-3 text-xs sm:text-sm uppercase tracking-[0.18em] text-white/70">
-          <span class="border border-white/15 rounded-full px-4 py-2">Art collectible</span>
-          <span class="border border-white/15 rounded-full px-4 py-2">Produced with Demeng Toy</span>
-          <span class="border border-white/15 rounded-full px-4 py-2">Recommended age 14+</span>
-        </div>
-
-        <div class="mt-10 flex flex-col items-center gap-4">
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           <img
-            src="silhouette.png"
-            alt="SpaceKid silhouette"
-            class="h-[240px] md:h-[340px] w-auto"
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/Frontview.jpg"
+            alt="SpaceKid Origin Variant — front view"
+            class="w-full h-auto rounded-2xl object-contain"
             loading="lazy"
             decoding="async"
           />
 
           <img
-            src="Demenglogo.png"
-            alt="Demeng Toy logo"
-            class="h-6 md:h-8 w-auto opacity-80"
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/leftside.jpg"
+            alt="SpaceKid Origin Variant — left side"
+            class="w-full h-auto rounded-2xl object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/rightSide.jpg"
+            alt="SpaceKid Origin Variant — right side"
+            class="w-full h-auto rounded-2xl object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="https://raw.githubusercontent.com/thestarface/starface-website/refs/heads/main/rear.jpg"
+            alt="SpaceKid Origin Variant — rear view"
+            class="w-full h-auto rounded-2xl object-contain"
             loading="lazy"
             decoding="async"
           />
         </div>
       </section>
-    </main>
+
+     <!-- MEET SPACEKID -->
+<section class="max-w-3xl mx-auto px-4 mt-12 sm:mt-14 mb-20">
+  <h3 class="display text-center text-base sm:text-lg md:text-xl tracking-[0.3em] uppercase mb-6">
+    MEET SPACEKID
+  </h3>
+
+  <p class="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed text-center">
+    Starface SpaceKid is our debut collectible — a 
+    <span class="text-white">14-inch (35.6 cm)</span> figure with a width of 
+    <span class="text-white">6.7 inches (17 cm)</span>, crafted from premium-quality vinyl 
+    using world-class manufacturing standards. Every detail intentionally crafted in a bold celebration of possibility, 
+    imagination, and forward motion.
+  </p>
+
+  <p class="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed text-center mt-4">
+    Launching worldwide in <span class="text-white">January 2026</span> in 
+    <span class="text-white">six colour variants</span>. Each colour variant will debut with 
+    <span class="text-white">25 units</span> during our initial release. After launch, each variant may receive 
+    between <span class="text-white">100 and 125</span> additional units, up to a maximum of 
+    <span class="text-white">150 pieces</span> per variant — depending entirely on demand.
+  </p>
+
+  <p class="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed text-center mt-4">
+    The <span class="text-white">Origin Variant</span> presents SpaceKid in his purest form — the flagship colourway. 
+    The remaining five variants will be revealed ahead of the official drop, and early explorers will receive exclusive 
+    launch-week pricing.
+  </p>
+
+  <p class="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed text-center mt-4">
+    SpaceKid is produced in partnership with <span class="text-white">Demeng Toy</span>, one of the world’s leading 
+    vinyl art toy manufacturers trusted by top-tier collectible brands. Their expertise ensures that each piece 
+    meets the highest standards of craftsmanship, durability, and finish.
+  </p>
+
+  <p class="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed text-center mt-4">
+    <strong>SpaceKid is an art collectible — not a toy. Recommended age: 14+.</strong>
+  </p>
+
+  <!-- Silhouette + Demeng logo under the copy -->
+  <div class="mt-10 flex flex-col items-center gap-4">
+    <img
+      src="silhouette.png"
+      alt="SpaceKid silhouette"
+      class="h-[260px] md:h-[380px] w-auto"
+      loading="lazy"
+      decoding="async"
+    />
+
+    <div class="flex flex-col items-center gap-1">
+      <img
+        src="Demenglogo.png"
+        alt="Demeng Toy logo"
+        class="h-6 md:h-8 w-auto opacity-80"
+        loading="lazy"
+        decoding="async"
+      />
+   </div>
+  </div>
+</section>
 
     <!-- FOOTER -->
     <footer class="mt-auto border-t border-white/10">
@@ -752,30 +465,36 @@
 
   <!-- SCRIPTS -->
   <script>
-    const entryScreen = document.getElementById('entryScreen');
-    const enterSiteBtn = document.getElementById('enterSiteBtn');
-    const skipIntroBtn = document.getElementById('skipIntroBtn');
+    // Countdown setup — until 31 January 2026, 20:00 UTC
+    const launchDate = new Date('2026-01-31T20:00:00Z').getTime();
 
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = launchDate - now;
+
+      const dd = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+      const hh = Math.max(0, Math.floor((distance / (1000 * 60 * 60)) % 24));
+      const mm = Math.max(0, Math.floor((distance / (1000 * 60)) % 60));
+      const ss = Math.max(0, Math.floor((distance / 1000) % 60));
+
+      const pad = (n) => String(n).padStart(2, '0');
+
+      document.getElementById('dd').textContent = pad(dd);
+      document.getElementById('hh').textContent = pad(hh);
+      document.getElementById('mm').textContent = pad(mm);
+      document.getElementById('ss').textContent = pad(ss);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Modal logic
     const modalBackdrop = document.getElementById('modalBackdrop');
     const openModalBtn = document.getElementById('openModalBtn');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const waitlistForm = document.getElementById('waitlistForm');
     const formNote = document.getElementById('formNote');
     const successMsg = document.getElementById('successMsg');
-
-    function hideEntryScreen(rememberChoice = false) {
-      if (rememberChoice) {
-        localStorage.setItem('starface_skip_intro', 'true');
-      }
-      entryScreen.classList.add('hidden');
-    }
-
-    if (localStorage.getItem('starface_skip_intro') === 'true') {
-      entryScreen.classList.add('hidden');
-    }
-
-    enterSiteBtn.addEventListener('click', () => hideEntryScreen(false));
-    skipIntroBtn.addEventListener('click', () => hideEntryScreen(true));
 
     function openModal() {
       modalBackdrop.classList.add('active');
@@ -787,13 +506,13 @@
 
     openModalBtn.addEventListener('click', openModal);
     closeModalBtn.addEventListener('click', closeModal);
-
     modalBackdrop.addEventListener('click', (e) => {
       if (e.target === modalBackdrop) closeModal();
     });
 
     waitlistForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      // TODO: connect to your backend / form service
       formNote.classList.add('hidden');
       successMsg.classList.remove('hidden');
       waitlistForm.reset();
