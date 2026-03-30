@@ -16,7 +16,7 @@
   />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -49,11 +49,12 @@
       cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='%23ffffff'/></svg>"), auto;
     }
 
+    /* ENTRY SCREEN */
     .entry-screen {
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: #000;
+      background: #f8f8f6;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -66,34 +67,96 @@
       pointer-events: none;
     }
 
-    .entry-logo,
-    .entry-silhouette,
-    .entry-enter,
-    .entry-copyright {
+    .entry-wrap {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .entry-panel {
+      width: 100%;
+      max-width: 760px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .fade-up {
       opacity: 0;
-      transform: translateY(16px);
-      animation: entryFadeUp 0.8s ease forwards;
+      transform: translateY(14px);
+      animation: fadeUp 0.8s ease forwards;
     }
 
-    .entry-silhouette {
-      animation-delay: 0.12s;
-    }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.34s; }
+    .delay-4 { animation-delay: 0.46s; }
 
-    .entry-enter {
-      animation-delay: 0.24s;
-    }
-
-    .entry-copyright {
-      animation-delay: 0.32s;
-    }
-
-    @keyframes entryFadeUp {
+    @keyframes fadeUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
+    .entry-logo {
+      width: min(220px, 46vw);
+      height: auto;
+      display: block;
+      margin: 0 auto 0.4rem;
+    }
+
+    .entry-silhouette-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .entry-silhouette {
+      display: block;
+      width: min(430px, 72vw);
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .entry-enter {
+      background: transparent;
+      border: none;
+      color: #000;
+      font-family: var(--font-body);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .entry-enter:hover {
+      color: #d97706;
+      transform: translateY(-1px);
+      text-shadow: 0 0 10px rgba(217, 119, 6, 0.08);
+    }
+
+    .entry-copyright {
+      margin-top: 0.45rem;
+      font-size: 11px;
+      color: rgba(0, 0, 0, 0.48);
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+
+    /* SITE CONTENT */
     .hero-card,
     .variant-card {
       background: rgba(255, 255, 255, 0.03);
@@ -136,112 +199,28 @@
       opacity: 0.96;
     }
 
-    .entry-wrap {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 0 1.25rem;
-    }
-
-    .entry-panel {
-      width: 100%;
-      max-width: 980px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding-top: 0.65rem;
-      padding-bottom: 1.4rem;
-    }
-
-    .entry-logo {
-      width: min(760px, 88vw);
-      height: auto;
-      display: block;
-      margin: 0 auto 0.9rem;
-    }
-
-    .entry-silhouette-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 0.1rem;
-    }
-
-    .entry-silhouette {
-      max-width: min(400px, 68vw);
-      max-height: 52vh;
-      width: auto;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      object-fit: contain;
-      animation:
-        entryFadeUp 0.85s ease forwards,
-        silhouetteFloat 4s ease-in-out infinite;
-      animation-delay: 0.12s, 1s;
-    }
-
-    .entry-enter {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 0.35rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .entry-enter:hover {
-      color: #EF3364;
-      transform: translateY(-1px) scale(1.02);
-      text-shadow: 0 0 10px rgba(239, 51, 100, 0.2);
-    }
-
-    .entry-copyright {
-      margin-top: auto;
-      padding-top: 0.9rem;
-      font-size: 11px;
-      color: rgba(255,255,255,0.45);
-      text-align: center;
-    }
-
-    @keyframes silhouetteFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
     @media (max-width: 640px) {
-      .entry-panel {
-        padding-top: 0.5rem;
-        padding-bottom: 1rem;
+      .entry-wrap {
+        padding: 1rem;
       }
 
       .entry-logo {
-        width: min(480px, 90vw);
-        margin-bottom: 0.5rem;
+        width: min(180px, 48vw);
+        margin-bottom: 0.3rem;
       }
 
       .entry-silhouette {
-        max-width: min(280px, 70vw);
-        max-height: 44vh;
+        width: min(320px, 74vw);
       }
 
       .entry-enter {
-        font-size: clamp(1.35rem, 5vw, 1.8rem);
-        margin-top: 0.25rem;
+        font-size: clamp(1rem, 4.3vw, 1.15rem);
+        margin-top: 0.2rem;
       }
 
       .entry-copyright {
         font-size: 10px;
-        padding-top: 0.6rem;
+        margin-top: 0.4rem;
       }
     }
 
@@ -251,17 +230,14 @@
       }
 
       .entry-screen,
-      .entry-logo,
-      .entry-silhouette,
-      .entry-enter,
-      .entry-copyright,
+      .fade-up,
       .variant-card,
       .variant-card img,
       .main-cta {
-        animation: none;
-        transition: none;
-        opacity: 1;
-        transform: none;
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
       }
     }
   </style>
@@ -285,23 +261,29 @@
 </head>
 
 <body class="bg-black text-white">
+  <audio
+    id="enterSound"
+    src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"
+    preload="auto"
+  ></audio>
+
   <!-- ENTRY SCREEN -->
   <div id="entryScreen" class="entry-screen">
     <div class="entry-wrap">
       <div class="entry-panel">
         <img
-          src="images/STARFACELOGOBLACK.png"
+          src="images/STARFACELOGO.png"
           alt="STARFACE"
-          class="entry-logo select-none pointer-events-none"
+          class="entry-logo fade-up delay-1 select-none pointer-events-none"
           loading="eager"
           decoding="async"
         />
 
         <div class="entry-silhouette-wrap">
           <img
-            src="images/entryimage.JPG"
+            src="images/entryimage.png"
             alt="SpaceKid"
-            class="entry-silhouette select-none pointer-events-none"
+            class="entry-silhouette fade-up delay-2 select-none pointer-events-none"
             loading="eager"
             decoding="async"
           />
@@ -309,13 +291,13 @@
 
         <button
           id="enterSiteBtn"
-          class="entry-enter use-star-cursor"
+          class="entry-enter fade-up delay-3 use-star-cursor"
           type="button"
         >
           Enter
         </button>
 
-        <div class="entry-copyright">
+        <div class="entry-copyright fade-up delay-4">
           © 2025 STARFACE Ltd. All rights reserved.
         </div>
       </div>
@@ -554,8 +536,14 @@
   <script>
     const entryScreen = document.getElementById('entryScreen');
     const enterSiteBtn = document.getElementById('enterSiteBtn');
+    const enterSound = document.getElementById('enterSound');
 
     enterSiteBtn.addEventListener('click', () => {
+      if (enterSound) {
+        enterSound.currentTime = 0;
+        enterSound.play().catch(() => {});
+      }
+
       entryScreen.classList.add('hidden');
     });
   </script>
