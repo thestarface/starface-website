@@ -32,22 +32,16 @@
       --entry-muted: rgba(0, 0, 0, 0.42);
       --entry-border: rgba(0, 0, 0, 0.82);
 
-      /* reserved vertical space so CTA never falls below fold */
       --entry-top-pad: clamp(6px, 1.2vh, 14px);
       --entry-bottom-pad: clamp(8px, 1.4vh, 16px);
       --logo-gap: clamp(4px, 0.8vh, 10px);
-      --image-gap: clamp(2px, 0.4vh, 6px);
-      --button-gap: clamp(8px, 1.2vh, 14px);
-      --copyright-gap: clamp(8px, 1.2vh, 14px);
+      --button-gap: clamp(2px, 0.4vh, 6px);
+      --copyright-gap: clamp(6px, 0.8vh, 10px);
 
       --logo-max-h: clamp(52px, 10vh, 110px);
       --button-h: clamp(42px, 6vh, 54px);
       --copyright-h: 18px;
 
-      /*
-        This is the key fix:
-        image gets whatever vertical space remains after logo/button/copyright.
-      */
       --image-max-h: calc(
         100dvh
         - var(--entry-top-pad)
@@ -113,11 +107,7 @@
       height: 100dvh;
       min-height: 100vh;
       display: grid;
-      grid-template-rows:
-        auto
-        minmax(0, 1fr)
-        auto
-        auto;
+      grid-template-rows: auto minmax(0, 1fr) auto auto;
       justify-items: center;
       align-items: start;
       text-align: center;
@@ -161,9 +151,9 @@
       height: 100%;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       margin-top: var(--logo-gap);
-      margin-bottom: var(--image-gap);
+      margin-bottom: 0;
       overflow: hidden;
       min-height: 0;
     }
@@ -237,8 +227,8 @@
       :root {
         --logo-max-h: clamp(44px, 8vh, 80px);
         --button-h: clamp(38px, 5.4vh, 46px);
-        --button-gap: clamp(6px, 0.8vh, 10px);
-        --copyright-gap: clamp(6px, 0.8vh, 10px);
+        --button-gap: clamp(4px, 0.6vh, 8px);
+        --copyright-gap: clamp(5px, 0.7vh, 8px);
       }
 
       .entry-enter {
@@ -257,9 +247,8 @@
         --entry-top-pad: 4px;
         --entry-bottom-pad: 6px;
         --logo-gap: 2px;
-        --image-gap: 2px;
-        --button-gap: 4px;
-        --copyright-gap: 5px;
+        --button-gap: 3px;
+        --copyright-gap: 4px;
         --logo-max-h: 54px;
         --button-h: 38px;
         --copyright-h: 14px;
