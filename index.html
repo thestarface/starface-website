@@ -149,13 +149,13 @@
         transform: none;
       }
     }
-    .entry-wrap {
+   .entry-wrap {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2rem 1.25rem;
+  padding: 0 1.25rem;
 }
 
 .entry-panel {
@@ -165,16 +165,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   text-align: center;
-  padding-top: 4.5rem;
+  padding-top: 2.2rem;
+  padding-bottom: 2rem;
 }
 
 .entry-logo {
-  width: min(640px, 84vw);
+  width: min(760px, 88vw);
   height: auto;
   display: block;
-  margin: 0 auto 3.25rem;
+  margin: 0 auto 1.5rem;
   opacity: 0;
   transform: translateY(14px);
   animation: entryFadeUp 0.8s ease forwards;
@@ -184,17 +184,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 .entry-silhouette {
-  width: min(640px, 78vw);
-   height: auto;
+  width: min(760px, 82vw);
+  max-height: 54vh;
+  height: auto;
   display: block;
   margin: 0 auto;
-  
   opacity: 0;
   transform: translateY(16px);
-  
   animation:
     entryFadeUp 0.85s ease forwards,
     silhouetteFloat 4s ease-in-out infinite;
@@ -206,10 +206,10 @@
   border: none;
   color: #fff;
   font-family: var(--font-head);
-  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-size: clamp(3rem, 6vw, 4.4rem);
   font-weight: 700;
   text-transform: uppercase;
-  margin-top: 0.8rem;
+  margin-top: 0.35rem;
   cursor: pointer;
   transition: all 0.2s ease;
   opacity: 0;
@@ -224,29 +224,45 @@
   text-shadow: 0 0 12px rgba(239, 51, 100, 0.25);
 }
 
+.entry-copyright {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+}
+
 @keyframes silhouetteFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
-  @media (max-width: 640px) {
+
+@media (max-width: 640px) {
   .entry-panel {
-    padding-top: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
   }
 
   .entry-logo {
-    width: min(460px, 88vw);
-    margin-bottom: 2rem;
+    width: min(520px, 90vw);
+    margin-bottom: 1rem;
   }
 
   .entry-silhouette {
-    width: min(360px, 76vw);
+    width: min(430px, 84vw);
+    max-height: 48vh;
   }
 
   .entry-enter {
-    font-size: clamp(2.2rem, 8vw, 3rem);
-    margin-top: 0.6rem;
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    margin-top: 0.25rem;
   }
-}  
+
+  .entry-copyright {
+    font-size: 10px;
+    padding-top: 0.9rem;
+  }
+}
   </style>
 
   <meta property="og:title" content="STARFACE" />
@@ -280,26 +296,27 @@
         decoding="async"
       />
 
-      <div class="entry-silhouette-wrap">
-        <img
-          src="images/entryimage.png"
-          alt="SpaceKid silhouette"
-          class="entry-silhouette select-none pointer-events-none"
-          loading="eager"
-          decoding="async"
-        />
-        <div class="absolute bottom-6 left-0 w-full text-center text-xs text-white/50">
+ <div class="entry-silhouette-wrap">
+  <img
+    src="images/entryimage.png"
+    alt="SpaceKid silhouette"
+    class="entry-silhouette select-none pointer-events-none"
+    loading="eager"
+    decoding="async"
+  />
+</div>
+
+<button
+  id="enterSiteBtn"
+  class="entry-enter use-star-cursor"
+  type="button"
+>
+  Enter
+</button>
+
+<div class="entry-copyright">
   © 2025 STARFACE Ltd. All rights reserved.
 </div>
-      </div>
-
-      <button
-        id="enterSiteBtn"
-        class="entry-enter use-star-cursor"
-        type="button"
-      >
-        Enter
-      </button>
     </div>
   </div>
 </div>
