@@ -49,135 +49,118 @@
       cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='%23ffffff'/></svg>"), auto;
     }
 
-    /* ENTRY SCREEN CLEAN WHITE */
-/* ENTRY SCREEN */
-.entry-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: #fefdfb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
+    /* ENTRY SCREEN */
+    .entry-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: #fefdfb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
 
-.entry-screen.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
+    .entry-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
 
-.entry-wrap {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
+    .entry-wrap {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 0;
+      background: #fefdfb;
+    }
 
-.entry-panel {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  padding-top: 2.2rem;
-}
+    .entry-panel {
+      width: 100%;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto auto;
+      justify-items: center;
+      align-items: start;
+      text-align: center;
+      padding-top: 0.7rem;
+      padding-bottom: 1.1rem;
+      background: #fefdfb;
+    }
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: fadeUp 0.8s ease forwards;
-}
+    .fade-up {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: fadeUp 0.8s ease forwards;
+    }
 
-.delay-1 { animation-delay: 0.05s; }
-.delay-2 { animation-delay: 0.18s; }
-.delay-3 { animation-delay: 0.32s; }
-.delay-4 { animation-delay: 0.46s; }
+    .delay-1 { animation-delay: 0.05s; }
+    .delay-2 { animation-delay: 0.18s; }
+    .delay-3 { animation-delay: 0.32s; }
+    .delay-4 { animation-delay: 0.46s; }
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.entry-logo {
-  width: min(360px, 78vw);
-  height: auto;
-  display: block;
-  margin: 0 auto 0.75rem;
-}
+    .entry-logo {
+      width: min(500px, 78vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-.entry-silhouette-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
+    .entry-silhouette-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      margin-top: -0.1rem;
+    }
 
-.entry-silhouette {
-  width: min(380px, 72vw);
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+    .entry-silhouette {
+      width: min(520px, 74vw);
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      mix-blend-mode: normal;
+    }
 
-.entry-enter {
-  background: transparent;
-  border: none;
-  color: #000;
-  font-family: var(--font-body);
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-top: 0.9rem;
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
+    .entry-enter {
+      background: transparent;
+      border: none;
+      color: #000;
+      font-family: var(--font-body);
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: -0.35rem;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
 
-.entry-enter:hover {
-  color: #d97706;
-  transform: translateY(-1px);
-}
+    .entry-enter:hover {
+      color: #d97706;
+      transform: translateY(-1px);
+    }
 
-.entry-copyright {
-  margin-top: 1.35rem;
-  font-size: 11px;
-  color: rgba(0, 0, 0, 0.45);
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  .entry-panel {
-    padding-top: 1.6rem;
-  }
-
-  .entry-logo {
-    width: min(280px, 76vw);
-    margin-bottom: 0.55rem;
-  }
-
-  .entry-silhouette {
-    width: min(300px, 74vw);
-  }
-
-  .entry-enter {
-    margin-top: 0.8rem;
-    font-size: 1.05rem;
-  }
-
-  .entry-copyright {
-    margin-top: 1.1rem;
-    font-size: 10px;
-  }
-}
+    .entry-copyright {
+      align-self: end;
+      margin-top: 0;
+      margin-bottom: 0.2rem;
+      font-size: 11px;
+      color: rgba(0, 0, 0, 0.42);
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
 
     /* SITE CONTENT */
     .hero-card,
@@ -223,27 +206,27 @@
     }
 
     @media (max-width: 640px) {
-      .entry-wrap {
-        padding: 1rem;
+      .entry-panel {
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
       }
 
       .entry-logo {
-        width: min(180px, 48vw);
-        margin-bottom: 0.3rem;
+        width: min(320px, 82vw);
       }
 
       .entry-silhouette {
-        width: min(320px, 74vw);
+        width: min(360px, 82vw);
       }
 
       .entry-enter {
-        font-size: clamp(1rem, 4.3vw, 1.15rem);
-        margin-top: 0.2rem;
+        font-size: 1.05rem;
+        margin-top: -0.2rem;
       }
 
       .entry-copyright {
         font-size: 10px;
-        margin-top: 0.4rem;
+        margin-bottom: 0.1rem;
       }
     }
 
@@ -292,36 +275,40 @@
 
   <!-- ENTRY SCREEN -->
   <div id="entryScreen" class="entry-screen">
-  <div class="entry-wrap">
-    <div class="entry-panel">
+    <div class="entry-wrap">
+      <div class="entry-panel">
+        <img
+          src="images/STARFACELOGO.png"
+          alt="STARFACE"
+          class="entry-logo fade-up delay-1 select-none pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
 
-      <!-- LOGO -->
-      <img
-        src="images/STARFACELOGO.png"
-        alt="STARFACE"
-        class="entry-logo fade-up delay-1"
-      />
+        <div class="entry-silhouette-wrap">
+          <img
+            src="images/entryimage.png"
+            alt="SpaceKid"
+            class="entry-silhouette fade-up delay-2 select-none pointer-events-none"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
 
-      <!-- IMAGE -->
-      <img
-        src="images/entryimage.png"
-        alt="SpaceKid"
-        class="entry-silhouette fade-up delay-2"
-      />
+        <button
+          id="enterSiteBtn"
+          class="entry-enter fade-up delay-3 use-star-cursor"
+          type="button"
+        >
+          Enter
+        </button>
 
-      <!-- ENTER -->
-      <button id="enterSiteBtn" class="entry-enter fade-up delay-3">
-        Enter
-      </button>
-
-      <!-- COPYRIGHT -->
-      <div class="entry-copyright fade-up delay-4">
-        © 2025 STARFACE Ltd. All rights reserved.
+        <div class="entry-copyright fade-up delay-4">
+          © 2025 STARFACE Ltd. All rights reserved.
+        </div>
       </div>
-
     </div>
   </div>
-</div>
 
   <div class="min-h-screen flex flex-col">
     <!-- HEADER -->
