@@ -176,18 +176,9 @@
 }
 
 .entry-silhouette-wrap {
-  position: relative;
-}
-
-.entry-silhouette-wrap::before {
-  content: "";
-  position: absolute;
-  width: min(420px, 70vw);
-  height: min(420px, 70vw);
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 35%, rgba(255,255,255,0) 70%);
-  filter: blur(20px);
-  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .entry-silhouette {
