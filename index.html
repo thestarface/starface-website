@@ -29,7 +29,7 @@
       --entry-bg: #fefdfb;
       --entry-text: #000000;
       --entry-muted: rgba(0, 0, 0, 0.42);
-      --entry-border: rgba(0, 0, 0, 0.78);
+      --entry-border: rgba(0, 0, 0, 0.82);
       --entry-hover: #d97706;
     }
 
@@ -61,6 +61,7 @@
       z-index: 100;
       background: var(--entry-bg);
       transition: opacity 0.55s ease, visibility 0.55s ease;
+      overflow-y: auto;
     }
 
     .entry-screen.hidden {
@@ -73,19 +74,20 @@
       width: 100%;
       min-height: 100vh;
       background: var(--entry-bg);
+      display: flex;
+      justify-content: center;
     }
 
     .entry-panel {
       width: 100%;
       min-height: 100vh;
-      display: grid;
-      grid-template-rows: auto 1fr auto auto;
-      justify-items: center;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       background: var(--entry-bg);
-      padding-top: 0.2rem;
-      padding-bottom: 0.55rem;
+      padding-top: 0.15rem;
+      padding-bottom: 1rem;
       box-sizing: border-box;
     }
 
@@ -107,47 +109,57 @@
       }
     }
 
+    /* Keep the proportions you liked */
     .entry-logo {
-      width: min(560px, 82vw);
-      max-width: 560px;
+      width: min(700px, 86vw);
+      max-width: 700px;
       height: auto;
       display: block;
       margin: 0 auto;
+      flex: 0 0 auto;
     }
 
     .entry-silhouette-wrap {
       width: 100%;
       display: flex;
       justify-content: center;
-      align-items: start;
-      margin-top: -0.25rem;
+      align-items: flex-start;
+      margin-top: -0.35rem;
+      flex: 0 0 auto;
     }
 
     .entry-silhouette {
-      width: min(660px, 82vw);
-      max-width: 660px;
+      width: min(720px, 84vw);
+      max-width: 720px;
       height: auto;
       display: block;
       margin: 0 auto;
       object-fit: contain;
     }
 
+    .entry-enter-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: -0.65rem;
+      flex: 0 0 auto;
+    }
+
     .entry-enter {
       appearance: none;
       -webkit-appearance: none;
       background: transparent;
-      border: 1.6px solid var(--entry-border);
+      border: 2px solid var(--entry-border);
       color: var(--entry-text);
       font-family: var(--font-body);
-      font-size: clamp(1.02rem, 1.05vw, 1.18rem);
+      font-size: clamp(1rem, 1.02vw, 1.15rem);
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       line-height: 1;
       padding: 1rem 2.4rem;
-      min-width: 170px;
+      min-width: 180px;
       border-radius: 999px;
-      margin-top: -0.8rem;
       cursor: pointer;
       transition:
         color 0.2s ease,
@@ -158,11 +170,11 @@
     }
 
     .entry-enter:hover {
-      color: var(--entry-hover);
-      border-color: var(--entry-hover);
-      background-color: rgba(217, 119, 6, 0.04);
+      color: #fff;
+      border-color: #000;
+      background-color: #000;
       transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     }
 
     .entry-enter:focus-visible {
@@ -171,13 +183,13 @@
     }
 
     .entry-copyright {
-      align-self: end;
-      margin-top: 0;
-      margin-bottom: 0.12rem;
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
       font-size: 11px;
       color: var(--entry-muted);
       text-align: center;
       letter-spacing: 0.01em;
+      flex: 0 0 auto;
     }
 
     /* SITE CONTENT */
@@ -225,26 +237,26 @@
 
     @media (max-width: 1280px) {
       .entry-logo {
-        width: min(500px, 78vw);
+        width: min(620px, 82vw);
       }
 
       .entry-silhouette {
-        width: min(580px, 78vw);
+        width: min(620px, 82vw);
       }
 
-      .entry-enter {
-        margin-top: -0.65rem;
+      .entry-enter-wrap {
+        margin-top: -0.45rem;
       }
     }
 
     @media (max-width: 768px) {
       .entry-panel {
-        padding-top: 0.8rem;
-        padding-bottom: 0.7rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.8rem;
       }
 
       .entry-logo {
-        width: min(320px, 78vw);
+        width: min(360px, 82vw);
         max-width: none;
       }
 
@@ -253,20 +265,23 @@
       }
 
       .entry-silhouette {
-        width: min(390px, 84vw);
+        width: min(410px, 86vw);
         max-width: none;
       }
 
+      .entry-enter-wrap {
+        margin-top: -0.2rem;
+      }
+
       .entry-enter {
-        min-width: 150px;
+        min-width: 155px;
         padding: 0.9rem 2rem;
         font-size: 0.98rem;
-        margin-top: -0.4rem;
       }
 
       .entry-copyright {
         font-size: 10px;
-        margin-bottom: 0.08rem;
+        margin-top: 0.85rem;
       }
     }
 
@@ -335,13 +350,15 @@
           />
         </div>
 
-        <button
-          id="enterSiteBtn"
-          class="entry-enter fade-up delay-3 use-star-cursor"
-          type="button"
-        >
-          Enter
-        </button>
+        <div class="entry-enter-wrap fade-up delay-3">
+          <button
+            id="enterSiteBtn"
+            class="entry-enter use-star-cursor"
+            type="button"
+          >
+            Enter
+          </button>
+        </div>
 
         <div class="entry-copyright fade-up delay-4">
           © 2025 STARFACE Ltd. All rights reserved.
