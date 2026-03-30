@@ -157,19 +157,20 @@
       min-height: 0;
     }
 
-    .entry-silhouette-wrap {
+    .entry-silhouette {
+      width: auto;
+      height: auto;
+      max-width: min(720px, 84vw);
+      max-height: var(--image-max-h);
+      display: block;
+      object-fit: contain;
+    }
+
+    .entry-enter-wrap {
   width: 100%;
-  height: 100%;
-  position: relative; /* KEY */
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-   .entry-enter-wrap {
-  position: absolute;
-  bottom: 8%; /* 🔥 controls distance from feet */
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: -56px;
 }
     .entry-enter {
       appearance: none;
@@ -390,7 +391,7 @@
           decoding="async"
         />
 
-       <div class="entry-silhouette-wrap">
+        <div class="entry-silhouette-wrap">
           <img
             src="images/entryimage.png"
             alt="SpaceKid"
