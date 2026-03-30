@@ -26,11 +26,39 @@
     :root {
       --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
       --entry-bg: #fefdfb;
-      --entry-text: #000000;
+      --entry-text: #000;
       --entry-muted: rgba(0, 0, 0, 0.42);
       --entry-border: rgba(0, 0, 0, 0.82);
-      --entry-hover: #d97706;
+
+      /* reserved vertical space so CTA never falls below fold */
+      --entry-top-pad: clamp(6px, 1.2vh, 14px);
+      --entry-bottom-pad: clamp(8px, 1.4vh, 16px);
+      --logo-gap: clamp(4px, 0.8vh, 10px);
+      --image-gap: clamp(2px, 0.4vh, 6px);
+      --button-gap: clamp(8px, 1.2vh, 14px);
+      --copyright-gap: clamp(8px, 1.2vh, 14px);
+
+      --logo-max-h: clamp(52px, 10vh, 110px);
+      --button-h: clamp(42px, 6vh, 54px);
+      --copyright-h: 18px;
+
+      /*
+        This is the key fix:
+        image gets whatever vertical space remains after logo/button/copyright.
+      */
+      --image-max-h: calc(
+        100dvh
+        - var(--entry-top-pad)
+        - var(--entry-bottom-pad)
+        - var(--logo-max-h)
+        - var(--logo-gap)
+        - var(--button-gap)
+        - var(--button-h)
+        - var(--copyright-gap)
+        - var(--copyright-h)
+      );
     }
 
     html {
@@ -74,10 +102,10 @@
       width: 100%;
       height: 100dvh;
       min-height: 100vh;
-      background: var(--entry-bg);
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: stretch;
+      background: var(--entry-bg);
     }
 
     .entry-panel {
@@ -85,14 +113,19 @@
       height: 100dvh;
       min-height: 100vh;
       display: grid;
-      grid-template-rows: auto 1fr auto auto;
+      grid-template-rows:
+        auto
+        minmax(0, 1fr)
+        auto
+        auto;
       justify-items: center;
       align-items: start;
       text-align: center;
-      background: var(--entry-bg);
       box-sizing: border-box;
-      padding-top: clamp(0.2rem, 0.8vh, 0.55rem);
-      padding-bottom: clamp(0.45rem, 1vh, 0.9rem);
+      padding-top: var(--entry-top-pad);
+      padding-bottom: var(--entry-bottom-pad);
+      background: var(--entry-bg);
+      overflow: hidden;
     }
 
     .fade-up {
@@ -113,31 +146,34 @@
       }
     }
 
-    /* Keep similar proportions, but make them responsive to viewport height */
     .entry-logo {
-      width: min(700px, 86vw, 42dvh);
+      width: min(700px, 86vw);
       max-width: 700px;
+      max-height: var(--logo-max-h);
       height: auto;
       display: block;
       margin: 0 auto;
+      object-fit: contain;
     }
 
     .entry-silhouette-wrap {
       width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: clamp(-0.4rem, -0.4vh, -0.12rem);
+      margin-top: var(--logo-gap);
+      margin-bottom: var(--image-gap);
       overflow: hidden;
+      min-height: 0;
     }
 
     .entry-silhouette {
-      width: min(720px, 84vw, 57dvh);
-      max-width: 720px;
-      max-height: 57dvh;
+      width: auto;
       height: auto;
+      max-width: min(720px, 84vw);
+      max-height: var(--image-max-h);
       display: block;
-      margin: 0 auto;
       object-fit: contain;
     }
 
@@ -145,24 +181,25 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-top: clamp(-0.85rem, -1vh, -0.3rem);
+      margin-top: var(--button-gap);
     }
 
     .entry-enter {
       appearance: none;
       -webkit-appearance: none;
-      background: transparent;
+      min-height: var(--button-h);
+      padding: 0.9rem 2.2rem;
+      min-width: 170px;
+      border-radius: 999px;
       border: 2px solid var(--entry-border);
+      background: transparent;
       color: var(--entry-text);
       font-family: var(--font-body);
-      font-size: clamp(0.92rem, 0.95vw, 1.08rem);
+      font-size: clamp(0.92rem, 0.95vw, 1.06rem);
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       line-height: 1;
-      padding: 0.95rem 2.2rem;
-      min-width: 172px;
-      border-radius: 999px;
       cursor: pointer;
       transition:
         color 0.2s ease,
@@ -186,12 +223,87 @@
     }
 
     .entry-copyright {
-      margin-top: clamp(0.65rem, 1.1vh, 1rem);
-      margin-bottom: 0;
+      margin-top: var(--copyright-gap);
       font-size: 11px;
+      line-height: 1.2;
+      min-height: var(--copyright-h);
       color: var(--entry-muted);
       text-align: center;
       letter-spacing: 0.01em;
+    }
+
+    /* Short screens / landscape phones */
+    @media (max-height: 700px) {
+      :root {
+        --logo-max-h: clamp(44px, 8vh, 80px);
+        --button-h: clamp(38px, 5.4vh, 46px);
+        --button-gap: clamp(6px, 0.8vh, 10px);
+        --copyright-gap: clamp(6px, 0.8vh, 10px);
+      }
+
+      .entry-enter {
+        min-width: 150px;
+        padding: 0.75rem 1.8rem;
+        font-size: 0.9rem;
+      }
+
+      .entry-copyright {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-height: 520px) and (orientation: landscape) {
+      :root {
+        --entry-top-pad: 4px;
+        --entry-bottom-pad: 6px;
+        --logo-gap: 2px;
+        --image-gap: 2px;
+        --button-gap: 4px;
+        --copyright-gap: 5px;
+        --logo-max-h: 54px;
+        --button-h: 38px;
+        --copyright-h: 14px;
+      }
+
+      .entry-logo {
+        max-width: min(420px, 48vw);
+      }
+
+      .entry-silhouette {
+        max-width: min(430px, 46vw);
+      }
+
+      .entry-enter {
+        min-width: 136px;
+        padding: 0.65rem 1.5rem;
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+      }
+
+      .entry-copyright {
+        font-size: 9px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .entry-logo {
+        width: min(360px, 82vw);
+        max-width: none;
+      }
+
+      .entry-silhouette {
+        max-width: min(410px, 86vw);
+      }
+
+      .entry-enter {
+        min-width: 155px;
+        padding: 0.82rem 1.95rem;
+        font-size: 0.95rem;
+      }
+
+      .entry-copyright {
+        font-size: 10px;
+      }
     }
 
     /* SITE CONTENT */
@@ -235,122 +347,6 @@
     .main-cta:hover {
       transform: translateY(-1px);
       opacity: 0.96;
-    }
-
-    @media (max-width: 1280px) {
-      .entry-logo {
-        width: min(620px, 82vw, 38dvh);
-      }
-
-      .entry-silhouette {
-        width: min(620px, 82vw, 54dvh);
-        max-height: 54dvh;
-      }
-
-      .entry-enter-wrap {
-        margin-top: clamp(-0.6rem, -0.8vh, -0.18rem);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .entry-panel {
-        padding-top: clamp(0.25rem, 0.9vh, 0.55rem);
-        padding-bottom: clamp(0.45rem, 1.2vh, 0.85rem);
-      }
-
-      .entry-logo {
-        width: min(360px, 82vw, 24dvh);
-        max-width: none;
-      }
-
-      .entry-silhouette-wrap {
-        margin-top: 0;
-      }
-
-      .entry-silhouette {
-        width: min(410px, 86vw, 46dvh);
-        max-width: none;
-        max-height: 46dvh;
-      }
-
-      .entry-enter-wrap {
-        margin-top: clamp(-0.35rem, -0.5vh, -0.12rem);
-      }
-
-      .entry-enter {
-        min-width: 155px;
-        padding: 0.86rem 1.95rem;
-        font-size: 0.95rem;
-      }
-
-      .entry-copyright {
-        font-size: 10px;
-        margin-top: 0.72rem;
-      }
-    }
-
-    /* Landscape phones / short screens */
-    @media (max-height: 620px) {
-      .entry-panel {
-        padding-top: 0.15rem;
-        padding-bottom: 0.4rem;
-      }
-
-      .entry-logo {
-        width: min(520px, 60vw, 18dvh);
-      }
-
-      .entry-silhouette {
-        width: min(500px, 56vw, 40dvh);
-        max-height: 40dvh;
-      }
-
-      .entry-enter-wrap {
-        margin-top: -0.15rem;
-      }
-
-      .entry-enter {
-        font-size: 0.9rem;
-        padding: 0.78rem 1.8rem;
-        min-width: 145px;
-      }
-
-      .entry-copyright {
-        margin-top: 0.5rem;
-        font-size: 10px;
-      }
-    }
-
-    @media (max-height: 500px) and (orientation: landscape) {
-      .entry-panel {
-        padding-top: 0.1rem;
-        padding-bottom: 0.32rem;
-      }
-
-      .entry-logo {
-        width: min(430px, 48vw, 15dvh);
-      }
-
-      .entry-silhouette {
-        width: min(430px, 46vw, 33dvh);
-        max-height: 33dvh;
-      }
-
-      .entry-enter-wrap {
-        margin-top: 0;
-      }
-
-      .entry-enter {
-        font-size: 0.82rem;
-        padding: 0.65rem 1.55rem;
-        min-width: 128px;
-        letter-spacing: 0.18em;
-      }
-
-      .entry-copyright {
-        margin-top: 0.36rem;
-        font-size: 9px;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -674,7 +670,6 @@
         enterSound.currentTime = 0;
         enterSound.play().catch(() => {});
       }
-
       entryScreen.classList.add('hidden');
     });
   </script>
