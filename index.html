@@ -35,21 +35,17 @@
       --entry-top-pad: clamp(6px, 1.2vh, 14px);
       --entry-bottom-pad: clamp(8px, 1.4vh, 16px);
       --logo-gap: clamp(4px, 0.8vh, 10px);
-      --button-gap: clamp(2px, 0.4vh, 6px);
       --copyright-gap: clamp(6px, 0.8vh, 10px);
 
       --logo-max-h: clamp(52px, 10vh, 110px);
-      --button-h: clamp(42px, 6vh, 54px);
       --copyright-h: 18px;
-
       --image-max-h: calc(
         100dvh
         - var(--entry-top-pad)
         - var(--entry-bottom-pad)
-        - var(--logo-max-h)
+        - calc(var(--logo-max-h) * 2)
         - var(--logo-gap)
-        - var(--button-gap)
-        - var(--button-h)
+        - 84px
         - var(--copyright-gap)
         - var(--copyright-h)
       );
@@ -107,7 +103,7 @@
       height: 100dvh;
       min-height: 100vh;
       display: grid;
-      grid-template-rows: auto minmax(0, 1fr) auto auto;
+      grid-template-rows: auto minmax(0, 1fr) auto;
       justify-items: center;
       align-items: start;
       text-align: center;
@@ -137,22 +133,23 @@
     }
 
     .entry-logo {
-  width: min(1400px, 96vw);
-  max-width: 1400px;
-  max-height: calc(var(--logo-max-h) * 2);
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  object-fit: contain;
-}
+      width: min(1400px, 96vw);
+      max-width: 1400px;
+      max-height: calc(var(--logo-max-h) * 2);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
     .entry-silhouette-wrap {
       width: 100%;
       height: 100%;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       margin-top: var(--logo-gap);
-      margin-bottom: 0;
       overflow: hidden;
       min-height: 0;
     }
@@ -167,15 +164,19 @@
     }
 
     .entry-enter-wrap {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: -56px;
-}
+      position: absolute;
+      left: 50%;
+      bottom: 27%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+    }
+
     .entry-enter {
       appearance: none;
       -webkit-appearance: none;
-      min-height: var(--button-h);
+      min-height: 54px;
       padding: 0.9rem 2.2rem;
       min-width: 170px;
       border-radius: 999px;
@@ -201,13 +202,19 @@
       color: #fff;
       border-color: #000;
       background-color: #000;
-      transform: translateY(-1px);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     }
 
     .entry-enter:focus-visible {
       outline: 2px solid rgba(217, 119, 6, 0.45);
       outline-offset: 4px;
+    }
+
+    .entry-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
     }
 
     .entry-copyright {
@@ -224,13 +231,12 @@
     @media (max-height: 700px) {
       :root {
         --logo-max-h: clamp(44px, 8vh, 80px);
-        --button-h: clamp(38px, 5.4vh, 46px);
-        --button-gap: clamp(4px, 0.6vh, 8px);
         --copyright-gap: clamp(5px, 0.7vh, 8px);
       }
 
       .entry-enter {
         min-width: 150px;
+        min-height: 46px;
         padding: 0.75rem 1.8rem;
         font-size: 0.9rem;
       }
@@ -245,10 +251,8 @@
         --entry-top-pad: 4px;
         --entry-bottom-pad: 6px;
         --logo-gap: 2px;
-        --button-gap: 3px;
         --copyright-gap: 4px;
         --logo-max-h: 54px;
-        --button-h: 38px;
         --copyright-h: 14px;
       }
 
@@ -260,8 +264,13 @@
         max-width: min(430px, 46vw);
       }
 
+      .entry-enter-wrap {
+        bottom: 6%;
+      }
+
       .entry-enter {
         min-width: 136px;
+        min-height: 38px;
         padding: 0.65rem 1.5rem;
         font-size: 0.82rem;
         letter-spacing: 0.18em;
@@ -282,8 +291,13 @@
         max-width: min(410px, 86vw);
       }
 
+      .entry-enter-wrap {
+        bottom: 7%;
+      }
+
       .entry-enter {
         min-width: 155px;
+        min-height: 46px;
         padding: 0.82rem 1.95rem;
         font-size: 0.95rem;
       }
@@ -399,20 +413,22 @@
             loading="eager"
             decoding="async"
           />
+
+          <div class="entry-enter-wrap fade-up delay-3">
+            <button
+              id="enterSiteBtn"
+              class="entry-enter use-star-cursor"
+              type="button"
+            >
+              Enter
+            </button>
+          </div>
         </div>
 
-        <div class="entry-enter-wrap fade-up delay-3">
-          <button
-            id="enterSiteBtn"
-            class="entry-enter use-star-cursor"
-            type="button"
-          >
-            Enter
-          </button>
-        </div>
-
-        <div class="entry-copyright fade-up delay-4">
-          © 2025 STARFACE Ltd. All rights reserved.
+        <div class="entry-bottom">
+          <div class="entry-copyright fade-up delay-4">
+            © 2025 STARFACE Ltd. All rights reserved.
+          </div>
         </div>
       </div>
     </div>
