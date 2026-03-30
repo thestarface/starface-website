@@ -49,112 +49,93 @@
       cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='%23ffffff'/></svg>"), auto;
     }
 
-    /* ENTRY SCREEN */
-    .entry-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: #f8f8f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
+    /* ENTRY SCREEN CLEAN WHITE */
+.entry-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #ffffff; /* ONE white only */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
 
-    .entry-screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
+.entry-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .entry-wrap {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
+.entry-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  height: 100vh;
+  padding-top: 40px;
+}
 
-    .entry-panel {
-      width: 100%;
-      max-width: 760px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+/* FADE */
+.fade-up {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.8s ease forwards;
+}
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(14px);
-      animation: fadeUp 0.8s ease forwards;
-    }
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+.delay-4 { animation-delay: 0.5s; }
 
-    .delay-1 { animation-delay: 0.08s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.34s; }
-    .delay-4 { animation-delay: 0.46s; }
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+/* LOGO — BIGGER + HIGHER */
+.entry-logo {
+  width: min(320px, 70vw);
+  margin-bottom: 10px;
+}
 
-    .entry-logo {
-      width: min(220px, 46vw);
-      height: auto;
-      display: block;
-      margin: 0 auto 0.4rem;
-    }
+/* IMAGE */
+.entry-silhouette {
+  width: min(420px, 78vw);
+  height: auto;
+  margin-top: -5px;
+}
 
-    .entry-silhouette-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-    }
+/* ENTER BUTTON — now sits naturally under feet */
+.entry-enter {
+  margin-top: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-    .entry-silhouette {
-      display: block;
-      width: min(430px, 72vw);
-      max-width: 100%;
-      height: auto;
-      margin: 0 auto;
-      object-fit: contain;
-    }
+.entry-enter:hover {
+  color: #d97706;
+  transform: translateY(-2px);
+}
 
-    .entry-enter {
-      background: transparent;
-      border: none;
-      color: #000;
-      font-family: var(--font-body);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-top: 0.3rem;
-      cursor: pointer;
-      transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
-    }
-
-    .entry-enter:hover {
-      color: #d97706;
-      transform: translateY(-1px);
-      text-shadow: 0 0 10px rgba(217, 119, 6, 0.08);
-    }
-
-    .entry-copyright {
-      margin-top: 0.45rem;
-      font-size: 11px;
-      color: rgba(0, 0, 0, 0.48);
-      text-align: center;
-      letter-spacing: 0.01em;
-    }
+/* COPYRIGHT — more breathing space */
+.entry-copyright {
+  margin-top: 22px;
+  font-size: 11px;
+  color: rgba(0,0,0,0.45);
+}
 
     /* SITE CONTENT */
     .hero-card,
