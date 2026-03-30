@@ -29,7 +29,7 @@
       --entry-bg: #fefdfb;
       --entry-text: #000000;
       --entry-muted: rgba(0, 0, 0, 0.42);
-      --entry-border: rgba(0, 0, 0, 0.78);
+      --entry-border: rgba(0, 0, 0, 0.82);
       --entry-hover: #d97706;
     }
 
@@ -84,8 +84,8 @@
       align-items: start;
       text-align: center;
       background: var(--entry-bg);
-      padding-top: 0.2rem;
-      padding-bottom: 0.55rem;
+      padding-top: 0.15rem;
+      padding-bottom: 0.5rem;
       box-sizing: border-box;
     }
 
@@ -107,9 +107,10 @@
       }
     }
 
+    /* Logo increased ~25% from prior large version */
     .entry-logo {
-      width: min(560px, 82vw);
-      max-width: 560px;
+      width: min(700px, 86vw);
+      max-width: 700px;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -120,34 +121,35 @@
       display: flex;
       justify-content: center;
       align-items: start;
-      margin-top: -0.25rem;
+      margin-top: -0.35rem;
     }
 
     .entry-silhouette {
-      width: min(660px, 82vw);
-      max-width: 660px;
+      width: min(720px, 84vw);
+      max-width: 720px;
       height: auto;
       display: block;
       margin: 0 auto;
       object-fit: contain;
     }
 
+    /* Button sits directly under artwork and has a border */
     .entry-enter {
       appearance: none;
       -webkit-appearance: none;
       background: transparent;
-      border: 1.6px solid var(--entry-border);
+      border: 2px solid var(--entry-border);
       color: var(--entry-text);
       font-family: var(--font-body);
-      font-size: clamp(1.02rem, 1.05vw, 1.18rem);
+      font-size: clamp(1rem, 1.02vw, 1.15rem);
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       line-height: 1;
       padding: 1rem 2.4rem;
-      min-width: 170px;
+      min-width: 180px;
       border-radius: 999px;
-      margin-top: -0.8rem;
+      margin-top: -1.2rem;
       cursor: pointer;
       transition:
         color 0.2s ease,
@@ -158,11 +160,11 @@
     }
 
     .entry-enter:hover {
-      color: var(--entry-hover);
-      border-color: var(--entry-hover);
-      background-color: rgba(217, 119, 6, 0.04);
+      color: #fff;
+      border-color: #000;
+      background-color: #000;
       transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     }
 
     .entry-enter:focus-visible {
@@ -173,7 +175,7 @@
     .entry-copyright {
       align-self: end;
       margin-top: 0;
-      margin-bottom: 0.12rem;
+      margin-bottom: 0.08rem;
       font-size: 11px;
       color: var(--entry-muted);
       text-align: center;
@@ -225,26 +227,26 @@
 
     @media (max-width: 1280px) {
       .entry-logo {
-        width: min(500px, 78vw);
+        width: min(620px, 82vw);
       }
 
       .entry-silhouette {
-        width: min(580px, 78vw);
+        width: min(620px, 82vw);
       }
 
       .entry-enter {
-        margin-top: -0.65rem;
+        margin-top: -0.85rem;
       }
     }
 
     @media (max-width: 768px) {
       .entry-panel {
-        padding-top: 0.8rem;
-        padding-bottom: 0.7rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.65rem;
       }
 
       .entry-logo {
-        width: min(320px, 78vw);
+        width: min(360px, 82vw);
         max-width: none;
       }
 
@@ -253,20 +255,20 @@
       }
 
       .entry-silhouette {
-        width: min(390px, 84vw);
+        width: min(410px, 86vw);
         max-width: none;
       }
 
       .entry-enter {
-        min-width: 150px;
+        min-width: 155px;
         padding: 0.9rem 2rem;
         font-size: 0.98rem;
-        margin-top: -0.4rem;
+        margin-top: -0.45rem;
       }
 
       .entry-copyright {
         font-size: 10px;
-        margin-bottom: 0.08rem;
+        margin-bottom: 0.05rem;
       }
     }
 
