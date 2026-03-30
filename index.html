@@ -149,6 +149,86 @@
         transform: none;
       }
     }
+    .entry-wrap {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+}
+
+.entry-panel {
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.entry-logo {
+  width: min(520px, 82vw);
+  margin-bottom: 2.25rem;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: entryFadeUp 0.8s ease forwards;
+}
+
+.entry-silhouette-wrap {
+  position: relative;
+}
+
+.entry-silhouette-wrap::before {
+  content: "";
+  position: absolute;
+  width: min(420px, 70vw);
+  height: min(420px, 70vw);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 35%, rgba(255,255,255,0) 70%);
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.entry-silhouette {
+  position: relative;
+  z-index: 1;
+  width: min(320px, 52vw);
+  opacity: 0;
+  transform: translateY(16px);
+  animation:
+    entryFadeUp 0.85s ease forwards,
+    silhouetteFloat 4s ease-in-out infinite;
+  animation-delay: 0.12s, 1s;
+}
+
+.entry-enter {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: entryFadeUp 0.85s ease forwards;
+  animation-delay: 0.24s;
+}
+
+.entry-enter:hover {
+  color: #EF3364;
+  transform: translateY(-1px) scale(1.03);
+  text-shadow: 0 0 18px rgba(239, 51, 100, 0.35);
+}
+
+@keyframes silhouetteFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
   </style>
 
   <meta property="og:title" content="STARFACE" />
@@ -171,33 +251,37 @@
 
 <body class="bg-black text-white">
   <!-- ENTRY SCREEN -->
-  <div id="entryScreen" class="entry-screen">
-    <div class="w-full max-w-3xl px-6 text-center">
+ <div id="entryScreen" class="entry-screen">
+  <div class="entry-wrap">
+    <div class="entry-panel">
       <img
         src="images/STARFACELOGOBLACK.png"
         alt="STARFACE"
-        class="entry-logo mx-auto w-[min(420px,74vw)] h-auto select-none pointer-events-none"
+        class="entry-logo select-none pointer-events-none"
         loading="eager"
         decoding="async"
       />
 
-      <img
-        src="images/silhouette.png"
-        alt="SpaceKid silhouette"
-        class="entry-silhouette mx-auto mt-4 w-[min(280px,48vw)] sm:w-[min(320px,38vw)] h-auto select-none pointer-events-none"
-        loading="eager"
-        decoding="async"
-      />
+      <div class="entry-silhouette-wrap">
+        <img
+          src="images/silhouette-clean.png"
+          alt="SpaceKid silhouette"
+          class="entry-silhouette select-none pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
 
       <button
         id="enterSiteBtn"
-        class="entry-enter use-star-cursor mt-5 border-0 bg-transparent text-white text-4xl sm:text-5xl font-bold uppercase tracking-[0.04em]"
+        class="entry-enter use-star-cursor"
         type="button"
       >
         Enter
       </button>
     </div>
   </div>
+</div>
 
   <div class="min-h-screen flex flex-col">
     <!-- HEADER -->
