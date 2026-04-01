@@ -46,15 +46,23 @@
       opacity: 0.7;
     }
 
+    .header-shell {
+      width: 100%;
+      padding-left: 58px;
+      padding-right: 44px;
+      box-sizing: border-box;
+    }
+
     .page-shell {
       max-width: 1220px;
       margin: 0 auto;
       padding-left: 44px;
       padding-right: 44px;
+      box-sizing: border-box;
     }
 
     .product-wrap {
-      max-width: 1040px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
@@ -89,7 +97,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      transition: opacity 0.2s ease;
       z-index: 2;
       padding: 0;
     }
@@ -143,7 +151,7 @@
     }
 
     .info-col {
-      max-width: 420px;
+      max-width: 500px;
       padding-top: 10px;
     }
 
@@ -162,7 +170,7 @@
 
     .meta-list {
       margin-top: 2.3rem;
-      max-width: 28rem;
+      max-width: 31rem;
     }
 
     .meta-row {
@@ -189,22 +197,32 @@
       font-size: 15px;
       line-height: 1.7;
       color: #000;
-      max-width: 26rem;
+      max-width: 31rem;
       text-align: left;
     }
 
     @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 34px;
+        padding-right: 28px;
+      }
+
       .page-shell {
         padding-left: 28px;
         padding-right: 28px;
       }
 
       .product-wrap {
-        max-width: 920px;
+        max-width: 960px;
       }
     }
 
     @media (max-width: 768px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
       .page-shell {
         padding-left: 18px;
         padding-right: 18px;
@@ -258,7 +276,8 @@
         text-align: left;
       }
 
-      .desc {
+      .desc,
+      .meta-list {
         max-width: 100%;
       }
     }
@@ -269,7 +288,7 @@
 
   <!-- HEADER -->
   <header class="pt-6 pb-3">
-    <div class="page-shell">
+    <div class="header-shell">
       <div class="relative h-16 md:h-20">
         <a href="index.html" aria-label="STARFACE home" class="absolute left-0 top-0">
           <img
@@ -298,7 +317,7 @@
   <!-- PRODUCT -->
   <section class="pt-1 pb-24">
     <div class="page-shell">
-      <div class="product-wrap grid lg:grid-cols-[420px_420px] gap-x-20 gap-y-12 items-start">
+      <div class="product-wrap grid lg:grid-cols-[420px_500px] gap-x-[72px] gap-y-12 items-start">
 
         <!-- LEFT: GALLERY -->
         <div class="gallery-col">
