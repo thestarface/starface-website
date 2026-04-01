@@ -7,7 +7,7 @@
   <title>STARFACE — Origin</title>
   <meta
     name="description"
-    content="STARFACE™ SpaceKid Series 01 — Origin. Limited edition collectible."
+    content="STARFACE™ Space Kid Series 01 — Origin. Limited edition collectible."
   />
 
   <link
@@ -34,7 +34,7 @@
 
     .display {
       font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
     }
 
     .cta {
@@ -60,7 +60,6 @@
 
     .gallery-stage {
       position: relative;
-      background: rgba(0,0,0,0.02);
       overflow: hidden;
     }
 
@@ -89,6 +88,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
       backdrop-filter: blur(4px);
+      z-index: 2;
     }
 
     .gallery-arrow:hover {
@@ -98,11 +98,11 @@
     }
 
     .gallery-arrow.left {
-      left: 14px;
+      left: 12px;
     }
 
     .gallery-arrow.right {
-      right: 14px;
+      right: 12px;
     }
 
     .thumb-strip {
@@ -127,7 +127,7 @@
       width: 72px;
       height: 72px;
       border: 1px solid rgba(0,0,0,0.12);
-      background: rgba(0,0,0,0.02);
+      background: transparent;
       padding: 0;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -146,6 +146,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      background: transparent;
     }
 
     .meta-list {
@@ -157,7 +158,7 @@
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.55rem 0;
+      padding: 0.45rem 0;
     }
 
     .meta-label {
@@ -176,8 +177,10 @@
     .desc {
       font-size: 15px;
       line-height: 1.7;
-      color: rgba(0,0,0,0.52);
+      color: #000;
       max-width: 38rem;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     @media (max-width: 768px) {
@@ -213,7 +216,7 @@
         <img
           src="images/STARFACELOGO.png"
           alt="STARFACE"
-          class="h-12 md:h-14 w-auto"
+          class="h-16 md:h-20 w-auto"
         />
       </a>
     </div>
@@ -282,11 +285,11 @@
           SPACE KID Series 01
         </p>
 
-        <h1 class="display mt-5 text-3xl md:text-4xl uppercase">
+        <h1 class="display mt-5 text-[2rem] md:text-[2.35rem] uppercase">
           Origin
         </h1>
 
-        <p class="mt-4 text-xl md:text-2xl font-medium text-black/72">
+        <p class="mt-4 text-lg md:text-[1.5rem] font-medium text-black/72">
           £250
         </p>
 
