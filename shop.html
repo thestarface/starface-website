@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>STARFACE — Shop Colorways</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #000;
+    }
+
+    .display {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .product-card img {
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="pt-4 pb-6">
+    <div class="pl-[28px]">
+      <a href="index.html">
+        <img src="images/STARFACELOGO.png" class="h-28 md:h-32 w-auto">
+      </a>
+    </div>
+  </header>
+
+  <!-- TITLE -->
+  <section class="pb-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <h1 class="display text-2xl md:text-3xl uppercase">
+        Shop Colorways
+      </h1>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="pb-20">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-14">
+
+      <!-- ORIGIN -->
+      <a href="origin.html" class="product-card">
+        <img src="images/origin.JPG" alt="Origin">
+        <p class="mt-4 text-sm uppercase tracking-[0.18em]">Origin</p>
+      </a>
+
+      <!-- AUTUMN -->
+      <a href="autumn.html" class="product-card">
+        <img src="images/autumn.JPG" alt="Autumn">
+        <p class="mt-4 text-sm uppercase tracking-[0.18em]">Autumn</p>
+      </a>
+
+      <!-- BUBBLEGUM -->
+      <a href="bubblegum.html" class="product-card">
+        <img src="images/bubblegum.JPG" alt="Bubblegum">
+        <p class="mt-4 text-sm uppercase tracking-[0.18em]">Bubblegum</p>
+      </a>
+
+      <!-- URBAN -->
+      <a href="urban.html" class="product-card">
+        <img src="images/urban.JPG" alt="Urban">
+        <p class="mt-4 text-sm uppercase tracking-[0.18em]">Urban</p>
+      </a>
+
+      <!-- CHROME -->
+      <a href="chrome.html" class="product-card">
+        <img src="images/chrome.JPG" alt="Chrome">
+        <p class="mt-4 text-sm uppercase tracking-[0.18em]">Chrome</p>
+      </a>
+
+      <!-- MIDNIGHT -->
+      <a href="midnight.html" class="product-card">
+        <img src="images/midnight.JPG" alt="Midnight">
+        <p class="mt-4 text-sm uppercase tracking-[0.18em]">Midnight</p>
+      </a>
+
+    </div>
+  </section>
+
+</body>
+</html>
