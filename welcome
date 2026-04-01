@@ -1,1 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <title>STARFACE — Welcome</title>
+  <meta
+    name="description"
+    content="Welcome to STARFACE. Discover Space Kid, a 14-inch collectible presented in six colour variants."
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: rgba(0, 0, 0, 0.62);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .display {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    .header-shell {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 44px;
+      box-sizing: border-box;
+    }
+
+    .page-shell {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding-left: 36px;
+      padding-right: 36px;
+      box-sizing: border-box;
+    }
+
+    .intro-copy {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .intro-copy p {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .cta {
+      border: 1.5px solid #000;
+      background: transparent;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .cta:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 1280px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 28px;
+      }
+
+      .page-shell {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-shell,
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .intro-copy p {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="pt-4 pb-4">
+    <div class="header-shell">
+      <div class="relative h-16 md:h-20">
+        <a href="index.html" aria-label="STARFACE home" class="absolute left-0 -top-2">
+          <img
+            src="images/STARFACELOGO.png"
+            alt="STARFACE"
+            class="h-28 md:h-32 w-auto"
+          />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="pt-8 md:pt-10">
+    <div class="page-shell">
+      <img
+        src="images/allspacekids.JPG"
+        alt="STARFACE Space Kid Series 01 in six colour variants"
+        class="hero-image"
+      />
+    </div>
+  </section>
+
+  <section class="pt-10 md:pt-14 pb-20 md:pb-24">
+    <div class="page-shell text-center">
+      <div class="intro-copy">
+        <h1 class="display text-[1.8rem] md:text-[2.35rem] uppercase mb-8">
+          Welcome to STARFACE
+        </h1>
+
+        <p class="mb-6">
+          You haven’t stumbled on this page by mistake, but by serendipity.
+        </p>
+
+        <p class="mb-10">
+          STARFACE presents its first collectible — Space Kid, a 14-inch collectible presented in six colour variants, designed with clarity, character, and presence.
+        </p>
+
+        <a
+          href="shop.html"
+          class="cta inline-flex items-center justify-center px-9 py-3.5 rounded-full text-sm uppercase tracking-[0.25em]"
+        >
+          Get Yours
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="page-shell">
+      <div class="py-6 text-center text-sm text-black/60">
+        © 2025 STARFACE Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
