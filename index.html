@@ -676,17 +676,19 @@
   </div>
 
   <script>
-    const entryScreen = document.getElementById('entryScreen');
-    const enterSiteBtn = document.getElementById('enterSiteBtn');
-    const enterSound = document.getElementById('enterSound');
+  const enterSiteBtn = document.getElementById('enterSiteBtn');
+  const enterSound = document.getElementById('enterSound');
 
-    enterSiteBtn.addEventListener('click', () => {
-      if (enterSound) {
-        enterSound.currentTime = 0;
-        enterSound.play().catch(() => {});
-      }
-      entryScreen.classList.add('hidden');
-    });
-  </script>
+  enterSiteBtn.addEventListener('click', () => {
+    if (enterSound) {
+      enterSound.currentTime = 0;
+      enterSound.play().catch(() => {});
+    }
+
+    setTimeout(() => {
+      window.location.href = 'main.html';
+    }, 180);
+  });
+</script>
 </body>
 </html>
