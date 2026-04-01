@@ -37,18 +37,6 @@
       letter-spacing: 0.05em;
     }
 
-    .cta {
-      border: 1.5px solid #000;
-      transition: all 0.25s ease;
-    }
-
-    .cta:hover {
-      background: #000;
-      color: #fff;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    }
-
     .crumb {
       color: var(--text);
       text-decoration: none;
@@ -58,76 +46,88 @@
       opacity: 0.7;
     }
 
+    .page-shell {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding-left: 44px;
+      padding-right: 44px;
+    }
+
+    .product-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .gallery-col {
+      width: 100%;
+      max-width: 420px;
+    }
+
     .gallery-stage {
       position: relative;
-      overflow: hidden;
-      max-width: 520px;
+      width: 100%;
     }
 
     .gallery-main-img {
       width: 100%;
-      max-width: 520px;
       height: auto;
       display: block;
       object-fit: contain;
-      aspect-ratio: 1 / 1.08;
       background: transparent;
     }
 
     .gallery-arrow {
       position: absolute;
-      top: 52%;
+      top: 50%;
       transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.15);
-      background: rgba(255,255,255,0.88);
-      color: #000;
+      width: 34px;
+      height: 34px;
+      border: none;
+      background: transparent;
+      color: #111;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
       z-index: 2;
+      padding: 0;
     }
 
     .gallery-arrow:hover {
-      background: #000;
-      color: #fff;
-      border-color: #000;
+      opacity: 0.58;
     }
 
     .gallery-arrow.left {
-      left: 10px;
+      left: 8px;
     }
 
     .gallery-arrow.right {
-      right: 10px;
+      right: 8px;
     }
 
     .thumb-strip {
       display: flex;
-      gap: 10px;
-      padding-top: 10px;
+      gap: 8px;
+      padding-top: 8px;
       width: 100%;
-      max-width: 520px;
+      justify-content: flex-start;
+      align-items: center;
     }
 
     .thumb-btn {
       flex: 0 0 auto;
-      width: 72px;
-      height: 72px;
-      border: 1px solid rgba(0,0,0,0.12);
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(0,0,0,0.08);
       background: transparent;
       padding: 0;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: border-color 0.2s ease;
     }
 
     .thumb-btn:hover {
-      border-color: rgba(0,0,0,0.35);
+      border-color: rgba(0,0,0,0.28);
     }
 
     .thumb-btn.active {
@@ -142,16 +142,34 @@
       background: transparent;
     }
 
+    .info-col {
+      max-width: 420px;
+      padding-top: 10px;
+    }
+
+    .cta {
+      border: 1.5px solid #000;
+      transition: all 0.25s ease;
+      background: transparent;
+    }
+
+    .cta:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
     .meta-list {
-      margin-top: 2.25rem;
-      max-width: 36rem;
+      margin-top: 2.3rem;
+      max-width: 28rem;
     }
 
     .meta-row {
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.45rem 0;
+      padding: 0.42rem 0;
     }
 
     .meta-label {
@@ -171,26 +189,53 @@
       font-size: 15px;
       line-height: 1.7;
       color: #000;
-      max-width: 38rem;
-      text-align: justify;
-      text-justify: inter-word;
+      max-width: 26rem;
+      text-align: left;
+    }
+
+    @media (max-width: 1024px) {
+      .page-shell {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .product-wrap {
+        max-width: 920px;
+      }
     }
 
     @media (max-width: 768px) {
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .gallery-col,
+      .info-col {
+        max-width: 100%;
+      }
+
       .gallery-arrow {
-        width: 38px;
-        height: 38px;
+        width: 32px;
+        height: 32px;
+      }
+
+      .gallery-arrow.left {
+        left: 6px;
+      }
+
+      .gallery-arrow.right {
+        right: 6px;
       }
 
       .thumb-strip {
         gap: 8px;
-        max-width: 100%;
         overflow-x: auto;
         scrollbar-width: thin;
       }
 
       .thumb-strip::-webkit-scrollbar {
-        height: 8px;
+        height: 7px;
       }
 
       .thumb-strip::-webkit-scrollbar-thumb {
@@ -199,18 +244,22 @@
       }
 
       .thumb-btn {
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
       }
 
       .meta-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.2rem;
+        gap: 0.15rem;
       }
 
       .meta-value {
         text-align: left;
+      }
+
+      .desc {
+        max-width: 100%;
       }
     }
   </style>
@@ -219,127 +268,136 @@
 <body>
 
   <!-- HEADER -->
-  <header class="pt-5 pb-1">
-    <div class="relative h-16 md:h-20">
-      <a href="index.html" aria-label="STARFACE home" class="absolute left-3 md:left-8 top-0">
-        <img
-          src="images/STARFACELOGO.png"
-          alt="STARFACE"
-          class="h-16 md:h-20 w-auto"
-        />
-      </a>
+  <header class="pt-6 pb-3">
+    <div class="page-shell">
+      <div class="relative h-16 md:h-20">
+        <a href="index.html" aria-label="STARFACE home" class="absolute left-0 top-0">
+          <img
+            src="images/STARFACELOGO.png"
+            alt="STARFACE"
+            class="h-16 md:h-20 w-auto"
+          />
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- BREADCRUMB -->
-  <section class="pt-2 pb-3">
-    <div class="max-w-7xl mx-auto pl-[14.5%] md:pl-[14%] pr-4">
-      <div class="text-[13px] md:text-[14px] tracking-[0.04em] uppercase text-black/85">
-        <a href="index.html" class="crumb">All Products</a>
-        <span class="mx-2">›</span>
-        <span>SPACE KID Series 01</span>
+  <section class="pt-1 pb-3">
+    <div class="page-shell">
+      <div class="product-wrap">
+        <div class="text-[13px] md:text-[14px] tracking-[0.04em] uppercase text-black/85">
+          <a href="index.html" class="crumb">All Products</a>
+          <span class="mx-2">›</span>
+          <span>SPACE KID Series 01</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PRODUCT -->
-  <section class="max-w-7xl mx-auto pl-[14.5%] md:pl-[14%] pr-6 pt-1 pb-20">
-    <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 xl:gap-10 items-start">
+  <section class="pt-1 pb-24">
+    <div class="page-shell">
+      <div class="product-wrap grid lg:grid-cols-[420px_420px] gap-x-20 gap-y-12 items-start">
 
-      <!-- LEFT: GALLERY -->
-      <div>
-        <div class="gallery-stage">
-          <button class="gallery-arrow left" id="prevBtn" aria-label="Previous image">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+        <!-- LEFT: GALLERY -->
+        <div class="gallery-col">
+          <div class="gallery-stage">
+            <button class="gallery-arrow left" id="prevBtn" aria-label="Previous image">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
 
-          <img
-            id="mainImage"
-            src="images/origin.JPG"
-            alt="Origin SpaceKid"
-            class="gallery-main-img"
-          />
+            <img
+              id="mainImage"
+              src="images/origin.JPG"
+              alt="Origin SpaceKid"
+              class="gallery-main-img"
+            />
 
-          <button class="gallery-arrow right" id="nextBtn" aria-label="Next image">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+            <button class="gallery-arrow right" id="nextBtn" aria-label="Next image">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="thumb-strip" id="thumbStrip">
+            <button class="thumb-btn active" data-index="0" aria-label="Origin front image">
+              <img src="images/origin.JPG" alt="Origin front thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="1" aria-label="Origin left image">
+              <img src="images/originleft.JPG" alt="Origin left thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="2" aria-label="Origin right image">
+              <img src="images/originright.JPG" alt="Origin right thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="3" aria-label="Origin back image">
+              <img src="images/originback.JPG" alt="Origin back thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="4" aria-label="Origin flat image">
+              <img src="images/originflat.JPG" alt="Origin flat thumbnail">
+            </button>
+          </div>
         </div>
 
-        <div class="thumb-strip" id="thumbStrip">
-          <button class="thumb-btn active" data-index="0" aria-label="Origin front image">
-            <img src="images/origin.JPG" alt="Origin front thumbnail">
-          </button>
-          <button class="thumb-btn" data-index="1" aria-label="Origin left image">
-            <img src="images/originleft.JPG" alt="Origin left thumbnail">
-          </button>
-          <button class="thumb-btn" data-index="2" aria-label="Origin right image">
-            <img src="images/originright.JPG" alt="Origin right thumbnail">
-          </button>
-          <button class="thumb-btn" data-index="3" aria-label="Origin back image">
-            <img src="images/originback.JPG" alt="Origin back thumbnail">
-          </button>
-          <button class="thumb-btn" data-index="4" aria-label="Origin flat image">
-            <img src="images/originflat.JPG" alt="Origin flat thumbnail">
-          </button>
-        </div>
-      </div>
-
-      <!-- RIGHT: PRODUCT INFO -->
-      <div class="pt-2 lg:pt-4">
-        <p class="text-sm md:text-base font-semibold uppercase tracking-[0.22em] text-black/55">
-          SPACE KID Series 01
-        </p>
-
-        <h1 class="display mt-5 text-[2rem] md:text-[2.35rem] uppercase">
-          Origin
-        </h1>
-
-        <p class="mt-4 text-lg md:text-[1.5rem] font-medium text-black/72">
-          £250
-        </p>
-
-        <div class="mt-8">
-          <p class="desc">
-            Origin represents the starting point — unrefined, intentional, and full of possibility. A blank canvas marking the first step forward. Each variant is first released in a limited run of 25 pieces, with the full edition expanding to 100 as the series evolves.
+        <!-- RIGHT: PRODUCT INFO -->
+        <div class="info-col">
+          <p class="text-sm md:text-base font-semibold uppercase tracking-[0.22em] text-black/55">
+            SPACE KID Series 01
           </p>
+
+          <h1 class="display mt-5 text-[2rem] md:text-[2.35rem] uppercase">
+            Origin
+          </h1>
+
+          <p class="mt-4 text-lg md:text-[1.5rem] font-medium text-black/72">
+            £250
+          </p>
+
+          <div class="mt-8">
+            <p class="desc">
+              Origin represents the starting point — unrefined, intentional, and full of possibility. A blank canvas marking the first step forward. Each variant is first released in a limited run of 25 pieces, with the full edition expanding to 100 as the series evolves.
+            </p>
+          </div>
+
+          <div class="mt-9">
+            <button class="cta px-9 py-3.5 rounded-full text-sm uppercase tracking-[0.25em]">
+              Purchase
+            </button>
+          </div>
+
+          <div class="meta-list">
+            <div class="meta-row">
+              <div class="meta-label">Series</div>
+              <div class="meta-value">SPACE KID Series 01</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Edition</div>
+              <div class="meta-value">25-piece initial release</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Size</div>
+              <div class="meta-value">14 inches / 35.6 cm</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Colourway</div>
+              <div class="meta-value">Origin</div>
+            </div>
+          </div>
         </div>
 
-        <div class="mt-9">
-          <button class="cta px-9 py-3.5 rounded-full text-sm uppercase tracking-[0.25em]">
-            Purchase
-          </button>
-        </div>
-
-        <div class="meta-list">
-          <div class="meta-row">
-            <div class="meta-label">Series</div>
-            <div class="meta-value">SPACE KID Series 01</div>
-          </div>
-          <div class="meta-row">
-            <div class="meta-label">Edition</div>
-            <div class="meta-value">25-piece initial release</div>
-          </div>
-          <div class="meta-row">
-            <div class="meta-label">Size</div>
-            <div class="meta-value">14 inches / 35.6 cm</div>
-          </div>
-          <div class="meta-row">
-            <div class="meta-label">Colourway</div>
-            <div class="meta-value">Origin</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 text-center text-sm text-black/60">
-      © 2025 STARFACE Ltd. All rights reserved.
+    <div class="page-shell">
+      <div class="py-6 text-center text-sm text-black/60">
+        © 2025 STARFACE Ltd. All rights reserved.
+      </div>
     </div>
   </footer>
 
