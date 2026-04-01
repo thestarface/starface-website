@@ -1,1 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <title>STARFACE — Autumn</title>
+  <meta
+    name="description"
+    content="STARFACE™ Space Kid Series 01 — Autumn. Limited edition collectible."
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --bg: #fefdfb;
+      --text: #000;
+      --muted: rgba(0, 0, 0, 0.58);
+      --muted-light: rgba(0, 0, 0, 0.42);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+    }
+
+    .display {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .crumb {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .crumb:hover {
+      opacity: 0.7;
+    }
+
+    .header-shell {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 44px;
+      box-sizing: border-box;
+    }
+
+    .page-shell {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding-left: 44px;
+      padding-right: 44px;
+      box-sizing: border-box;
+    }
+
+    .product-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-col {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .gallery-stage {
+      position: relative;
+      width: 100%;
+    }
+
+    .gallery-main-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: transparent;
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border: none;
+      background: transparent;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      z-index: 2;
+      padding: 0;
+    }
+
+    .gallery-arrow:hover {
+      opacity: 0.58;
+    }
+
+    .gallery-arrow.left {
+      left: 8px;
+    }
+
+    .gallery-arrow.right {
+      right: 8px;
+    }
+
+    .thumb-strip {
+      display: flex;
+      gap: 8px;
+      padding-top: 8px;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .thumb-btn {
+      flex: 0 0 auto;
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+
+    .thumb-btn:hover {
+      border-color: rgba(0,0,0,0.28);
+    }
+
+    .thumb-btn.active {
+      border-color: #000;
+    }
+
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: transparent;
+    }
+
+    .info-col {
+      max-width: 500px;
+      padding-top: 10px;
+    }
+
+    .cta {
+      border: 1.5px solid #000;
+      transition: all 0.25s ease;
+      background: transparent;
+    }
+
+    .cta:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .meta-list {
+      margin-top: 2.3rem;
+      max-width: 31rem;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.42rem 0;
+    }
+
+    .meta-label {
+      color: var(--muted-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      color: var(--text);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #000;
+      max-width: 31rem;
+      text-align: left;
+    }
+
+    @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 34px;
+        padding-right: 28px;
+      }
+
+      .page-shell {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .product-wrap {
+        max-width: 960px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .gallery-col,
+      .info-col {
+        max-width: 100%;
+      }
+
+      .gallery-arrow {
+        width: 32px;
+        height: 32px;
+      }
+
+      .gallery-arrow.left {
+        left: 6px;
+      }
+
+      .gallery-arrow.right {
+        right: 6px;
+      }
+
+      .thumb-strip {
+        gap: 8px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+      }
+
+      .thumb-strip::-webkit-scrollbar {
+        height: 7px;
+      }
+
+      .thumb-strip::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.18);
+        border-radius: 999px;
+      }
+
+      .thumb-btn {
+        width: 56px;
+        height: 56px;
+      }
+
+      .meta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+      }
+
+      .meta-value {
+        text-align: left;
+      }
+
+      .desc,
+      .meta-list {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="pt-4 pb-3">
+    <div class="header-shell">
+      <div class="relative h-16 md:h-20">
+        <a href="index.html" aria-label="STARFACE home" class="absolute left-0 top-0">
+          <img
+            src="images/STARFACELOGO.png"
+            alt="STARFACE"
+            class="h-28 md:h-32 w-auto"
+          />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <section class="pt-1 pb-3">
+    <div class="page-shell">
+      <div class="product-wrap">
+        <div class="text-[13px] md:text-[14px] tracking-[0.04em] uppercase text-black/85">
+          <a href="index.html" class="crumb">All Products</a>
+          <span class="mx-2">›</span>
+          <span>SPACE KID Series 01</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="pt-1 pb-24">
+    <div class="page-shell">
+      <div class="product-wrap grid lg:grid-cols-[420px_500px] gap-x-[110px] gap-y-12 items-start">
+
+        <!-- LEFT: GALLERY -->
+        <div class="gallery-col">
+          <div class="gallery-stage">
+            <button class="gallery-arrow left" id="prevBtn" aria-label="Previous image">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <img
+              id="mainImage"
+              src="images/autumn.JPG"
+              alt="Autumn SpaceKid"
+              class="gallery-main-img"
+            />
+
+            <button class="gallery-arrow right" id="nextBtn" aria-label="Next image">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="thumb-strip" id="thumbStrip">
+            <button class="thumb-btn active" data-index="0" aria-label="Autumn front image">
+              <img src="images/autumn.JPG" alt="Autumn front thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="1" aria-label="Autumn left image">
+              <img src="images/autumnleft.JPG" alt="Autumn left thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="2" aria-label="Autumn right image">
+              <img src="images/autumnright.JPG" alt="Autumn right thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="3" aria-label="Autumn back image">
+              <img src="images/autumnback.JPG" alt="Autumn back thumbnail">
+            </button>
+            <button class="thumb-btn" data-index="4" aria-label="Autumn flat image">
+              <img src="images/autumnflat.JPG" alt="Autumn flat thumbnail">
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT: PRODUCT INFO -->
+        <div class="info-col">
+          <p class="text-sm md:text-base font-semibold uppercase tracking-[0.22em] text-black/55">
+            SPACE KID Series 01
+          </p>
+
+          <h1 class="display mt-5 text-[2rem] md:text-[2.35rem] uppercase">
+            Autumn
+          </h1>
+
+          <p class="mt-4 text-lg md:text-[1.5rem] font-medium text-black/72">
+            £250
+          </p>
+
+          <div class="mt-8">
+            <p class="desc">
+              Autumn captures transition — letting go, evolving, and preparing for what's next. Progress is visible, but growth remains grounded. Each variant is first released in a limited run of 25 pieces, with the full edition expanding to 100 as the series evolves.
+            </p>
+          </div>
+
+          <div class="mt-9">
+            <button class="cta px-9 py-3.5 rounded-full text-sm uppercase tracking-[0.25em]">
+              Purchase
+            </button>
+          </div>
+
+          <div class="meta-list">
+            <div class="meta-row">
+              <div class="meta-label">Series</div>
+              <div class="meta-value">SPACE KID Series 01</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Edition</div>
+              <div class="meta-value">25-piece initial release</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Size</div>
+              <div class="meta-value">14 inches / 35.6 cm</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Colourway</div>
+              <div class="meta-value">Autumn</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="page-shell">
+      <div class="py-6 text-center text-sm text-black/60">
+        © 2025 STARFACE Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const images = [
+      { src: 'images/autumn.JPG', alt: 'Autumn SpaceKid front view' },
+      { src: 'images/autumnleft.JPG', alt: 'Autumn SpaceKid left view' },
+      { src: 'images/autumnright.JPG', alt: 'Autumn SpaceKid right view' },
+      { src: 'images/autumnback.JPG', alt: 'Autumn SpaceKid back view' },
+      { src: 'images/autumnflat.JPG', alt: 'Autumn SpaceKid flat lay' }
+    ];
+
+    const mainImage = document.getElementById('mainImage');
+    const thumbButtons = Array.from(document.querySelectorAll('.thumb-btn'));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+
+    function renderImage(index) {
+      currentIndex = index;
+      mainImage.src = images[index].src;
+      mainImage.alt = images[index].alt;
+
+      thumbButtons.forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+    }
+
+    thumbButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => renderImage(index));
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const nextIndex = (currentIndex - 1 + images.length) % images.length;
+      renderImage(nextIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const nextIndex = (currentIndex + 1) % images.length;
+      renderImage(nextIndex);
+    });
+  </script>
+
+</body>
+</html>
