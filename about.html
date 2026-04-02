@@ -16,7 +16,7 @@
   />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -26,19 +26,24 @@
     :root {
       --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: rgba(0, 0, 0, 0.62);
     }
 
     body {
       margin: 0;
       font-family: var(--font-body);
-      background: #ffffff;
-      color: #000000;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .display,
     h1, h2, h3 {
       font-family: var(--font-head);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.015em;
     }
 
     .header-shell {
@@ -49,7 +54,7 @@
     }
 
     .page-shell {
-      max-width: 1180px;
+      max-width: 1340px;
       margin: 0 auto;
       padding-left: 36px;
       padding-right: 36px;
@@ -67,9 +72,9 @@
 
     .about-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 400px;
-      gap: 64px;
-      align-items: center;
+      grid-template-columns: minmax(0, 760px) 360px;
+      gap: 72px;
+      align-items: start;
     }
 
     .body-copy {
@@ -80,40 +85,69 @@
       font-size: 16px;
       line-height: 1.95;
       color: rgba(0,0,0,0.84);
-      margin: 0 0 1.45rem 0;
+      margin: 0 0 1.5rem 0;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .body-copy p:last-child {
+      margin-bottom: 0;
     }
 
     .about-art {
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      margin-top: -40px;
+      margin-top: -30px;
     }
 
     .about-art img {
       width: 100%;
-      max-width: 340px;
+      max-width: 320px;
       height: auto;
       display: block;
       opacity: 0.85;
     }
 
-    .footer-minimal {
-      padding-top: 28px;
-      padding-bottom: 28px;
-      text-align: center;
-      font-size: 14px;
-      color: rgba(0,0,0,0.6);
+    /* Footer styles matched to welcome page */
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+    }
+
+    .footer-link {
+      color: rgba(0,0,0,0.72);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #000;
     }
 
     @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 28px;
+      }
+
+      .page-shell {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
       .about-layout {
-        grid-template-columns: minmax(0, 1fr) 320px;
-        gap: 44px;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 48px;
+      }
+
+      .about-art {
+        margin-top: -16px;
       }
 
       .about-art img {
-        max-width: 290px;
+        max-width: 280px;
       }
     }
 
@@ -132,7 +166,7 @@
       .about-art {
         order: -1;
         justify-content: flex-start;
-        padding-top: 0;
+        margin-top: 0;
       }
 
       .about-art img {
@@ -143,12 +177,7 @@
       .body-copy p {
         font-size: 15px;
         line-height: 1.82;
-      }
-
-      .footer-minimal {
-        padding-top: 22px;
-        padding-bottom: 24px;
-        font-size: 13px;
+        text-align: left;
       }
     }
   </style>
