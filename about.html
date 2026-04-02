@@ -5,16 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <title>About — STARFACE</title>
-  <meta name="description" content="Learn more about STARFACE — a collectible brand built on stories of art, ambition, and expression."/>
-
-  <!-- Favicon -->
-  <link
-    rel="icon"
-    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='white'/></svg>"
+  <meta
+    name="description"
+    content="Learn more about STARFACE — a collectible brand shaped by art, imagination, and the act of making."
   />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    rel="icon"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -22,84 +27,142 @@
       --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-    body { font-family: var(--font-body); }
-    .display, h1, h2, h3 { font-family: var(--font-head); letter-spacing: .02em; }
 
-    .nav a { position: relative; }
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 2px;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .25s ease;
-      background: currentColor;
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: #ffffff;
+      color: #000000;
     }
-    .nav a:hover::after { transform: scaleX(1); }
+
+    .display,
+    h1, h2, h3 {
+      font-family: var(--font-head);
+      letter-spacing: 0.02em;
+    }
+
+    .header-shell {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 44px;
+      box-sizing: border-box;
+    }
+
+    .page-shell {
+      max-width: 920px;
+      margin: 0 auto;
+      padding-left: 36px;
+      padding-right: 36px;
+      box-sizing: border-box;
+    }
+
+    .crumb {
+      color: rgba(0,0,0,0.68);
+      text-decoration: none;
+    }
+
+    .crumb:hover {
+      color: #000;
+    }
+
+    .body-copy {
+      max-width: 760px;
+    }
+
+    .body-copy p {
+      font-size: 16px;
+      line-height: 1.95;
+      color: rgba(0,0,0,0.84);
+      margin: 0 0 1.45rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .header-shell,
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .body-copy p {
+        font-size: 15px;
+        line-height: 1.82;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-black text-white">
-  <!-- Header with logo -->
-  <div class="w-full bg-black border-b border-white/10 relative h-12 sm:h-14">
-    <a href="index.html" class="absolute inset-0 flex items-center justify-center">
-      <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png"
-           alt="Starface logo"
-           class="h-36 sm:h-44 w-auto select-none pointer-events-none"/>
-    </a>
-  </div>
+<body>
 
-  <!-- Back to Home link -->
-  <div class="text-center mt-3">
-    <a href="index.html" class="text-sm text-white/70 hover:text-white underline tracking-wide">
-      ← Back to Home
-    </a>
-  </div>
-
-  <!-- Nav -->
-  <nav class="w-full bg-black border-b border-white/10 mt-3">
-    <div class="max-w-3xl mx-auto px-4">
-      <ul class="nav flex items-center justify-center gap-6 py-2 text-xs sm:text-sm text-white/70">
-        <li><a href="about.html" class="hover:text-white">About</a></li>
-      </ul>
+  <header class="pt-4 pb-4">
+    <div class="header-shell">
+      <div class="relative h-16 md:h-20">
+        <a href="welcome.html" aria-label="STARFACE home" class="absolute left-0 -top-2">
+          <img
+            src="images/STARFACELOGO.png"
+            alt="STARFACE"
+            class="h-28 md:h-32 w-auto"
+          />
+        </a>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Main content -->
-  <main class="max-w-2xl mx-auto px-4 py-10">
-    <h1 class="display text-3xl sm:text-4xl font-semibold mb-4">About STARFACE™</h1>
+  <section class="pt-2 pb-6">
+    <div class="page-shell">
+      <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
+        ← Back
+      </a>
+    </div>
+  </section>
 
-    <div class="space-y-4 text-white/80 leading-relaxed">
-      <p><strong>STARFACE™</strong> began as a sketch — an idea that lingered through seasons, waiting for its moment to take shape. It wasn’t built overnight. It grew out of persistence, of sketching, erasing, and starting again — until something familiar, yet unseen, finally appeared.</p>
+  <main class="page-shell pt-2 pb-20">
+    <h1 class="display text-3xl md:text-4xl uppercase mb-10">
+      About STARFACE
+    </h1>
 
-      <p>The first figure emerged from that moment of doing — of finally giving form to something that refused to fade. No big team. No grand plan. Just the quiet persistence of an idea that wouldn’t let go, the belief that even small beginnings can become something lasting.</p>
+    <div class="body-copy">
+      <p>
+        STARFACE began as a return to making.
+      </p>
 
-      <p>What started as a simple concept became a symbol — of possibility, aspiration, and resilience. STARFACE isn’t about perfection; it’s about possibility. It’s the story of going beyond what’s expected, of finding your orbit when the world already spins its own way, and defying the odds.</p>
+      <p>
+        What started as a simple act of drawing gradually became something more — a way of exploring form, character, and presence without constraint.
+      </p>
 
-      <p>We’re not trying to say too much. We just believe in things that last — things that feel right, and mean something to the person who keeps them.</p>
+      <p>
+        Over time, that process evolved into something more — creating pieces that could exist beyond the sketchbook, while still being worth keeping.
+      </p>
 
-      <p>And the name? There’s no mystery to it. It just felt distinct — a little offbeat, a little cosmic — open enough to let the story evolve.</p>
+      <p>
+        Space Kid is the first expression of that world. A collectible shaped by clarity, imagination, and the idea that objects can carry meaning beyond their form.
+      </p>
 
-      <p>Call it art, a collectible, or something in between. If it speaks to you, then maybe it’s been waiting for you all along.</p>
+      <p>
+        STARFACE sits between art and object — focused on creating pieces that feel distinct, considered, and worth holding onto.
+      </p>
+
+      <p>
+        This is only the beginning.
+      </p>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="mt-8 bg-black text-white border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-6 py-8 sm:py-10 flex flex-col items-center gap-6">
-      <div class="flex items-center gap-6 text-[13px] sm:text-sm text-white/60">
-        <a href="privacy.html" class="hover:text-white">Privacy</a>
-        <a href="terms.html" class="hover:text-white">Terms</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
-      </div>
+  <footer>
+    <div class="page-shell">
+      <div class="py-6 border-t border-black/10 flex flex-col items-center gap-4 text-sm text-black/60">
+        <div class="flex flex-wrap items-center justify-center gap-5">
+          <a href="about.html" class="hover:text-black">About</a>
+          <a href="privacy.html" class="hover:text-black">Privacy</a>
+          <a href="terms.html" class="hover:text-black">Terms</a>
+          <a href="contact.html" class="hover:text-black">Contact</a>
+        </div>
 
-      <div class="text-xs text-white/70">
-        STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
+        <div>
+          © 2025 STARFACE Ltd. All rights reserved.
+        </div>
       </div>
     </div>
   </footer>
+
 </body>
 </html>
