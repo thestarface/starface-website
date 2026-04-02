@@ -49,7 +49,7 @@
     }
 
     .page-shell {
-      max-width: 920px;
+      max-width: 1180px;
       margin: 0 auto;
       padding-left: 36px;
       padding-right: 36px;
@@ -65,6 +65,13 @@
       color: #000;
     }
 
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 400px;
+      gap: 64px;
+      align-items: start;
+    }
+
     .body-copy {
       max-width: 760px;
     }
@@ -76,6 +83,40 @@
       margin: 0 0 1.45rem 0;
     }
 
+    .about-art {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 8px;
+    }
+
+    .about-art img {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      display: block;
+      opacity: 0.82;
+    }
+
+    .footer-minimal {
+      padding-top: 28px;
+      padding-bottom: 28px;
+      text-align: center;
+      font-size: 14px;
+      color: rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 1024px) {
+      .about-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 44px;
+      }
+
+      .about-art img {
+        max-width: 290px;
+      }
+    }
+
     @media (max-width: 768px) {
       .header-shell,
       .page-shell {
@@ -83,9 +124,31 @@
         padding-right: 18px;
       }
 
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .about-art {
+        order: -1;
+        justify-content: flex-start;
+        padding-top: 0;
+      }
+
+      .about-art img {
+        max-width: 220px;
+        opacity: 0.78;
+      }
+
       .body-copy p {
         font-size: 15px;
         line-height: 1.82;
+      }
+
+      .footer-minimal {
+        padding-top: 22px;
+        padding-bottom: 24px;
+        font-size: 13px;
       }
     }
   </style>
@@ -120,46 +183,46 @@
       About STARFACE
     </h1>
 
-    <div class="body-copy">
-      <p>
-        STARFACE began as a return to making.
-      </p>
+    <div class="about-layout">
+      <div class="body-copy">
+        <p>
+          STARFACE began as a return to making.
+        </p>
 
-      <p>
-        What started as a simple act of drawing gradually became something more — a way of exploring form, character, and presence without constraint.
-      </p>
+        <p>
+          What started as a simple act of drawing gradually became something more — a way of exploring form, character, and presence without constraint.
+        </p>
 
-      <p>
-        Over time, that process evolved into something more — creating pieces that could exist beyond the sketchbook, while still being worth keeping.
-      </p>
+        <p>
+          Over time, that process evolved into something more — creating pieces that could exist beyond the sketchbook, while still being worth keeping.
+        </p>
 
-      <p>
-        Space Kid is the first expression of that world. A collectible shaped by clarity, imagination, and the idea that objects can carry meaning beyond their form.
-      </p>
+        <p>
+          Space Kid is the first expression of that world. A collectible shaped by clarity, imagination, and the idea that objects can carry meaning beyond their form.
+        </p>
 
-      <p>
-        STARFACE sits between art and object — focused on creating pieces that feel distinct, considered, and worth holding onto.
-      </p>
+        <p>
+          STARFACE sits between art and object — focused on creating pieces that feel distinct, considered, and worth holding onto.
+        </p>
 
-      <p>
-        This is only the beginning.
-      </p>
+        <p>
+          This is only the beginning.
+        </p>
+      </div>
+
+      <div class="about-art" aria-hidden="true">
+        <img
+          src="images/spacekidside.png"
+          alt=""
+        />
+      </div>
     </div>
   </main>
 
   <footer>
     <div class="page-shell">
-      <div class="py-6 border-t border-black/10 flex flex-col items-center gap-4 text-sm text-black/60">
-        <div class="flex flex-wrap items-center justify-center gap-5">
-          <a href="about.html" class="hover:text-black">About</a>
-          <a href="privacy.html" class="hover:text-black">Privacy</a>
-          <a href="terms.html" class="hover:text-black">Terms</a>
-          <a href="contact.html" class="hover:text-black">Contact</a>
-        </div>
-
-        <div>
-          © 2025 STARFACE Ltd. All rights reserved.
-        </div>
+      <div class="footer-minimal">
+        © 2025 STARFACE Ltd. All rights reserved.
       </div>
     </div>
   </footer>
