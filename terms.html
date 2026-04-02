@@ -16,7 +16,7 @@
   />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -33,12 +33,17 @@
       font-family: var(--font-body);
       background: #ffffff;
       color: #000000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .display,
     h1, h2, h3 {
       font-family: var(--font-head);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.015em;
     }
 
     .header-shell {
@@ -54,6 +59,12 @@
       padding-left: 36px;
       padding-right: 36px;
       box-sizing: border-box;
+      width: 100%;
+    }
+
+    .content-shell {
+      max-width: 920px;
+      margin: 0 auto;
       width: 100%;
     }
 
@@ -85,10 +96,39 @@
     .terms-copy a {
       color: #000;
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .terms-copy a:hover {
       text-decoration: none;
+    }
+
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+    }
+
+    .footer-link {
+      color: rgba(0,0,0,0.72);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #000;
+    }
+
+    @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 28px;
+      }
+
+      .page-shell {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -125,66 +165,98 @@
 
   <section class="pt-2 pb-6">
     <div class="page-shell">
-      <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
-        ← Back
-      </a>
+      <div class="content-shell">
+        <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
+          ← Back
+        </a>
+      </div>
     </div>
   </section>
 
-  <main class="page-shell pt-2 pb-20">
-    <h1 class="display text-3xl md:text-4xl uppercase mb-10">
-      Terms
-    </h1>
+  <main class="page-shell pt-2 pb-20 flex-1">
+    <div class="content-shell">
+      <h1 class="display text-3xl md:text-4xl uppercase mb-10">
+        Terms
+      </h1>
 
-    <div class="terms-copy space-y-4">
-      <p><strong>Last updated:</strong> April 2026</p>
+      <div class="terms-copy space-y-4">
+        <p><strong>Last updated:</strong> April 2026</p>
 
-      <ol class="space-y-4">
-        <li>
-          <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates.
-        </li>
+        <ol class="space-y-4">
+          <li>
+            <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates.
+          </li>
 
-        <li>
-          <strong>Content.</strong> All text, artwork, designs, visuals, logos, and other materials on this site are owned by STARFACE Ltd unless otherwise stated. They may not be copied, reproduced, distributed, or adapted without prior written permission.
-        </li>
+          <li>
+            <strong>Content.</strong> All text, artwork, designs, visuals, logos, and other materials on this site are owned by STARFACE Ltd unless otherwise stated. They may not be copied, reproduced, distributed, or adapted without prior written permission.
+          </li>
 
-        <li>
-          <strong>Subscriptions and emails.</strong> If you subscribe for updates, you agree to receive occasional emails from STARFACE relating to drops, releases, and related announcements. You can unsubscribe at any time using the link in those emails.
-        </li>
+          <li>
+            <strong>Subscriptions and emails.</strong> If you subscribe for updates, you agree to receive occasional emails from STARFACE relating to drops, releases, and related announcements. You can unsubscribe at any time using the link in those emails.
+          </li>
 
-        <li>
-          <strong>Acceptable use.</strong> You must not misuse the site, attempt to interfere with its operation, bypass security, scrape content automatically, or use the site for unlawful purposes.
-        </li>
+          <li>
+            <strong>Acceptable use.</strong> You must not misuse the site, attempt to interfere with its operation, bypass security, scrape content automatically, or use the site for unlawful purposes.
+          </li>
 
-        <li>
-          <strong>Changes.</strong> We may update these terms from time to time. When we do, the date at the top of this page will be updated.
-        </li>
+          <li>
+            <strong>Changes.</strong> We may update these terms from time to time. When we do, the date at the top of this page will be updated.
+          </li>
 
-        <li>
-          <strong>Company information.</strong><br/>
-          STARFACE Ltd is registered in England &amp; Wales under Company No. <strong>16710422</strong>.
-        </li>
+          <li>
+            <strong>Company information.</strong><br/>
+            STARFACE Ltd is registered in England &amp; Wales under Company No. <strong>16710422</strong>.
+          </li>
 
-        <li>
-          <strong>Contact.</strong><br/>
-          Questions about these terms can be sent to
-          <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
-        </li>
-      </ol>
+          <li>
+            <strong>Contact.</strong><br/>
+            Questions about these terms can be sent to
+            <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
+          </li>
+        </ol>
+      </div>
     </div>
   </main>
 
   <footer>
     <div class="page-shell">
-      <div class="py-6 border-t border-black/10 flex flex-col items-center gap-4 text-sm text-black/60">
-        <div class="flex flex-wrap items-center justify-center gap-5">
-          <a href="about.html" class="hover:text-black">About</a>
-          <a href="privacy.html" class="hover:text-black">Privacy</a>
-          <a href="terms.html" class="hover:text-black">Terms</a>
-          <a href="contact.html" class="hover:text-black">Contact</a>
+      <div class="border-t border-black/10 pt-10 pb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
+
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <div class="space-y-2">
+              <a href="about.html" class="footer-link block">About</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <div class="space-y-2">
+              <a href="subscribe.html" class="footer-link block">Subscribe</a>
+              <a href="contact.html" class="footer-link block">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <div class="space-y-2">
+              <a href="privacy.html" class="footer-link block">Privacy</a>
+              <a href="terms.html" class="footer-link block">Terms</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Connect</div>
+            <div class="space-y-2">
+              <a href="https://www.instagram.com/thestarfaceco/" target="_blank" rel="noopener noreferrer" class="footer-link block">Instagram</a>
+              <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" rel="noopener noreferrer" class="footer-link block">TikTok</a>
+            </div>
+          </div>
+
         </div>
 
-       <div class="pt-10 text-center text-xs tracking-[0.02em] text-black/50">
+        <div class="pt-10 text-center text-xs tracking-[0.02em] text-black/50">
           © 2025 STARFACE Ltd. All rights reserved.
         </div>
       </div>
