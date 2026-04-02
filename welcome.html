@@ -21,7 +21,6 @@
     :root {
       --bg: #ffffff;
       --text: #000000;
-      --muted: rgba(0, 0, 0, 0.62);
     }
 
     body {
@@ -30,7 +29,6 @@
       background: var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     .display {
@@ -48,8 +46,7 @@
     .page-shell {
       max-width: 1340px;
       margin: 0 auto;
-      padding-left: 36px;
-      padding-right: 36px;
+      padding: 0 36px;
       box-sizing: border-box;
       width: 100%;
     }
@@ -62,7 +59,6 @@
     .intro-copy p {
       font-size: 17px;
       line-height: 1.9;
-      color: #000;
       margin: 0;
     }
 
@@ -78,7 +74,6 @@
       background: #000;
       color: #fff;
       transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
     .hero-image {
@@ -87,6 +82,8 @@
       display: block;
       margin: 0 auto;
     }
+
+    /* ===== FOOTER ===== */
 
     .footer-heading {
       font-size: 11px;
@@ -110,7 +107,7 @@
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 44px;
       align-items: start;
-      min-height: 160px;
+      min-height: 140px;
     }
 
     .footer-links {
@@ -119,24 +116,26 @@
       gap: 22px;
     }
 
+    /* CENTER LOGO */
+
     .footer-mark-wrap {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      top: -20px;
+      top: 10px;
       display: flex;
       justify-content: center;
       pointer-events: none;
     }
 
-  .footer-mark {
-  width: 240px;
-  height: 96px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transform: translateY(-10px);
-}
+    .footer-mark {
+      width: 240px;
+      height: auto;
+      display: block;
+    }
+
+    /* RIGHT SIDE */
+
     .connect-column {
       display: flex;
       flex-direction: column;
@@ -146,30 +145,21 @@
 
     .social-slot {
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
       gap: 20px;
     }
 
     .social-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       opacity: 0.72;
-      transition: all 0.25s ease;
+      transition: 0.25s;
     }
 
     .social-icon:hover {
       opacity: 1;
-      transform: translateY(-1px);
     }
 
     .footer-join {
-      width: 100%;
-      max-width: 250px;
+      width: 250px;
       padding-top: 34px;
-      margin-left: auto;
-      text-align: left;
     }
 
     .join-label {
@@ -183,30 +173,16 @@
 
     .join-form {
       display: flex;
-      align-items: center;
       gap: 10px;
     }
 
     .join-input {
       flex: 1;
-      min-width: 0;
       height: 44px;
       padding: 0 14px;
       border: 1px solid rgba(0,0,0,0.16);
-      background: transparent;
-      color: #000;
-      font-family: 'Inter', sans-serif;
       font-size: 14px;
       outline: none;
-      box-sizing: border-box;
-    }
-
-    .join-input::placeholder {
-      color: rgba(0,0,0,0.42);
-    }
-
-    .join-input:focus {
-      border-color: rgba(0,0,0,0.38);
     }
 
     .join-button {
@@ -215,22 +191,14 @@
       border: 1px solid #000;
       background: #000;
       color: #fff;
-      font-family: 'Inter', sans-serif;
       font-size: 12px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.22s ease;
-      white-space: nowrap;
-    }
-
-    .join-button:hover {
-      opacity: 0.88;
     }
 
     .join-note {
       font-size: 12px;
-      line-height: 1.6;
       color: rgba(0,0,0,0.48);
       margin-top: 10px;
       text-align: right;
@@ -240,84 +208,20 @@
       padding-top: 30px;
       text-align: center;
       font-size: 12px;
-      letter-spacing: 0.02em;
       color: rgba(0,0,0,0.5);
     }
 
-    @media (max-width: 1200px) {
-      .footer-top {
-        grid-template-columns: minmax(0, 1fr) auto;
-      }
-
-      .footer-mark {
-        width: 240px;
-      }
-
-      .connect-column {
-        min-width: 220px;
-      }
-
-      .footer-join {
-        max-width: 220px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .header-shell {
-        padding-left: 18px;
-        padding-right: 28px;
-      }
-
-      .page-shell {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-      .hero-image {
-        max-width: 980px;
-      }
-
-      .footer-mark {
-        width: 220px;
-      }
-    }
+    /* ===== MOBILE ===== */
 
     @media (max-width: 768px) {
-      .header-shell,
-      .page-shell {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .intro-copy {
-        max-width: 100%;
-      }
-
-      .intro-copy p {
-        font-size: 15px;
-        line-height: 1.75;
-      }
-
-      .hero-image {
-        max-width: 100%;
-      }
-
       .footer-top {
         grid-template-columns: 1fr;
-        gap: 28px;
-        min-height: auto;
-      }
-
-      .footer-links {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px 20px;
       }
 
       .footer-mark-wrap {
         position: static;
         transform: none;
         justify-content: flex-start;
-        pointer-events: auto;
       }
 
       .footer-mark {
@@ -326,163 +230,114 @@
 
       .connect-column {
         align-items: flex-start;
-        min-width: 0;
-      }
-
-      .social-slot {
-        justify-content: flex-start;
       }
 
       .footer-join {
-        max-width: 100%;
-        margin-left: 0;
-        padding-top: 8px;
+        width: 100%;
       }
 
       .join-note {
         text-align: left;
       }
     }
+
   </style>
 </head>
 
 <body>
 
-  <header class="pt-4 pb-4">
-    <div class="header-shell">
-      <div class="relative h-16 md:h-20">
-        <a href="index.html" aria-label="STARFACE home" class="absolute left-0 -top-2">
-          <img
-            src="images/STARFACELOGO.png"
-            alt="STARFACE"
-            class="h-28 md:h-32 w-auto"
-          />
-        </a>
-      </div>
+<header class="pt-4 pb-4">
+  <div class="header-shell">
+    <img src="images/STARFACELOGO.png" class="h-28 md:h-32" />
+  </div>
+</header>
+
+<section class="pt-6 md:pt-8">
+  <div class="page-shell">
+    <img src="images/allspacekids.jpeg" class="hero-image" />
+  </div>
+</section>
+
+<section class="pt-10 pb-28 text-center">
+  <div class="page-shell">
+    <div class="intro-copy">
+      <h1 class="display text-[2.2rem] uppercase mb-8">Welcome</h1>
+
+      <p class="mb-6">
+        We know you’re here for a reason. So first — thank you.
+      </p>
+
+      <p class="mb-20">
+        STARFACE introduces its first collectible — Space Kid.
+        A 14-inch figure released in six distinct colourways,
+        created with clarity, character, and presence.
+      </p>
+
+      <a href="shop.html" class="cta px-9 py-3 rounded-full text-sm uppercase tracking-[0.25em]">
+        Get Yours
+      </a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <section class="pt-6 md:pt-8">
-    <div class="page-shell">
-      <img
-        src="images/allspacekids.jpeg"
-        alt="STARFACE Space Kid Series 01 in six colour variants"
-        class="hero-image"
-      />
-    </div>
-  </section>
+<footer>
+  <div class="page-shell">
+    <div class="border-t border-black/10 pt-12 pb-8">
 
-  <section class="pt-10 md:pt-12 pb-28 md:pb-32">
-    <div class="page-shell text-center">
-      <div class="intro-copy">
-        <h1 class="display text-[1.8rem] md:text-[2.35rem] uppercase mb-8">
-          Welcome
-        </h1>
+      <div class="footer-top">
 
-        <p class="mb-6">
-          We know you’re here for a reason. So first — thank you.
-        </p>
-
-        <p class="mb-20">
-          STARFACE introduces its first collectible — Space Kid. A 14-inch figure released in six distinct colourways, created with clarity, character, and presence.
-        </p>
-
-        <a
-          href="shop.html"
-          class="cta inline-flex items-center justify-center px-9 py-3.5 rounded-full text-sm uppercase tracking-[0.25em] mt-2"
-        >
-          Get Yours
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="page-shell">
-      <div class="border-t border-black/10 pt-12 pb-8">
-
-        <div class="footer-top">
-
-          <div class="footer-links text-sm">
-            <div>
-              <div class="footer-heading mb-4">About</div>
-              <div class="space-y-2">
-                <a href="about.html" class="footer-link block">About Us</a>
-              </div>
-            </div>
-
-            <div>
-              <div class="footer-heading mb-4">Support</div>
-              <div class="space-y-2">
-                <a href="contact.html" class="footer-link block">Contact</a>
-              </div>
-            </div>
-
-            <div>
-              <div class="footer-heading mb-4">Legal</div>
-              <div class="space-y-2">
-                <a href="privacy.html" class="footer-link block">Privacy</a>
-                <a href="terms.html" class="footer-link block">Terms</a>
-              </div>
-            </div>
+        <!-- LEFT -->
+        <div class="footer-links text-sm">
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <a href="about.html" class="footer-link">About Us</a>
           </div>
 
-          <div class="footer-mark-wrap">
-            <img
-              src="images/starface-mark.png"
-              alt="STARFACE mark"
-              class="footer-mark"
-            />
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <a href="contact.html" class="footer-link">Contact</a>
           </div>
 
-          <div class="connect-column">
-            <div class="footer-heading mb-4">Connect</div>
-            <div class="social-slot">
-              <a href="https://www.instagram.com/thestarfaceco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
-                <svg width="33" height="33" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="black" stroke-width="1.5"/>
-                  <circle cx="12" cy="12" r="4" stroke="black" stroke-width="1.5"/>
-                  <circle cx="17.5" cy="6.5" r="1.15" fill="black"/>
-                </svg>
-              </a>
-
-              <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon">
-                <svg width="33" height="33" viewBox="0 0 24 24" fill="black">
-                  <path d="M16 3c.5 2 2 3.5 4 4v3c-1.5 0-3-.5-4-1.3V16a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3a2 2 0 1 0 2 2V3h2z"/>
-                </svg>
-              </a>
-            </div>
-
-            <div class="footer-join">
-              <label for="footer-email" class="join-label">Join</label>
-              <form class="join-form" action="YOUR-KIT-FORM-ACTION-URL-HERE" method="post">
-                <input type="hidden" name="redirect" value="https://thestarface.com/thank-you.html" />
-                <input
-                  id="footer-email"
-                  name="email_address"
-                  type="email"
-                  required
-                  autocomplete="email"
-                  placeholder="Email address"
-                  class="join-input"
-                />
-                <button type="submit" class="join-button">Sign Up</button>
-              </form>
-              <div class="join-note">
-                We respect your privacy.
-              </div>
-            </div>
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <a href="privacy.html" class="footer-link block">Privacy</a>
+            <a href="terms.html" class="footer-link block">Terms</a>
           </div>
-
         </div>
 
-        <div class="footer-copy">
-          © 2025 STARFACE Ltd. All rights reserved.
+        <!-- CENTER LOGO -->
+        <div class="footer-mark-wrap">
+          <img src="images/starface-mark.png" class="footer-mark" />
+        </div>
+
+        <!-- RIGHT -->
+        <div class="connect-column">
+          <div class="footer-heading mb-4">Connect</div>
+
+          <div class="social-slot">
+            <a href="#"><svg width="30" height="30"><rect width="20" height="20" stroke="black"/></svg></a>
+            <a href="#"><svg width="30" height="30"><circle cx="10" cy="10" r="8" fill="black"/></svg></a>
+          </div>
+
+          <div class="footer-join">
+            <label class="join-label">Join</label>
+            <form class="join-form">
+              <input type="email" placeholder="Email address" class="join-input" />
+              <button class="join-button">Sign Up</button>
+            </form>
+            <div class="join-note">We respect your privacy.</div>
+          </div>
         </div>
 
       </div>
+
+      <div class="footer-copy">
+        © 2025 STARFACE Ltd. All rights reserved.
+      </div>
+
     </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
