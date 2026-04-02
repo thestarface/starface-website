@@ -35,6 +35,11 @@
       color: #000000;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+
+      /* THIS FIXES FOOTER POSITION */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .display,
@@ -56,6 +61,7 @@
       padding-left: 36px;
       padding-right: 36px;
       box-sizing: border-box;
+      width: 100%;
     }
 
     .subscribe-shell {
@@ -114,6 +120,7 @@
 
 <body>
 
+  <!-- HEADER -->
   <header class="pt-4 pb-4">
     <div class="header-shell">
       <div class="relative h-16 md:h-20">
@@ -128,9 +135,11 @@
     </div>
   </header>
 
-  <main class="min-h-[60vh] flex items-center">
-    <div class="page-shell w-full py-16 md:py-24">
+  <!-- MAIN -->
+  <main class="min-h-[60vh] flex items-center flex-1">
+    <div class="page-shell py-16 md:py-24">
       <div class="subscribe-shell text-center">
+
         <h1 class="display text-3xl md:text-4xl uppercase mb-5">
           You’re In
         </h1>
@@ -145,51 +154,48 @@
         >
           ← Back to Welcome
         </a>
+
       </div>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="page-shell">
       <div class="border-t border-black/10 pt-10 pb-6">
+
         <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
 
           <div>
             <div class="footer-heading mb-4">About</div>
-            <div class="space-y-2">
-              <a href="about.html" class="footer-link block">About</a>
-            </div>
+            <a href="about.html" class="footer-link block">About</a>
           </div>
 
           <div>
             <div class="footer-heading mb-4">Support</div>
-            <div class="space-y-2">
-              <a href="subscribe.html" class="footer-link block">Subscribe</a>
-              <a href="contact.html" class="footer-link block">Contact</a>
-            </div>
+            <a href="subscribe.html" class="footer-link block">Subscribe</a>
+            <a href="contact.html" class="footer-link block">Contact</a>
           </div>
 
           <div>
             <div class="footer-heading mb-4">Legal</div>
-            <div class="space-y-2">
-              <a href="privacy.html" class="footer-link block">Privacy</a>
-              <a href="terms.html" class="footer-link block">Terms</a>
-            </div>
+            <a href="privacy.html" class="footer-link block">Privacy</a>
+            <a href="terms.html" class="footer-link block">Terms</a>
           </div>
 
           <div>
             <div class="footer-heading mb-4">Connect</div>
-            <div class="space-y-2">
-              <a href="https://www.instagram.com/thestarfaceco/" target="_blank" rel="noopener noreferrer" class="footer-link block">Instagram</a>
-              <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" rel="noopener noreferrer" class="footer-link block">TikTok</a>
-            </div>
+            <a href="https://www.instagram.com/thestarfaceco/" target="_blank" class="footer-link block">Instagram</a>
+            <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" class="footer-link block">TikTok</a>
           </div>
 
         </div>
 
-        <div class="pt-10 text-center text-sm text-black/60">
-          © 2025 STARFACE Ltd. All rights reserved.
+        <!-- SUBTLE COPYRIGHT (MATCHES ENTER PAGE FEEL) -->
+        <div class="pt-10 text-center text-xs tracking-[0.02em] text-black/50">
+          STARFACE™ &amp; © 2025 STARFACE Ltd. All rights reserved.
         </div>
+
       </div>
     </div>
   </footer>
