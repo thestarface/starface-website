@@ -5,15 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>STARFACE — Shop</title>
-  <meta
-    name="description"
-    content="Shop Space Kid Series 01 in six colour variants."
-  />
+  <meta name="description" content="Shop Space Kid Series 01 in six colour variants." />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -51,34 +45,12 @@
       color: inherit;
     }
 
-    .product-image-wrap {
-      position: relative;
-      overflow: hidden;
+    .product-card img {
+      transition: transform 0.4s ease;
     }
 
-    .product-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: opacity 0.35s ease, transform 0.4s ease;
-    }
-
-    .back-image {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-    }
-
-    .product-card:hover .front-image {
-  opacity: 0;
-  transform: scale(1.03);
-  transition-delay: 0s;
-}
-
-.product-card:hover .back-image {
-  opacity: 1;
-  transform: scale(1.03);
-  transition-delay: 0.18s;
+    .product-card:hover img {
+      transform: scale(1.03);
     }
 
     @media (max-width: 768px) {
@@ -117,55 +89,37 @@
     <div class="page-shell grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-14">
 
       <a href="origin.html" class="product-card">
-        <div class="product-image-wrap">
-          <img src="images/origin.JPG" alt="Origin front" class="product-image front-image">
-          <img src="images/originback.JPG" alt="Origin back" class="product-image back-image">
-        </div>
+        <img src="images/origin.JPG" alt="Origin">
         <p class="mt-4 text-sm uppercase tracking-[0.18em]">Origin</p>
         <p class="mt-1 text-sm text-black/65">£205</p>
       </a>
 
       <a href="autumn.html" class="product-card">
-        <div class="product-image-wrap">
-          <img src="images/autumn.JPG" alt="Autumn front" class="product-image front-image">
-          <img src="images/autumnback.JPG" alt="Autumn back" class="product-image back-image">
-        </div>
+        <img src="images/autumn.JPG" alt="Autumn">
         <p class="mt-4 text-sm uppercase tracking-[0.18em]">Autumn</p>
         <p class="mt-1 text-sm text-black/65">£295</p>
       </a>
 
       <a href="bubblegum.html" class="product-card">
-        <div class="product-image-wrap">
-          <img src="images/bubblegum.JPG" alt="Bubblegum front" class="product-image front-image">
-          <img src="images/bubblegumback.JPG" alt="Bubblegum back" class="product-image back-image">
-        </div>
+        <img src="images/bubblegum.JPG" alt="Bubblegum">
         <p class="mt-4 text-sm uppercase tracking-[0.18em]">Bubblegum</p>
         <p class="mt-1 text-sm text-black/65">£245</p>
       </a>
 
       <a href="urban.html" class="product-card">
-        <div class="product-image-wrap">
-          <img src="images/urban.JPG" alt="Urban front" class="product-image front-image">
-          <img src="images/urbanback.JPG" alt="Urban back" class="product-image back-image">
-        </div>
+        <img src="images/urban.JPG" alt="Urban">
         <p class="mt-4 text-sm uppercase tracking-[0.18em]">Urban</p>
         <p class="mt-1 text-sm text-black/65">£295</p>
       </a>
 
       <a href="chrome.html" class="product-card">
-        <div class="product-image-wrap">
-          <img src="images/chrome.JPG" alt="Chrome front" class="product-image front-image">
-          <img src="images/chromeback.JPG" alt="Chrome back" class="product-image back-image">
-        </div>
+        <img src="images/chrome.JPG" alt="Chrome">
         <p class="mt-4 text-sm uppercase tracking-[0.18em]">Chrome</p>
         <p class="mt-1 text-sm text-black/65">£295</p>
       </a>
 
       <a href="midnight.html" class="product-card">
-        <div class="product-image-wrap">
-          <img src="images/midnight.JPG" alt="Midnight front" class="product-image front-image">
-          <img src="images/midnightback.JPG" alt="Midnight back" class="product-image back-image">
-        </div>
+        <img src="images/midnight.JPG" alt="Midnight">
         <p class="mt-4 text-sm uppercase tracking-[0.18em]">Midnight</p>
         <p class="mt-1 text-sm text-black/65">£245</p>
       </a>
