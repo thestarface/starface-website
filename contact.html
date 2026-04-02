@@ -33,6 +33,11 @@
       font-family: var(--font-body);
       background: #ffffff;
       color: #000000;
+
+      /* FIXES FOOTER POSITION */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .display,
@@ -54,6 +59,7 @@
       padding-left: 36px;
       padding-right: 36px;
       box-sizing: border-box;
+      width: 100%;
     }
 
     .crumb {
@@ -103,6 +109,7 @@
 
 <body>
 
+  <!-- HEADER -->
   <header class="pt-4 pb-4">
     <div class="header-shell">
       <div class="relative h-16 md:h-20">
@@ -117,6 +124,7 @@
     </div>
   </header>
 
+  <!-- BACK LINK -->
   <section class="pt-2 pb-6">
     <div class="page-shell">
       <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
@@ -125,7 +133,8 @@
     </div>
   </section>
 
-  <main class="page-shell pt-2 pb-24">
+  <!-- MAIN -->
+  <main class="page-shell pt-2 pb-24 flex-1">
     <h1 class="display text-3xl md:text-4xl uppercase mb-8">
       Get in Touch
     </h1>
@@ -147,19 +156,23 @@
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="page-shell">
-      <div class="py-6 border-t border-black/10 flex flex-col items-center gap-4 text-sm text-black/60">
-        <div class="flex flex-wrap items-center justify-center gap-5">
+      <div class="border-t border-black/10 pt-10 pb-6">
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-black/70">
           <a href="about.html" class="hover:text-black">About</a>
           <a href="privacy.html" class="hover:text-black">Privacy</a>
           <a href="terms.html" class="hover:text-black">Terms</a>
           <a href="contact.html" class="hover:text-black">Contact</a>
         </div>
 
-        <div>
+        <!-- SUBTLE COPYRIGHT -->
+        <div class="pt-10 text-center text-xs tracking-[0.02em] text-black/50">
           © 2025 STARFACE Ltd. All rights reserved.
         </div>
+
       </div>
     </div>
   </footer>
