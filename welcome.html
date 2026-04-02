@@ -105,10 +105,12 @@
     }
 
     .footer-top {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 44px;
       align-items: start;
+      min-height: 160px;
     }
 
     .footer-links {
@@ -118,17 +120,20 @@
     }
 
     .footer-mark-wrap {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      padding-top: 2px;
+      pointer-events: none;
     }
 
     .footer-mark {
-      width: 200px;
+      width: 300px;
       height: auto;
       display: block;
-      opacity: 0.95;
+      opacity: 1;
     }
 
     .connect-column {
@@ -142,7 +147,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
     }
 
     .social-icon {
@@ -231,7 +236,7 @@
     }
 
     .footer-copy {
-      padding-top: 26px;
+      padding-top: 30px;
       text-align: center;
       font-size: 12px;
       letter-spacing: 0.02em;
@@ -243,10 +248,8 @@
         grid-template-columns: minmax(0, 1fr) auto;
       }
 
-      .footer-mark-wrap {
-        grid-column: 1 / -1;
-        justify-content: center;
-        padding-top: 8px;
+      .footer-mark {
+        width: 240px;
       }
 
       .connect-column {
@@ -274,7 +277,7 @@
       }
 
       .footer-mark {
-        width: 180px;
+        width: 220px;
       }
     }
 
@@ -301,6 +304,7 @@
       .footer-top {
         grid-template-columns: 1fr;
         gap: 28px;
+        min-height: auto;
       }
 
       .footer-links {
@@ -309,13 +313,14 @@
       }
 
       .footer-mark-wrap {
+        position: static;
+        transform: none;
         justify-content: flex-start;
-        grid-column: auto;
-        padding-top: 0;
+        pointer-events: auto;
       }
 
       .footer-mark {
-        width: 160px;
+        width: 180px;
       }
 
       .connect-column {
@@ -401,7 +406,7 @@
             <div>
               <div class="footer-heading mb-4">About</div>
               <div class="space-y-2">
-                <a href="about.html" class="footer-link block">About</a>
+                <a href="about.html" class="footer-link block">About Us</a>
               </div>
             </div>
 
