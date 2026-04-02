@@ -16,7 +16,7 @@
   />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -33,8 +33,8 @@
       font-family: var(--font-body);
       background: #ffffff;
       color: #000000;
-
-      /* FIXES FOOTER POSITION */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -43,7 +43,7 @@
     .display,
     h1, h2, h3 {
       font-family: var(--font-head);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.015em;
     }
 
     .header-shell {
@@ -54,11 +54,17 @@
     }
 
     .page-shell {
-      max-width: 920px;
+      max-width: 1340px;
       margin: 0 auto;
       padding-left: 36px;
       padding-right: 36px;
       box-sizing: border-box;
+      width: 100%;
+    }
+
+    .content-shell {
+      max-width: 920px;
+      margin: 0 auto;
       width: 100%;
     }
 
@@ -92,6 +98,34 @@
       text-decoration: none;
     }
 
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+    }
+
+    .footer-link {
+      color: rgba(0,0,0,0.72);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #000;
+    }
+
+    @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 28px;
+      }
+
+      .page-shell {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
     @media (max-width: 768px) {
       .header-shell,
       .page-shell {
@@ -109,7 +143,6 @@
 
 <body>
 
-  <!-- HEADER -->
   <header class="pt-4 pb-4">
     <div class="header-shell">
       <div class="relative h-16 md:h-20">
@@ -124,40 +157,41 @@
     </div>
   </header>
 
-  <!-- BACK LINK -->
   <section class="pt-2 pb-6">
     <div class="page-shell">
-      <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
-        ← Back
-      </a>
+      <div class="content-shell">
+        <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
+          ← Back
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- MAIN -->
   <main class="page-shell pt-2 pb-24 flex-1">
-    <h1 class="display text-3xl md:text-4xl uppercase mb-8">
-      Get in Touch
-    </h1>
+    <div class="content-shell">
+      <h1 class="display text-3xl md:text-4xl uppercase mb-8">
+        Get in Touch
+      </h1>
 
-    <div class="contact-copy">
-      <p>
-        We’d love to hear from you. Whether you have a question about STARFACE, a partnership idea, or a press enquiry, you can reach us below.
-      </p>
+      <div class="contact-copy">
+        <p>
+          We’d love to hear from you. Whether you have a question about STARFACE, a partnership idea, or a press enquiry, you can reach us below.
+        </p>
 
-      <p>
-        <strong>General:</strong>
-        <a href="mailto:hello@thestarface.com" class="contact-link">hello@thestarface.com</a>
-      </p>
+        <p>
+          <strong>General:</strong>
+          <a href="mailto:hello@thestarface.com" class="contact-link">hello@thestarface.com</a>
+        </p>
 
-      <p>
-        <strong>Support:</strong>
-        <a href="mailto:support@thestarface.com" class="contact-link">support@thestarface.com</a>
-      </p>
+        <p>
+          <strong>Support:</strong>
+          <a href="mailto:support@thestarface.com" class="contact-link">support@thestarface.com</a>
+        </p>
+      </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-   <footer>
+  <footer>
     <div class="page-shell">
       <div class="border-t border-black/10 pt-10 pb-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
@@ -195,9 +229,9 @@
 
         </div>
 
-       <div class="pt-10 text-center text-xs tracking-[0.02em] text-black/50">
-  © 2025 STARFACE Ltd. All rights reserved.
-</div>
+        <div class="pt-10 text-center text-xs tracking-[0.02em] text-black/50">
+          © 2025 STARFACE Ltd. All rights reserved.
+        </div>
       </div>
     </div>
   </footer>
