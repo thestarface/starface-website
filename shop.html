@@ -70,13 +70,15 @@
     }
 
     .product-card:hover .front-image {
-      opacity: 0;
-      transform: scale(1.03);
-    }
+  opacity: 0;
+  transform: scale(1.03);
+  transition-delay: 0s;
+}
 
-    .product-card:hover .back-image {
-      opacity: 1;
-      transform: scale(1.03);
+.product-card:hover .back-image {
+  opacity: 1;
+  transform: scale(1.03);
+  transition-delay: 0.18s;
     }
 
     @media (max-width: 768px) {
