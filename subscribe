@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>Subscribe — STARFACE</title>
+  <meta
+    name="description"
+    content="Subscribe for updates from STARFACE and be first to hear about drops, releases, and new arrivals."
+  />
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: #ffffff;
+      color: #000000;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .display,
+    h1, h2, h3 {
+      font-family: var(--font-head);
+      letter-spacing: 0.015em;
+    }
+
+    .header-shell {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 44px;
+      box-sizing: border-box;
+    }
+
+    .page-shell {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding-left: 36px;
+      padding-right: 36px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .content-shell {
+      max-width: 920px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .crumb {
+      color: rgba(0,0,0,0.68);
+      text-decoration: none;
+    }
+
+    .crumb:hover {
+      color: #000;
+    }
+
+    .subscribe-copy {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .subscribe-copy p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: rgba(0,0,0,0.82);
+      margin: 0;
+    }
+
+    .subscribe-form-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .subscribe-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.58);
+      text-align: left;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 54px;
+      padding: 0 18px;
+      border: 1px solid rgba(0,0,0,0.16);
+      border-radius: 999px;
+      font-size: 16px;
+      font-family: var(--font-body);
+      color: #000;
+      background: #fff;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .form-input:focus {
+      border-color: rgba(0,0,0,0.42);
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+    }
+
+    .form-button {
+      height: 54px;
+      border: 1.5px solid #000;
+      border-radius: 999px;
+      background: transparent;
+      color: #000;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .form-button:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .form-note {
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(0,0,0,0.56);
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+    }
+
+    .footer-link {
+      color: rgba(0,0,0,0.72);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #000;
+    }
+
+    @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 28px;
+      }
+
+      .page-shell {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-shell,
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .subscribe-copy p {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .form-input,
+      .form-button {
+        height: 52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="pt-4 pb-4">
+    <div class="header-shell">
+      <div class="relative h-16 md:h-20">
+        <a href="welcome.html" aria-label="STARFACE home" class="absolute left-0 -top-2">
+          <img
+            src="images/STARFACELOGO.png"
+            alt="STARFACE"
+            class="h-28 md:h-32 w-auto"
+          />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="pt-2 pb-6">
+    <div class="page-shell">
+      <div class="content-shell">
+        <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
+          ← Back
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="page-shell pt-2 pb-24 flex-1">
+    <div class="content-shell">
+      <div class="subscribe-copy mb-12">
+        <h1 class="display text-3xl md:text-4xl uppercase mb-6">
+          Subscribe
+        </h1>
+
+        <p>
+          Sign up to receive updates from STARFACE, including new drops, releases, and selected brand news.
+        </p>
+      </div>
+
+      <div class="subscribe-form-wrap">
+        <form
+          class="subscribe-form"
+          action="YOUR-KIT-FORM-ACTION-URL-HERE"
+          method="post"
+        >
+          <input type="hidden" name="redirect" value="https://thestarface.com/thank-you.html" />
+
+          <label for="email_address" class="form-label">
+            Email Address
+          </label>
+
+          <input
+            id="email_address"
+            name="email_address"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder="Enter your email"
+            class="form-input"
+          />
+
+          <button type="submit" class="form-button">
+            Subscribe
+          </button>
+        </form>
+
+        <p class="form-note mt-6">
+          By subscribing, you agree to receive occasional emails from STARFACE. You can unsubscribe at any time.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="page-shell">
+      <div class="border-t border-black/10 pt-10 pb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
+
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <div class="space-y-2">
+              <a href="about.html" class="footer-link block">About</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <div class="space-y-2">
+              <a href="subscribe.html" class="footer-link block">Subscribe</a>
+              <a href="contact.html" class="footer-link block">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <div class="space-y-2">
+              <a href="privacy.html" class="footer-link block">Privacy</a>
+              <a href="terms.html" class="footer-link block">Terms</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Connect</div>
+            <div class="space-y-2">
+              <a href="https://www.instagram.com/thestarfaceco/" target="_blank" rel="noopener noreferrer" class="footer-link block">Instagram</a>
+              <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" rel="noopener noreferrer" class="footer-link block">TikTok</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-10 text-center text-xs tracking-[0.02em] text-black/50">
+          © 2025 STARFACE Ltd. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
