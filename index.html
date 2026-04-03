@@ -12,7 +12,7 @@
 
   <link
     rel="icon"
-    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='white'/></svg>"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
   />
 
   <link
@@ -28,7 +28,7 @@
       --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
       --entry-bg: #fefdfb;
-      --entry-text: #000;
+      --entry-text: #000000;
       --entry-muted: rgba(0, 0, 0, 0.42);
       --entry-border: rgba(0, 0, 0, 0.82);
 
@@ -39,6 +39,7 @@
 
       --logo-max-h: clamp(52px, 10vh, 110px);
       --copyright-h: 18px;
+
       --image-max-h: calc(
         100dvh
         - var(--entry-top-pad)
@@ -52,14 +53,20 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      height: 100%;
+      background: var(--entry-bg);
+      overscroll-behavior: none;
     }
 
     body {
       margin: 0;
+      min-height: 100%;
       font-family: var(--font-body);
-      background: #000;
-      color: #fff;
+      background: var(--entry-bg);
+      color: var(--entry-text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overscroll-behavior: none;
     }
 
     .display,
@@ -69,23 +76,14 @@
     }
 
     .use-star-cursor:hover {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='%23ffffff'/></svg>"), auto;
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><polygon points='12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9' fill='%23000000'/></svg>"), auto;
     }
 
-    /* ENTRY SCREEN */
     .entry-screen {
       position: fixed;
       inset: 0;
-      z-index: 100;
       background: var(--entry-bg);
-      transition: opacity 0.55s ease, visibility 0.55s ease;
       overflow: hidden;
-    }
-
-    .entry-screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
     }
 
     .entry-wrap {
@@ -166,8 +164,8 @@
     .entry-enter-wrap {
       position: absolute;
       bottom: 27%;
-      left: 0%;
-      right: 0%;
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: center;
       z-index: 2;
@@ -203,10 +201,10 @@
       border-color: #000;
       background-color: #000;
       box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.08),
-    0 6px 18px rgba(0, 0, 0, 0.12),
-    0 0 18px rgba(0, 0, 0, 0.12);
-}
+        0 0 0 1px rgba(0, 0, 0, 0.08),
+        0 6px 18px rgba(0, 0, 0, 0.12),
+        0 0 18px rgba(0, 0, 0, 0.12);
+    }
 
     .entry-enter:focus-visible {
       outline: 2px solid rgba(217, 119, 6, 0.45);
@@ -230,7 +228,6 @@
       letter-spacing: 0.01em;
     }
 
-    /* Short screens / landscape phones */
     @media (max-height: 700px) {
       :root {
         --logo-max-h: clamp(44px, 8vh, 80px);
@@ -292,10 +289,11 @@
 
       .entry-silhouette {
         max-width: min(410px, 86vw);
+        max-height: 58vh;
       }
 
       .entry-enter-wrap {
-        bottom: 7%;
+        bottom: 18%;
       }
 
       .entry-enter {
@@ -310,74 +308,15 @@
       }
     }
 
-    /* SITE CONTENT */
-    .hero-card,
-    .variant-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-    }
-
-    .variant-card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
-    }
-
-    .variant-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
-    }
-
-    .variant-image-wrap {
-      overflow: hidden;
-    }
-
-    .variant-card img {
-      transition: transform 0.4s ease;
-    }
-
-    .variant-card:hover img {
-      transform: scale(1.03);
-    }
-
-    .main-cta {
-      transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
-    }
-
-    .main-cta:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .entry-screen,
       .fade-up,
-      .variant-card,
-      .variant-card img,
-      .main-cta {
+      .entry-enter {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
       }
     }
-    @media (max-width: 768px) {
-  .entry-silhouette {
-    max-height: 58vh;
-  }
-
-  .entry-enter-wrap {
-    bottom: 18%;
-  }
-}
   </style>
 
   <meta property="og:title" content="STARFACE" />
@@ -398,14 +337,13 @@
   <meta name="twitter:image" content="https://www.thestarface.com/images/STARFACELOGOBLACK.png" />
 </head>
 
-<body class="bg-black text-white">
+<body>
   <audio
     id="enterSound"
     src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"
     preload="auto"
   ></audio>
 
-  <!-- ENTRY SCREEN -->
   <div id="entryScreen" class="entry-screen">
     <div class="entry-wrap">
       <div class="entry-panel">
@@ -446,249 +384,20 @@
     </div>
   </div>
 
-  <div class="min-h-screen flex flex-col">
-    <!-- HEADER -->
-    <header class="pt-5 pb-3">
-      <div class="max-w-6xl mx-auto px-4">
-        <img
-          src="images/STARFACELOGOBLACK.png"
-          alt="STARFACE"
-          class="mx-auto h-24 sm:h-32 md:h-40 w-auto select-none pointer-events-none"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-    </header>
-
-    <main class="flex-1">
-      <!-- HERO -->
-      <section class="max-w-6xl mx-auto px-4 pt-4 sm:pt-6">
-        <div class="hero-card rounded-[2rem] overflow-hidden">
-          <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-0 items-center">
-            <div class="px-6 py-10 sm:px-10 sm:py-14 md:px-14">
-              <p class="text-[11px] sm:text-xs uppercase tracking-[0.32em] text-white/50">
-                STARFACE™
-              </p>
-
-              <h1 class="display mt-5 text-4xl sm:text-5xl md:text-6xl uppercase tracking-[0.08em]">
-                SpaceKid
-              </h1>
-
-              <p class="mt-5 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/72">
-                A 14-inch collectible presented in six colour variants, designed with clarity, character, and presence.
-              </p>
-
-              <div class="mt-8">
-                <a
-                  href="#variants"
-                  class="main-cta use-star-cursor inline-flex items-center justify-center min-w-[170px] h-12 rounded-md bg-white text-black px-8 font-semibold tracking-wide no-underline"
-                >
-                  Get Yours
-                </a>
-              </div>
-            </div>
-
-            <div class="px-6 pb-6 lg:px-8 lg:py-8">
-              <img
-                src="images/origin.JPG"
-                alt="SpaceKid Origin Variant"
-                class="w-full max-w-[540px] mx-auto h-auto object-contain"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VARIANTS -->
-      <section id="variants" class="max-w-6xl mx-auto px-4 mt-16 sm:mt-20 mb-20">
-        <div class="text-center">
-          <p class="text-xs sm:text-sm uppercase tracking-[0.3em] text-white/55">
-            SpaceKid
-          </p>
-          <h2 class="display mt-3 text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.2em]">
-            Six Variants
-          </h2>
-        </div>
-
-        <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
-          <a href="origin.html" class="variant-card rounded-3xl overflow-hidden">
-            <div class="variant-image-wrap">
-              <img
-                src="images/origin.JPG"
-                alt="Origin Variant"
-                class="w-full h-[300px] sm:h-[340px] object-contain p-4"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="px-4 pb-5 text-center">
-              <h3 class="display mt-2 text-lg tracking-[0.16em] uppercase text-white/92">Origin</h3>
-              <p class="mt-2 text-sm text-white/65">£250</p>
-            </div>
-          </a>
-
-          <a href="autumn.html" class="variant-card rounded-3xl overflow-hidden">
-            <div class="variant-image-wrap">
-              <img
-                src="images/autumn.JPG"
-                alt="Autumn Variant"
-                class="w-full h-[300px] sm:h-[340px] object-contain p-4"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="px-4 pb-5 text-center">
-              <h3 class="display mt-2 text-lg tracking-[0.16em] uppercase text-white/92">Autumn</h3>
-              <p class="mt-2 text-sm text-white/65">£285</p>
-            </div>
-          </a>
-
-          <a href="urban.html" class="variant-card rounded-3xl overflow-hidden">
-            <div class="variant-image-wrap">
-              <img
-                src="images/urban.JPG"
-                alt="Urban Variant"
-                class="w-full h-[300px] sm:h-[340px] object-contain p-4"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="px-4 pb-5 text-center">
-              <h3 class="display mt-2 text-lg tracking-[0.16em] uppercase text-white/92">Urban</h3>
-              <p class="mt-2 text-sm text-white/65">£285</p>
-            </div>
-          </a>
-
-          <a href="chrome.html" class="variant-card rounded-3xl overflow-hidden">
-            <div class="variant-image-wrap">
-              <img
-                src="images/chrome.JPG"
-                alt="Chrome Variant"
-                class="w-full h-[300px] sm:h-[340px] object-contain p-4"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="px-4 pb-5 text-center">
-              <h3 class="display mt-2 text-lg tracking-[0.16em] uppercase text-white/92">Chrome</h3>
-              <p class="mt-2 text-sm text-white/65">£325</p>
-            </div>
-          </a>
-
-          <a href="midnight.html" class="variant-card rounded-3xl overflow-hidden">
-            <div class="variant-image-wrap">
-              <img
-                src="images/midnight.JPG"
-                alt="Midnight Variant"
-                class="w-full h-[300px] sm:h-[340px] object-contain p-4"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="px-4 pb-5 text-center">
-              <h3 class="display mt-2 text-lg tracking-[0.16em] uppercase text-white/92">Midnight</h3>
-              <p class="mt-2 text-sm text-white/65">£250</p>
-            </div>
-          </a>
-
-          <a href="bubblegum.html" class="variant-card rounded-3xl overflow-hidden">
-            <div class="variant-image-wrap">
-              <img
-                src="images/bubblegum.JPG"
-                alt="Bubblegum Variant"
-                class="w-full h-[300px] sm:h-[340px] object-contain p-4"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="px-4 pb-5 text-center">
-              <h3 class="display mt-2 text-lg tracking-[0.16em] uppercase text-white/92">Bubblegum</h3>
-              <p class="mt-2 text-sm text-white/65">£325</p>
-            </div>
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-white/10">
-      <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col items-center gap-3 text-xs sm:text-sm text-white/60">
-        <div class="flex items-center gap-4 justify-center">
-          <span class="text-sm sm:text-base tracking-wide uppercase text-white/70">
-            Follow us on
-          </span>
-
-          <a
-            href="https://www.instagram.com/thestarfaceco/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-white"
-            aria-label="Instagram"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 sm:w-7 sm:h-7"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-              <circle cx="12" cy="12" r="4.2"></circle>
-              <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"></circle>
-            </svg>
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@thestarfaceco"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-white"
-            aria-label="TikTok"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 sm:w-7 sm:h-7"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M14.5 3h2.1c.2 1 .7 1.9 1.4 2.6A4.6 4.6 0 0 0 20 7v2.2a6.5 6.5 0 0 1-3.7-1.1 6 6 0 0 1-.9-.7v6.3a5.3 5.3 0 0 1-1.5 3.7A5.4 5.4 0 0 1 9 19.8 5.8 5.8 0 0 1 3.3 14 5.8 5.8 0 0 1 9 8.3c.5 0 .9 0 1.3.2v2.8a3 3 0 0 0-1.3-.3 3 3 0 1 0 3 3V3h2.5z" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="flex flex-wrap gap-4 justify-center text-[11px] sm:text-xs text-white/70 mt-2">
-          <a href="/about.html" class="hover:text-white">About</a>
-          <a href="/privacy.html" class="hover:text-white">Privacy</a>
-          <a href="/terms.html" class="hover:text-white">Terms</a>
-          <a href="/contact.html" class="hover:text-white">Contact</a>
-        </div>
-
-        <div class="text-center mt-2">
-          STARFACE™ &amp; © 2025 STARFACE Ltd. All rights reserved.
-        </div>
-      </div>
-    </footer>
-  </div>
-
   <script>
-  const enterSiteBtn = document.getElementById('enterSiteBtn');
-  const enterSound = document.getElementById('enterSound');
+    const enterSiteBtn = document.getElementById('enterSiteBtn');
+    const enterSound = document.getElementById('enterSound');
 
-  enterSiteBtn.addEventListener('click', () => {
-    if (enterSound) {
-      enterSound.currentTime = 0;
-      enterSound.play().catch(() => {});
-    }
+    enterSiteBtn.addEventListener('click', () => {
+      if (enterSound) {
+        enterSound.currentTime = 0;
+        enterSound.play().catch(() => {});
+      }
 
-    setTimeout(() => {
-      window.location.href = 'welcome.html';
-    }, 180);
-  });
-</script>
+      setTimeout(() => {
+        window.location.href = 'welcome.html';
+      }, 180);
+    });
+  </script>
 </body>
 </html>
