@@ -26,13 +26,24 @@
     :root {
       --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --bg: #ffffff;
+      --text: #000000;
+    }
+
+    html {
+      background: var(--bg);
+      overscroll-behavior-x: none;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: var(--font-body);
-      background: #ffffff;
-      color: #000000;
+      background: var(--bg);
+      color: var(--text);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
@@ -50,7 +61,6 @@
       width: 100%;
       padding-left: 20px;
       padding-right: 44px;
-      box-sizing: border-box;
     }
 
     .page-shell {
@@ -58,7 +68,6 @@
       margin: 0 auto;
       padding-left: 36px;
       padding-right: 36px;
-      box-sizing: border-box;
       width: 100%;
     }
 
@@ -198,6 +207,8 @@
       border: 1px solid rgba(0,0,0,0.16);
       font-size: 14px;
       outline: none;
+      background: #fff;
+      color: #000;
     }
 
     .join-button {
@@ -356,7 +367,7 @@
 
           <!-- CENTER LOGO -->
           <div class="footer-mark-wrap">
-            <img src="images/starface-mark.png" class="footer-mark" />
+            <img src="images/starface-mark.png" alt="" class="footer-mark" />
           </div>
 
           <!-- RIGHT -->
@@ -380,10 +391,10 @@
             </div>
 
             <div class="footer-join">
-              <label class="join-label">Join</label>
+              <label class="join-label" for="contact-email">Join</label>
               <form class="join-form">
-                <input type="email" placeholder="Email address" class="join-input" />
-                <button class="join-button">Sign Up</button>
+                <input id="contact-email" type="email" placeholder="Email address" class="join-input" />
+                <button type="submit" class="join-button">Sign Up</button>
               </form>
               <div class="join-note">We respect your privacy.</div>
             </div>
