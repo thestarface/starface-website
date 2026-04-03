@@ -178,6 +178,9 @@
     .footer-join {
       width: 250px;
       padding-top: 34px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
     }
 
     .join-label {
@@ -187,22 +190,8 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: rgba(0, 0, 0, 0.45);
-    }
-
-    .join-form {
-      display: flex;
-      gap: 10px;
-    }
-
-    .join-input {
-      flex: 1;
-      height: 44px;
-      padding: 0 14px;
-      border: 1px solid rgba(0, 0, 0, 0.16);
-      font-size: 14px;
-      outline: none;
-      background: #fff;
-      color: #000;
+      width: 100%;
+      text-align: right;
     }
 
     .join-button {
@@ -215,6 +204,17 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .join-button:hover {
+      background: #111;
+      color: #fff;
+      transform: translateY(-1px);
     }
 
     .join-note {
@@ -222,6 +222,7 @@
       font-size: 12px;
       color: rgba(0, 0, 0, 0.48);
       text-align: right;
+      max-width: 250px;
     }
 
     .footer-copy {
@@ -260,8 +261,10 @@
 
       .footer-join {
         width: 100%;
+        align-items: flex-start;
       }
 
+      .join-label,
       .join-note {
         text-align: left;
       }
@@ -370,24 +373,9 @@
           </div>
 
           <div class="footer-join">
-            <label class="join-label" for="welcome-email">Join</label>
-            <form
-              class="join-form"
-              action="https://app.kit.com/forms/406eedf30e/subscriptions"
-              method="post"
-            >
-              <input
-                id="welcome-email"
-                type="email"
-                name="email_address"
-                placeholder="Email address"
-                class="join-input"
-                required
-              />
-              <input type="hidden" name="embed" value="1" />
-              <button type="submit" class="join-button">Sign Up</button>
-            </form>
-            <div class="join-note">Be first to know when there's a new drop.</div>
+            <div class="join-label">Join</div>
+            <a href="https://thestarfaceco.kit.com/406eedf30e" class="join-button">Sign Up</a>
+            <div class="join-note">Be first to know when a new drop lands.</div>
           </div>
         </div>
 
