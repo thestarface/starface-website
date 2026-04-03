@@ -26,13 +26,24 @@
     :root {
       --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --bg: #ffffff;
+      --text: #000000;
+    }
+
+    html {
+      background: var(--bg);
+      overscroll-behavior-x: none;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: var(--font-body);
-      background: #ffffff;
-      color: #000000;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -50,7 +61,6 @@
       width: 100%;
       padding-left: 20px;
       padding-right: 44px;
-      box-sizing: border-box;
     }
 
     .page-shell {
@@ -58,7 +68,6 @@
       margin: 0 auto;
       padding-left: 36px;
       padding-right: 36px;
-      box-sizing: border-box;
       width: 100%;
     }
 
@@ -210,6 +219,8 @@
       border: 1px solid rgba(0,0,0,0.16);
       font-size: 14px;
       outline: none;
+      background: #fff;
+      color: #000;
     }
 
     .join-button {
@@ -238,7 +249,31 @@
       color: rgba(0,0,0,0.5);
     }
 
+    @media (max-width: 1024px) {
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 28px;
+      }
+
+      .page-shell {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
     @media (max-width: 768px) {
+      .header-shell,
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .policy-copy p,
+      .policy-copy li {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
       .footer-top {
         grid-template-columns: 1fr;
       }
@@ -351,14 +386,14 @@
           </div>
 
           <div class="footer-mark-wrap">
-            <img src="images/starface-mark.png" class="footer-mark" />
+            <img src="images/starface-mark.png" alt="" class="footer-mark" />
           </div>
 
           <div class="connect-column">
             <div class="footer-heading mb-4">Connect</div>
 
             <div class="social-slot">
-              <a href="https://www.instagram.com/thestarfaceco/" target="_blank" rel="noopener noreferrer" class="social-icon">
+              <a href="https://www.instagram.com/thestarfaceco/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <rect x="3" y="3" width="18" height="18" rx="5" stroke="black" stroke-width="1.5"/>
                   <circle cx="12" cy="12" r="4" stroke="black" stroke-width="1.5"/>
@@ -366,7 +401,7 @@
                 </svg>
               </a>
 
-              <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" rel="noopener noreferrer" class="social-icon">
+              <a href="https://www.tiktok.com/@thestarfaceco" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="black">
                   <path d="M16 3c.5 2 2 3.5 4 4v3c-1.5 0-3-.5-4-1.3V16a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3a2 2 0 1 0 2 2V3h2z"/>
                 </svg>
@@ -374,10 +409,10 @@
             </div>
 
             <div class="footer-join">
-              <label class="join-label">Join</label>
+              <label class="join-label" for="privacy-email">Join</label>
               <form class="join-form">
-                <input type="email" placeholder="Email address" class="join-input" />
-                <button class="join-button">Sign Up</button>
+                <input id="privacy-email" type="email" placeholder="Email address" class="join-input" />
+                <button type="submit" class="join-button">Sign Up</button>
               </form>
               <div class="join-note">We respect your privacy.</div>
             </div>
