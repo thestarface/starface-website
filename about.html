@@ -31,6 +31,15 @@
       --muted: rgba(0, 0, 0, 0.62);
     }
 
+    html {
+      background: var(--bg);
+      overscroll-behavior-x: none;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-body);
@@ -50,7 +59,6 @@
       width: 100%;
       padding-left: 20px;
       padding-right: 44px;
-      box-sizing: border-box;
     }
 
     .page-shell {
@@ -58,7 +66,6 @@
       margin: 0 auto;
       padding-left: 36px;
       padding-right: 36px;
-      box-sizing: border-box;
       width: 100%;
     }
 
@@ -210,6 +217,8 @@
       border: 1px solid rgba(0,0,0,0.16);
       font-size: 14px;
       outline: none;
+      background: #fff;
+      color: #000;
     }
 
     .join-button {
@@ -353,32 +362,32 @@
     <div class="about-layout">
       <div class="body-copy">
         <p>
-  STARFACE began as a return to making.
-</p>
+          STARFACE began as a return to making.
+        </p>
 
-<p>
-  Created by Shegz, a multidisciplinary creative working at the intersection of art, form, and collectibility, the project emerged from a need to step away from structure and return to something more instinctive. What began as a simple act of drawing evolved into an exploration of form, character, and presence without constraint.
-</p>
+        <p>
+          Created by Shegz, a multidisciplinary creative working at the intersection of art, form, and collectibility, the project emerged from a need to step away from structure and return to something more instinctive. What began as a simple act of drawing evolved into an exploration of form, character, and presence without constraint.
+        </p>
 
-<p>
-  Over time, that process moved beyond the sketchbook — into objects that could exist physically. Pieces designed to feel intentional, collectible, and worth keeping.
-</p>
+        <p>
+          Over time, that process moved beyond the sketchbook — into objects that could exist physically. Pieces designed to feel intentional, collectible, and worth keeping.
+        </p>
 
-<p>
-  Space Kid is the first expression of that world. A character not defined by identity, but by potential — shaped by the idea of becoming something beyond where you start.
-</p>
+        <p>
+          Space Kid is the first expression of that world. A character not defined by identity, but by potential — shaped by the idea of becoming something beyond where you start.
+        </p>
 
-<p>
-  The form is simple, but deliberate. The helmet, the eyes, the jewellery, the stillness in the stance — each element carries a quiet sense of movement, as if caught between where it is and where it’s going.
-</p>
+        <p>
+          The form is simple, but deliberate. The helmet, the eyes, the jewellery, the stillness in the stance — each element carries a quiet sense of movement, as if caught between where it is and where it’s going.
+        </p>
 
-<p>
-  STARFACE sits between art and object — using character-led design to explore presence, identity, and imagination in a way that feels both minimal and expressive.
-</p>
+        <p>
+          STARFACE sits between art and object — using character-led design to explore presence, identity, and imagination in a way that feels both minimal and expressive.
+        </p>
 
-<p>
-  This is only the beginning.
-</p>
+        <p>
+          This is only the beginning.
+        </p>
       </div>
 
       <div class="about-art" aria-hidden="true">
@@ -417,7 +426,7 @@
 
           <!-- CENTER LOGO -->
           <div class="footer-mark-wrap">
-            <img src="images/starface-mark.png" class="footer-mark" />
+            <img src="images/starface-mark.png" alt="" class="footer-mark" />
           </div>
 
           <!-- RIGHT -->
@@ -441,10 +450,10 @@
             </div>
 
             <div class="footer-join">
-              <label class="join-label">Join</label>
+              <label class="join-label" for="about-email">Join</label>
               <form class="join-form">
-                <input type="email" placeholder="Email address" class="join-input" />
-                <button class="join-button">Sign Up</button>
+                <input id="about-email" type="email" placeholder="Email address" class="join-input" />
+                <button type="submit" class="join-button">Sign Up</button>
               </form>
               <div class="join-note">We respect your privacy.</div>
             </div>
