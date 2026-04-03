@@ -11,6 +11,11 @@
   />
 
   <link
+    rel="icon"
+    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
+  />
+
+  <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
@@ -23,12 +28,27 @@
       --text: #000000;
     }
 
+    html {
+      background: var(--bg);
+      overscroll-behavior-x: none;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .display {
@@ -40,14 +60,12 @@
       width: 100%;
       padding-left: 20px;
       padding-right: 44px;
-      box-sizing: border-box;
     }
 
     .page-shell {
       max-width: 1340px;
       margin: 0 auto;
       padding: 0 36px;
-      box-sizing: border-box;
       width: 100%;
     }
 
@@ -63,13 +81,13 @@
     }
 
     .cta {
-      border: 1.5px solid #000;
-      background: transparent;
-      transition: all 0.25s ease;
-      text-decoration: none;
-      color: #000;
       display: inline-block;
       margin-top: 6px;
+      border: 1.5px solid #000;
+      background: transparent;
+      color: #000;
+      text-decoration: none;
+      transition: all 0.25s ease;
     }
 
     .cta:hover {
@@ -81,7 +99,6 @@
     .hero-image {
       width: 100%;
       max-width: 920px;
-      display: block;
       margin: 0 auto;
     }
 
@@ -91,11 +108,11 @@
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
+      color: rgba(0, 0, 0, 0.45);
     }
 
     .footer-link {
-      color: rgba(0,0,0,0.72);
+      color: rgba(0, 0, 0, 0.72);
       text-decoration: none;
     }
 
@@ -122,8 +139,6 @@
       gap: 22px;
     }
 
-    /* CENTER LOGO */
-
     .footer-mark-wrap {
       position: absolute;
       left: 50%;
@@ -137,10 +152,7 @@
     .footer-mark {
       width: 100px;
       height: auto;
-      display: block;
     }
-
-    /* RIGHT SIDE */
 
     .connect-column {
       display: flex;
@@ -169,12 +181,12 @@
     }
 
     .join-label {
+      display: block;
+      margin-bottom: 12px;
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
-      margin-bottom: 12px;
-      display: block;
+      color: rgba(0, 0, 0, 0.45);
     }
 
     .join-form {
@@ -186,9 +198,11 @@
       flex: 1;
       height: 44px;
       padding: 0 14px;
-      border: 1px solid rgba(0,0,0,0.16);
+      border: 1px solid rgba(0, 0, 0, 0.16);
       font-size: 14px;
       outline: none;
+      background: #fff;
+      color: #000;
     }
 
     .join-button {
@@ -204,9 +218,9 @@
     }
 
     .join-note {
-      font-size: 12px;
-      color: rgba(0,0,0,0.48);
       margin-top: 10px;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.48);
       text-align: right;
     }
 
@@ -214,12 +228,18 @@
       padding-top: 30px;
       text-align: center;
       font-size: 12px;
-      color: rgba(0,0,0,0.5);
+      color: rgba(0, 0, 0, 0.5);
     }
 
     /* ===== MOBILE ===== */
 
     @media (max-width: 768px) {
+      .header-shell,
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
       .footer-top {
         grid-template-columns: 1fr;
       }
@@ -253,37 +273,39 @@
 
 <header class="pt-4 pb-4">
   <div class="header-shell">
-    <img src="images/STARFACELOGO.png" class="h-28 md:h-32" />
+    <img src="images/STARFACELOGO.png" alt="STARFACE" class="h-28 md:h-32" />
   </div>
 </header>
 
-<section class="pt-6 md:pt-8">
-  <div class="page-shell">
-    <img src="images/allspacekids.jpeg" class="hero-image" />
-  </div>
-</section>
-
-<section class="pt-10 pb-40 text-center">
-  <div class="page-shell">
-    <div class="intro-copy">
-      <h1 class="display text-[2.2rem] uppercase mb-8">Welcome</h1>
-
-      <p class="mb-6">
-        We know you’re here for a reason. So first — thank you.
-      </p>
-
-      <p class="mb-20">
-        STARFACE introduces its first collectible — Space Kid.
-        A 14-inch figure released in six distinct colourways,
-        created with clarity, character, and presence.
-      </p>
-
-      <a href="shop.html" class="cta px-9 py-3 rounded-full text-sm uppercase tracking-[0.25em]">
-        Get Yours
-      </a>
+<main>
+  <section class="pt-6 md:pt-8">
+    <div class="page-shell">
+      <img src="images/allspacekids.jpeg" alt="All six Space Kid variants" class="hero-image" />
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="pt-10 pb-40 text-center">
+    <div class="page-shell">
+      <div class="intro-copy">
+        <h1 class="display text-[2.2rem] uppercase mb-8">Welcome</h1>
+
+        <p class="mb-6">
+          We know you’re here for a reason. So first — thank you.
+        </p>
+
+        <p class="mb-20">
+          STARFACE introduces its first collectible — Space Kid.
+          A 14-inch figure released in six distinct colourways,
+          created with clarity, character, and presence.
+        </p>
+
+        <a href="shop.html" class="cta px-9 py-3 rounded-full text-sm uppercase tracking-[0.25em]">
+          Get Yours
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
   <div class="page-shell">
@@ -312,7 +334,7 @@
 
         <!-- CENTER LOGO -->
         <div class="footer-mark-wrap">
-          <img src="images/starface-mark.png" class="footer-mark" />
+          <img src="images/starface-mark.png" alt="" class="footer-mark" />
         </div>
 
         <!-- RIGHT -->
@@ -320,7 +342,13 @@
           <div class="footer-heading mb-4">Connect</div>
 
           <div class="social-slot">
-            <a href="#" class="social-icon" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/thestarfaceco/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon"
+              aria-label="Instagram"
+            >
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                 <rect x="3" y="3" width="18" height="18" rx="5" stroke="black" stroke-width="1.5"/>
                 <circle cx="12" cy="12" r="4" stroke="black" stroke-width="1.5"/>
@@ -328,7 +356,13 @@
               </svg>
             </a>
 
-            <a href="#" class="social-icon" aria-label="TikTok">
+            <a
+              href="https://www.tiktok.com/@thestarfaceco"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon"
+              aria-label="TikTok"
+            >
               <svg width="28" height="28" viewBox="0 0 24 24" fill="black">
                 <path d="M16 3c.5 2 2 3.5 4 4v3c-1.5 0-3-.5-4-1.3V16a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3a2 2 0 1 0 2 2V3h2z"/>
               </svg>
@@ -336,10 +370,15 @@
           </div>
 
           <div class="footer-join">
-            <label class="join-label">Join</label>
+            <label class="join-label" for="welcome-email">Join</label>
             <form class="join-form">
-              <input type="email" placeholder="Email address" class="join-input" />
-              <button class="join-button">Sign Up</button>
+              <input
+                id="welcome-email"
+                type="email"
+                placeholder="Email address"
+                class="join-input"
+              />
+              <button type="submit" class="join-button">Sign Up</button>
             </form>
             <div class="join-note">We respect your privacy.</div>
           </div>
