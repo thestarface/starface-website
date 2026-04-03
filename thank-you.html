@@ -4,10 +4,10 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <title>Thank You — STARFACE</title>
+  <title>You're In — STARFACE</title>
   <meta
     name="description"
-    content="Thank you for subscribing to STARFACE updates."
+    content="You're in. Check your email to confirm access to future STARFACE drops."
   />
 
   <link
@@ -74,6 +74,23 @@
       margin: 0 auto;
     }
 
+    .thankyou-copy {
+      max-width: 34rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .thankyou-copy p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.9;
+      color: rgba(0, 0, 0, 0.78);
+    }
+
+    .thankyou-copy p + p {
+      margin-top: 10px;
+    }
+
     .cta-link {
       text-decoration: none;
       color: #000;
@@ -83,6 +100,7 @@
 
     .cta-link:hover {
       background: #f5f5f5;
+      transform: translateY(-1px);
     }
 
     /* ===== FOOTER ===== */
@@ -162,31 +180,9 @@
     .footer-join {
       width: 250px;
       padding-top: 34px;
-    }
-
-    .join-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .join-form {
       display: flex;
-      gap: 10px;
-    }
-
-    .join-input {
-      flex: 1;
-      height: 44px;
-      padding: 0 14px;
-      border: 1px solid rgba(0,0,0,0.16);
-      font-size: 14px;
-      outline: none;
-      background: #fff;
-      color: #000;
+      flex-direction: column;
+      align-items: flex-end;
     }
 
     .join-button {
@@ -199,6 +195,17 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .join-button:hover {
+      background: #111;
+      color: #fff;
+      transform: translateY(-1px);
     }
 
     .join-note {
@@ -206,6 +213,7 @@
       color: rgba(0,0,0,0.48);
       margin-top: 10px;
       text-align: right;
+      max-width: 250px;
     }
 
     .footer-copy {
@@ -254,6 +262,7 @@
 
       .footer-join {
         width: 100%;
+        align-items: flex-start;
       }
 
       .join-note {
@@ -283,13 +292,14 @@
     <div class="page-shell py-16 md:py-24">
       <div class="thankyou-shell text-center">
 
-        <h1 class="display text-3xl md:text-4xl uppercase mb-5">
-          Thank You
+        <h1 class="display text-3xl md:text-4xl uppercase mb-6">
+          You’re In
         </h1>
 
-        <p class="text-black/80 text-base md:text-lg max-w-[34rem] mx-auto leading-relaxed">
-          Thanks for subscribing. You’ll be first to hear about new drops, releases, and updates from STARFACE.
-        </p>
+        <div class="thankyou-copy">
+          <p>Check your email to confirm access.</p>
+          <p>Future drops will be sent there first.</p>
+        </div>
 
         <a
           href="welcome.html"
@@ -353,12 +363,8 @@
             </div>
 
             <div class="footer-join">
-              <label class="join-label" for="thankyou-email">Join</label>
-              <form class="join-form">
-                <input id="thankyou-email" type="email" placeholder="Email address" class="join-input" />
-                <button type="submit" class="join-button">Sign Up</button>
-              </form>
-              <div class="join-note">We respect your privacy.</div>
+              <a href="https://thestarfaceco.kit.com/02ad492181" class="join-button">Sign Up</a>
+              <div class="join-note">No Spam. Only drops.</div>
             </div>
           </div>
 
