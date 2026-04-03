@@ -369,18 +369,25 @@
             </a>
           </div>
 
-         <div class="footer-join">
-  <label class="join-label" for="welcome-email">Join</label>
-  <form class="join-form">
-    <input
-      id="welcome-email"
-      type="email"
-      placeholder="Email address"
-      class="join-input"
-    />
-    <button type="submit" class="join-button">Sign Up</button>
-  </form>
-  <div class="join-note">Be first to know when there's a new drop.</div>
+          <div class="footer-join">
+            <label class="join-label" for="welcome-email">Join</label>
+            <form
+              class="join-form"
+              action="https://app.kit.com/forms/406eedf30e/subscriptions"
+              method="post"
+            >
+              <input
+                id="welcome-email"
+                type="email"
+                name="email_address"
+                placeholder="Email address"
+                class="join-input"
+                required
+              />
+              <input type="hidden" name="embed" value="1" />
+              <button type="submit" class="join-button">Sign Up</button>
+            </form>
+            <div class="join-note">Be first to know when there's a new drop.</div>
           </div>
         </div>
 
