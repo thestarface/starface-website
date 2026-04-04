@@ -5,20 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>STARFACE — Welcome</title>
-  <meta
-    name="description"
-    content="Welcome to STARFACE. A collectible world shaped by character, form, and imagination — launching with Space Kid Series 01."
-  />
+  <meta name="description" content="Welcome to STARFACE. A collectible world shaped by character, form, and imagination — launching with Space Kid Series 01." />
 
-  <link
-    rel="icon"
-    href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>"
-  />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 6 L57 40 L94 50 L57 60 L50 94 L43 60 L6 50 L43 40 Z' fill='black'/></svg>" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -92,14 +83,6 @@
 
     .intro-copy .intro-product {
       margin-bottom: 72px;
-    }
-
-    .closing-line {
-      margin-top: 28px;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.55);
     }
 
     .cta {
@@ -205,6 +188,17 @@
       align-items: flex-end;
     }
 
+    .join-label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.45);
+      width: 100%;
+      text-align: right;
+    }
+
     .join-button {
       height: 44px;
       padding: 0 18px;
@@ -224,6 +218,7 @@
 
     .join-button:hover {
       background: #111;
+      color: #fff;
       transform: translateY(-1px);
     }
 
@@ -240,6 +235,58 @@
       text-align: center;
       font-size: 12px;
       color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media (max-width: 768px) {
+      .header-shell,
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .intro-copy p {
+        font-size: 16px;
+        line-height: 1.85;
+      }
+
+      .intro-lead {
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .intro-copy .intro-product {
+        margin-bottom: 56px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-mark-wrap {
+        position: static;
+        transform: none;
+        justify-content: flex-start;
+      }
+
+      .footer-mark {
+        width: 180px;
+      }
+
+      .connect-column {
+        align-items: flex-start;
+      }
+
+      .footer-join {
+        width: 100%;
+        align-items: flex-start;
+      }
+
+      .join-label,
+      .join-note {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -279,10 +326,6 @@
         <a href="shop.html" class="cta px-9 py-3 rounded-full text-sm uppercase tracking-[0.25em]">
           Get Yours
         </a>
-
-        <p class="closing-line">
-          This is only the beginning.
-        </p>
       </div>
     </div>
   </section>
@@ -291,9 +334,50 @@
 <footer>
   <div class="page-shell">
     <div class="border-t border-black/10 pt-12 pb-8">
+
+      <div class="footer-top">
+
+        <div class="footer-links text-sm">
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <a href="about.html" class="footer-link">About Us</a>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <a href="privacy.html" class="footer-link block">Privacy</a>
+            <a href="terms.html" class="footer-link block">Terms</a>
+          </div>
+        </div>
+
+        <div class="footer-mark-wrap">
+          <img src="images/starface-mark.png" alt="" class="footer-mark" />
+        </div>
+
+        <div class="connect-column">
+          <div class="footer-heading mb-4">Connect</div>
+
+          <div class="social-slot">
+            <!-- icons unchanged -->
+          </div>
+
+          <div class="footer-join">
+            <a href="https://thestarfaceco.kit.com/02ad492181" class="join-button">Sign Up</a>
+            <div class="join-note">No Spam. Only drops.</div>
+          </div>
+        </div>
+
+      </div>
+
       <div class="footer-copy">
         © 2025 STARFACE Ltd. All rights reserved.
       </div>
+
     </div>
   </div>
 </footer>
