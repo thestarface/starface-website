@@ -215,25 +215,29 @@
       text-align: right;
     }
 
-    .meta-value-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      align-items: flex-end;
-    }
-
-    .meta-subvalue {
-      color: rgba(0, 0, 0, 0.62);
-      font-size: 0.88rem;
-      text-align: right;
-    }
-
     .desc {
       font-size: 15px;
       line-height: 1.7;
       color: #000;
       max-width: 31rem;
       text-align: left;
+    }
+
+    .scarcity-note {
+      margin-top: 1.2rem;
+      font-size: 13px;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    .currency-note {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.52);
+      max-width: 260px;
     }
 
     /* ===== FOOTER ===== */
@@ -437,17 +441,16 @@
         gap: 0.15rem;
       }
 
-      .meta-value,
-      .meta-subvalue {
+      .meta-value {
         text-align: left;
-      }
-
-      .meta-value-stack {
-        align-items: flex-start;
       }
 
       .desc,
       .meta-list {
+        max-width: 100%;
+      }
+
+      .currency-note {
         max-width: 100%;
       }
 
@@ -577,14 +580,21 @@
             <p class="desc">
               Origin represents the starting point — unrefined, intentional, and full of possibility. A blank canvas marking the first step forward.
               <br><br>
-              Limited to 25 pieces, this colourway forms part of the inaugural Space Kid Series 01 release and will not be reproduced. Future releases will introduce new interpretations of SpaceKid.
+              This colourway forms part of the inaugural Space Kid Series 01 release and will not be reproduced. Future releases will introduce new interpretations of SpaceKid.
             </p>
+
+            <div class="scarcity-note">
+              Limited to 25 pieces
+            </div>
           </div>
 
           <div class="mt-9">
             <button class="cta px-9 py-3.5 rounded-full text-sm uppercase tracking-[0.25em]">
               Purchase
             </button>
+            <div class="currency-note">
+              All prices in GBP (£). International cards accepted.
+            </div>
           </div>
 
           <div class="meta-list">
@@ -594,10 +604,7 @@
             </div>
             <div class="meta-row">
               <div class="meta-label">Edition</div>
-              <div class="meta-value-stack">
-                <div class="meta-value">Inaugural Edition</div>
-                <div class="meta-subvalue">Limited to 25 pieces</div>
-              </div>
+              <div class="meta-value">Inaugural Edition</div>
             </div>
             <div class="meta-row">
               <div class="meta-label">Size</div>
