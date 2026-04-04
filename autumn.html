@@ -199,6 +199,7 @@
       justify-content: space-between;
       gap: 1rem;
       padding: 0.42rem 0;
+      align-items: flex-start;
     }
 
     .meta-label {
@@ -220,6 +221,23 @@
       color: #000;
       max-width: 31rem;
       text-align: left;
+    }
+
+    .scarcity-note {
+      margin-top: 1.2rem;
+      font-size: 13px;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    .currency-note {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.52);
+      max-width: 260px;
     }
 
     /* ===== FOOTER ===== */
@@ -432,6 +450,10 @@
         max-width: 100%;
       }
 
+      .currency-note {
+        max-width: 100%;
+      }
+
       .footer-top {
         grid-template-columns: 1fr;
       }
@@ -551,19 +573,28 @@
           </h1>
 
           <p class="mt-4 text-lg md:text-[1.5rem] font-medium text-black/72">
-            £295
+            £255
           </p>
 
           <div class="mt-8">
             <p class="desc">
-              Autumn captures transition — letting go, evolving, and preparing for what's next. Progress is visible, but growth remains grounded. Each variant is first released in a limited run of 25 pieces, with the full edition expanding to 100 as the series evolves.
+              Autumn captures transition — letting go, evolving, and preparing for what's next. Progress is visible, but growth remains grounded.
+              <br><br>
+              This colourway forms part of the inaugural Space Kid Series 01 release and will not be reproduced. Future releases will introduce new interpretations of SpaceKid.
             </p>
+
+            <div class="scarcity-note">
+              Limited to 25 pieces
+            </div>
           </div>
 
           <div class="mt-9">
             <button class="cta px-9 py-3.5 rounded-full text-sm uppercase tracking-[0.25em]">
               Purchase
             </button>
+            <div class="currency-note">
+              All prices in GBP (£). International cards accepted.
+            </div>
           </div>
 
           <div class="meta-list">
@@ -573,7 +604,7 @@
             </div>
             <div class="meta-row">
               <div class="meta-label">Edition</div>
-              <div class="meta-value">25-piece initial release</div>
+              <div class="meta-value">Inaugural Edition</div>
             </div>
             <div class="meta-row">
               <div class="meta-label">Size</div>
