@@ -199,6 +199,7 @@
       justify-content: space-between;
       gap: 1rem;
       padding: 0.42rem 0;
+      align-items: flex-start;
     }
 
     .meta-label {
@@ -211,6 +212,19 @@
     .meta-value {
       color: var(--text);
       font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .meta-value-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      align-items: flex-end;
+    }
+
+    .meta-subvalue {
+      color: rgba(0, 0, 0, 0.62);
+      font-size: 0.88rem;
       text-align: right;
     }
 
@@ -423,8 +437,13 @@
         gap: 0.15rem;
       }
 
-      .meta-value {
+      .meta-value,
+      .meta-subvalue {
         text-align: left;
+      }
+
+      .meta-value-stack {
+        align-items: flex-start;
       }
 
       .desc,
@@ -556,7 +575,9 @@
 
           <div class="mt-8">
             <p class="desc">
-              Origin represents the starting point — unrefined, intentional, and full of possibility. A blank canvas marking the first step forward. Each variant is first released in a limited run of 25 pieces, with the full edition expanding to 100 as the series evolves.
+              Origin represents the starting point — unrefined, intentional, and full of possibility. A blank canvas marking the first step forward.
+              <br><br>
+              Limited to 25 pieces, this colourway forms part of the inaugural Space Kid Series 01 release and will not be reproduced. Future releases will introduce new interpretations of SpaceKid.
             </p>
           </div>
 
@@ -573,7 +594,10 @@
             </div>
             <div class="meta-row">
               <div class="meta-label">Edition</div>
-              <div class="meta-value">25-piece initial release</div>
+              <div class="meta-value-stack">
+                <div class="meta-value">Inaugural Edition</div>
+                <div class="meta-subvalue">Limited to 25 pieces</div>
+              </div>
             </div>
             <div class="meta-row">
               <div class="meta-label">Size</div>
