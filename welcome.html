@@ -53,6 +53,32 @@
       padding-right: 44px;
     }
 
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .top-nav-link {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.68);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .top-nav-link:hover {
+      color: #000;
+    }
+
     .page-shell {
       max-width: 1340px;
       margin: 0 auto;
@@ -93,6 +119,9 @@
       color: #000;
       text-decoration: none;
       transition: all 0.25s ease;
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      font-weight: 500;
     }
 
     .cta:hover {
@@ -246,6 +275,17 @@
         padding-right: 18px;
       }
 
+      .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .top-nav {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
       .intro-copy p {
         font-size: 16px;
         line-height: 1.85;
@@ -294,8 +334,14 @@
 <body>
 
 <header class="pt-4 pb-4">
-  <div class="header-shell">
+  <div class="header-shell header-row">
     <img src="images/STARFACELOGO.png" alt="STARFACE" class="h-28 md:h-32" />
+
+    <nav class="top-nav" aria-label="Primary">
+      <a href="https://q4bnd0-dm.myshopify.com/" class="top-nav-link">Collection</a>
+      <a href="about.html" class="top-nav-link">About</a>
+      <a href="contact.html" class="top-nav-link">Contact</a>
+    </nav>
   </div>
 </header>
 
@@ -323,7 +369,7 @@
           We launch with Space Kid Series 01 — a 14-inch figure presented in six distinct colourways, created with clarity, character, and presence.
         </p>
 
-        <a href="https://q4bnd0-dm.myshopify.com/" class="cta px-9 py-3 rounded-full text-sm uppercase tracking-[0.25em]">
+        <a href="https://q4bnd0-dm.myshopify.com/" class="cta px-9 py-3 rounded-full uppercase tracking-[0.25em]">
           Get Yours
         </a>
       </div>
