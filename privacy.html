@@ -183,65 +183,23 @@
     .social-slot {
       display: flex;
       gap: 20px;
+      margin-top: 2px;
     }
 
     .social-icon {
       opacity: 0.72;
-      transition: 0.25s;
+      transition: opacity 0.25s ease;
+      color: #000;
     }
 
     .social-icon:hover {
       opacity: 1;
     }
 
-    .footer-join {
-      width: 250px;
-      padding-top: 34px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    .join-label {
+    .instagram-icon {
+      width: 35px;
+      height: 35px;
       display: block;
-      margin-bottom: 12px;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.45);
-      width: 100%;
-      text-align: right;
-    }
-
-    .join-button {
-      height: 44px;
-      padding: 0 18px;
-      border: 1px solid #000;
-      background: #000;
-      color: #fff;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.25s ease;
-    }
-
-    .join-button:hover {
-      background: #111;
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
-    .join-note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(0, 0, 0, 0.48);
-      text-align: right;
-      max-width: 250px;
     }
 
     .footer-copy {
@@ -294,14 +252,8 @@
         align-items: flex-start;
       }
 
-      .footer-join {
-        width: 100%;
-        align-items: flex-start;
-      }
-
-      .join-label,
-      .join-note {
-        text-align: left;
+      .social-slot {
+        margin-top: 0;
       }
     }
   </style>
@@ -339,16 +291,29 @@
         <p><strong>Last updated:</strong> April 2026</p>
 
         <h2 class="display">What we collect</h2>
-        <p>If you subscribe for updates, we collect your email address and any other information you choose to share with us through the signup form.</p>
+        <p>
+          If you subscribe for updates, we collect your email address and any other information you choose to share with us through the signup form. If you interact with our store, cart, checkout, or contact forms, certain customer, order, or technical information may also be collected through the platforms we use to operate those services.
+        </p>
 
         <h2 class="display">How we use it</h2>
-        <p>We use this information to send updates about STARFACE, including drops, releases, product news, and related brand announcements.</p>
+        <p>
+          We use this information to send updates about STARFACE, including drops, releases, product news, and related brand announcements, and to operate, manage, and improve the website and store experience.
+        </p>
 
         <h2 class="display">Email platform</h2>
-        <p>We use Kit to manage subscriptions and send emails. Your information is stored securely through that platform and used only for the purposes described here.</p>
+        <p>
+          We use Kit to manage subscriptions and send emails. Your information is stored through that platform and used only for the purposes described here.
+        </p>
+
+        <h2 class="display">Store platform</h2>
+        <p>
+          Our online store and certain commerce-related functions are powered through Shopify. Where you browse products, use the cart, begin checkout, submit store-related forms, or make a purchase, relevant personal and transactional information may be processed through Shopify and its systems in order to provide those services.
+        </p>
 
         <h2 class="display">Sharing</h2>
-        <p>We do not sell your personal information. We only share it with service providers where necessary to run the website and manage email communications.</p>
+        <p>
+          We do not sell your personal information. We only share it with service providers where necessary to run the website, manage email communications, operate the store, process transactions, or support related site functionality.
+        </p>
 
         <h2 class="display">Your choices</h2>
         <ul class="space-y-2">
@@ -357,17 +322,21 @@
         </ul>
 
         <h2 class="display">Cookies and analytics</h2>
-        <p>We may use basic analytics or similar tools to understand site performance and improve the experience. If our use of cookies changes materially, we will update this page.</p>
+        <p>
+          We may use basic analytics, cookies, or similar tools to understand site and store performance and improve the experience. If our use of cookies or tracking changes materially, we will update this page.
+        </p>
 
         <h2 class="display">Contact</h2>
-        <p>If you have questions about this policy or your information, contact us at <a href="mailto:support@thestarface.com">support@thestarface.com</a>.</p>
+        <p>
+          If you have questions about this policy or your information, contact us at <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
+        </p>
       </div>
     </div>
   </main>
 
   <footer>
     <div class="page-shell">
-      <div class="border-t border-black/10 pt-12 pb-8">
+      <div class="pt-12 pb-8">
 
         <div class="footer-top">
 
@@ -379,7 +348,7 @@
 
             <div>
               <div class="footer-heading mb-4">Support</div>
-              <a href="contact.html" class="footer-link">Contact</a>
+              <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
             </div>
 
             <div>
@@ -398,42 +367,25 @@
 
             <div class="social-slot">
               <a
-                href="https://www.instagram.com/thestarfaceco/"
+                href="https://instagram.com/thestarfaceco"
+                class="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social-icon"
                 aria-label="Instagram"
               >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="black" stroke-width="1.5"/>
-                  <circle cx="12" cy="12" r="4" stroke="black" stroke-width="1.5"/>
-                  <circle cx="17.5" cy="6.5" r="1.2" fill="black"/>
+                <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+                  <circle cx="12" cy="12" r="4.2"></circle>
+                  <circle cx="17.4" cy="6.6" r="1"></circle>
                 </svg>
               </a>
-
-              <a
-                href="https://www.tiktok.com/@thestarfaceco"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-icon"
-                aria-label="TikTok"
-              >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="black">
-                  <path d="M16 3c.5 2 2 3.5 4 4v3c-1.5 0-3-.5-4-1.3V16a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3a2 2 0 1 0 2 2V3h2z"/>
-                </svg>
-              </a>
-            </div>
-
-            <div class="footer-join">
-              <a href="https://thestarfaceco.kit.com/02ad492181" class="join-button">Sign Up</a>
-              <div class="join-note">No Spam. Only drops.</div>
             </div>
           </div>
 
         </div>
 
         <div class="footer-copy">
-          © 2025 STARFACE Ltd. All rights reserved.
+          © 2026 STARFACE Ltd. All rights reserved.
         </div>
       </div>
     </div>
