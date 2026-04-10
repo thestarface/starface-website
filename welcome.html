@@ -37,6 +37,11 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    /* ===== HEADER LINE (NEW) ===== */
+    header {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
     img {
       max-width: 100%;
       display: block;
@@ -97,17 +102,7 @@
       margin: 0;
     }
 
-    .intro-lead {
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 18px;
-    }
-
-    .intro-copy .intro-brand {
-      margin-bottom: 18px;
-    }
-
-    .intro-copy .intro-product {
+    .intro-product {
       margin-bottom: 72px;
     }
 
@@ -219,13 +214,11 @@
     }
 
     .footer-copy {
-      padding-top: 30px;
+      padding-top: 60px; /* increased spacing instead of border */
       text-align: center;
       font-size: 12px;
       color: rgba(0, 0, 0, 0.5);
     }
-
-    /* ===== MOBILE ===== */
 
     @media (max-width: 768px) {
       .header-shell,
@@ -245,40 +238,12 @@
         flex-wrap: wrap;
       }
 
-      .intro-copy p {
-        font-size: 16px;
-        line-height: 1.85;
-      }
-
-      .intro-lead {
-        font-size: 17px;
-        line-height: 1.75;
-      }
-
-      .intro-copy .intro-product {
-        margin-bottom: 56px;
-      }
-
       .footer-top {
         grid-template-columns: 1fr;
       }
 
-      .footer-mark-wrap {
-        position: static;
-        transform: none;
-        justify-content: flex-start;
-      }
-
-      .footer-mark {
-        width: 180px;
-      }
-
       .connect-column {
         align-items: flex-start;
-      }
-
-      .social-slot {
-        margin-top: 0;
       }
     }
   </style>
@@ -290,7 +255,7 @@
   <div class="header-shell header-row">
     <img src="images/STARFACELOGO.png" alt="STARFACE" class="h-28 md:h-32" />
 
-    <nav class="top-nav" aria-label="Primary">
+    <nav class="top-nav">
       <a href="https://q4bnd0-dm.myshopify.com/" class="top-nav-link">Starface Store</a>
       <a href="about.html" class="top-nav-link">About</a>
       <a href="https://q4bnd0-dm.myshopify.com/pages/contact" class="top-nav-link">Contact</a>
@@ -301,7 +266,7 @@
 <main>
   <section class="pt-6 md:pt-8">
     <div class="page-shell">
-      <img src="images/allspacekids.jpeg" alt="All six Space Kid variants" class="hero-image" />
+      <img src="images/allspacekids.jpeg" class="hero-image" />
     </div>
   </section>
 
@@ -315,10 +280,10 @@
         </p>
 
         <p class="intro-product">
-          We launch with Space Kid Series 01 — a 14-inch figure presented in six distinct colourways, created with clarity, character, and presence.
+          We launch with Space Kid Series 01 — a 14-inch figure presented in six distinct colourways.
         </p>
 
-        <a href="https://q4bnd0-dm.myshopify.com/" class="cta rounded-full">
+        <a href="https://q4bnd0-dm.myshopify.com/" class="cta">
           GET YOURS
         </a>
       </div>
@@ -328,7 +293,7 @@
 
 <footer>
   <div class="page-shell">
-    <div class="border-t border-black/10 pt-12 pb-8">
+    <div class="pt-12 pb-8"> <!-- removed border -->
 
       <div class="footer-top">
 
@@ -351,15 +316,15 @@
         </div>
 
         <div class="footer-mark-wrap">
-          <img src="images/starface-mark.png" alt="" class="footer-mark" />
+          <img src="images/starface-mark.png" class="footer-mark" />
         </div>
 
         <div class="connect-column">
           <div class="footer-heading mb-4">Connect</div>
 
           <div class="social-slot">
-            <a href="https://instagram.com/thestarfaceco" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-              <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <a href="https://instagram.com/thestarfaceco" class="social-icon" target="_blank">
+              <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
                 <circle cx="12" cy="12" r="4.2"></circle>
                 <circle cx="17.4" cy="6.6" r="1"></circle>
