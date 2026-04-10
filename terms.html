@@ -176,65 +176,23 @@
     .social-slot {
       display: flex;
       gap: 20px;
+      margin-top: 2px;
     }
 
     .social-icon {
       opacity: 0.72;
-      transition: 0.25s;
+      transition: opacity 0.25s ease;
+      color: #000;
     }
 
     .social-icon:hover {
       opacity: 1;
     }
 
-    .footer-join {
-      width: 250px;
-      padding-top: 34px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    .join-label {
+    .instagram-icon {
+      width: 35px;
+      height: 35px;
       display: block;
-      margin-bottom: 12px;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.45);
-      width: 100%;
-      text-align: right;
-    }
-
-    .join-button {
-      height: 44px;
-      padding: 0 18px;
-      border: 1px solid #000;
-      background: #000;
-      color: #fff;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.25s ease;
-    }
-
-    .join-button:hover {
-      background: #111;
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
-    .join-note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(0, 0, 0, 0.48);
-      text-align: right;
-      max-width: 250px;
     }
 
     .footer-copy {
@@ -287,14 +245,8 @@
         align-items: flex-start;
       }
 
-      .footer-join {
-        width: 100%;
-        align-items: flex-start;
-      }
-
-      .join-label,
-      .join-note {
-        text-align: left;
+      .social-slot {
+        margin-top: 0;
       }
     }
   </style>
@@ -337,11 +289,15 @@
 
         <ol class="space-y-4">
           <li>
-            <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates.
+            <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates. Certain store, cart, checkout, and customer-facing commerce functions may be provided through our Shopify-powered store.
           </li>
 
           <li>
             <strong>Content.</strong> All text, artwork, designs, visuals, logos, and other materials on this site are owned by STARFACE Ltd unless otherwise stated. They may not be copied, reproduced, distributed, or adapted without prior written permission.
+          </li>
+
+          <li>
+            <strong>Store and checkout.</strong> Where you access product pages, cart, checkout, or related purchase functionality, those services may be hosted or processed through Shopify. Your use of those services may also be subject to Shopify’s applicable terms, policies, and technical processes.
           </li>
 
           <li>
@@ -373,11 +329,10 @@
 
   <footer>
     <div class="page-shell">
-      <div class="border-t border-black/10 pt-12 pb-8">
+      <div class="pt-12 pb-8">
 
         <div class="footer-top">
 
-          <!-- LEFT -->
           <div class="footer-links text-sm">
             <div>
               <div class="footer-heading mb-4">About</div>
@@ -386,7 +341,7 @@
 
             <div>
               <div class="footer-heading mb-4">Support</div>
-              <a href="contact.html" class="footer-link">Contact</a>
+              <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
             </div>
 
             <div>
@@ -396,53 +351,34 @@
             </div>
           </div>
 
-          <!-- CENTER LOGO -->
           <div class="footer-mark-wrap">
             <img src="images/starface-mark.png" alt="" class="footer-mark" />
           </div>
 
-          <!-- RIGHT -->
           <div class="connect-column">
             <div class="footer-heading mb-4">Connect</div>
 
             <div class="social-slot">
               <a
-                href="https://www.instagram.com/thestarfaceco/"
+                href="https://instagram.com/thestarfaceco"
+                class="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social-icon"
                 aria-label="Instagram"
               >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="black" stroke-width="1.5"/>
-                  <circle cx="12" cy="12" r="4" stroke="black" stroke-width="1.5"/>
-                  <circle cx="17.5" cy="6.5" r="1.2" fill="black"/>
+                <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+                  <circle cx="12" cy="12" r="4.2"></circle>
+                  <circle cx="17.4" cy="6.6" r="1"></circle>
                 </svg>
               </a>
-
-              <a
-                href="https://www.tiktok.com/@thestarfaceco"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-icon"
-                aria-label="TikTok"
-              >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="black">
-                  <path d="M16 3c.5 2 2 3.5 4 4v3c-1.5 0-3-.5-4-1.3V16a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3a2 2 0 1 0 2 2V3h2z"/>
-                </svg>
-              </a>
-            </div>
-
-            <div class="footer-join">
-              <a href="https://thestarfaceco.kit.com/02ad492181" class="join-button">Sign Up</a>
-              <div class="join-note">No Spam. Only drops.</div>
             </div>
           </div>
 
         </div>
 
         <div class="footer-copy">
-          © 2025 STARFACE Ltd. All rights reserved.
+          © 2026 STARFACE Ltd. All rights reserved.
         </div>
       </div>
     </div>
