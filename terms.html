@@ -7,7 +7,7 @@
   <title>Terms — STARFACE</title>
   <meta
     name="description"
-    content="Terms for using the STARFACE website and subscribing for updates."
+    content="Terms for using the STARFACE website and related store experience."
   />
 
   <link rel="icon" href="/favicon.ico" />
@@ -53,6 +53,13 @@
       display: block;
     }
 
+    .top-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.14);
+      margin-top: 28px;
+    }
+
     .display,
     h1, h2, h3 {
       font-family: var(--font-head);
@@ -61,15 +68,41 @@
 
     .header-shell {
       width: 100%;
-      padding-left: 20px;
-      padding-right: 44px;
+      padding-left: 28px;
+      padding-right: 40px;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .top-nav-link {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.68);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .top-nav-link:hover {
+      color: #000;
     }
 
     .page-shell {
-      max-width: 1340px;
+      max-width: 1600px;
       margin: 0 auto;
-      padding-left: 36px;
-      padding-right: 36px;
+      padding: 0 28px;
       width: 100%;
     }
 
@@ -114,8 +147,6 @@
       text-decoration: none;
     }
 
-    /* ===== FOOTER ===== */
-
     .footer-heading {
       font-size: 11px;
       letter-spacing: 0.16em;
@@ -149,21 +180,6 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(100px, 135px));
       gap: 22px;
-    }
-
-    .footer-mark-wrap {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 6px;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    .footer-mark {
-      width: 100px;
-      height: auto;
     }
 
     .connect-column {
@@ -204,13 +220,12 @@
 
     @media (max-width: 1024px) {
       .header-shell {
-        padding-left: 18px;
-        padding-right: 28px;
+        padding-left: 22px;
+        padding-right: 22px;
       }
 
       .page-shell {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding: 0 22px;
       }
     }
 
@@ -221,6 +236,17 @@
         padding-right: 18px;
       }
 
+      .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .top-nav {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
       .terms-copy p,
       .terms-copy li {
         font-size: 15px;
@@ -229,16 +255,6 @@
 
       .footer-top {
         grid-template-columns: 1fr;
-      }
-
-      .footer-mark-wrap {
-        position: static;
-        transform: none;
-        justify-content: flex-start;
-      }
-
-      .footer-mark {
-        width: 180px;
       }
 
       .connect-column {
@@ -254,135 +270,149 @@
 
 <body>
 
-  <header class="pt-4 pb-4">
-    <div class="header-shell">
-      <div class="relative h-16 md:h-20">
-        <a href="welcome.html" aria-label="STARFACE home" class="absolute left-0 -top-2">
-          <img
-            src="images/STARFACELOGO.png"
-            alt="STARFACE"
-            class="h-28 md:h-32 w-auto"
-          />
-        </a>
-      </div>
-    </div>
-  </header>
+<div class="top-divider"></div>
 
-  <section class="pt-2 pb-6">
-    <div class="page-shell">
-      <div class="content-shell">
-        <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
-          ← Back
-        </a>
-      </div>
-    </div>
-  </section>
+<header class="pb-4" style="margin-top: -4px;">
+  <div class="header-shell header-row">
+    <a href="welcome.html" aria-label="STARFACE home">
+      <img
+        src="images/STARFACELOGO.png"
+        alt="STARFACE"
+        class="h-28 md:h-32 w-auto"
+      />
+    </a>
 
-  <main class="page-shell pt-2 pb-20 flex-1">
+    <nav class="top-nav" aria-label="Primary">
+      <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
+      <a href="about.html" class="top-nav-link">About</a>
+      <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pt-2 pb-6">
+  <div class="page-shell">
     <div class="content-shell">
-      <h1 class="display text-3xl md:text-4xl uppercase mb-10">
-        Terms
-      </h1>
-
-      <div class="terms-copy space-y-4">
-        <p><strong>Last updated:</strong> April 2026</p>
-
-        <ol class="space-y-4">
-          <li>
-            <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates. Certain store, cart, checkout, and customer-facing commerce functions may be provided through our Shopify-powered store.
-          </li>
-
-          <li>
-            <strong>Content.</strong> All text, artwork, designs, visuals, logos, and other materials on this site are owned by STARFACE Ltd unless otherwise stated. They may not be copied, reproduced, distributed, or adapted without prior written permission.
-          </li>
-
-          <li>
-            <strong>Store and checkout.</strong> Where you access product pages, cart, checkout, or related purchase functionality, those services may be hosted or processed through Shopify. Your use of those services may also be subject to Shopify’s applicable terms, policies, and technical processes.
-          </li>
-
-          <li>
-            <strong>Subscriptions and emails.</strong> If you subscribe for updates, you agree to receive occasional emails from STARFACE relating to drops, releases, and related announcements. You can unsubscribe at any time using the link in those emails.
-          </li>
-
-          <li>
-            <strong>Acceptable use.</strong> You must not misuse the site, attempt to interfere with its operation, bypass security, scrape content automatically, or use the site for unlawful purposes.
-          </li>
-
-          <li>
-            <strong>Changes.</strong> We may update these terms from time to time. When we do, the date at the top of this page will be updated.
-          </li>
-
-          <li>
-            <strong>Company information.</strong><br/>
-            STARFACE Ltd is registered in England &amp; Wales under Company No. <strong>16710422</strong>.
-          </li>
-
-          <li>
-            <strong>Contact.</strong><br/>
-            Questions about these terms can be sent to
-            <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
-          </li>
-        </ol>
-      </div>
+      <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
+        ← Back
+      </a>
     </div>
-  </main>
+  </div>
+</section>
 
-  <footer>
-    <div class="page-shell">
-      <div class="pt-12 pb-8">
+<main class="page-shell pt-2 pb-20 flex-1">
+  <div class="content-shell">
+    <h1 class="display text-3xl md:text-4xl uppercase mb-10">
+      Terms
+    </h1>
 
-        <div class="footer-top">
+    <div class="terms-copy space-y-4">
+      <p><strong>Last updated:</strong> April 2026</p>
 
-          <div class="footer-links text-sm">
-            <div>
-              <div class="footer-heading mb-4">About</div>
-              <a href="about.html" class="footer-link">About Us</a>
-            </div>
+      <ol class="space-y-4">
+        <li>
+          <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates. Certain store, product, cart, checkout, and customer-facing commerce functions are provided through our Shopify store.
+        </li>
 
-            <div>
-              <div class="footer-heading mb-4">Support</div>
-              <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
-            </div>
+        <li>
+          <strong>Use of the site.</strong> By using this website, you agree to use it only for lawful purposes and in a way that does not interfere with its operation, security, or availability.
+        </li>
 
-            <div>
-              <div class="footer-heading mb-4">Legal</div>
-              <a href="https://shop.thestarface.com/policies/privacy-policy" class="footer-link block">Privacy</a>
-              <a href="terms.html" class="footer-link block">Terms</a>
-            </div>
+        <li>
+          <strong>Content ownership.</strong> All text, artwork, designs, visuals, logos, product concepts, and other materials on this site are owned by STARFACE Ltd unless otherwise stated. They may not be copied, reproduced, distributed, adapted, or used without prior written permission.
+        </li>
+
+        <li>
+          <strong>Store and checkout.</strong> Where you access product pages, cart, checkout, or related purchase functionality, those services may be hosted, operated, or processed through Shopify. Your use of those services may also be subject to Shopify’s applicable terms, policies, and technical processes.
+        </li>
+
+        <li>
+          <strong>Product information.</strong> We aim to ensure that product descriptions, images, availability, and related information are presented as accurately as possible. However, minor differences in appearance may occur depending on display settings, photography, or production variation.
+        </li>
+
+        <li>
+          <strong>Email communications.</strong> If you choose to subscribe for updates, you agree to receive occasional STARFACE-related communications, including releases, product news, and announcements. You may unsubscribe at any time using the link in those communications.
+        </li>
+
+        <li>
+          <strong>Acceptable use.</strong> You must not misuse the site, attempt to bypass security, interfere with the site’s operation, scrape content automatically, introduce malicious material, or use the site for unlawful purposes.
+        </li>
+
+        <li>
+          <strong>External services.</strong> This website may link to external platforms or services, including our Shopify store and social media pages. We are not responsible for the content, availability, or operation of third-party services beyond our control.
+        </li>
+
+        <li>
+          <strong>Changes.</strong> We may update these terms from time to time. When we do, the date at the top of this page will be updated.
+        </li>
+
+        <li>
+          <strong>Company information.</strong><br/>
+          STARFACE Ltd is registered in England &amp; Wales under Company No. <strong>16710422</strong>.
+        </li>
+
+        <li>
+          <strong>Contact.</strong><br/>
+          Questions about these terms can be sent to
+          <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
+        </li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="page-shell">
+    <div class="pt-12 pb-8">
+
+      <div class="footer-top">
+
+        <div class="footer-links text-sm">
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <a href="about.html" class="footer-link">About Us</a>
           </div>
 
-          <div class="footer-mark-wrap">
-            <img src="images/starface-mark.png" alt="" class="footer-mark" />
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
           </div>
 
-          <div class="connect-column">
-            <div class="footer-heading mb-4">Connect</div>
-
-            <div class="social-slot">
-              <a
-                href="https://instagram.com/thestarfaceco"
-                class="social-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
-                  <circle cx="12" cy="12" r="4.2"></circle>
-                  <circle cx="17.4" cy="6.6" r="1"></circle>
-                </svg>
-              </a>
-            </div>
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <a href="https://shop.thestarface.com/policies/privacy-policy" class="footer-link block">Privacy</a>
+            <a href="terms.html" class="footer-link block">Terms</a>
           </div>
-
         </div>
 
-        <div class="footer-copy">
-          © 2026 STARFACE Ltd. All rights reserved.
+        <div class="connect-column">
+          <div class="footer-heading mb-4">Connect</div>
+
+          <div class="social-slot">
+            <a
+              href="https://instagram.com/thestarfaceco"
+              class="social-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+                <circle cx="12" cy="12" r="4.2"></circle>
+                <circle cx="17.4" cy="6.6" r="1"></circle>
+              </svg>
+            </a>
+          </div>
         </div>
+
+      </div>
+
+      <div class="footer-copy">
+        © 2026 STARFACE Ltd. All rights reserved.
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
