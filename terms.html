@@ -63,7 +63,7 @@
     .display,
     h1, h2, h3 {
       font-family: var(--font-head);
-      letter-spacing: 0.015em;
+      letter-spacing: 0.01em;
     }
 
     .header-shell {
@@ -107,34 +107,60 @@
     }
 
     .content-shell {
-      max-width: 920px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .doc-shell {
+      max-width: 760px;
       margin: 0 auto;
       width: 100%;
     }
 
     .crumb {
-      color: rgba(0,0,0,0.68);
+      color: rgba(0,0,0,0.56);
       text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     .crumb:hover {
       color: #000;
     }
 
-    .terms-copy {
-      max-width: 760px;
+    .page-title {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 5vw, 4.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin: 0 0 22px 0;
     }
 
-    .terms-copy p,
-    .terms-copy li {
+    .page-meta {
       font-size: 15px;
-      line-height: 1.9;
-      color: rgba(0,0,0,0.82);
+      line-height: 1.8;
+      color: rgba(0,0,0,0.72);
+      margin: 0 0 34px 0;
     }
 
     .terms-copy ol {
       margin: 0;
-      padding-left: 1.2rem;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .terms-copy li {
+      font-size: 16px;
+      line-height: 1.95;
+      color: rgba(0,0,0,0.80);
+      margin: 0 0 1.55rem 0;
+    }
+
+    .terms-copy li:last-child {
+      margin-bottom: 0;
     }
 
     .terms-copy a {
@@ -247,10 +273,20 @@
         flex-wrap: wrap;
       }
 
-      .terms-copy p,
+      .page-title {
+        font-size: 2.6rem;
+        line-height: 1.02;
+        margin-bottom: 18px;
+      }
+
+      .page-meta {
+        font-size: 14px;
+        margin-bottom: 26px;
+      }
+
       .terms-copy li {
         font-size: 15px;
-        line-height: 1.8;
+        line-height: 1.82;
       }
 
       .footer-top {
@@ -290,73 +326,70 @@
   </div>
 </header>
 
-<section class="pt-2 pb-6">
+<section class="pt-10 pb-8">
   <div class="page-shell">
     <div class="content-shell">
-      <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
-        ← Back
-      </a>
+      <div class="doc-shell">
+        <a href="welcome.html" class="crumb">← Back</a>
+      </div>
     </div>
   </div>
 </section>
 
-<main class="page-shell pt-2 pb-20 flex-1">
+<main class="page-shell pt-2 pb-24 flex-1">
   <div class="content-shell">
-    <h1 class="display text-3xl md:text-4xl uppercase mb-10">
-      Terms
-    </h1>
+    <div class="doc-shell">
+      <h1 class="page-title">Terms</h1>
+      <p class="page-meta"><strong>Last updated:</strong> April 2026</p>
 
-    <div class="terms-copy space-y-4">
-      <p><strong>Last updated:</strong> April 2026</p>
+      <div class="terms-copy">
+        <ol>
+          <li>
+            <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates. Certain store, product, cart, checkout, and customer-facing commerce functions are provided through our Shopify store.
+          </li>
 
-      <ol class="space-y-4">
-        <li>
-          <strong>Purpose.</strong> This website provides information about STARFACE, its collectibles, and related brand updates. Certain store, product, cart, checkout, and customer-facing commerce functions are provided through our Shopify store.
-        </li>
+          <li>
+            <strong>Use of the site.</strong> By using this website, you agree to use it only for lawful purposes and in a way that does not interfere with its operation, security, or availability.
+          </li>
 
-        <li>
-          <strong>Use of the site.</strong> By using this website, you agree to use it only for lawful purposes and in a way that does not interfere with its operation, security, or availability.
-        </li>
+          <li>
+            <strong>Content ownership.</strong> All text, artwork, designs, visuals, logos, product concepts, and other materials on this site are owned by STARFACE Ltd unless otherwise stated. They may not be copied, reproduced, distributed, adapted, or used without prior written permission.
+          </li>
 
-        <li>
-          <strong>Content ownership.</strong> All text, artwork, designs, visuals, logos, product concepts, and other materials on this site are owned by STARFACE Ltd unless otherwise stated. They may not be copied, reproduced, distributed, adapted, or used without prior written permission.
-        </li>
+          <li>
+            <strong>Store and checkout.</strong> Where you access product pages, cart, checkout, or related purchase functionality, those services may be hosted, operated, or processed through Shopify. Your use of those services may also be subject to Shopify’s applicable terms, policies, and technical processes.
+          </li>
 
-        <li>
-          <strong>Store and checkout.</strong> Where you access product pages, cart, checkout, or related purchase functionality, those services may be hosted, operated, or processed through Shopify. Your use of those services may also be subject to Shopify’s applicable terms, policies, and technical processes.
-        </li>
+          <li>
+            <strong>Product information.</strong> We aim to ensure that product descriptions, images, availability, and related information are presented as accurately as possible. However, minor differences in appearance may occur depending on display settings, photography, or production variation.
+          </li>
 
-        <li>
-          <strong>Product information.</strong> We aim to ensure that product descriptions, images, availability, and related information are presented as accurately as possible. However, minor differences in appearance may occur depending on display settings, photography, or production variation.
-        </li>
+          <li>
+            <strong>Email communications.</strong> If you choose to subscribe for updates, you agree to receive occasional STARFACE-related communications, including releases, product news, and announcements. You may unsubscribe at any time using the link in those communications.
+          </li>
 
-        <li>
-          <strong>Email communications.</strong> If you choose to subscribe for updates, you agree to receive occasional STARFACE-related communications, including releases, product news, and announcements. You may unsubscribe at any time using the link in those communications.
-        </li>
+          <li>
+            <strong>Acceptable use.</strong> You must not misuse the site, attempt to bypass security, interfere with the site’s operation, scrape content automatically, introduce malicious material, or use the site for unlawful purposes.
+          </li>
 
-        <li>
-          <strong>Acceptable use.</strong> You must not misuse the site, attempt to bypass security, interfere with the site’s operation, scrape content automatically, introduce malicious material, or use the site for unlawful purposes.
-        </li>
+          <li>
+            <strong>External services.</strong> This website may link to external platforms or services, including our Shopify store and social media pages. We are not responsible for the content, availability, or operation of third-party services beyond our control.
+          </li>
 
-        <li>
-          <strong>External services.</strong> This website may link to external platforms or services, including our Shopify store and social media pages. We are not responsible for the content, availability, or operation of third-party services beyond our control.
-        </li>
+          <li>
+            <strong>Changes.</strong> We may update these terms from time to time. When we do, the date at the top of this page will be updated.
+          </li>
 
-        <li>
-          <strong>Changes.</strong> We may update these terms from time to time. When we do, the date at the top of this page will be updated.
-        </li>
+          <li>
+            <strong>Company information.</strong> STARFACE Ltd is registered in England &amp; Wales under Company No. <strong>16710422</strong>.
+          </li>
 
-        <li>
-          <strong>Company information.</strong><br/>
-          STARFACE Ltd is registered in England &amp; Wales under Company No. <strong>16710422</strong>.
-        </li>
-
-        <li>
-          <strong>Contact.</strong><br/>
-          Questions about these terms can be sent to
-          <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
-        </li>
-      </ol>
+          <li>
+            <strong>Contact.</strong> Questions about these terms can be sent to
+            <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
 </main>
@@ -364,9 +397,7 @@
 <footer>
   <div class="page-shell">
     <div class="pt-12 pb-8">
-
       <div class="footer-top">
-
         <div class="footer-links text-sm">
           <div>
             <div class="footer-heading mb-4">About</div>
@@ -387,7 +418,6 @@
 
         <div class="connect-column">
           <div class="footer-heading mb-4">Connect</div>
-
           <div class="social-slot">
             <a
               href="https://instagram.com/thestarfaceco"
@@ -404,7 +434,6 @@
             </a>
           </div>
         </div>
-
       </div>
 
       <div class="footer-copy">
