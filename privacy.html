@@ -53,6 +53,13 @@
       display: block;
     }
 
+    .top-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.14);
+      margin-top: 28px;
+    }
+
     .display,
     h1, h2, h3 {
       font-family: var(--font-head);
@@ -61,15 +68,41 @@
 
     .header-shell {
       width: 100%;
-      padding-left: 20px;
-      padding-right: 44px;
+      padding-left: 28px;
+      padding-right: 40px;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .top-nav-link {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.68);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .top-nav-link:hover {
+      color: #000;
     }
 
     .page-shell {
-      max-width: 1340px;
+      max-width: 1600px;
       margin: 0 auto;
-      padding-left: 36px;
-      padding-right: 36px;
+      padding: 0 28px;
       width: 100%;
     }
 
@@ -121,8 +154,6 @@
       text-decoration: none;
     }
 
-    /* ===== FOOTER ===== */
-
     .footer-heading {
       font-size: 11px;
       letter-spacing: 0.16em;
@@ -156,21 +187,6 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(100px, 135px));
       gap: 22px;
-    }
-
-    .footer-mark-wrap {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 6px;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    .footer-mark {
-      width: 100px;
-      height: auto;
     }
 
     .connect-column {
@@ -209,51 +225,24 @@
       color: rgba(0, 0, 0, 0.5);
     }
 
-    @media (max-width: 1024px) {
-      .header-shell {
-        padding-left: 18px;
-        padding-right: 28px;
-      }
-
-      .page-shell {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-    }
-
     @media (max-width: 768px) {
-      .header-shell,
-      .page-shell {
-        padding-left: 18px;
-        padding-right: 18px;
+      .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
       }
 
-      .policy-copy p,
-      .policy-copy li {
-        font-size: 15px;
-        line-height: 1.8;
+      .top-nav {
+        gap: 16px;
+        flex-wrap: wrap;
       }
 
       .footer-top {
         grid-template-columns: 1fr;
       }
 
-      .footer-mark-wrap {
-        position: static;
-        transform: none;
-        justify-content: flex-start;
-      }
-
-      .footer-mark {
-        width: 180px;
-      }
-
       .connect-column {
         align-items: flex-start;
-      }
-
-      .social-slot {
-        margin-top: 0;
       }
     }
   </style>
@@ -261,135 +250,116 @@
 
 <body>
 
-  <header class="pt-4 pb-4">
-    <div class="header-shell">
-      <div class="relative h-16 md:h-20">
-        <a href="welcome.html" aria-label="STARFACE home" class="absolute left-0 -top-2">
-          <img src="images/STARFACELOGO.png" alt="STARFACE" class="h-28 md:h-32 w-auto"/>
-        </a>
-      </div>
-    </div>
-  </header>
+<div class="top-divider"></div>
 
-  <section class="pt-2 pb-6">
-    <div class="page-shell">
-      <div class="content-shell">
-        <a href="welcome.html" class="crumb text-[13px] md:text-[14px] uppercase tracking-[0.14em]">
-          ← Back
-        </a>
-      </div>
-    </div>
-  </section>
+<header class="pb-4" style="margin-top: -4px;">
+  <div class="header-shell header-row">
+    <a href="welcome.html">
+      <img src="images/STARFACELOGO.png" alt="STARFACE" class="h-28 md:h-32" />
+    </a>
 
-  <main class="page-shell pt-2 pb-20 flex-1">
+    <nav class="top-nav">
+      <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
+      <a href="about.html" class="top-nav-link">About</a>
+      <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pt-2 pb-6">
+  <div class="page-shell">
     <div class="content-shell">
-      <h1 class="display text-3xl md:text-4xl uppercase mb-10">
-        Privacy
-      </h1>
-
-      <div class="policy-copy space-y-4">
-        <p><strong>Last updated:</strong> April 2026</p>
-
-        <h2 class="display">What we collect</h2>
-        <p>
-          If you subscribe for updates, we collect your email address and any other information you choose to share with us through the signup form. If you interact with our store, cart, checkout, or contact forms, certain customer, order, or technical information may also be collected through the platforms we use to operate those services.
-        </p>
-
-        <h2 class="display">How we use it</h2>
-        <p>
-          We use this information to send updates about STARFACE, including drops, releases, product news, and related brand announcements, and to operate, manage, and improve the website and store experience.
-        </p>
-
-        <h2 class="display">Email platform</h2>
-        <p>
-          We use Kit to manage subscriptions and send emails. Your information is stored through that platform and used only for the purposes described here.
-        </p>
-
-        <h2 class="display">Store platform</h2>
-        <p>
-          Our online store and certain commerce-related functions are powered through Shopify. Where you browse products, use the cart, begin checkout, submit store-related forms, or make a purchase, relevant personal and transactional information may be processed through Shopify and its systems in order to provide those services.
-        </p>
-
-        <h2 class="display">Sharing</h2>
-        <p>
-          We do not sell your personal information. We only share it with service providers where necessary to run the website, manage email communications, operate the store, process transactions, or support related site functionality.
-        </p>
-
-        <h2 class="display">Your choices</h2>
-        <ul class="space-y-2">
-          <li>You can unsubscribe at any time using the link in any email we send.</li>
-          <li>You can request deletion of your information by emailing <a href="mailto:support@thestarface.com">support@thestarface.com</a>.</li>
-        </ul>
-
-        <h2 class="display">Cookies and analytics</h2>
-        <p>
-          We may use basic analytics, cookies, or similar tools to understand site and store performance and improve the experience. If our use of cookies or tracking changes materially, we will update this page.
-        </p>
-
-        <h2 class="display">Contact</h2>
-        <p>
-          If you have questions about this policy or your information, contact us at <a href="mailto:support@thestarface.com">support@thestarface.com</a>.
-        </p>
-      </div>
+      <a href="welcome.html" class="crumb text-[13px] uppercase tracking-[0.14em]">
+        ← Back
+      </a>
     </div>
-  </main>
+  </div>
+</section>
 
-  <footer>
-    <div class="page-shell">
-      <div class="pt-12 pb-8">
+<main class="page-shell pt-2 pb-20 flex-1">
+  <div class="content-shell">
+    <h1 class="display text-3xl md:text-4xl uppercase mb-10">
+      Privacy
+    </h1>
 
-        <div class="footer-top">
+    <div class="policy-copy space-y-4">
+      <p><strong>Last updated:</strong> April 2026</p>
 
-          <div class="footer-links text-sm">
-            <div>
-              <div class="footer-heading mb-4">About</div>
-              <a href="about.html" class="footer-link">About Us</a>
-            </div>
+      <h2 class="display">What we collect</h2>
+      <p>...</p>
 
-            <div>
-              <div class="footer-heading mb-4">Support</div>
-              <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
-            </div>
+      <h2 class="display">How we use it</h2>
+      <p>...</p>
 
-            <div>
-              <div class="footer-heading mb-4">Legal</div>
-              <a href="privacy.html" class="footer-link block">Privacy</a>
-              <a href="terms.html" class="footer-link block">Terms</a>
-            </div>
+      <h2 class="display">Email platform</h2>
+      <p>...</p>
+
+      <h2 class="display">Store platform</h2>
+      <p>...</p>
+
+      <h2 class="display">Sharing</h2>
+      <p>...</p>
+
+      <h2 class="display">Your choices</h2>
+      <ul class="space-y-2">
+        <li>...</li>
+      </ul>
+
+      <h2 class="display">Cookies and analytics</h2>
+      <p>...</p>
+
+      <h2 class="display">Contact</h2>
+      <p>...</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="page-shell">
+    <div class="pt-12 pb-8">
+
+      <div class="footer-top">
+
+        <div class="footer-links text-sm">
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <a href="about.html" class="footer-link">About Us</a>
           </div>
 
-          <div class="footer-mark-wrap">
-            <img src="images/starface-mark.png" alt="" class="footer-mark" />
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
           </div>
 
-          <div class="connect-column">
-            <div class="footer-heading mb-4">Connect</div>
-
-            <div class="social-slot">
-              <a
-                href="https://instagram.com/thestarfaceco"
-                class="social-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
-                  <circle cx="12" cy="12" r="4.2"></circle>
-                  <circle cx="17.4" cy="6.6" r="1"></circle>
-                </svg>
-              </a>
-            </div>
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <a href="privacy.html" class="footer-link block">Privacy</a>
+            <a href="terms.html" class="footer-link block">Terms</a>
           </div>
-
         </div>
 
-        <div class="footer-copy">
-          © 2026 STARFACE Ltd. All rights reserved.
+        <div class="connect-column">
+          <div class="footer-heading mb-4">Connect</div>
+
+          <div class="social-slot">
+            <a href="https://instagram.com/thestarfaceco" class="social-icon" target="_blank">
+              <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+                <circle cx="12" cy="12" r="4.2"></circle>
+                <circle cx="17.4" cy="6.6" r="1"></circle>
+              </svg>
+            </a>
+          </div>
         </div>
+
+      </div>
+
+      <div class="footer-copy">
+        © 2026 STARFACE Ltd. All rights reserved.
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
