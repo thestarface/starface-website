@@ -35,6 +35,7 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     .top-divider {
@@ -60,6 +61,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+    }
+
+    .logo {
+      height: 128px;
+      width: auto;
     }
 
     .top-nav {
@@ -89,6 +95,10 @@
       width: 100%;
     }
 
+    .hero-section {
+      padding-top: 4px;
+    }
+
     .hero-wrap {
       width: 100%;
       display: flex;
@@ -100,6 +110,12 @@
       width: 100%;
       max-width: 1420px;
       margin: 0 auto;
+    }
+
+    .cta-section {
+      padding-top: 18px;
+      padding-bottom: 90px;
+      text-align: center;
     }
 
     .intro-copy {
@@ -120,6 +136,7 @@
       padding: 16px 42px;
       text-transform: uppercase;
       line-height: 1;
+      border-radius: 999px;
     }
 
     .cta:hover {
@@ -199,23 +216,97 @@
     }
 
     @media (max-width: 768px) {
+      .top-divider {
+        margin-top: 16px;
+      }
+
+      .header-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
       .header-row {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .logo {
+        height: 78px;
       }
 
       .top-nav {
-        gap: 16px;
+        justify-content: center;
+        gap: 18px;
         flex-wrap: wrap;
+      }
+
+      .top-nav-link {
+        font-size: 10px;
+        letter-spacing: 0.11em;
+      }
+
+      .page-shell {
+        padding: 0 14px;
+      }
+
+      .hero-section {
+        padding-top: 18px;
+      }
+
+      .hero-image {
+        width: 118%;
+        max-width: none;
+        margin-left: -9%;
+      }
+
+      .cta-section {
+        padding-top: 16px;
+        padding-bottom: 64px;
+      }
+
+      .cta {
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        padding: 14px 34px;
       }
 
       .footer-top {
         grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: auto;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        text-align: center;
       }
 
       .connect-column {
-        align-items: flex-start;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .footer-copy {
+        padding-top: 36px;
+        padding-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-image {
+        width: 132%;
+        margin-left: -16%;
+      }
+
+      .top-nav {
+        gap: 14px;
+      }
+
+      .top-nav-link {
+        font-size: 9.5px;
       }
     }
   </style>
@@ -227,7 +318,7 @@
 
 <header class="pb-4" style="margin-top: -4px;">
   <div class="header-shell header-row">
-    <img src="images/STARFACELOGO.png" alt="STARFACE" class="h-28 md:h-32" />
+    <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
 
     <nav class="top-nav" aria-label="Primary">
       <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
@@ -238,7 +329,7 @@
 </header>
 
 <main>
-  <section class="pt-2 md:pt-4">
+  <section class="hero-section">
     <div class="page-shell">
       <div class="hero-wrap">
         <img src="images/allspacekids.png" alt="All six Space Kid variants" class="hero-image" />
@@ -246,10 +337,10 @@
     </div>
   </section>
 
-  <section class="pt-1 pb-28 md:pb-32 text-center">
+  <section class="cta-section">
     <div class="page-shell">
       <div class="intro-copy">
-        <a href="https://shop.thestarface.com/" class="cta rounded-full">
+        <a href="https://shop.thestarface.com/" class="cta">
           GET YOURS
         </a>
       </div>
