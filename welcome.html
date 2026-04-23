@@ -215,7 +215,9 @@
       color: rgba(0, 0, 0, 0.5);
     }
 
+    /* MOBILE FIXES */
     @media (max-width: 768px) {
+
       .top-divider {
         margin-top: 16px;
       }
@@ -255,10 +257,11 @@
         padding-top: 18px;
       }
 
+      /* ✅ FIXED HERO (no cropping anymore) */
       .hero-image {
-        width: 118%;
-        max-width: none;
-        margin-left: -9%;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
       }
 
       .cta-section {
@@ -297,8 +300,9 @@
 
     @media (max-width: 420px) {
       .hero-image {
-        width: 132%;
-        margin-left: -16%;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
       }
 
       .top-nav {
@@ -309,6 +313,7 @@
         font-size: 9.5px;
       }
     }
+
   </style>
 </head>
 
