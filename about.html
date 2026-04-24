@@ -43,6 +43,7 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     img {
@@ -74,6 +75,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+    }
+
+    .logo {
+      height: 128px;
+      width: auto;
     }
 
     .top-nav {
@@ -145,6 +151,19 @@
 
     .body-copy p:last-child {
       margin-bottom: 0;
+    }
+
+    .creator-image-wrap {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .creator-image {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 6px;
     }
 
     .footer-heading {
@@ -230,6 +249,10 @@
     }
 
     @media (max-width: 768px) {
+      .top-divider {
+        margin-top: 16px;
+      }
+
       .header-shell,
       .page-shell {
         padding-left: 18px;
@@ -238,13 +261,29 @@
 
       .header-row {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .logo {
+        height: 78px;
       }
 
       .top-nav {
+        justify-content: center;
         gap: 16px;
         flex-wrap: wrap;
+      }
+
+      .top-nav-link {
+        font-size: 10px;
+        letter-spacing: 0.11em;
+      }
+
+      .back-section {
+        padding-top: 34px;
+        padding-bottom: 20px;
       }
 
       .page-title {
@@ -258,16 +297,60 @@
         line-height: 1.82;
       }
 
+      .creator-image-wrap {
+        margin-top: 40px;
+      }
+
+      .creator-image {
+        max-width: 210px;
+      }
+
+      .about-main {
+        padding-bottom: 72px;
+      }
+
       .footer-top {
         grid-template-columns: 1fr;
+        gap: 32px;
+        min-height: auto;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        text-align: center;
       }
 
       .connect-column {
-        align-items: flex-start;
+        align-items: center;
+        min-width: 0;
       }
 
       .social-slot {
         margin-top: 0;
+      }
+
+      .footer-copy {
+        padding-top: 36px;
+        padding-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .top-nav {
+        gap: 14px;
+      }
+
+      .top-nav-link {
+        font-size: 9.5px;
+      }
+
+      .page-title {
+        font-size: 2.35rem;
+      }
+
+      .creator-image {
+        max-width: 190px;
       }
     }
   </style>
@@ -280,18 +363,19 @@
 <header class="pb-4" style="margin-top: -4px;">
   <div class="header-shell header-row">
     <a href="welcome.html" aria-label="STARFACE home">
-      <img src="images/STARFACELOGO.png" alt="STARFACE" class="h-28 md:h-32" />
+      <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
     </a>
 
     <nav class="top-nav" aria-label="Primary">
       <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
       <a href="about.html" class="top-nav-link">About</a>
+      <a href="https://shop.thestarface.com/pages/faq" class="top-nav-link">FAQ</a>
       <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="pt-10 pb-8">
+<section class="back-section pt-10 pb-8">
   <div class="page-shell">
     <div class="content-shell">
       <div class="doc-shell">
@@ -301,7 +385,7 @@
   </div>
 </section>
 
-<main class="page-shell pt-2 pb-24">
+<main class="page-shell pt-2 pb-24 about-main">
   <div class="content-shell">
     <div class="doc-shell">
       <h1 class="page-title">About</h1>
@@ -328,9 +412,9 @@
         </p>
 
         <p>
-          The form is simple, but deliberate. The helmet, the star eyes, the jewellery, the stillness in the stance — each element placed with purpose. Everything is intentional.
+          The form is simple, but deliberate. The helmet, the star eyes, the jewellery, the stillness in the stance — each element is placed with purpose. Everything is intentional.
         </p>
-        
+
         <p>
           STARFACE sits between art and object — using character-led design to explore presence, identity, and imagination in a way that feels both minimal and expressive.
         </p>
@@ -340,8 +424,12 @@
         </p>
 
         <p>
-          Femi.
+          — Femi
         </p>
+
+        <div class="creator-image-wrap">
+          <img src="images/femi.png" alt="Femi, creator of STARFACE" class="creator-image" />
+        </div>
       </div>
     </div>
   </div>
