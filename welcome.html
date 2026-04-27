@@ -113,10 +113,12 @@
     }
 
     .cta-section {
-      padding-top: 18px;
-      padding-bottom: 90px;
-      text-align: center;
-    }
+  margin-top: -60px;   /* 👈 pulls it UP over the image */
+  padding-bottom: 90px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
 
     .intro-copy {
       max-width: 1000px;
