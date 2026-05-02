@@ -51,55 +51,74 @@
       display: block;
     }
 
-    .top-divider {
-      width: 100%;
-      height: 1px;
-      background: rgba(0, 0, 0, 0.14);
-      margin-top: 28px;
-    }
-
     .display,
     h1, h2, h3 {
       font-family: var(--font-head);
       letter-spacing: 0.01em;
     }
 
-    .header-shell {
+    .site-header {
+      position: relative;
       width: 100%;
-      padding-left: 28px;
-      padding-right: 40px;
-    }
-
-    .header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      height: 128px;
-      width: auto;
+      min-height: 96px;
     }
 
     .top-nav {
+      position: absolute;
+      top: 34px;
+      left: 34px;
+      z-index: 10;
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 28px;
     }
 
     .top-nav-link {
-      font-size: 12px;
-      letter-spacing: 0.12em;
+      position: relative;
+      font-size: 13px;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.68);
+      color: rgba(0, 0, 0, 0.66);
       text-decoration: none;
-      transition: color 0.2s ease;
       white-space: nowrap;
+      padding-bottom: 5px;
+    }
+
+    .top-nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #000;
+      transition: width 0.22s ease;
     }
 
     .top-nav-link:hover {
       color: #000;
+    }
+
+    .top-nav-link:hover::after {
+      width: 100%;
+    }
+
+    .logo-bar {
+      position: absolute;
+      top: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: min(280px, 18vw);
+      height: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .page-shell {
@@ -121,16 +140,9 @@
       width: 100%;
     }
 
-    .crumb {
-      color: rgba(0,0,0,0.56);
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .crumb:hover {
-      color: #000;
+    .about-main {
+      padding-top: 62px;
+      padding-bottom: 96px;
     }
 
     .page-title {
@@ -238,42 +250,40 @@
     }
 
     @media (max-width: 1024px) {
-      .header-shell {
-        padding-left: 22px;
-        padding-right: 22px;
-      }
-
       .page-shell {
         padding: 0 22px;
       }
     }
 
     @media (max-width: 768px) {
-      .top-divider {
-        margin-top: 16px;
-      }
-
-      .header-shell,
-      .page-shell {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .header-row {
+      .site-header {
+        min-height: auto;
+        padding: 28px 18px 0;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 6px;
       }
 
-      .logo {
-        height: 78px;
+      .logo-bar,
+      .top-nav {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+      }
+
+      .logo-bar {
+        order: 1;
+        width: min(220px, 64vw);
+        height: auto;
+        margin-bottom: 26px;
       }
 
       .top-nav {
+        order: 2;
         justify-content: center;
-        gap: 16px;
         flex-wrap: wrap;
+        gap: 16px 22px;
       }
 
       .top-nav-link {
@@ -281,9 +291,14 @@
         letter-spacing: 0.11em;
       }
 
-      .back-section {
-        padding-top: 34px;
-        padding-bottom: 20px;
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .about-main {
+        padding-top: 58px;
+        padding-bottom: 72px;
       }
 
       .page-title {
@@ -304,10 +319,6 @@
 
       .creator-image {
         max-width: 210px;
-      }
-
-      .about-main {
-        padding-bottom: 72px;
       }
 
       .footer-top {
@@ -339,7 +350,7 @@
 
     @media (max-width: 420px) {
       .top-nav {
-        gap: 14px;
+        gap: 14px 18px;
       }
 
       .top-nav-link {
@@ -359,34 +370,20 @@
 
 <body>
 
-<div class="top-divider"></div>
+<header class="site-header">
+  <nav class="top-nav" aria-label="Primary">
+    <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
+    <a href="about.html" class="top-nav-link">About</a>
+    <a href="https://shop.thestarface.com/pages/faq" class="top-nav-link">FAQ</a>
+    <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
+  </nav>
 
-<header class="pb-4" style="margin-top: -4px;">
-  <div class="header-shell header-row">
-    <a href="welcome.html" aria-label="STARFACE home">
-      <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
-    </a>
-
-    <nav class="top-nav" aria-label="Primary">
-      <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
-      <a href="about.html" class="top-nav-link">About</a>
-      <a href="https://shop.thestarface.com/pages/faq" class="top-nav-link">FAQ</a>
-      <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
-    </nav>
-  </div>
+  <a href="https://thestarface.com" class="logo-bar" aria-label="STARFACE home">
+    <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
+  </a>
 </header>
 
-<section class="back-section pt-10 pb-8">
-  <div class="page-shell">
-    <div class="content-shell">
-      <div class="doc-shell">
-        <a href="welcome.html" class="crumb">← Back</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<main class="page-shell pt-2 pb-24 about-main">
+<main class="page-shell about-main">
   <div class="content-shell">
     <div class="doc-shell">
       <h1 class="page-title">About</h1>
@@ -394,27 +391,27 @@
       <div class="body-copy">
         <p>
           STARFACE is shaped by a fascination with collectible figures — their presence, and the way they hold attention without needing to do anything. It began as a project to develop ideas into forms that feel considered and worth keeping.
-</p>
+        </p>
 
-<p>
-Space Kid is the first release. A starting point, not a definition. Built with an understanding of what holds value over time.
-</p>
+        <p>
+          Space Kid is the first release. A starting point, not a definition. Built with an understanding of what holds value over time.
+        </p>
 
-<p>
-The form is simple, but deliberate. The helmet, the star eyes, the jewellery, the stillness in the stance. Each element is placed with purpose. Everything is intentional.
-</p>
+        <p>
+          The form is simple, but deliberate. The helmet, the star eyes, the jewellery, the stillness in the stance. Each element is placed with purpose. Everything is intentional.
+        </p>
 
-<p>
-STARFACE sits between art and object, using character-led design to explore presence and imagination in a way that feels both minimal and expressive.
-</p>
+        <p>
+          STARFACE sits between art and object, using character-led design to explore presence and imagination in a way that feels both minimal and expressive.
+        </p>
 
-<p>
-If it connects, that’s the point.
-</p>
+        <p>
+          If it connects, that’s the point.
+        </p>
 
-<p>
-Femi
-</p>
+        <p>
+          Femi
+        </p>
 
         <div class="creator-image-wrap">
           <img src="images/femi.png" alt="Femi, creator of STARFACE" class="creator-image" />
