@@ -8,24 +8,18 @@
   <meta name="description" content="STARFACE™ presents Spacekid — Series 01, a limited collectible available in six colourways." />
 
   <link rel="icon" href="/favicon.ico" />
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root {
       --bg: #fefdfb;
       --text: #000000;
-      --muted: rgba(0,0,0,0.54);
-      --soft: rgba(0,0,0,0.38);
       --font-head: 'Space Grotesk', system-ui, sans-serif;
       --font-body: 'Inter', system-ui, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -34,12 +28,6 @@
       color: var(--text);
       font-family: var(--font-body);
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      min-height: 100dvh;
     }
 
     .entry-page {
@@ -67,7 +55,6 @@
       text-transform: uppercase;
       color: rgba(0,0,0,0.66);
       text-decoration: none;
-      transition: color 0.2s ease;
       white-space: nowrap;
       padding-bottom: 5px;
     }
@@ -91,13 +78,22 @@
       width: 100%;
     }
 
-    .logo-wrap {
+    .hero-stack {
       position: absolute;
-      top: 72px;
+      top: 92px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 5;
-      width: min(340px, 22vw);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: min(520px, 42vw);
+      pointer-events: none;
+    }
+
+    .logo-wrap {
+      width: min(340px, 100%);
+      margin-bottom: 30px;
     }
 
     .logo {
@@ -106,23 +102,12 @@
       display: block;
     }
 
-    .hero-image-wrap {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      pointer-events: none;
-    }
-
     .hero-image {
-      width: auto;
-      height: min(76vh, 760px);
-      max-width: 58vw;
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
       object-fit: contain;
       display: block;
-      transform: translateY(22px);
     }
 
     .intro-block {
@@ -143,13 +128,13 @@
     }
 
     .intro-sub {
-      font-family: var(--font-body);
       font-size: 12px;
       line-height: 1.45;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(0,0,0,0.62);
       margin: 0 0 18px 0;
+      max-width: 250px;
     }
 
     .entry-cta {
@@ -158,7 +143,6 @@
       gap: 8px;
       color: #000;
       text-decoration: none;
-      font-family: var(--font-body);
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -183,9 +167,7 @@
       transition: opacity 0.2s ease;
     }
 
-    .ig-link:hover {
-      opacity: 1;
-    }
+    .ig-link:hover { opacity: 1; }
 
     .instagram-icon {
       width: 30px;
@@ -224,16 +206,15 @@
     @media (max-width: 900px) {
       .entry-page {
         min-height: 100dvh;
+        padding: 24px 22px 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
         overflow: visible;
-        padding: 24px 22px 28px;
       }
 
       .top-nav,
-      .logo-wrap,
-      .hero-image-wrap,
+      .hero-stack,
       .intro-block,
       .ig-link,
       .copyright {
@@ -247,7 +228,6 @@
 
       .top-nav {
         order: 1;
-        width: 100%;
         justify-content: center;
         flex-wrap: wrap;
         gap: 16px 22px;
@@ -259,30 +239,23 @@
         letter-spacing: 0.11em;
       }
 
-      .logo-wrap {
+      .hero-stack {
         order: 2;
-        width: min(252px, 58vw);
+        width: min(390px, 84vw);
+      }
+
+      .logo-wrap {
+        width: min(270px, 72vw);
         margin-bottom: 24px;
       }
 
-      .hero-image-wrap {
-        order: 3;
-        inset: auto;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
       .hero-image {
-        height: auto;
-        width: min(78vw, 390px);
-        max-width: none;
-        transform: none;
+        width: min(390px, 84vw);
+        max-height: none;
       }
 
       .intro-block {
-        order: 4;
+        order: 3;
         width: 100%;
         max-width: 420px;
         margin-top: 28px;
@@ -295,68 +268,25 @@
 
       .intro-sub {
         font-size: 11px;
-        margin-bottom: 18px;
+        max-width: 280px;
       }
 
       .ig-link {
-        order: 5;
+        order: 4;
         align-self: flex-end;
-        margin-top: 26px;
+        margin-top: 28px;
       }
 
       .copyright {
-        order: 6;
-        margin-top: 10px;
+        order: 5;
+        margin-top: 12px;
         font-size: 9px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .entry-page {
-        padding: 22px 18px 24px;
-      }
-
-      .top-nav {
-        gap: 14px 18px;
-        margin-bottom: 30px;
-      }
-
-      .top-nav a {
-        font-size: 10px;
-      }
-
-      .logo-wrap {
-        width: min(330px, 84vw);
-      }
-
-      .hero-image {
-        width: min(84vw, 370px);
-      }
-    }
-
-    @media (max-height: 650px) and (min-width: 901px) {
-      .logo-wrap {
-        top: 54px;
-        width: min(460px, 36vw);
-      }
-
-      .hero-image {
-        height: min(62vh, 500px);
-      }
-
-      .intro-block {
-        bottom: 36px;
-      }
-
-      .copyright {
-        display: none;
       }
     }
   </style>
 </head>
 
 <body>
-
   <main class="entry-page">
 
     <nav class="top-nav fade-up delay-1" aria-label="Primary">
@@ -367,20 +297,18 @@
       <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
     </nav>
 
-    <div class="logo-wrap fade-up delay-1">
-      <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
-    </div>
+    <div class="hero-stack fade-up delay-2">
+      <div class="logo-wrap">
+        <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
+      </div>
 
-    <div class="hero-image-wrap fade-up delay-2">
       <img src="images/entryimage.png" alt="Spacekid sketch" class="hero-image" />
     </div>
 
     <section class="intro-block fade-up delay-3">
       <h1 class="intro-title">Debut Drop</h1>
-      <p class="intro-sub">Spacekid — Series 01. Six Colourways. Limited Edition</p>
-      <a href="https://shop.thestarface.com/" class="entry-cta">
-        Get Yours →
-      </a>
+      <p class="intro-sub">Spacekid — Series 01. Six Colourways. Limited Edition.</p>
+      <a href="https://shop.thestarface.com/" class="entry-cta">Get Yours →</a>
     </section>
 
     <a href="https://instagram.com/thestarfaceco" class="ig-link fade-up delay-3" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -396,6 +324,5 @@
     </div>
 
   </main>
-
 </body>
 </html>
