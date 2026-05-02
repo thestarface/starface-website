@@ -33,20 +33,19 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--font-body);
-      overflow: hidden;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-      height: 100dvh;
+      min-height: 100dvh;
     }
 
     .entry-page {
       position: relative;
       width: 100%;
-      height: 100dvh;
-      min-height: 100vh;
+      min-height: 100dvh;
       background: var(--bg);
       overflow: hidden;
     }
@@ -57,31 +56,48 @@
       left: 34px;
       z-index: 5;
       display: flex;
-      gap: 26px;
+      gap: 28px;
       align-items: center;
     }
 
     .top-nav a {
-      font-size: 12px;
+      position: relative;
+      font-size: 13px;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: rgba(0,0,0,0.66);
       text-decoration: none;
       transition: color 0.2s ease;
       white-space: nowrap;
+      padding-bottom: 5px;
+    }
+
+    .top-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #000;
+      transition: width 0.22s ease;
     }
 
     .top-nav a:hover {
       color: #000;
     }
 
+    .top-nav a:hover::after {
+      width: 100%;
+    }
+
     .logo-wrap {
       position: absolute;
-      top: 18px;
+      top: 72px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 4;
-      width: min(820px, 56vw);
+      width: min(540px, 38vw);
     }
 
     .logo {
@@ -204,35 +220,71 @@
     }
 
     @media (max-width: 900px) {
+      .entry-page {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: visible;
+        padding: 24px 22px 28px;
+      }
+
+      .top-nav,
+      .logo-wrap,
+      .hero-image-wrap,
+      .intro-block,
+      .ig-link,
+      .copyright {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none;
+      }
+
       .top-nav {
-        top: 132px;
-        left: 50%;
-        transform: translateX(-50%);
-        gap: 18px;
+        order: 1;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px 22px;
+        margin-bottom: 34px;
       }
 
       .top-nav a {
-        font-size: 10px;
+        font-size: 11px;
         letter-spacing: 0.11em;
       }
 
       .logo-wrap {
-        top: 18px;
+        order: 2;
         width: min(360px, 82vw);
+        margin-bottom: 28px;
+      }
+
+      .hero-image-wrap {
+        order: 3;
+        inset: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .hero-image {
         height: auto;
-        width: min(82vw, 440px);
+        width: min(78vw, 390px);
         max-width: none;
-        transform: translateY(-6px);
+        transform: none;
       }
 
       .intro-block {
-        left: 24px;
-        right: 24px;
-        bottom: 78px;
-        max-width: none;
+        order: 4;
+        width: 100%;
+        max-width: 420px;
+        margin-top: 28px;
+        align-self: flex-start;
       }
 
       .intro-title {
@@ -245,24 +297,30 @@
       }
 
       .ig-link {
-        right: 24px;
-        bottom: 28px;
+        order: 5;
+        align-self: flex-end;
+        margin-top: 26px;
       }
 
       .copyright {
+        order: 6;
+        margin-top: 10px;
         font-size: 9px;
-        bottom: 10px;
       }
     }
 
     @media (max-width: 420px) {
+      .entry-page {
+        padding: 22px 18px 24px;
+      }
+
       .top-nav {
-        top: 118px;
-        gap: 14px;
+        gap: 14px 18px;
+        margin-bottom: 30px;
       }
 
       .top-nav a {
-        font-size: 9.5px;
+        font-size: 10px;
       }
 
       .logo-wrap {
@@ -270,18 +328,14 @@
       }
 
       .hero-image {
-        width: min(86vw, 400px);
-        transform: translateY(-10px);
-      }
-
-      .intro-block {
-        bottom: 72px;
+        width: min(84vw, 370px);
       }
     }
 
-    @media (max-height: 650px) {
+    @media (max-height: 650px) and (min-width: 901px) {
       .logo-wrap {
-        width: min(520px, 48vw);
+        top: 54px;
+        width: min(460px, 36vw);
       }
 
       .hero-image {
@@ -306,6 +360,7 @@
     <nav class="top-nav fade-up delay-1" aria-label="Primary">
       <a href="https://shop.thestarface.com/">Starface Store</a>
       <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
       <a href="https://shop.thestarface.com/pages/contact">Contact</a>
       <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
     </nav>
