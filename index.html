@@ -87,7 +87,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: min(520px, 42vw);
+      width: min(720px, 62vw);
       pointer-events: none;
     }
 
@@ -103,9 +103,9 @@
     }
 
     .hero-image {
-      width: 100%;
-      height: auto;
-      max-height: 70vh;
+      width: auto;
+      height: min(72vh, 720px);
+      max-width: 100%;
       object-fit: contain;
       display: block;
     }
@@ -134,7 +134,8 @@
       text-transform: uppercase;
       color: rgba(0,0,0,0.62);
       margin: 0 0 18px 0;
-      max-width: 250px;
+      max-width: none;
+      white-space: nowrap;
     }
 
     .entry-cta {
@@ -269,6 +270,7 @@
       .intro-sub {
         font-size: 11px;
         max-width: 280px;
+        white-space: normal;
       }
 
       .ig-link {
