@@ -19,9 +19,7 @@
       --font-body: 'Inter', system-ui, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -59,6 +57,8 @@
       text-decoration: none;
       white-space: nowrap;
       padding-bottom: 5px;
+      display: flex;
+      align-items: center;
     }
 
     .top-nav a::after {
@@ -78,6 +78,24 @@
 
     .top-nav a:hover::after {
       width: 100%;
+    }
+
+    /* NEW: Instagram inline styling */
+    .nav-ig {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+
+    .nav-ig svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-ig:hover svg {
+      opacity: 1;
     }
 
     .logo-bar {
@@ -169,26 +187,6 @@
       transform: translateX(2px);
     }
 
-    .ig-link {
-      position: absolute;
-      right: 42px;
-      bottom: 42px;
-      z-index: 5;
-      color: #000;
-      opacity: 0.64;
-      transition: opacity 0.2s ease;
-    }
-
-    .ig-link:hover {
-      opacity: 1;
-    }
-
-    .instagram-icon {
-      width: 30px;
-      height: 30px;
-      display: block;
-    }
-
     .copyright {
       position: absolute;
       left: 50%;
@@ -200,54 +198,18 @@
       white-space: nowrap;
     }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeUp 0.75s ease forwards;
-    }
-
-    .delay-1 {
-      animation-delay: 0.04s;
-    }
-
-    .delay-3 {
-      animation-delay: 0.26s;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @keyframes logoFade {
-      from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
+      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
     @keyframes heroFade {
-      from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
+      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
     @media (max-width: 900px) {
       .entry-page {
-        min-height: 100dvh;
         padding: 28px 22px 30px;
         display: flex;
         flex-direction: column;
@@ -259,22 +221,17 @@
       .logo-bar,
       .hero-wrap,
       .intro-block,
-      .ig-link,
       .copyright {
         position: relative;
         top: auto;
         left: auto;
-        right: auto;
-        bottom: auto;
         transform: none;
       }
 
       .logo-bar {
         order: 1;
         width: min(240px, 62vw);
-        height: auto;
         margin-bottom: 28px;
-        animation: fadeUp 0.75s ease 0.04s forwards;
       }
 
       .top-nav {
@@ -285,77 +242,28 @@
         margin-bottom: 34px;
       }
 
-      .top-nav a {
-        font-size: 11px;
-        letter-spacing: 0.11em;
-      }
-
       .hero-wrap {
         order: 3;
         width: min(390px, 84vw);
-        animation: fadeUp 0.75s ease 0.15s forwards;
       }
 
       .hero-image {
         width: min(76vw, 340px);
-        height: auto;
-        max-height: none;
       }
 
       .intro-block {
         order: 4;
-        width: 100%;
-        max-width: 420px;
         margin-top: 22px;
         align-self: flex-start;
       }
 
-      .intro-title {
-        font-size: 18px;
-        margin-bottom: 6px;
-      }
-
       .intro-sub {
-        font-size: 11px;
         white-space: normal;
-        max-width: 300px;
-        margin-bottom: 14px;
       }
 
-      .ig-link {
-        order: 5;
-        align-self: flex-end;
-        margin-top: 28px;
-      }
-
-      .copyright {
-        order: 6;
-        margin-top: 12px;
-        font-size: 9px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .entry-page {
-        padding: 26px 20px 28px;
-      }
-
-      .logo-bar {
-        width: min(220px, 64vw);
-        margin-bottom: 26px;
-      }
-
-      .top-nav {
-        gap: 14px 18px;
-        margin-bottom: 32px;
-      }
-
-      .top-nav a {
-        font-size: 10px;
-      }
-
-      .hero-image {
-        width: min(82vw, 340px);
+      /* mobile IG placement */
+      .nav-ig {
+        margin-left: 0;
       }
     }
   </style>
@@ -364,12 +272,22 @@
 <body>
   <main class="entry-page">
 
-    <nav class="top-nav fade-up delay-1" aria-label="Primary">
+    <nav class="top-nav">
       <a href="https://shop.thestarface.com/">Starface Store</a>
       <a href="about.html">About</a>
       <a href="gallery.html">Gallery</a>
       <a href="https://shop.thestarface.com/pages/contact">Contact</a>
       <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
+
+      <!-- NEW Instagram placement -->
+      <a href="https://instagram.com/thestarfaceco" target="_blank" class="nav-ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.4" cy="6.6" r="1"></circle>
+        </svg>
+      </a>
+
     </nav>
 
     <div class="logo-bar">
@@ -380,19 +298,11 @@
       <img src="images/entryimage.png" alt="Spacekid sketch" class="hero-image" />
     </div>
 
-    <section class="intro-block fade-up delay-3">
+    <section class="intro-block">
       <h1 class="intro-title">Debut Drop</h1>
       <p class="intro-sub">Spacekid — Series 01. Limited Edition.</p>
       <a href="https://shop.thestarface.com/" class="entry-cta">Get Yours →</a>
     </section>
-
-    <a href="https://instagram.com/thestarfaceco" class="ig-link fade-up delay-3" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
-        <circle cx="12" cy="12" r="4.2"></circle>
-        <circle cx="17.4" cy="6.6" r="1"></circle>
-      </svg>
-    </a>
 
     <div class="copyright">
       © 2026 STARFACE Ltd. All rights reserved.
