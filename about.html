@@ -21,19 +21,10 @@
 
   <style>
     :root {
-      --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-head: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
       --bg: #ffffff;
       --text: #000000;
-    }
-
-    html {
-      background: var(--bg);
-      overscroll-behavior-x: none;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
     }
 
     body {
@@ -41,20 +32,6 @@
       font-family: var(--font-body);
       background: var(--bg);
       color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .display,
-    h1, h2, h3 {
-      font-family: var(--font-head);
-      letter-spacing: 0.01em;
     }
 
     .site-header {
@@ -67,40 +44,21 @@
       position: absolute;
       top: 34px;
       left: 34px;
-      z-index: 10;
       display: flex;
       align-items: center;
       gap: 28px;
     }
 
     .top-nav-link {
-      position: relative;
       font-size: 13px;
       letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.66);
+      color: rgba(0,0,0,0.66);
       text-decoration: none;
-      white-space: nowrap;
-      padding-bottom: 5px;
-    }
-
-    .top-nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: #000;
-      transition: width 0.22s ease;
     }
 
     .top-nav-link:hover {
       color: #000;
-    }
-
-    .top-nav-link:hover::after {
-      width: 100%;
     }
 
     .logo-bar {
@@ -108,36 +66,45 @@
       top: 34px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10;
       width: min(280px, 18vw);
-      height: 18px;
-      display: flex;
-      align-items: center;
     }
 
     .logo {
       width: 100%;
-      height: auto;
-      display: block;
+    }
+
+    /* NEW: Instagram inline */
+    .nav-social {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+    }
+
+    .nav-social a {
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-social a:hover {
+      opacity: 1;
+    }
+
+    .nav-social svg {
+      width: 18px;
+      height: 18px;
     }
 
     .page-shell {
       max-width: 1600px;
       margin: 0 auto;
       padding: 0 28px;
-      width: 100%;
-    }
-
-    .content-shell {
-      max-width: 900px;
-      margin: 0 auto;
-      width: 100%;
     }
 
     .doc-shell {
       max-width: 680px;
       margin: 0 auto;
-      width: 100%;
     }
 
     .about-main {
@@ -148,63 +115,20 @@
     .page-title {
       font-family: var(--font-head);
       font-size: clamp(3rem, 5vw, 4.1rem);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-      font-weight: 600;
-      margin: 0 0 34px 0;
+      margin-bottom: 34px;
     }
 
     .body-copy p {
       font-size: 14px;
       line-height: 1.7;
-      color: rgba(0,0,0,0.80);
-      margin: 0 0 1.15rem 0;
-    }
-
-    .body-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .creator-image-wrap {
-      margin-top: 34px;
-      display: flex;
-      justify-content: flex-start;
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 1rem;
     }
 
     .creator-image {
-      width: 100%;
       max-width: 240px;
-      height: auto;
       border-radius: 6px;
-    }
-
-    .footer-heading {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.45);
-    }
-
-    .footer-link {
-      color: rgba(0, 0, 0, 0.72);
-      text-decoration: none;
-    }
-
-    .footer-link:hover {
-      color: #000;
-    }
-
-    .footer-links .footer-link + .footer-link {
-      margin-top: 8px;
-    }
-
-    .footer-top {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 44px;
-      align-items: start;
-      min-height: 140px;
+      margin-top: 34px;
     }
 
     .footer-links {
@@ -213,157 +137,23 @@
       gap: 22px;
     }
 
-    .connect-column {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      min-width: 250px;
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
     }
 
-    .social-slot {
-      display: flex;
-      gap: 20px;
-      margin-top: 2px;
-    }
-
-    .social-icon {
-      opacity: 0.72;
-      transition: opacity 0.25s ease;
-      color: #000;
-    }
-
-    .social-icon:hover {
-      opacity: 1;
-    }
-
-    .instagram-icon {
-      width: 35px;
-      height: 35px;
-      display: block;
+    .footer-link {
+      color: rgba(0,0,0,0.72);
+      text-decoration: none;
     }
 
     .footer-copy {
-      padding-top: 30px;
       text-align: center;
       font-size: 12px;
-      color: rgba(0, 0, 0, 0.5);
-    }
-
-    @media (max-width: 1024px) {
-      .page-shell {
-        padding: 0 22px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .site-header {
-        min-height: auto;
-        padding: 28px 18px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .logo-bar,
-      .top-nav {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-      }
-
-      .logo-bar {
-        order: 1;
-        width: min(220px, 64vw);
-        height: auto;
-        margin-bottom: 26px;
-      }
-
-      .top-nav {
-        order: 2;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 16px 22px;
-      }
-
-      .top-nav-link {
-        font-size: 10px;
-        letter-spacing: 0.11em;
-      }
-
-      .page-shell {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .about-main {
-        padding-top: 58px;
-        padding-bottom: 72px;
-      }
-
-      .page-title {
-        font-size: 2.6rem;
-        line-height: 1.02;
-        margin-bottom: 26px;
-      }
-
-      .body-copy p {
-        font-size: 15px;
-        line-height: 1.72;
-        margin-bottom: 1.05rem;
-      }
-
-      .creator-image-wrap {
-        margin-top: 32px;
-      }
-
-      .creator-image {
-        max-width: 210px;
-      }
-
-      .footer-top {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        min-height: auto;
-      }
-
-      .footer-links {
-        grid-template-columns: 1fr;
-        gap: 26px;
-        text-align: center;
-      }
-
-      .connect-column {
-        align-items: center;
-        min-width: 0;
-      }
-
-      .social-slot {
-        margin-top: 0;
-      }
-
-      .footer-copy {
-        padding-top: 36px;
-        padding-bottom: 10px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .top-nav {
-        gap: 14px 18px;
-      }
-
-      .top-nav-link {
-        font-size: 9.5px;
-      }
-
-      .page-title {
-        font-size: 2.35rem;
-      }
-
-      .creator-image {
-        max-width: 190px;
-      }
+      margin-top: 40px;
+      color: rgba(0,0,0,0.5);
     }
   </style>
 </head>
@@ -371,103 +161,67 @@
 <body>
 
 <header class="site-header">
-  <nav class="top-nav" aria-label="Primary">
-    <a href="https://thestarface.com/"  class="top-nav-link">Home</a>
+  <nav class="top-nav">
+    <a href="https://thestarface.com/" class="top-nav-link">Home</a>
     <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
-    <a href="https://shop.thestarface.com/pages/faq" class="top-nav-link">FAQ</a>
     <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
+    <a href="https://shop.thestarface.com/pages/faq" class="top-nav-link">FAQ</a>
+
+    <!-- Instagram moved here -->
+    <div class="nav-social">
+      <a href="https://instagram.com/thestarfaceco" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <circle cx="17.4" cy="6.6" r="1"></circle>
+        </svg>
+      </a>
+    </div>
   </nav>
 
-  <a href="https://thestarface.com" class="logo-bar" aria-label="STARFACE home">
+  <a href="https://thestarface.com" class="logo-bar">
     <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
   </a>
 </header>
 
 <main class="page-shell about-main">
-  <div class="content-shell">
-    <div class="doc-shell">
-      <h1 class="page-title">About</h1>
+  <div class="doc-shell">
+    <h1 class="page-title">About</h1>
 
-      <div class="body-copy">
-        <p>
-          STARFACE is shaped by a fascination with collectible figures — their presence, and the way they hold attention without needing to do anything. It began as a project to develop ideas into forms that feel considered and worth keeping.
-        </p>
+    <div class="body-copy">
+      <p>STARFACE is shaped by a fascination with collectible figures — their presence, and the way they hold attention without needing to do anything.</p>
+      <p>Space Kid is the first release. A starting point, not a definition.</p>
+      <p>The form is simple, but deliberate. Everything is intentional.</p>
+      <p>STARFACE sits between art and object, exploring presence and imagination.</p>
+      <p>If it connects, that’s the point.</p>
+      <p>Femi</p>
 
-        <p>
-          Space Kid is the first release. A starting point, not a definition. Built with an understanding of what holds value over time.
-        </p>
-
-        <p>
-          The form is simple, but deliberate. The helmet, the star eyes, the jewellery, the stillness in the stance. Each element is placed with purpose. Everything is intentional.
-        </p>
-
-        <p>
-          STARFACE sits between art and object, using character-led design to explore presence and imagination in a way that feels both minimal and expressive.
-        </p>
-
-        <p>
-          If it connects, that’s the point.
-        </p>
-
-        <p>
-          Femi
-        </p>
-
-        <div class="creator-image-wrap">
-          <img src="images/femi.png" alt="Femi, creator of STARFACE" class="creator-image" />
-        </div>
-      </div>
+      <img src="images/femi.png" alt="Femi" class="creator-image" />
     </div>
   </div>
 </main>
 
 <footer>
   <div class="page-shell">
-    <div class="pt-12 pb-8">
-      <div class="footer-top">
-        <div class="footer-links text-sm">
-          <div>
-            <div class="footer-heading mb-4">About</div>
-            <a href="about.html" class="footer-link">About Us</a>
-          </div>
-
-          <div>
-            <div class="footer-heading mb-4">Support</div>
-            <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
-            <a href="https://shop.thestarface.com/policies/refund-policy" class="footer-link block">Returns</a>
-            <a href="https://shop.thestarface.com/policies/shipping-policy" class="footer-link block">Shipping</a>
-          </div>
-
-          <div>
-            <div class="footer-heading mb-4">Legal</div>
-            <a href="https://shop.thestarface.com/policies/privacy-policy" class="footer-link block">Privacy</a>
-            <a href="https://shop.thestarface.com/policies/terms-of-service" class="footer-link block">Site Terms</a>
-          </div>
-        </div>
-
-        <div class="connect-column">
-          <div class="footer-heading mb-4">Connect</div>
-          <div class="social-slot">
-            <a
-              href="https://instagram.com/thestarfaceco"
-              class="social-icon"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
-                <circle cx="12" cy="12" r="4.2"></circle>
-                <circle cx="17.4" cy="6.6" r="1"></circle>
-              </svg>
-            </a>
-          </div>
-        </div>
+    <div class="footer-links">
+      <div>
+        <div class="footer-heading">About</div>
+        <a href="about.html" class="footer-link">About Us</a>
       </div>
 
-      <div class="footer-copy">
-        © 2026 STARFACE Ltd. All rights reserved.
+      <div>
+        <div class="footer-heading">Support</div>
+        <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
       </div>
+
+      <div>
+        <div class="footer-heading">Legal</div>
+        <a href="#" class="footer-link">Privacy</a>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 STARFACE Ltd. All rights reserved.
     </div>
   </div>
 </footer>
