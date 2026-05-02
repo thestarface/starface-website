@@ -42,7 +42,7 @@
       position: absolute;
       top: 34px;
       left: 34px;
-      z-index: 5;
+      z-index: 10;
       display: flex;
       gap: 28px;
       align-items: center;
@@ -78,30 +78,35 @@
       width: 100%;
     }
 
-    .hero-stack {
+    .logo-bar {
       position: absolute;
-      top: 88px;
+      top: 30px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: min(620px, 46vw);
-      pointer-events: none;
+      z-index: 10;
+      width: min(280px, 18vw);
       opacity: 0;
-      animation: heroFade 0.75s ease 0.15s forwards;
-    }
-
-    .logo-wrap {
-      width: min(340px, 100%);
-      margin-bottom: 28px;
+      animation: logoFade 0.75s ease 0.04s forwards;
     }
 
     .logo {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .hero-wrap {
+      position: absolute;
+      top: 118px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      width: min(620px, 46vw);
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 0;
+      animation: heroFade 0.75s ease 0.15s forwards;
     }
 
     .hero-image {
@@ -117,7 +122,7 @@
       left: 42px;
       bottom: 42px;
       z-index: 5;
-      max-width: 520px;
+      max-width: 560px;
     }
 
     .intro-title {
@@ -204,6 +209,17 @@
       }
     }
 
+    @keyframes logoFade {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
     @keyframes heroFade {
       from {
         opacity: 0;
@@ -226,7 +242,8 @@
       }
 
       .top-nav,
-      .hero-stack,
+      .logo-bar,
+      .hero-wrap,
       .intro-block,
       .ig-link,
       .copyright {
@@ -243,7 +260,7 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 16px 22px;
-        margin-bottom: 34px;
+        margin-bottom: 28px;
       }
 
       .top-nav a {
@@ -251,15 +268,17 @@
         letter-spacing: 0.11em;
       }
 
-      .hero-stack {
+      .logo-bar {
         order: 2;
-        width: min(390px, 84vw);
-        animation: fadeUp 0.75s ease 0.15s forwards;
+        width: min(240px, 62vw);
+        margin-bottom: 26px;
+        animation: fadeUp 0.75s ease 0.04s forwards;
       }
 
-      .logo-wrap {
-        width: min(270px, 72vw);
-        margin-bottom: 24px;
+      .hero-wrap {
+        order: 3;
+        width: min(390px, 84vw);
+        animation: fadeUp 0.75s ease 0.15s forwards;
       }
 
       .hero-image {
@@ -269,7 +288,7 @@
       }
 
       .intro-block {
-        order: 3;
+        order: 4;
         width: 100%;
         max-width: 420px;
         margin-top: 28px;
@@ -283,19 +302,37 @@
       .intro-sub {
         font-size: 11px;
         white-space: normal;
-        max-width: 280px;
+        max-width: 300px;
       }
 
       .ig-link {
-        order: 4;
+        order: 5;
         align-self: flex-end;
         margin-top: 28px;
       }
 
       .copyright {
-        order: 5;
+        order: 6;
         margin-top: 12px;
         font-size: 9px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .top-nav {
+        gap: 14px 18px;
+      }
+
+      .top-nav a {
+        font-size: 10px;
+      }
+
+      .logo-bar {
+        width: min(220px, 64vw);
+      }
+
+      .hero-image {
+        width: min(86vw, 370px);
       }
     }
   </style>
@@ -312,11 +349,11 @@
       <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
     </nav>
 
-    <div class="hero-stack">
-      <div class="logo-wrap">
-        <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
-      </div>
+    <div class="logo-bar">
+      <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
+    </div>
 
+    <div class="hero-wrap">
       <img src="images/entryimage.png" alt="Spacekid sketch" class="hero-image" />
     </div>
 
