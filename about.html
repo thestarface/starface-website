@@ -5,18 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <title>About — STARFACE</title>
-  <meta
-    name="description"
-    content="Learn more about STARFACE — a collectible brand shaped by art, imagination, and the act of making."
-  />
+  <meta name="description" content="Learn more about STARFACE — a collectible brand shaped by art, imagination, and the act of making." />
 
   <link rel="icon" href="/favicon.ico" />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -27,11 +19,27 @@
       --text: #000000;
     }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-body);
       background: var(--bg);
       color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-head);
     }
 
     .site-header {
@@ -44,24 +52,26 @@
       position: absolute;
       top: 34px;
       left: 34px;
+      z-index: 10;
       display: flex;
       align-items: center;
       gap: 28px;
     }
 
-    .top-nav-link {
+    .top-nav a {
       position: relative;
       font-size: 13px;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: rgba(0,0,0,0.66);
       text-decoration: none;
+      white-space: nowrap;
+      padding-bottom: 5px;
       display: flex;
       align-items: center;
-      padding-bottom: 5px;
     }
 
-    .top-nav-link::after {
+    .top-nav a::after {
       content: "";
       position: absolute;
       left: 0;
@@ -72,18 +82,12 @@
       transition: width 0.22s ease;
     }
 
-    .top-nav-link:hover {
+    .top-nav a:hover {
       color: #000;
     }
 
-    .top-nav-link:hover::after {
+    .top-nav a:hover::after {
       width: 100%;
-    }
-
-    /* Instagram aligned with nav system */
-    .nav-ig {
-      display: flex;
-      align-items: center;
     }
 
     .nav-ig svg {
@@ -99,25 +103,39 @@
 
     .logo-bar {
       position: absolute;
-      top: 30px;
+      top: 34px;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 10;
       width: min(280px, 18vw);
+      height: 18px;
+      display: flex;
+      align-items: center;
     }
 
     .logo {
       width: 100%;
+      height: auto;
+      display: block;
     }
 
     .page-shell {
       max-width: 1600px;
       margin: 0 auto;
       padding: 0 28px;
+      width: 100%;
+    }
+
+    .content-shell {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     .doc-shell {
       max-width: 680px;
       margin: 0 auto;
+      width: 100%;
     }
 
     .about-main {
@@ -128,20 +146,58 @@
     .page-title {
       font-family: var(--font-head);
       font-size: clamp(3rem, 5vw, 4.1rem);
-      margin-bottom: 34px;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin: 0 0 34px 0;
     }
 
     .body-copy p {
       font-size: 14px;
       line-height: 1.7;
-      color: rgba(0,0,0,0.8);
-      margin-bottom: 1rem;
+      color: rgba(0,0,0,0.80);
+      margin: 0 0 1.15rem 0;
+    }
+
+    .creator-image-wrap {
+      margin-top: 34px;
+      display: flex;
+      justify-content: flex-start;
     }
 
     .creator-image {
+      width: 100%;
       max-width: 240px;
+      height: auto;
       border-radius: 6px;
-      margin-top: 34px;
+    }
+
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.45);
+    }
+
+    .footer-link {
+      color: rgba(0, 0, 0, 0.72);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #000;
+    }
+
+    .footer-links .footer-link + .footer-link {
+      margin-top: 8px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 44px;
+      align-items: start;
+      min-height: 140px;
     }
 
     .footer-links {
@@ -150,23 +206,84 @@
       gap: 22px;
     }
 
-    .footer-heading {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.45);
-    }
-
-    .footer-link {
-      color: rgba(0,0,0,0.72);
-      text-decoration: none;
-    }
-
     .footer-copy {
+      padding-top: 30px;
       text-align: center;
       font-size: 12px;
-      margin-top: 40px;
-      color: rgba(0,0,0,0.5);
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        min-height: auto;
+        padding: 28px 18px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo-bar,
+      .top-nav {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+      }
+
+      .logo-bar {
+        order: 1;
+        width: min(220px, 64vw);
+        height: auto;
+        margin-bottom: 26px;
+      }
+
+      .top-nav {
+        order: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px 22px;
+      }
+
+      .top-nav a {
+        font-size: 10px;
+        letter-spacing: 0.11em;
+      }
+
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .about-main {
+        padding-top: 58px;
+        padding-bottom: 72px;
+      }
+
+      .page-title {
+        font-size: 2.6rem;
+        line-height: 1.02;
+        margin-bottom: 26px;
+      }
+
+      .body-copy p {
+        font-size: 15px;
+        line-height: 1.72;
+      }
+
+      .creator-image {
+        max-width: 210px;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        text-align: center;
+      }
+
+      .footer-copy {
+        padding-top: 36px;
+        padding-bottom: 10px;
+      }
     }
   </style>
 </head>
@@ -174,14 +291,13 @@
 <body>
 
 <header class="site-header">
-  <nav class="top-nav">
-    <a href="https://thestarface.com/" class="top-nav-link">Home</a>
-    <a href="https://shop.thestarface.com/" class="top-nav-link">Starface Store</a>
-    <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
-    <a href="https://shop.thestarface.com/pages/faq" class="top-nav-link">FAQ</a>
+  <nav class="top-nav" aria-label="Primary">
+    <a href="https://thestarface.com/">Home</a>
+    <a href="https://shop.thestarface.com/">Starface Store</a>
+    <a href="https://shop.thestarface.com/pages/contact">Contact</a>
+    <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
 
-    <!-- Instagram (correct implementation) -->
-    <a href="https://instagram.com/thestarfaceco" target="_blank" class="nav-ig" aria-label="Instagram">
+    <a href="https://instagram.com/thestarfaceco" target="_blank" rel="noopener noreferrer" class="nav-ig" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
         <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
         <circle cx="12" cy="12" r="4"></circle>
@@ -190,49 +306,60 @@
     </a>
   </nav>
 
-  <a href="https://thestarface.com" class="logo-bar">
+  <a href="https://thestarface.com" class="logo-bar" aria-label="STARFACE home">
     <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
   </a>
 </header>
 
 <main class="page-shell about-main">
-  <div class="doc-shell">
-    <h1 class="page-title">About</h1>
+  <div class="content-shell">
+    <div class="doc-shell">
+      <h1 class="page-title">About</h1>
 
-    <div class="body-copy">
-      <p>STARFACE is shaped by a fascination with collectible figures — their presence, and the way they hold attention without needing to do anything.</p>
-      <p>Space Kid is the first release. A starting point, not a definition.</p>
-      <p>The form is simple, but deliberate. Everything is intentional.</p>
-      <p>STARFACE sits between art and object, exploring presence and imagination.</p>
-      <p>If it connects, that’s the point.</p>
-      <p>Femi</p>
+      <div class="body-copy">
+        <p>STARFACE is shaped by a fascination with collectible figures — their presence, and the way they hold attention without needing to do anything.</p>
+        <p>Space Kid is the first release. A starting point, not a definition.</p>
+        <p>The form is simple, but deliberate. Everything is intentional.</p>
+        <p>STARFACE sits between art and object, exploring presence and imagination.</p>
+        <p>If it connects, that’s the point.</p>
+        <p>Femi</p>
 
-      <img src="images/femi.png" alt="Femi" class="creator-image" />
+        <div class="creator-image-wrap">
+          <img src="images/femi.png" alt="Femi, creator of STARFACE" class="creator-image" />
+        </div>
+      </div>
     </div>
   </div>
 </main>
 
 <footer>
   <div class="page-shell">
-    <div class="footer-links">
-      <div>
-        <div class="footer-heading">About</div>
-        <a href="about.html" class="footer-link">About Us</a>
+    <div class="pt-12 pb-8">
+      <div class="footer-top">
+        <div class="footer-links text-sm">
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <a href="about.html" class="footer-link">About Us</a>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
+            <a href="https://shop.thestarface.com/policies/refund-policy" class="footer-link block">Returns</a>
+            <a href="https://shop.thestarface.com/policies/shipping-policy" class="footer-link block">Shipping</a>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <a href="https://shop.thestarface.com/policies/privacy-policy" class="footer-link block">Privacy</a>
+            <a href="https://shop.thestarface.com/policies/terms-of-service" class="footer-link block">Site Terms</a>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <div class="footer-heading">Support</div>
-        <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
+      <div class="footer-copy">
+        © 2026 STARFACE Ltd. All rights reserved.
       </div>
-
-      <div>
-        <div class="footer-heading">Legal</div>
-        <a href="#" class="footer-link">Privacy</a>
-      </div>
-    </div>
-
-    <div class="footer-copy">
-      © 2026 STARFACE Ltd. All rights reserved.
     </div>
   </div>
 </footer>
