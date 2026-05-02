@@ -50,20 +50,56 @@
     }
 
     .top-nav-link {
+      position: relative;
       font-size: 13px;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: rgba(0,0,0,0.66);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding-bottom: 5px;
+    }
+
+    .top-nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #000;
+      transition: width 0.22s ease;
     }
 
     .top-nav-link:hover {
       color: #000;
     }
 
+    .top-nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Instagram aligned with nav system */
+    .nav-ig {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-ig svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-ig:hover svg {
+      opacity: 1;
+    }
+
     .logo-bar {
       position: absolute;
-      top: 34px;
+      top: 30px;
       left: 50%;
       transform: translateX(-50%);
       width: min(280px, 18vw);
@@ -71,29 +107,6 @@
 
     .logo {
       width: 100%;
-    }
-
-    /* NEW: Instagram inline */
-    .nav-social {
-      display: flex;
-      align-items: center;
-      margin-left: 10px;
-    }
-
-    .nav-social a {
-      display: flex;
-      align-items: center;
-      opacity: 0.7;
-      transition: opacity 0.2s ease;
-    }
-
-    .nav-social a:hover {
-      opacity: 1;
-    }
-
-    .nav-social svg {
-      width: 18px;
-      height: 18px;
     }
 
     .page-shell {
@@ -167,16 +180,14 @@
     <a href="https://shop.thestarface.com/pages/contact" class="top-nav-link">Contact</a>
     <a href="https://shop.thestarface.com/pages/faq" class="top-nav-link">FAQ</a>
 
-    <!-- Instagram moved here -->
-    <div class="nav-social">
-      <a href="https://instagram.com/thestarfaceco" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
-          <circle cx="12" cy="12" r="4.2"></circle>
-          <circle cx="17.4" cy="6.6" r="1"></circle>
-        </svg>
-      </a>
-    </div>
+    <!-- Instagram (correct implementation) -->
+    <a href="https://instagram.com/thestarfaceco" target="_blank" class="nav-ig" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+        <circle cx="12" cy="12" r="4"></circle>
+        <circle cx="17.4" cy="6.6" r="1"></circle>
+      </svg>
+    </a>
   </nav>
 
   <a href="https://thestarface.com" class="logo-bar">
