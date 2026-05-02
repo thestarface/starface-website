@@ -80,20 +80,22 @@
 
     .hero-stack {
       position: absolute;
-      top: 92px;
+      top: 88px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: min(720px, 62vw);
+      width: min(620px, 46vw);
       pointer-events: none;
+      opacity: 0;
+      animation: heroFade 0.75s ease 0.15s forwards;
     }
 
     .logo-wrap {
       width: min(340px, 100%);
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .logo {
@@ -115,7 +117,7 @@
       left: 42px;
       bottom: 42px;
       z-index: 5;
-      max-width: 360px;
+      max-width: 520px;
     }
 
     .intro-title {
@@ -134,7 +136,6 @@
       text-transform: uppercase;
       color: rgba(0,0,0,0.62);
       margin: 0 0 18px 0;
-      max-width: none;
       white-space: nowrap;
     }
 
@@ -194,13 +195,23 @@
     }
 
     .delay-1 { animation-delay: 0.04s; }
-    .delay-2 { animation-delay: 0.15s; }
     .delay-3 { animation-delay: 0.26s; }
 
     @keyframes fadeUp {
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
       }
     }
 
@@ -243,6 +254,7 @@
       .hero-stack {
         order: 2;
         width: min(390px, 84vw);
+        animation: fadeUp 0.75s ease 0.15s forwards;
       }
 
       .logo-wrap {
@@ -252,6 +264,7 @@
 
       .hero-image {
         width: min(390px, 84vw);
+        height: auto;
         max-height: none;
       }
 
@@ -269,8 +282,8 @@
 
       .intro-sub {
         font-size: 11px;
-        max-width: 280px;
         white-space: normal;
+        max-width: 280px;
       }
 
       .ig-link {
@@ -299,7 +312,7 @@
       <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
     </nav>
 
-    <div class="hero-stack fade-up delay-2">
+    <div class="hero-stack">
       <div class="logo-wrap">
         <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
       </div>
