@@ -19,7 +19,9 @@
       --font-body: 'Inter', system-ui, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
@@ -134,7 +136,7 @@
       line-height: 1.05;
       font-weight: 600;
       letter-spacing: -0.01em;
-      margin: 0 0 10px 0;
+      margin: 0 0 6px 0;
     }
 
     .intro-sub {
@@ -143,7 +145,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(0,0,0,0.62);
-      margin: 0 0 18px 0;
+      margin: 0 0 14px 0;
       white-space: nowrap;
     }
 
@@ -177,7 +179,9 @@
       transition: opacity 0.2s ease;
     }
 
-    .ig-link:hover { opacity: 1; }
+    .ig-link:hover {
+      opacity: 1;
+    }
 
     .instagram-icon {
       width: 30px;
@@ -202,8 +206,13 @@
       animation: fadeUp 0.75s ease forwards;
     }
 
-    .delay-1 { animation-delay: 0.04s; }
-    .delay-3 { animation-delay: 0.26s; }
+    .delay-1 {
+      animation-delay: 0.04s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.26s;
+    }
 
     @keyframes fadeUp {
       to {
@@ -217,6 +226,7 @@
         opacity: 0;
         transform: translateX(-50%) translateY(10px);
       }
+
       to {
         opacity: 1;
         transform: translateX(-50%) translateY(0);
@@ -228,6 +238,7 @@
         opacity: 0;
         transform: translateX(-50%) translateY(10px);
       }
+
       to {
         opacity: 1;
         transform: translateX(-50%) translateY(0);
@@ -237,7 +248,7 @@
     @media (max-width: 900px) {
       .entry-page {
         min-height: 100dvh;
-        padding: 24px 22px 30px;
+        padding: 28px 22px 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -258,24 +269,25 @@
         transform: none;
       }
 
-      .top-nav {
+      .logo-bar {
         order: 1;
+        width: min(240px, 62vw);
+        height: auto;
+        margin-bottom: 28px;
+        animation: fadeUp 0.75s ease 0.04s forwards;
+      }
+
+      .top-nav {
+        order: 2;
         justify-content: center;
         flex-wrap: wrap;
         gap: 16px 22px;
-        margin-bottom: 28px;
+        margin-bottom: 34px;
       }
 
       .top-nav a {
         font-size: 11px;
         letter-spacing: 0.11em;
-      }
-
-      .logo-bar {
-        order: 2;
-        width: min(240px, 62vw);
-        margin-bottom: 26px;
-        animation: fadeUp 0.75s ease 0.04s forwards;
       }
 
       .hero-wrap {
@@ -285,7 +297,7 @@
       }
 
       .hero-image {
-        width: min(390px, 84vw);
+        width: min(76vw, 340px);
         height: auto;
         max-height: none;
       }
@@ -294,18 +306,20 @@
         order: 4;
         width: 100%;
         max-width: 420px;
-        margin-top: 28px;
+        margin-top: 22px;
         align-self: flex-start;
       }
 
       .intro-title {
         font-size: 18px;
+        margin-bottom: 6px;
       }
 
       .intro-sub {
         font-size: 11px;
         white-space: normal;
         max-width: 300px;
+        margin-bottom: 14px;
       }
 
       .ig-link {
@@ -322,20 +336,26 @@
     }
 
     @media (max-width: 420px) {
+      .entry-page {
+        padding: 26px 20px 28px;
+      }
+
+      .logo-bar {
+        width: min(220px, 64vw);
+        margin-bottom: 26px;
+      }
+
       .top-nav {
         gap: 14px 18px;
+        margin-bottom: 32px;
       }
 
       .top-nav a {
         font-size: 10px;
       }
 
-      .logo-bar {
-        width: min(220px, 64vw);
-      }
-
       .hero-image {
-        width: min(86vw, 370px);
+        width: min(82vw, 340px);
       }
     }
   </style>
@@ -362,7 +382,7 @@
 
     <section class="intro-block fade-up delay-3">
       <h1 class="intro-title">Debut Drop</h1>
-      <p class="intro-sub">Spacekid — Series 01. Six Colourways. Limited Edition.</p>
+      <p class="intro-sub">Spacekid — Series 01. Limited Edition.</p>
       <a href="https://shop.thestarface.com/" class="entry-cta">Get Yours →</a>
     </section>
 
