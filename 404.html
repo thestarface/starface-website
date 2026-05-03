@@ -5,45 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <title>404 — STARFACE</title>
-  <meta name="description" content="The page you’re looking for doesn’t exist. Return to STARFACE home."/>
+  <meta name="description" content="The page you’re looking for doesn’t exist."/>
 
-  <!-- Favicon -->
- <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root {
-      --font-head: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-head: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
     }
-    body { font-family: var(--font-body); background-color: white; color: black; text-align: center; }
-    .display { font-family: var(--font-head); letter-spacing: .02em; }
 
-    a {
-      color: black;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: opacity .2s ease;
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: #ffffff;
+      color: #000;
     }
-    a:hover { opacity: .6; }
+
+    .top-nav {
+      position: absolute;
+      top: 34px;
+      left: 34px;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 13px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: rgba(0,0,0,0.66);
+    }
+
+    .logo-bar {
+      position: absolute;
+      top: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(280px, 18vw);
+    }
+
+    .logo {
+      width: 100%;
+    }
+
+    .content {
+      margin-top: 180px;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .title {
+      font-family: var(--font-head);
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .sub {
+      font-size: 14px;
+      color: rgba(0,0,0,0.6);
+      margin-bottom: 24px;
+    }
+
+    .cta {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid #000;
+      padding-bottom: 4px;
+    }
+
+    .cta:hover {
+      opacity: 0.6;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: rgba(0,0,0,0.5);
+    }
   </style>
 </head>
 
-<body class="flex flex-col items-center justify-center h-screen px-6">
-  <img src="https://raw.githubusercontent.com/thestarface/starface-website/main/3.png" alt="Starface logo" class="h-28 w-auto mb-8 select-none pointer-events-none"/>
+<body>
 
-  <h1 class="display text-3xl sm:text-4xl font-semibold mb-3">Page not found</h1>
-  <p class="text-black/70 text-sm sm:text-base mb-6">The page you’re looking for doesn’t exist or may have been moved.</p>
+<nav class="top-nav">
+  <a href="https://shop.thestarface.com/">Starface Store</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="https://shop.thestarface.com/pages/contact">Contact</a>
+  <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
+</nav>
 
-  <a href="index.html" class="inline-block border border-black/20 rounded-md px-5 py-2 text-sm sm:text-base hover:bg-black hover:text-white transition">
+<div class="logo-bar">
+  <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
+</div>
+
+<div class="content">
+  <div class="title">Page not found</div>
+  <div class="sub">The page you’re looking for doesn’t exist.</div>
+
+  <a href="index.html" class="cta">
     Back to Home
   </a>
+</div>
 
-  <footer class="mt-10 text-xs text-black/60">
-    STARFACE™ & © 2025 STARFACE Ltd. All rights reserved.
-  </footer>
+<div class="footer">
+  © 2026 STARFACE Ltd. All rights reserved.
+</div>
+
 </body>
 </html>
