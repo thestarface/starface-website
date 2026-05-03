@@ -109,43 +109,86 @@
       height: auto;
       display: block;
       scroll-snap-align: start;
+      cursor: zoom-in;
     }
 
     .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
-      border: 1px solid rgba(0,0,0,0.18);
-      background: rgba(254,253,251,0.85);
-      color: #000;
+      background: none;
+      border: none;
+      padding: 0;
+      color: rgba(0,0,0,0.6);
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
+      font-size: 38px;
       line-height: 1;
-      transition: background 0.2s ease, opacity 0.2s ease;
       z-index: 5;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .carousel-btn:hover {
-      background: #000;
-      color: #fff;
+      opacity: 1;
+      transform: translateY(-50%) scale(1.08);
     }
 
     .carousel-btn.left {
-      left: 24px;
+      left: 28px;
     }
 
     .carousel-btn.right {
-      right: 24px;
+      right: 28px;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(254,253,251,0.94);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 34px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 84vh;
+      width: auto;
+      height: auto;
+      cursor: zoom-in;
+      transition: transform 0.25s ease;
+    }
+
+    .lightbox img.zoomed {
+      transform: scale(1.35);
+      cursor: zoom-out;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 28px;
+      right: 34px;
+      background: none;
+      border: none;
+      font-size: 34px;
+      line-height: 1;
+      cursor: pointer;
+      color: rgba(0,0,0,0.7);
+    }
+
+    .lightbox-close:hover {
+      color: #000;
     }
 
     @media (max-width: 768px) {
       body {
         overflow-x: hidden;
+        padding: 28px 18px 0;
       }
 
       .top-nav,
@@ -154,10 +197,6 @@
         top: auto;
         left: auto;
         transform: none;
-      }
-
-      body {
-        padding: 28px 18px 0;
       }
 
       .logo-bar {
@@ -204,9 +243,7 @@
       }
 
       .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 20px;
+        font-size: 32px;
       }
 
       .carousel-btn.left {
@@ -215,6 +252,25 @@
 
       .carousel-btn.right {
         right: 0;
+      }
+
+      .lightbox {
+        padding: 22px;
+      }
+
+      .lightbox img {
+        max-width: 94vw;
+        max-height: 78vh;
+      }
+
+      .lightbox img.zoomed {
+        transform: scale(1.18);
+      }
+
+      .lightbox-close {
+        top: 20px;
+        right: 22px;
+        font-size: 32px;
       }
     }
   </style>
@@ -262,15 +318,24 @@
   </div>
 </main>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+  <img src="" alt="" id="lightboxImage" />
+</div>
+
 <script>
   const carousel = document.getElementById('galleryCarousel');
   const leftBtn = document.querySelector('.carousel-btn.left');
   const rightBtn = document.querySelector('.carousel-btn.right');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const closeBtn = document.querySelector('.lightbox-close');
 
   function scrollGallery(direction) {
     const firstImage = carousel.querySelector('img');
     const imageWidth = firstImage ? firstImage.offsetWidth : 300;
     const gap = 18;
+
     carousel.scrollBy({
       left: direction * (imageWidth + gap),
       behavior: 'smooth'
@@ -279,6 +344,42 @@
 
   leftBtn.addEventListener('click', () => scrollGallery(-1));
   rightBtn.addEventListener('click', () => scrollGallery(1));
+
+  carousel.querySelectorAll('img').forEach((img) => {
+    img.addEventListener('click', () => {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightboxImage.classList.remove('zoomed');
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  lightboxImage.addEventListener('click', (event) => {
+    event.stopPropagation();
+    lightboxImage.classList.toggle('zoomed');
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImage.classList.remove('zoomed');
+    lightboxImage.src = '';
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
 </script>
 
 </body>
