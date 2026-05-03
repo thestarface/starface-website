@@ -38,11 +38,17 @@
       top: 34px;
       left: 50%;
       transform: translateX(-50%);
-      width: 260px;
+      z-index: 10;
+      width: min(280px, 18vw);
+      height: 18px;
+      display: flex;
+      align-items: center;
     }
 
     .logo {
       width: 100%;
+      height: auto;
+      display: block;
     }
 
     .gallery {
@@ -59,10 +65,41 @@
       display: block;
     }
 
+    /* Existing mobile */
     @media (max-width: 900px) {
       .gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         padding: 0 20px 60px;
+      }
+    }
+
+    /* NEW: Header + layout mobile fix */
+    @media (max-width: 768px) {
+      .logo-bar,
+      .top-nav {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+      }
+
+      .logo-bar {
+        order: 1;
+        width: min(220px, 64vw);
+        height: auto;
+        margin-bottom: 26px;
+      }
+
+      .top-nav {
+        order: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px 22px;
+      }
+
+      .top-nav a {
+        font-size: 10px;
+        letter-spacing: 0.11em;
       }
     }
   </style>
@@ -95,7 +132,6 @@
   <img src="images/gallery10.jpg" />
   <img src="images/gallery11.jpg" />
   <img src="images/gallery12.jpg" />
-
 </section>
 
 </body>
