@@ -275,6 +275,77 @@
         font-size: 32px;
       }
     }
+    @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+  body {
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .top-nav,
+  .logo-bar {
+    position: absolute;
+  }
+
+  .top-nav {
+    top: 24px;
+    left: 24px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .top-nav a {
+    font-size: 9.5px;
+    letter-spacing: 0.09em;
+  }
+
+  .logo-bar {
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(190px, 18vw);
+    height: 18px;
+    margin: 0;
+  }
+
+  .gallery-page {
+    padding-top: 82px;
+    padding-bottom: 32px;
+  }
+
+  .gallery-heading {
+    padding: 0 64px 18px;
+  }
+
+  .gallery-heading h1 {
+    font-size: 18px;
+  }
+
+  .gallery-heading p {
+    font-size: 10px;
+  }
+
+  .carousel-wrap {
+    padding: 0 58px;
+  }
+
+  .carousel img {
+    width: min(220px, 28vw);
+  }
+
+  .carousel-btn {
+    font-size: 22px;
+  }
+
+  .carousel-btn.left {
+    left: 24px;
+  }
+
+  .carousel-btn.right {
+    right: 24px;
+  }
+}
   </style>
 </head>
 
