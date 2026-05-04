@@ -106,7 +106,33 @@
     .utility-nav:hover svg {
       opacity: 1;
     }
+/* Desktop/tablet resize fix: stops logo colliding with Instagram/nav */
+@media (min-width: 901px) and (max-width: 1250px) {
+  .top-nav {
+    max-width: calc(50vw - 150px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: clamp(10px, 1.4vw, 20px);
+  }
 
+  .top-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .top-nav .nav-ig {
+    display: none;
+  }
+
+  .utility-nav {
+    position: absolute;
+    top: 34px;
+    right: 34px;
+    z-index: 20;
+    display: flex;
+  }
+}
     .logo-bar {
       position: absolute;
       top: 34px;
