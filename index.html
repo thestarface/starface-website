@@ -80,7 +80,6 @@
       width: 100%;
     }
 
-    /* NEW: Instagram inline styling */
     .nav-ig {
       display: flex;
       align-items: center;
@@ -210,11 +209,12 @@
 
     @media (max-width: 900px) {
       .entry-page {
-        padding: 28px 22px 30px;
+        min-height: 100dvh;
+        padding: 26px 20px 18px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: visible;
+        overflow: hidden;
       }
 
       .top-nav,
@@ -225,45 +225,108 @@
         position: relative;
         top: auto;
         left: auto;
+        bottom: auto;
         transform: none;
       }
 
       .logo-bar {
         order: 1;
-        width: min(240px, 62vw);
-        margin-bottom: 28px;
+        width: min(230px, 64vw);
+        height: auto;
+        margin: 0 auto 26px;
+        justify-content: center;
       }
 
       .top-nav {
         order: 2;
+        width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 16px 22px;
-        margin-bottom: 34px;
+        gap: 14px 20px;
+        margin: 0 auto 28px;
+      }
+
+      .top-nav a {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+      }
+
+      .nav-ig svg {
+        width: 17px;
+        height: 17px;
       }
 
       .hero-wrap {
         order: 3;
-        width: min(390px, 84vw);
+        width: 100%;
+        max-width: 390px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
       }
 
       .hero-image {
-        width: min(76vw, 340px);
+        width: min(82vw, 350px);
+        height: auto;
+        max-height: 50dvh;
+        object-fit: contain;
       }
 
       .intro-block {
         order: 4;
-        margin-top: 22px;
-        align-self: flex-start;
+        width: 100%;
+        max-width: 390px;
+        margin: 24px auto 0;
+        text-align: left;
+        align-self: center;
+      }
+
+      .intro-title {
+        font-size: 20px;
       }
 
       .intro-sub {
         white-space: normal;
+        max-width: 320px;
       }
 
-      /* mobile IG placement */
-      .nav-ig {
-        margin-left: 0;
+      .copyright {
+        order: 5;
+        margin-top: auto;
+        padding-top: 28px;
+        text-align: center;
+        font-size: 9.5px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .entry-page {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .top-nav {
+        gap: 12px 16px;
+        margin-bottom: 24px;
+      }
+
+      .top-nav a {
+        font-size: 10.5px;
+        letter-spacing: 0.11em;
+      }
+
+      .logo-bar {
+        width: min(215px, 66vw);
+        margin-bottom: 24px;
+      }
+
+      .hero-image {
+        width: min(86vw, 330px);
+        max-height: 48dvh;
+      }
+
+      .intro-block {
+        margin-top: 22px;
       }
     }
   </style>
@@ -279,7 +342,6 @@
       <a href="https://shop.thestarface.com/pages/contact">Contact</a>
       <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
 
-      <!-- NEW Instagram placement -->
       <a href="https://instagram.com/thestarfaceco" target="_blank" class="nav-ig" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
           <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
@@ -287,7 +349,6 @@
           <circle cx="17.4" cy="6.6" r="1"></circle>
         </svg>
       </a>
-
     </nav>
 
     <div class="logo-bar">
