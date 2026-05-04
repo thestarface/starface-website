@@ -101,6 +101,24 @@
       opacity: 1;
     }
 
+    .utility-nav {
+      display: none;
+      color: rgba(0,0,0,0.66);
+      text-decoration: none;
+      align-items: center;
+    }
+
+    .utility-nav svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .utility-nav:hover svg {
+      opacity: 1;
+    }
+
     .logo-bar {
       position: absolute;
       top: 34px;
@@ -284,73 +302,117 @@
         padding-bottom: 10px;
       }
     }
-    @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
-  body {
-    overflow-x: hidden;
-  }
 
-  .site-header {
-    min-height: 76px;
-    padding: 0;
-    display: block;
-  }
+    @media (max-width: 1100px) and (orientation: landscape) and (max-height: 520px) {
+      html,
+      body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
 
-  .top-nav,
-  .logo-bar {
-    position: absolute;
-  }
+      .site-header {
+        min-height: 76px !important;
+        padding: 0 !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+        grid-template-rows: 76px !important;
+        align-items: center !important;
+      }
 
-  .top-nav {
-    top: 24px;
-    left: 24px;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 14px;
-  }
+      .top-nav,
+      .logo-bar,
+      .utility-nav {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+      }
 
-  .top-nav a {
-    font-size: 9.5px;
-    letter-spacing: 0.09em;
-  }
+      .top-nav {
+        grid-column: 1 / 2 !important;
+        grid-row: 1 !important;
+        align-self: center !important;
+        justify-self: start !important;
+        order: initial !important;
+        justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        gap: clamp(8px, 1.4vw, 14px) !important;
+        margin: 0 0 0 24px !important;
+        max-width: calc(50vw - 105px) !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        z-index: 20 !important;
+      }
 
-  .nav-ig svg {
-    width: 15px;
-    height: 15px;
-  }
+      .top-nav::-webkit-scrollbar {
+        display: none !important;
+      }
 
-  .logo-bar {
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(190px, 18vw);
-    height: 18px;
-    margin: 0;
-  }
+      .top-nav a {
+        font-size: clamp(8px, 1.2vw, 9.5px) !important;
+        letter-spacing: 0.09em !important;
+        flex: 0 0 auto !important;
+      }
 
-  .about-main {
-    padding-top: 28px;
-    padding-bottom: 52px;
-  }
+      .top-nav .nav-ig {
+        display: none !important;
+      }
 
-  .page-title {
-    font-size: 2.25rem;
-    margin-bottom: 20px;
-  }
+      .utility-nav {
+        display: flex !important;
+        grid-column: 3 / 4 !important;
+        grid-row: 1 !important;
+        align-self: center !important;
+        justify-self: end !important;
+        margin: 0 24px 0 0 !important;
+        color: rgba(0,0,0,0.66) !important;
+        z-index: 20 !important;
+      }
 
-  .body-copy p {
-    font-size: 13px;
-    line-height: 1.55;
-    margin-bottom: 0.85rem;
-  }
+      .utility-nav svg {
+        width: 15px !important;
+        height: 15px !important;
+      }
 
-  .creator-image-wrap {
-    margin-top: 26px;
-  }
+      .logo-bar {
+        grid-column: 2 / 3 !important;
+        grid-row: 1 !important;
+        align-self: center !important;
+        justify-self: center !important;
+        order: initial !important;
+        width: clamp(120px, 18vw, 190px) !important;
+        height: auto !important;
+        margin: 0 !important;
+        z-index: 10 !important;
+      }
 
-  .creator-image {
-    max-width: 180px;
-  }
-}
+      .about-main {
+        padding-top: 28px;
+        padding-bottom: 52px;
+      }
+
+      .page-title {
+        font-size: 2.25rem;
+        margin-bottom: 20px;
+      }
+
+      .body-copy p {
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 0.85rem;
+      }
+
+      .creator-image-wrap {
+        margin-top: 26px;
+      }
+
+      .creator-image {
+        max-width: 180px;
+      }
+    }
   </style>
 </head>
 
@@ -376,6 +438,14 @@
 
   <a href="https://thestarface.com" class="logo-bar" aria-label="STARFACE home">
     <img src="images/STARFACELOGO.png" alt="STARFACE" class="logo" />
+  </a>
+
+  <a href="https://instagram.com/thestarfaceco" target="_blank" rel="noopener noreferrer" class="utility-nav" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+      <circle cx="12" cy="12" r="4"></circle>
+      <circle cx="17.4" cy="6.6" r="1"></circle>
+    </svg>
   </a>
 </header>
 
