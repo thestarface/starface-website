@@ -251,22 +251,20 @@
 
       .hero-wrap {
         order: 3;
-        width: 100%;
-        max-width: 390px;
-        margin: 0 auto;
+        width: 100vw;
+        max-width: none;
+        margin: 0;
         display: flex;
         justify-content: center;
         overflow: visible;
       }
 
       .hero-image {
-        width: 120%;
-        max-width: none;
+        width: min(92vw, 380px);
         height: auto;
         max-height: 50dvh;
         object-fit: contain;
-        margin-left: -10%;
-        transform: none;
+        transform: translateX(24vw);
       }
 
       .intro-block {
@@ -318,11 +316,9 @@
       }
 
       .hero-image {
-        width: 125%;
-        max-width: none;
+        width: min(94vw, 360px);
         max-height: 48dvh;
-        margin-left: -12%;
-        transform: none;
+        transform: translateX(26vw);
       }
 
       .intro-block {
