@@ -64,6 +64,24 @@
       opacity: 1;
     }
 
+    .utility-nav {
+      display: none;
+      color: rgba(0,0,0,0.66);
+      text-decoration: none;
+      align-items: center;
+    }
+
+    .utility-nav svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .utility-nav:hover svg {
+      opacity: 1;
+    }
+
     .logo-bar {
       position: absolute;
       top: 34px;
@@ -376,47 +394,75 @@
     }
 
     @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+      html,
       body {
-        overflow-x: hidden;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
       }
 
       .site-header {
         min-height: 76px;
         padding: 0;
-        display: block;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
       }
 
       .top-nav,
       .logo-bar {
-        position: absolute;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
       }
 
       .top-nav {
-        top: 24px;
-        left: 24px;
+        grid-column: 1 / 2;
+        justify-self: start;
         justify-content: flex-start;
         flex-wrap: nowrap;
-        gap: 14px;
-        margin: 0;
+        gap: clamp(8px, 1.4vw, 14px);
+        margin: 0 0 0 24px;
+        max-width: calc(50vw - 96px);
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .top-nav::-webkit-scrollbar {
+        display: none;
       }
 
       .top-nav a {
-        font-size: 9.5px;
+        font-size: clamp(8px, 1.2vw, 9.5px);
         letter-spacing: 0.09em;
+        flex: 0 0 auto;
       }
 
-      .nav-ig svg {
+      .top-nav .nav-ig {
+        display: none !important;
+      }
+
+      .utility-nav {
+        display: flex !important;
+        grid-column: 3 / 4;
+        justify-self: end;
+        margin-right: 24px;
+        z-index: 20;
+      }
+
+      .utility-nav svg {
         width: 15px;
         height: 15px;
       }
 
       .logo-bar {
-        top: 24px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(190px, 18vw);
-        height: 18px;
+        grid-column: 2 / 3;
+        justify-self: center;
+        width: clamp(120px, 18vw, 190px);
+        height: auto;
         margin: 0;
+        z-index: 10;
       }
 
       .gallery-page {
@@ -485,6 +531,14 @@
 
   <a href="https://thestarface.com" class="logo-bar" aria-label="STARFACE home">
     <img src="images/STARFACELOGO.png" class="logo" alt="STARFACE" />
+  </a>
+
+  <a href="https://instagram.com/thestarfaceco" target="_blank" rel="noopener noreferrer" class="utility-nav" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+      <circle cx="12" cy="12" r="4"></circle>
+      <circle cx="17.4" cy="6.6" r="1"></circle>
+    </svg>
   </a>
 </header>
 
