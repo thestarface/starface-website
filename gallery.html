@@ -393,7 +393,7 @@
       }
     }
 
-    @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+    @media (max-width: 1100px) and (orientation: landscape) and (max-height: 520px) {
       html,
       body {
         overflow-x: hidden !important;
@@ -401,42 +401,50 @@
       }
 
       .site-header {
-        min-height: 76px;
-        padding: 0;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-        align-items: center;
+        min-height: 76px !important;
+        padding: 0 !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+        grid-template-rows: 76px !important;
+        align-items: center !important;
       }
 
       .top-nav,
-      .logo-bar {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
+      .logo-bar,
+      .utility-nav {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
       }
 
       .top-nav {
-        grid-column: 1 / 2;
-        justify-self: start;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        gap: clamp(8px, 1.4vw, 14px);
-        margin: 0 0 0 24px;
-        max-width: calc(50vw - 96px);
-        overflow-x: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        grid-column: 1 / 2 !important;
+        grid-row: 1 !important;
+        align-self: center !important;
+        justify-self: start !important;
+        order: initial !important;
+        justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        gap: clamp(8px, 1.4vw, 14px) !important;
+        margin: 0 0 0 24px !important;
+        max-width: calc(50vw - 105px) !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        z-index: 20 !important;
       }
 
       .top-nav::-webkit-scrollbar {
-        display: none;
+        display: none !important;
       }
 
       .top-nav a {
-        font-size: clamp(8px, 1.2vw, 9.5px);
-        letter-spacing: 0.09em;
-        flex: 0 0 auto;
+        font-size: clamp(8px, 1.2vw, 9.5px) !important;
+        letter-spacing: 0.09em !important;
+        flex: 0 0 auto !important;
       }
 
       .top-nav .nav-ig {
@@ -445,24 +453,30 @@
 
       .utility-nav {
         display: flex !important;
-        grid-column: 3 / 4;
-        justify-self: end;
-        margin-right: 24px;
-        z-index: 20;
+        grid-column: 3 / 4 !important;
+        grid-row: 1 !important;
+        align-self: center !important;
+        justify-self: end !important;
+        margin: 0 24px 0 0 !important;
+        color: rgba(0,0,0,0.66) !important;
+        z-index: 20 !important;
       }
 
       .utility-nav svg {
-        width: 15px;
-        height: 15px;
+        width: 15px !important;
+        height: 15px !important;
       }
 
       .logo-bar {
-        grid-column: 2 / 3;
-        justify-self: center;
-        width: clamp(120px, 18vw, 190px);
-        height: auto;
-        margin: 0;
-        z-index: 10;
+        grid-column: 2 / 3 !important;
+        grid-row: 1 !important;
+        align-self: center !important;
+        justify-self: center !important;
+        order: initial !important;
+        width: clamp(120px, 18vw, 190px) !important;
+        height: auto !important;
+        margin: 0 !important;
+        z-index: 10 !important;
       }
 
       .gallery-page {
