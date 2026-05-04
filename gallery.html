@@ -39,6 +39,22 @@
       color: #000;
     }
 
+    .nav-ig {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-ig svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-ig:hover svg {
+      opacity: 1;
+    }
+
     .logo-bar {
       position: absolute;
       top: 34px;
@@ -219,6 +235,11 @@
         letter-spacing: 0.11em;
       }
 
+      .nav-ig svg {
+        width: 17px;
+        height: 17px;
+      }
+
       .gallery-page {
         padding-top: 0;
         padding-bottom: 60px;
@@ -275,77 +296,83 @@
         font-size: 32px;
       }
     }
+
     @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
-  body {
-    padding: 0;
-    overflow-x: hidden;
-  }
+      body {
+        padding: 0;
+        overflow-x: hidden;
+      }
 
-  .top-nav,
-  .logo-bar {
-    position: absolute;
-  }
+      .top-nav,
+      .logo-bar {
+        position: absolute;
+      }
 
-  .top-nav {
-    top: 24px;
-    left: 24px;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 14px;
-    margin: 0;
-  }
+      .top-nav {
+        top: 24px;
+        left: 24px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 14px;
+        margin: 0;
+      }
 
-  .top-nav a {
-    font-size: 9.5px;
-    letter-spacing: 0.09em;
-  }
+      .top-nav a {
+        font-size: 9.5px;
+        letter-spacing: 0.09em;
+      }
 
-  .logo-bar {
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(190px, 18vw);
-    height: 18px;
-    margin: 0;
-  }
+      .nav-ig svg {
+        width: 15px;
+        height: 15px;
+      }
 
-  .gallery-page {
-    padding-top: 82px;
-    padding-bottom: 32px;
-  }
+      .logo-bar {
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(190px, 18vw);
+        height: 18px;
+        margin: 0;
+      }
 
-  .gallery-heading {
-    padding: 0 64px 18px;
-  }
+      .gallery-page {
+        padding-top: 82px;
+        padding-bottom: 32px;
+      }
 
-  .gallery-heading h1 {
-    font-size: 18px;
-  }
+      .gallery-heading {
+        padding: 0 64px 18px;
+      }
 
-  .gallery-heading p {
-    font-size: 10px;
-  }
+      .gallery-heading h1 {
+        font-size: 18px;
+      }
 
-  .carousel-wrap {
-    padding: 0 58px;
-  }
+      .gallery-heading p {
+        font-size: 10px;
+      }
 
-  .carousel img {
-    width: min(220px, 28vw);
-  }
+      .carousel-wrap {
+        padding: 0 58px;
+      }
 
-  .carousel-btn {
-    font-size: 22px;
-  }
+      .carousel img {
+        width: min(220px, 28vw);
+      }
 
-  .carousel-btn.left {
-    left: 24px;
-  }
+      .carousel-btn {
+        font-size: 22px;
+      }
 
-  .carousel-btn.right {
-    right: 24px;
-  }
-}
+      .carousel-btn.left {
+        left: 24px;
+      }
+
+      .carousel-btn.right {
+        right: 24px;
+      }
+    }
   </style>
 </head>
 
@@ -358,6 +385,14 @@
   <a href="about.html">About</a>
   <a href="https://shop.thestarface.com/pages/contact">Contact</a>
   <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
+
+  <a href="https://instagram.com/thestarfaceco" target="_blank" rel="noopener noreferrer" class="nav-ig" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+      <circle cx="12" cy="12" r="4"></circle>
+      <circle cx="17.4" cy="6.6" r="1"></circle>
+    </svg>
+  </a>
 </nav>
 
 <div class="logo-bar">
