@@ -284,6 +284,77 @@
         padding-bottom: 10px;
       }
     }
+    @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    min-height: 76px;
+    padding: 0;
+    display: block;
+  }
+
+  .top-nav,
+  .logo-bar {
+    position: absolute;
+  }
+
+  .top-nav {
+    top: 24px;
+    left: 24px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
+
+  .top-nav a {
+    font-size: 9.5px;
+    letter-spacing: 0.09em;
+  }
+
+  .nav-ig svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .logo-bar {
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(190px, 18vw);
+    height: 18px;
+    margin: 0;
+  }
+
+  .about-main {
+    padding-top: 28px;
+    padding-bottom: 52px;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+    margin-bottom: 20px;
+  }
+
+  .body-copy p {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 0.85rem;
+  }
+
+  .creator-image-wrap {
+    margin-top: 26px;
+  }
+
+  .creator-image {
+    max-width: 180px;
+  }
+
+  footer {
+    display: none;
+  }
+}
   </style>
 </head>
 
