@@ -33,6 +33,7 @@
     .top-nav a {
       text-decoration: none;
       color: rgba(0,0,0,0.66);
+      white-space: nowrap;
     }
 
     .top-nav a:hover {
@@ -52,6 +53,24 @@
     }
 
     .nav-ig:hover svg {
+      opacity: 1;
+    }
+
+    .utility-nav {
+      display: none;
+      color: rgba(0,0,0,0.66);
+      text-decoration: none;
+      align-items: center;
+    }
+
+    .utility-nav svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .utility-nav:hover svg {
       opacity: 1;
     }
 
@@ -156,6 +175,15 @@
 
     .carousel-btn.right {
       right: 20px;
+    }
+
+    .site-footer {
+      padding: 34px 40px 28px;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
     }
 
     .lightbox {
@@ -277,6 +305,11 @@
         right: 0;
       }
 
+      .site-footer {
+        padding: 30px 0 24px;
+        font-size: 9.5px;
+      }
+
       .lightbox {
         padding: 22px;
       }
@@ -298,9 +331,14 @@
     }
 
     @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+      html,
       body {
-        padding: 0;
-        overflow-x: hidden;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+
+      body {
+        padding: 0 !important;
       }
 
       .top-nav,
@@ -313,18 +351,39 @@
         left: 24px;
         justify-content: flex-start;
         flex-wrap: nowrap;
-        gap: 14px;
+        gap: clamp(8px, 1.4vw, 14px);
         margin: 0;
+        max-width: calc(50vw - 96px);
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .top-nav::-webkit-scrollbar {
+        display: none;
       }
 
       .top-nav a {
-        font-size: 9.5px;
+        font-size: clamp(8px, 1.2vw, 9.5px);
         letter-spacing: 0.09em;
       }
 
-      .nav-ig svg {
-        width: 15px;
-        height: 15px;
+      .top-nav .nav-ig {
+        display: none !important;
+      }
+
+      .utility-nav {
+        position: absolute !important;
+        top: 24px !important;
+        right: 24px !important;
+        display: flex !important;
+        z-index: 20 !important;
+        color: rgba(0,0,0,0.66) !important;
+      }
+
+      .utility-nav svg {
+        width: clamp(13px, 1.8vw, 15px) !important;
+        height: clamp(13px, 1.8vw, 15px) !important;
       }
 
       .logo-bar {
@@ -372,6 +431,10 @@
       .carousel-btn.right {
         right: 24px;
       }
+
+      .site-footer {
+        padding: 20px 24px 18px;
+      }
     }
   </style>
 </head>
@@ -394,6 +457,14 @@
     </svg>
   </a>
 </nav>
+
+<a href="https://instagram.com/thestarfaceco" target="_blank" rel="noopener noreferrer" class="utility-nav" aria-label="Instagram">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+    <circle cx="12" cy="12" r="4"></circle>
+    <circle cx="17.4" cy="6.6" r="1"></circle>
+  </svg>
+</a>
 
 <div class="logo-bar">
   <img src="images/STARFACELOGO.png" class="logo" alt="STARFACE" />
@@ -432,6 +503,10 @@
     <button class="carousel-btn right" type="button" aria-label="Next image">&#8594;</button>
   </div>
 </main>
+
+<footer class="site-footer">
+  © 2026 STARFACE Ltd. All rights reserved.
+</footer>
 
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" type="button" aria-label="Close image">×</button>
