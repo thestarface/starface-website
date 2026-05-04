@@ -328,6 +328,94 @@
         margin-top: 22px;
       }
     }
+    @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+  .entry-page {
+    min-height: 100dvh;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+  }
+
+  .top-nav,
+  .logo-bar,
+  .hero-wrap,
+  .intro-block,
+  .copyright {
+    position: absolute;
+    transform: none;
+  }
+
+  .top-nav {
+    top: 24px;
+    left: 24px;
+    width: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .top-nav a {
+    font-size: 9.5px;
+    letter-spacing: 0.09em;
+  }
+
+  .nav-ig svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .logo-bar {
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(190px, 18vw);
+    height: 18px;
+    margin: 0;
+  }
+
+  .hero-wrap {
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(320px, 36vw);
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-image {
+    width: auto;
+    height: min(54vh, 250px);
+    max-height: none;
+  }
+
+  .intro-block {
+    left: 28px;
+    bottom: 22px;
+    width: auto;
+    max-width: 260px;
+    margin: 0;
+  }
+
+  .intro-title {
+    font-size: 17px;
+  }
+
+  .intro-sub {
+    font-size: 10px;
+    max-width: 240px;
+    margin-bottom: 10px;
+  }
+
+  .entry-cta {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .copyright {
+    display: none;
+  }
+}
   </style>
 </head>
 
