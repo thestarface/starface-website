@@ -8,6 +8,7 @@
 
   <link rel="icon" href="/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body {
@@ -18,12 +19,19 @@
       overflow-x: hidden;
     }
 
+    .site-header {
+      position: relative;
+      width: 100%;
+      min-height: 96px;
+    }
+
     .top-nav {
       position: absolute;
       top: 34px;
       left: 34px;
       z-index: 10;
       display: flex;
+      align-items: center;
       gap: 28px;
       font-size: 13px;
       letter-spacing: 0.13em;
@@ -33,6 +41,7 @@
     .top-nav a {
       text-decoration: none;
       color: rgba(0,0,0,0.66);
+      white-space: nowrap;
     }
 
     .top-nav a:hover {
@@ -73,8 +82,15 @@
       display: block;
     }
 
+    .page-shell {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 28px;
+      width: 100%;
+    }
+
     .gallery-page {
-      padding-top: 140px;
+      padding-top: 44px;
       padding-bottom: 80px;
     }
 
@@ -158,6 +174,47 @@
       right: 20px;
     }
 
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.45);
+    }
+
+    .footer-link {
+      color: rgba(0, 0, 0, 0.72);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #000;
+    }
+
+    .footer-links .footer-link + .footer-link {
+      margin-top: 8px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 44px;
+      align-items: start;
+      min-height: 140px;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(100px, 135px));
+      gap: 22px;
+    }
+
+    .footer-copy {
+      padding-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
     .lightbox {
       position: fixed;
       inset: 0;
@@ -204,13 +261,16 @@
     }
 
     @media (max-width: 768px) {
-      body {
-        overflow-x: hidden;
+      .site-header {
+        min-height: auto;
         padding: 28px 18px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .top-nav,
-      .logo-bar {
+      .logo-bar,
+      .top-nav {
         position: relative;
         top: auto;
         left: auto;
@@ -218,12 +278,14 @@
       }
 
       .logo-bar {
+        order: 1;
         width: min(220px, 64vw);
         height: auto;
-        margin: 0 auto 26px;
+        margin-bottom: 26px;
       }
 
       .top-nav {
+        order: 2;
         justify-content: center;
         flex-wrap: wrap;
         gap: 16px 22px;
@@ -238,6 +300,11 @@
       .nav-ig svg {
         width: 17px;
         height: 17px;
+      }
+
+      .page-shell {
+        padding-left: 18px;
+        padding-right: 18px;
       }
 
       .gallery-page {
@@ -277,6 +344,17 @@
         right: 0;
       }
 
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        text-align: center;
+      }
+
+      .footer-copy {
+        padding-top: 36px;
+        padding-bottom: 10px;
+      }
+
       .lightbox {
         padding: 22px;
       }
@@ -299,8 +377,13 @@
 
     @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
       body {
-        padding: 0;
         overflow-x: hidden;
+      }
+
+      .site-header {
+        min-height: 76px;
+        padding: 0;
+        display: block;
       }
 
       .top-nav,
@@ -337,7 +420,7 @@
       }
 
       .gallery-page {
-        padding-top: 82px;
+        padding-top: 6px;
         padding-bottom: 32px;
       }
 
@@ -372,31 +455,38 @@
       .carousel-btn.right {
         right: 24px;
       }
+
+      footer {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<nav class="top-nav">
-  <a href="https://thestarface.com/">Home</a>
-  <a href="https://shop.thestarface.com/">Starface Store</a>
-  <a href="gallery.html" class="top-nav-link">Gallery</a>
-  <a href="about.html">About</a>
-  <a href="https://shop.thestarface.com/pages/contact">Contact</a>
-  <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
+<header class="site-header">
+  <nav class="top-nav">
+    <a href="https://thestarface.com/">Home</a>
+    <a href="https://shop.thestarface.com/">Starface Store</a>
+    <a href="gallery.html" class="top-nav-link">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="https://shop.thestarface.com/pages/contact">Contact</a>
+    <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
 
-  <a href="https://instagram.com/thestarfaceco" target="_blank" rel="noopener noreferrer" class="nav-ig" aria-label="Instagram">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
-      <circle cx="12" cy="12" r="4"></circle>
-      <circle cx="17.4" cy="6.6" r="1"></circle>
-    </svg>
+    <a href="https://instagram.com/thestarfaceco" target="_blank" rel="noopener noreferrer" class="nav-ig" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect>
+        <circle cx="12" cy="12" r="4"></circle>
+        <circle cx="17.4" cy="6.6" r="1"></circle>
+      </svg>
+    </a>
+  </nav>
+
+  <a href="https://thestarface.com" class="logo-bar" aria-label="STARFACE home">
+    <img src="images/STARFACELOGO.png" class="logo" alt="STARFACE" />
   </a>
-</nav>
-
-<div class="logo-bar">
-  <img src="images/STARFACELOGO.png" class="logo" alt="STARFACE" />
-</div>
+</header>
 
 <main class="gallery-page">
   <div class="gallery-heading">
@@ -431,6 +521,38 @@
     <button class="carousel-btn right" type="button" aria-label="Next image">&#8594;</button>
   </div>
 </main>
+
+<footer>
+  <div class="page-shell">
+    <div class="pt-12 pb-8">
+      <div class="footer-top">
+        <div class="footer-links text-sm">
+          <div>
+            <div class="footer-heading mb-4">About</div>
+            <a href="about.html" class="footer-link">About Us</a>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Support</div>
+            <a href="https://shop.thestarface.com/pages/contact" class="footer-link">Contact</a>
+            <a href="https://shop.thestarface.com/policies/refund-policy" class="footer-link block">Returns</a>
+            <a href="https://shop.thestarface.com/policies/shipping-policy" class="footer-link block">Shipping</a>
+          </div>
+
+          <div>
+            <div class="footer-heading mb-4">Legal</div>
+            <a href="https://shop.thestarface.com/policies/privacy-policy" class="footer-link block">Privacy</a>
+            <a href="https://shop.thestarface.com/policies/terms-of-service" class="footer-link block">Site Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-copy">
+        © 2026 STARFACE Ltd. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
 
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" type="button" aria-label="Close image">×</button>
