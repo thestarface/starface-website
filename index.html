@@ -72,13 +72,8 @@
       transition: width 0.22s ease;
     }
 
-    .top-nav a:hover {
-      color: #000;
-    }
-
-    .top-nav a:hover::after {
-      width: 100%;
-    }
+    .top-nav a:hover { color: #000; }
+    .top-nav a:hover::after { width: 100%; }
 
     .nav-ig {
       display: flex;
@@ -92,9 +87,7 @@
       transition: opacity 0.2s ease;
     }
 
-    .nav-ig:hover svg {
-      opacity: 1;
-    }
+    .nav-ig:hover svg { opacity: 1; }
 
     .logo-bar {
       position: absolute;
@@ -267,11 +260,13 @@
       }
 
       .hero-image {
-        width: min(105vw, 440px);
+        width: 120%;
+        max-width: none;
         height: auto;
         max-height: 50dvh;
         object-fit: contain;
-        transform: translateX(18%);
+        margin-left: -10%;
+        transform: none;
       }
 
       .intro-block {
@@ -323,9 +318,11 @@
       }
 
       .hero-image {
-        width: min(108vw, 420px);
+        width: 125%;
+        max-width: none;
         max-height: 48dvh;
-        transform: translateX(18%);
+        margin-left: -12%;
+        transform: none;
       }
 
       .intro-block {
