@@ -15,7 +15,6 @@
   <style>
     :root {
       --bg: #f6f5f2;
-      --section-bg: #efeeeb;
       --text: #050505;
       --font-head: 'Space Grotesk', system-ui, sans-serif;
       --font-body: 'Inter', system-ui, sans-serif;
@@ -195,10 +194,26 @@
     }
 
     .content-section {
-      background: var(--section-bg);
       color: #000;
-      min-height: 100vh;
-      padding: 100px 24px;
+      min-height: auto;
+      padding: 64px 24px 76px;
+      border-top: 1px solid rgba(0,0,0,.045);
+    }
+
+    .figure-section {
+      background: #fdf8f8;
+    }
+
+    .spec-section {
+      background: #ffffff;
+    }
+
+    .colourways-section {
+      background: #fafafa;
+    }
+
+    .ikons-section {
+      background: #ffffff;
     }
 
     .section-kicker {
@@ -207,7 +222,7 @@
       letter-spacing: .42em;
       text-transform: uppercase;
       color: rgba(0,0,0,.42);
-      margin: 0 0 70px;
+      margin: 0 0 36px;
     }
 
     .figure-copy {
@@ -225,29 +240,29 @@
     .specs-wrap {
       max-width: 680px;
       margin: 0 auto;
-      padding-top: 40px;
+      padding-top: 8px;
     }
 
     .spec-row {
-      border-top: 1px solid rgba(0,0,0,.55);
+      border-top: 1px solid rgba(0,0,0,.13);
       display: flex;
       justify-content: space-between;
       gap: 24px;
-      padding: 22px 0;
+      padding: 19px 0;
       font-size: 15px;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: rgba(0,0,0,.82);
+      color: rgba(0,0,0,.78);
     }
 
     .spec-row:last-child {
-      border-bottom: 1px solid rgba(0,0,0,.55);
+      border-bottom: 1px solid rgba(0,0,0,.13);
     }
 
     .cards-section {
-      background: var(--section-bg);
       color: #000;
-      padding: 70px 24px 110px;
+      padding: 64px 24px 84px;
+      border-top: 1px solid rgba(0,0,0,.045);
     }
 
     .product-grid {
@@ -303,7 +318,7 @@
     }
 
     .footer {
-      background: var(--section-bg);
+      background: #ffffff;
       color: rgba(0,0,0,.55);
       border-top: 1px solid rgba(0,0,0,.12);
       padding: 42px 34px;
@@ -371,12 +386,16 @@
       }
 
       .content-section {
-        padding: 60px 22px;
+        padding: 52px 22px 64px;
         min-height: auto;
       }
 
+      .cards-section {
+        padding: 52px 22px 68px;
+      }
+
       .section-kicker {
-        margin-bottom: 42px;
+        margin-bottom: 30px;
       }
 
       .figure-copy {
@@ -459,7 +478,7 @@
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section figure-section">
       <p class="section-kicker">The Figure</p>
 
       <div class="figure-copy">
@@ -472,7 +491,7 @@
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section spec-section">
       <p class="section-kicker">Specifications</p>
 
       <div class="specs-wrap">
@@ -486,7 +505,7 @@
       </div>
     </section>
 
-    <section class="cards-section">
+    <section class="cards-section colourways-section">
       <p class="section-kicker">Variants / Colourways</p>
 
       <div class="product-grid">
@@ -528,7 +547,7 @@
       </div>
     </section>
 
-    <section class="cards-section">
+    <section class="cards-section ikons-section">
       <p class="section-kicker">The IKONS Series · Coming Soon</p>
 
       <div class="ikon-grid">
