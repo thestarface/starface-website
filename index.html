@@ -200,21 +200,10 @@
       border-top: 1px solid rgba(0,0,0,.045);
     }
 
-    .figure-section {
-      background: #fdf8f8;
-    }
-
-    .spec-section {
-      background: #ffffff;
-    }
-
-    .colourways-section {
-      background: #fafafa;
-    }
-
-    .ikons-section {
-      background: #ffffff;
-    }
+    .figure-section { background: #fdf8f8; }
+    .spec-section { background: #ffffff; }
+    .colourways-section { background: #fafafa; }
+    .ikons-section { background: #ffffff; }
 
     .section-kicker {
       text-align: center;
@@ -222,7 +211,19 @@
       letter-spacing: .42em;
       text-transform: uppercase;
       color: rgba(0,0,0,.42);
-      margin: 0 0 36px;
+      margin: 0 0 22px;
+    }
+
+    .section-heading {
+      font-family: var(--font-head);
+      text-align: center;
+      font-size: clamp(34px, 5vw, 72px);
+      line-height: .95;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+      margin: 0 auto 44px;
+      max-width: 1040px;
+      font-weight: 700;
     }
 
     .figure-copy {
@@ -387,7 +388,6 @@
 
       .content-section {
         padding: 52px 22px 64px;
-        min-height: auto;
       }
 
       .cards-section {
@@ -395,7 +395,12 @@
       }
 
       .section-kicker {
-        margin-bottom: 30px;
+        margin-bottom: 18px;
+      }
+
+      .section-heading {
+        font-size: clamp(32px, 12vw, 48px);
+        margin-bottom: 34px;
       }
 
       .figure-copy {
@@ -480,6 +485,7 @@
 
     <section class="content-section figure-section">
       <p class="section-kicker">The Figure</p>
+      <h2 class="section-heading">Meet Space Kid</h2>
 
       <div class="figure-copy">
         <p>SPACE KID is for the dreamers and believers who refuse to let their circumstances write the ending of their story.</p>
@@ -493,6 +499,7 @@
 
     <section class="content-section spec-section">
       <p class="section-kicker">Specifications</p>
+      <h2 class="section-heading">150 Pieces Worldwide.<br>Hand-Painted.</h2>
 
       <div class="specs-wrap">
         <div class="spec-row"><span>Edition</span><span>Series 01</span></div>
@@ -507,6 +514,7 @@
 
     <section class="cards-section colourways-section">
       <p class="section-kicker">Variants / Colourways</p>
+      <h2 class="section-heading">Six Colourways.<br>25 Pieces Each.</h2>
 
       <div class="product-grid">
         <a class="product-card" href="https://shop.thestarface.com/products/space-kid-urban?variant=58014429348221">
@@ -549,6 +557,7 @@
 
     <section class="cards-section ikons-section">
       <p class="section-kicker">The IKONS Series · Coming Soon</p>
+      <h2 class="section-heading">Inspired By Heritage</h2>
 
       <div class="ikon-grid">
         <a class="product-card" href="#">
