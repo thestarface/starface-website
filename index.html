@@ -15,10 +15,8 @@
   <style>
     :root {
       --bg: #f6f5f2;
+      --section-bg: #f1f0ed;
       --text: #050505;
-      --muted: rgba(0,0,0,.58);
-      --dark: #000;
-      --orange: #ff6a1a;
       --font-head: 'Space Grotesk', system-ui, sans-serif;
       --font-body: 'Inter', system-ui, sans-serif;
     }
@@ -86,6 +84,19 @@
       display: block;
     }
 
+    .region-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .region-link::after {
+      content: "⌄";
+      font-size: 13px;
+      margin-left: 2px;
+      transform: translateY(-1px);
+    }
+
     .icon-link svg {
       width: 18px;
       height: 18px;
@@ -94,38 +105,37 @@
 
     .hero {
       position: relative;
-      min-height: 82vh;
+      height: 82vh;
+      min-height: 690px;
       background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
-      padding-top: 82px;
       border-bottom: 1px solid rgba(0,0,0,.08);
     }
 
     .hero-art {
-      width: min(1120px, 92vw);
-      max-height: 62vh;
-      object-fit: contain;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
       display: block;
-      margin-top: -12px;
+      z-index: 1;
     }
 
-    .hero-actions {
+    .hero-controls {
       position: absolute;
-      left: 50%;
-      bottom: 42px;
-      transform: translateX(-50%);
+      inset: 0;
       z-index: 5;
-      width: min(640px, 86vw);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 26px;
+      pointer-events: none;
     }
 
     .primary-btn {
+      position: absolute;
+      left: 50%;
+      top: 57.8%;
+      transform: translateX(-50%);
+      pointer-events: auto;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -142,22 +152,17 @@
     }
 
     .primary-btn:hover {
-      transform: translateY(-2px);
+      transform: translateX(-50%) translateY(-2px);
       opacity: .86;
     }
 
-    .signup-label {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,.5);
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
     .signup-form {
-      width: 100%;
+      position: absolute;
+      left: 50%;
+      top: 72.7%;
+      transform: translateX(-50%);
+      width: min(640px, 86vw);
+      pointer-events: auto;
     }
 
     .signup-pill {
@@ -189,9 +194,9 @@
       padding: 10px 14px;
     }
 
-    .dark-section {
-      background: #000;
-      color: #fff;
+    .content-section {
+      background: var(--section-bg);
+      color: #000;
       min-height: 100vh;
       padding: 70px 24px;
     }
@@ -201,21 +206,21 @@
       font-size: 13px;
       letter-spacing: .42em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.45);
+      color: rgba(0,0,0,.42);
       margin: 0 0 70px;
     }
 
     .figure-copy {
-      max-width: 820px;
+      max-width: 800px;
       margin: 0 auto;
       text-align: center;
-      font-size: clamp(18px, 2vw, 28px);
-      line-height: 1.55;
+      font-size: clamp(14px, 1.4vw, 20px);
+      line-height: 1.6;
       font-weight: 500;
-      color: rgba(255,255,255,.9);
+      color: rgba(0,0,0,.86);
     }
 
-    .figure-copy p { margin: 0 0 28px; }
+    .figure-copy p { margin: 0 0 24px; }
 
     .specs-wrap {
       max-width: 680px;
@@ -224,7 +229,7 @@
     }
 
     .spec-row {
-      border-top: 1px solid rgba(255,255,255,.75);
+      border-top: 1px solid rgba(0,0,0,.55);
       display: flex;
       justify-content: space-between;
       gap: 24px;
@@ -232,16 +237,16 @@
       font-size: 15px;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.86);
+      color: rgba(0,0,0,.82);
     }
 
     .spec-row:last-child {
-      border-bottom: 1px solid rgba(255,255,255,.75);
+      border-bottom: 1px solid rgba(0,0,0,.55);
     }
 
     .cards-section {
-      background: #000;
-      color: #fff;
+      background: var(--section-bg);
+      color: #000;
       padding: 70px 24px 110px;
     }
 
@@ -265,6 +270,7 @@
       display: block;
       background: #f8f8f8;
       color: #000;
+      border: 1px solid rgba(0,0,0,.08);
       border-radius: 14px;
       overflow: hidden;
       min-height: 315px;
@@ -297,9 +303,9 @@
     }
 
     .footer {
-      background: #000;
-      color: rgba(255,255,255,.55);
-      border-top: 1px solid rgba(255,255,255,.12);
+      background: var(--section-bg);
+      color: rgba(0,0,0,.55);
+      border-top: 1px solid rgba(0,0,0,.12);
       padding: 42px 34px;
       display: flex;
       justify-content: space-between;
@@ -340,37 +346,31 @@
       }
 
       .hero {
-        min-height: 88vh;
-        padding-top: 150px;
+        height: 88vh;
+        min-height: 720px;
       }
 
       .hero-art {
-        width: 112vw;
-        max-width: none;
-        max-height: 58vh;
-      }
-
-      .hero-actions {
-        bottom: 28px;
-        gap: 18px;
+        object-fit: cover;
+        object-position: center top;
       }
 
       .primary-btn {
+        top: 59%;
         height: 52px;
         padding: 0 34px;
         font-size: 14px;
       }
 
-      .signup-label {
-        font-size: 10px;
-        letter-spacing: .12em;
+      .signup-form {
+        top: 73.5%;
       }
 
       .signup-pill {
         height: 56px;
       }
 
-      .dark-section {
+      .content-section {
         padding: 60px 22px;
         min-height: auto;
       }
@@ -380,8 +380,8 @@
       }
 
       .figure-copy {
-        font-size: 17px;
-        line-height: 1.55;
+        font-size: 15px;
+        line-height: 1.6;
       }
 
       .product-grid,
@@ -415,15 +415,27 @@
     </a>
 
     <nav class="right-nav">
-      <a href="https://shop.thestarface.com/">🌐 GBP</a>
+      <a href="https://shop.thestarface.com/" class="region-link">GBP</a>
+
       <a href="https://shop.thestarface.com/search" class="icon-link" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M20 20l-3.5-3.5"></path>
+        </svg>
       </a>
+
       <a href="https://shop.thestarface.com/account" class="icon-link" aria-label="Account">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.8-4 5-6 8-6s6.2 2 8 6"></path></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M4 21c1.8-4 5-6 8-6s6.2 2 8 6"></path>
+        </svg>
       </a>
+
       <a href="https://shop.thestarface.com/cart" class="icon-link" aria-label="Cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 7h12l-1 14H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M6 7h12l-1 14H7L6 7z"></path>
+          <path d="M9 7a3 3 0 0 1 6 0"></path>
+        </svg>
       </a>
     </nav>
   </header>
@@ -433,25 +445,23 @@
     <section class="hero">
       <img src="images/hero-desktop.webp" alt="Space Kid Series 01" class="hero-art" fetchpriority="high">
 
-      <div class="hero-actions">
+      <div class="hero-controls">
         <a href="https://shop.thestarface.com/products/space-kid-origin?variant=58006954475901" class="primary-btn">Get Yours</a>
 
-        <div class="signup-form">
-          <div class="signup-label">Be first to hear about future STARFACE releases</div>
-          <form method="post" action="https://shop.thestarface.com/contact#contact_form">
-            <div class="signup-pill">
-              <input type="email" name="contact[email]" placeholder="Your email" required>
-              <input type="hidden" name="form_type" value="customer">
-              <input type="hidden" name="utf8" value="✓">
-              <button type="submit" aria-label="Submit email">→</button>
-            </div>
-          </form>
-        </div>
+        <form class="signup-form" method="post" action="https://shop.thestarface.com/contact#contact_form">
+          <div class="signup-pill">
+            <input type="email" name="contact[email]" placeholder="Your email" required>
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="utf8" value="✓">
+            <button type="submit" aria-label="Submit email">→</button>
+          </div>
+        </form>
       </div>
     </section>
 
-    <section class="dark-section">
+    <section class="content-section">
       <p class="section-kicker">The Figure</p>
+
       <div class="figure-copy">
         <p>SPACE KID is for the dreamers and believers who refuse to let their circumstances write the ending of their story.</p>
         <p>The star eyes are more than a design feature. They represent the choice to see possibility where others see limitation—to imagine a future beyond what is directly in front of you.</p>
@@ -462,8 +472,9 @@
       </div>
     </section>
 
-    <section class="dark-section">
+    <section class="content-section">
       <p class="section-kicker">Specifications</p>
+
       <div class="specs-wrap">
         <div class="spec-row"><span>Edition</span><span>Series 01</span></div>
         <div class="spec-row"><span>Run Size</span><span>150 Pieces</span></div>
@@ -480,27 +491,39 @@
 
       <div class="product-grid">
         <a class="product-card" href="https://shop.thestarface.com/products/space-kid-urban?variant=58014429348221">
-          <h3>Urban</h3><img src="images/urban.webp" alt="Space Kid Urban"><p class="status">Available</p>
+          <h3>Urban</h3>
+          <img src="images/urban.webp" alt="Space Kid Urban">
+          <p class="status">Available</p>
         </a>
 
         <a class="product-card" href="https://shop.thestarface.com/products/space-kid-midnight?variant=58014428627325">
-          <h3>Midnight</h3><img src="images/midnight.webp" alt="Space Kid Midnight"><p class="status">Available</p>
+          <h3>Midnight</h3>
+          <img src="images/midnight.webp" alt="Space Kid Midnight">
+          <p class="status">Available</p>
         </a>
 
         <a class="product-card" href="https://shop.thestarface.com/products/space-kid-chrome?variant=58014385176957">
-          <h3>Chrome</h3><img src="images/chrome.webp" alt="Space Kid Chrome"><p class="status">Available</p>
+          <h3>Chrome</h3>
+          <img src="images/chrome.webp" alt="Space Kid Chrome">
+          <p class="status">Available</p>
         </a>
 
         <a class="product-card" href="https://shop.thestarface.com/products/space-kid-bubblegum?variant=58014429151613">
-          <h3>Bubblegum</h3><img src="images/bubblegum.webp" alt="Space Kid Bubblegum"><p class="status">Available</p>
+          <h3>Bubblegum</h3>
+          <img src="images/bubblegum.webp" alt="Space Kid Bubblegum">
+          <p class="status">Available</p>
         </a>
 
         <a class="product-card" href="https://shop.thestarface.com/products/space-kid-autumn?variant=58014429217149">
-          <h3>Autumn</h3><img src="images/autumn.webp" alt="Space Kid Autumn"><p class="status">Available</p>
+          <h3>Autumn</h3>
+          <img src="images/autumn.webp" alt="Space Kid Autumn">
+          <p class="status">Available</p>
         </a>
 
         <a class="product-card" href="https://shop.thestarface.com/products/space-kid-origin?variant=58006954475901">
-          <h3>Origin</h3><img src="images/origin.webp" alt="Space Kid Origin"><p class="status">Available</p>
+          <h3>Origin</h3>
+          <img src="images/origin.webp" alt="Space Kid Origin">
+          <p class="status">Available</p>
         </a>
       </div>
     </section>
@@ -510,19 +533,27 @@
 
       <div class="ikon-grid">
         <a class="product-card" href="#">
-          <h3>Burngatti</h3><img src="images/burngatti.webp" alt="Burngatti IKON"><p class="status">Pre-Order</p>
+          <h3>Burngatti</h3>
+          <img src="images/burngatti.webp" alt="Burngatti IKON">
+          <p class="status">Pre-Order</p>
         </a>
 
         <a class="product-card" href="#">
-          <h3>Davi-Don</h3><img src="images/davidon.webp" alt="Davi-Don IKON"><p class="status">Pre-Order</p>
+          <h3>Davi-Don</h3>
+          <img src="images/davidon.webp" alt="Davi-Don IKON">
+          <p class="status">Pre-Order</p>
         </a>
 
         <a class="product-card" href="#">
-          <h3>Machalino</h3><img src="images/machalino.webp" alt="Machalino IKON"><p class="status">Pre-Order</p>
+          <h3>Machalino</h3>
+          <img src="images/machalino.webp" alt="Machalino IKON">
+          <p class="status">Pre-Order</p>
         </a>
 
         <a class="product-card" href="#">
-          <h3>Baddolee</h3><img src="images/baddolee.webp" alt="Baddolee IKON"><p class="status">Pre-Order</p>
+          <h3>Baddolee</h3>
+          <img src="images/baddolee.webp" alt="Baddolee IKON">
+          <p class="status">Pre-Order</p>
         </a>
       </div>
     </section>
