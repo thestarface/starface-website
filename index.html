@@ -112,15 +112,19 @@
       border-bottom: 1px solid rgba(0,0,0,.08);
     }
 
-    .hero-art {
+    .hero-picture {
       position: absolute;
       inset: 0;
+      z-index: 1;
+      display: block;
+    }
+
+    .hero-art {
       width: 100%;
       height: 100%;
       object-fit: contain;
       object-position: center top;
       display: block;
-      z-index: 1;
     }
 
     .mobile-hero-copy {
@@ -469,101 +473,6 @@
         height: 22px;
       }
 
-      .hero {
-        height: calc(100svh - 72px);
-        min-height: 600px;
-        max-height: 760px;
-      }
-
-      .hero-art {
-        object-fit: cover;
-        object-position: center center;
-        opacity: .13;
-        transform: none;
-      }
-
-      .mobile-hero-copy {
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: 16%;
-        transform: translateX(-50%);
-        z-index: 4;
-        width: 92vw;
-        text-align: center;
-        pointer-events: none;
-      }
-
-      .mobile-kicker {
-        margin: 0 0 18px;
-        font-size: 8px;
-        font-weight: 800;
-        letter-spacing: .34em;
-        text-transform: uppercase;
-        color: rgba(0,0,0,.42);
-      }
-
-      .mobile-kicker::before {
-        content: "";
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        background: #ff6a18;
-        border-radius: 50%;
-        margin-right: 9px;
-        vertical-align: 1px;
-      }
-
-      .mobile-title {
-        margin: 0;
-        font-size: clamp(48px, 16vw, 72px);
-        line-height: .86;
-        letter-spacing: -0.07em;
-        text-transform: uppercase;
-        font-weight: 900;
-      }
-
-      .mobile-title span {
-        display: block;
-        color: #ff6a18;
-        letter-spacing: -0.065em;
-      }
-
-      .mobile-subtitle {
-        margin: 16px 0 0;
-        font-size: 9px;
-        font-weight: 800;
-        letter-spacing: .48em;
-        text-transform: uppercase;
-        color: #ff6a18;
-      }
-
-      .primary-btn {
-        top: 55%;
-        height: 50px;
-        padding: 0 36px;
-        font-size: 13px;
-      }
-
-      .hero-email-label {
-        top: 67.5%;
-        width: 86vw;
-        font-size: 9px;
-        letter-spacing: .18em;
-        white-space: normal;
-        line-height: 1.35;
-      }
-
-      .signup-form {
-        top: 71%;
-        width: min(560px, 86vw);
-      }
-
-      .signup-pill {
-        height: 56px;
-        padding-left: 22px;
-      }
-
       .content-section {
         padding: 48px 20px 58px;
       }
@@ -649,7 +558,133 @@
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 900px) and (orientation: portrait) {
+      .hero {
+        height: calc(100svh - 72px);
+        min-height: 620px;
+        max-height: 760px;
+      }
+
+      .hero-art {
+        object-fit: cover;
+        object-position: center center;
+      }
+
+      .mobile-hero-copy {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 13.5%;
+        transform: translateX(-50%);
+        z-index: 4;
+        width: 94vw;
+        text-align: center;
+        pointer-events: none;
+      }
+
+      .mobile-kicker {
+        margin: 0 0 18px;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: .34em;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.42);
+      }
+
+      .mobile-kicker::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #ff6a18;
+        border-radius: 50%;
+        margin-right: 9px;
+        vertical-align: 1px;
+      }
+
+      .mobile-title {
+        margin: 0;
+        font-size: clamp(48px, 15.5vw, 68px);
+        line-height: .86;
+        letter-spacing: -0.07em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .mobile-title span {
+        display: block;
+        color: #ff6a18;
+        letter-spacing: -0.065em;
+      }
+
+      .mobile-subtitle {
+        margin: 16px 0 0;
+        font-size: 8.5px;
+        font-weight: 800;
+        letter-spacing: .42em;
+        text-transform: uppercase;
+        color: #ff6a18;
+      }
+
+      .primary-btn {
+        top: 54.5%;
+        height: 48px;
+        padding: 0 34px;
+        font-size: 12px;
+      }
+
+      .hero-email-label {
+        top: 67%;
+        width: 88vw;
+        font-size: 8.5px;
+        letter-spacing: .16em;
+        white-space: normal;
+        line-height: 1.35;
+      }
+
+      .signup-form {
+        top: 70.5%;
+        width: 86vw;
+      }
+
+      .signup-pill {
+        height: 54px;
+      }
+
+      .signup-pill input {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 900px) and (orientation: landscape) {
+      .hero {
+        height: calc(100svh - 72px);
+        min-height: 500px;
+      }
+
+      .hero-art {
+        object-fit: contain;
+        object-position: center top;
+      }
+
+      .mobile-hero-copy {
+        display: none;
+      }
+
+      .primary-btn {
+        top: 62%;
+      }
+
+      .hero-email-label {
+        top: 73.5%;
+      }
+
+      .signup-form {
+        top: 78%;
+      }
+    }
+
+    @media (max-width: 520px) and (orientation: portrait) {
       .site-header {
         height: 66px;
         padding: 0 20px;
@@ -675,41 +710,24 @@
       }
 
       .mobile-hero-copy {
-        top: 14.5%;
-        width: 94vw;
+        top: 13%;
       }
 
       .mobile-title {
-        font-size: clamp(48px, 15.5vw, 68px);
-      }
-
-      .mobile-subtitle {
-        font-size: 8.5px;
-        letter-spacing: .42em;
+        font-size: clamp(48px, 15vw, 66px);
       }
 
       .primary-btn {
-        top: 54.5%;
-        height: 48px;
-        padding: 0 34px;
-        font-size: 12px;
+        top: 54%;
       }
 
       .hero-email-label {
-        top: 67%;
-        width: 88vw;
-        font-size: 8.5px;
-        letter-spacing: .16em;
+        top: 66.8%;
       }
 
       .signup-form {
-        top: 70.5%;
-        width: 86vw;
+        top: 70.3%;
       }
-
-      .signup-pill { height: 54px; }
-
-      .signup-pill input { font-size: 14px; }
 
       .section-heading { font-size: clamp(32px, 11vw, 43px); }
 
@@ -730,7 +748,7 @@
       .ikon-grid .product-card img { height: 245px; }
     }
 
-    @media (max-width: 390px) {
+    @media (max-width: 390px) and (orientation: portrait) {
       .site-header {
         height: 62px;
         padding: 0 16px;
@@ -755,7 +773,7 @@
       }
 
       .mobile-hero-copy {
-        top: 14%;
+        top: 12.5%;
       }
 
       .mobile-title {
@@ -767,11 +785,11 @@
         letter-spacing: .36em;
       }
 
-      .primary-btn { top: 54.5%; }
+      .primary-btn { top: 54%; }
 
-      .hero-email-label { top: 67%; }
+      .hero-email-label { top: 66.8%; }
 
-      .signup-form { top: 70.5%; }
+      .signup-form { top: 70.3%; }
 
       .section-heading { font-size: 34px; }
 
@@ -848,7 +866,10 @@
   <main>
 
     <section class="hero">
-      <img src="images/hero-desktop.webp" alt="Space Kid Series 01" class="hero-art" fetchpriority="high">
+      <picture class="hero-picture">
+        <source media="(max-width: 900px) and (orientation: portrait)" srcset="images/hero-mobile.webp">
+        <img src="images/hero-desktop.webp" alt="Space Kid Series 01" class="hero-art" fetchpriority="high">
+      </picture>
 
       <div class="mobile-hero-copy">
         <p class="mobile-kicker">Now Selling</p>
