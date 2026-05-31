@@ -157,7 +157,7 @@
     .hero-email-label {
       position: absolute;
       left: 50%;
-      top: 72%;
+      top: 73.5%;
       transform: translateX(-50%);
       z-index: 6;
       margin: 0;
@@ -395,9 +395,7 @@
         gap: 0;
       }
 
-      .top-nav a {
-        display: none;
-      }
+      .top-nav a { display: none; }
 
       .top-nav a:first-child {
         display: inline-flex;
@@ -424,35 +422,40 @@
 
       .hero {
         height: calc(100svh - 70px);
-        min-height: 560px;
-        max-height: 700px;
+        min-height: 650px;
+        max-height: 780px;
       }
 
       .hero-art {
-        object-fit: contain;
-        object-position: center top;
-        transform: scale(1.18);
-        transform-origin: top center;
+        inset: auto;
+        top: 0;
+        left: 50%;
+        width: 112vw;
+        height: auto;
+        max-width: none;
+        transform: translateX(-50%);
+        object-fit: unset;
+        object-position: unset;
       }
 
       .primary-btn {
-        top: 53%;
+        top: 57%;
         height: 50px;
         padding: 0 34px;
         font-size: 13px;
       }
 
       .hero-email-label {
-        top: 65%;
+        top: 68.2%;
         width: 86vw;
         font-size: 9px;
         letter-spacing: .18em;
         white-space: normal;
-        line-height: 1.5;
+        line-height: 1.35;
       }
 
       .signup-form {
-        top: 70%;
+        top: 72%;
         width: min(560px, 86vw);
       }
 
@@ -488,13 +491,9 @@
         max-width: 92vw;
       }
 
-      .figure-copy p {
-        margin-bottom: 22px;
-      }
+      .figure-copy p { margin-bottom: 22px; }
 
-      .specs-wrap {
-        max-width: 92vw;
-      }
+      .specs-wrap { max-width: 92vw; }
 
       .spec-row {
         align-items: flex-start;
@@ -516,12 +515,7 @@
         overflow-wrap: anywhere;
       }
 
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-        max-width: 100%;
-      }
-
+      .product-grid,
       .ikon-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 18px;
@@ -533,13 +527,9 @@
         border-radius: 16px;
       }
 
-      .product-card img {
-        height: 260px;
-      }
+      .product-card img { height: 260px; }
 
-      .ikon-grid .product-card img {
-        height: 270px;
-      }
+      .ikon-grid .product-card img { height: 270px; }
 
       .product-card h3 {
         font-size: 13px;
@@ -565,17 +555,11 @@
         padding: 0 14px;
       }
 
-      .logo-bar {
-        width: min(150px, 40vw);
-      }
+      .logo-bar { width: min(150px, 40vw); }
 
-      .right-nav {
-        gap: 12px;
-      }
+      .right-nav { gap: 12px; }
 
-      .right-nav .region-link {
-        font-size: 9.5px;
-      }
+      .right-nav .region-link { font-size: 9.5px; }
 
       .icon-link svg {
         width: 18px;
@@ -584,46 +568,38 @@
 
       .hero {
         height: calc(100svh - 66px);
-        min-height: 560px;
-        max-height: 660px;
+        min-height: 660px;
+        max-height: 780px;
       }
 
       .hero-art {
-        object-fit: contain;
-        object-position: center top;
-        transform: scale(1.24);
+        width: 116vw;
       }
 
       .primary-btn {
-        top: 52%;
+        top: 56.5%;
         height: 46px;
         padding: 0 30px;
         font-size: 12px;
       }
 
       .hero-email-label {
-        top: 64%;
-        width: 82vw;
+        top: 67.7%;
+        width: 86vw;
         font-size: 8.5px;
         letter-spacing: .16em;
       }
 
       .signup-form {
-        top: 69%;
+        top: 71.3%;
         width: 86vw;
       }
 
-      .signup-pill {
-        height: 54px;
-      }
+      .signup-pill { height: 54px; }
 
-      .signup-pill input {
-        font-size: 14px;
-      }
+      .signup-pill input { font-size: 14px; }
 
-      .section-heading {
-        font-size: clamp(32px, 11vw, 43px);
-      }
+      .section-heading { font-size: clamp(32px, 11vw, 43px); }
 
       .spec-section .section-heading,
       .colourways-section .section-heading,
@@ -637,32 +613,22 @@
         gap: 16px;
       }
 
-      .product-card img {
-        height: 220px;
-      }
+      .product-card img { height: 220px; }
 
-      .ikon-grid .product-card img {
-        height: 245px;
-      }
+      .ikon-grid .product-card img { height: 245px; }
     }
 
     @media (max-width: 390px) {
-      .site-header {
-        height: 62px;
-      }
+      .site-header { height: 62px; }
 
-      .logo-bar {
-        width: 132px;
-      }
+      .logo-bar { width: 132px; }
 
       .top-nav a:first-child,
       .right-nav .region-link {
         font-size: 9px;
       }
 
-      .right-nav {
-        gap: 10px;
-      }
+      .right-nav { gap: 10px; }
 
       .icon-link svg {
         width: 17px;
@@ -671,168 +637,34 @@
 
       .hero {
         height: calc(100svh - 62px);
-        min-height: 540px;
+        min-height: 635px;
       }
 
       .hero-art {
-        transform: scale(1.28);
+        width: 118vw;
       }
 
-      .primary-btn {
-        top: 52%;
-      }
+      .primary-btn { top: 56.2%; }
 
-      .hero-email-label {
-        top: 64%;
-      }
+      .hero-email-label { top: 67.6%; }
 
-      .signup-form {
-        top: 69%;
-      }
+      .signup-form { top: 71.2%; }
 
-      .section-heading {
-        font-size: 34px;
-      }
+      .section-heading { font-size: 34px; }
 
-      .figure-copy {
-        font-size: 13.5px;
-      }
+      .figure-copy { font-size: 13.5px; }
 
       .spec-row {
         font-size: 11px;
         letter-spacing: .14em;
       }
 
-      .product-card img {
-        height: 205px;
-      }
+      .product-card img { height: 205px; }
 
-      .ikon-grid .product-card img {
-        height: 230px;
-      }
+      .ikon-grid .product-card img { height: 230px; }
 
-      .product-card h3 {
-        font-size: 12px;
-      }
+      .product-card h3 { font-size: 12px; }
     }
-@media (max-width: 900px) {
-  .hero {
-    height: calc(100svh - 70px);
-    min-height: 620px;
-    max-height: 760px;
-  }
-
-  .hero-art {
-    object-fit: cover;
-    object-position: center top;
-    transform: none;
-  }
-
-  .primary-btn {
-    top: 58%;
-  }
-
-  .hero-email-label {
-    top: 69%;
-    width: 86vw;
-    font-size: 9px;
-    letter-spacing: .18em;
-    line-height: 1.4;
-  }
-
-  .signup-form {
-    top: 73%;
-  }
-}
-
-@media (max-width: 520px) {
-  .hero {
-    height: calc(100svh - 66px);
-    min-height: 620px;
-    max-height: 740px;
-  }
-
-  .hero-art {
-    object-fit: cover;
-    object-position: center top;
-    transform: none;
-  }
-
-  .primary-btn {
-    top: 57%;
-  }
-
-  .hero-email-label {
-    top: 68.5%;
-    width: 86vw;
-    font-size: 8.5px;
-    letter-spacing: .16em;
-  }
-
-  .signup-form {
-    top: 72%;
-  }
-}
-
-@media (max-width: 390px) {
-  .hero {
-    height: calc(100svh - 62px);
-    min-height: 600px;
-  }
-
-  .primary-btn {
-    top: 57%;
-  }
-
-  .hero-email-label {
-    top: 68.5%;
-  }
-
-  .signup-form {
-    top: 72%;
-  }
-}
-    .hero-email-label {
-  top: 74%;
-}
-
-@media (max-width: 900px) {
-  .hero-art {
-    object-fit: contain;
-    object-position: center top;
-    transform: scale(1.34);
-  }
-
-  .hero-email-label {
-    top: 69%;
-  }
-
-  .signup-form {
-    top: 72%;
-  }
-}
-
-@media (max-width: 520px) {
-  .hero-art {
-    object-fit: contain;
-    object-position: center top;
-    transform: scale(1.42);
-  }
-
-  .hero-email-label {
-    top: 68.5%;
-  }
-
-  .signup-form {
-    top: 71.5%;
-  }
-}
-
-@media (max-width: 390px) {
-  .hero-art {
-    transform: scale(1.46);
-  }
-}
   </style>
 </head>
 
