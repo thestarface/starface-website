@@ -355,64 +355,78 @@
 
     @media (max-width: 900px) {
       .site-header {
-        position: absolute;
-        height: auto;
-        padding: 24px 18px 0;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
+        position: relative;
+        height: 70px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 0 18px;
+        background: #f6f5f2;
+        border-bottom: 1px solid rgba(0,0,0,.06);
+        pointer-events: auto;
       }
 
       .logo-bar {
-        order: 1;
-        width: min(210px, 54vw);
+        grid-column: 2;
+        width: min(170px, 44vw);
       }
 
       .top-nav {
-        order: 2;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px 18px;
+        grid-column: 1;
+        grid-row: 1;
+        justify-content: flex-start;
+        gap: 0;
       }
 
-      .right-nav {
-        order: 3;
-        justify-content: center;
-        gap: 18px;
+      .top-nav a {
+        display: none;
       }
 
-      .top-nav a,
-      .right-nav a {
-        font-size: 10px;
+      .top-nav a:first-child {
+        display: inline-flex;
+        font-size: 11px;
         letter-spacing: .18em;
       }
 
+      .right-nav {
+        grid-column: 3;
+        grid-row: 1;
+        justify-content: flex-end;
+        gap: 14px;
+      }
+
+      .right-nav .region-link {
+        font-size: 10px;
+        letter-spacing: .12em;
+      }
+
       .icon-link svg {
-        width: 21px;
-        height: 21px;
+        width: 19px;
+        height: 19px;
       }
 
       .hero {
-        height: 92vh;
-        min-height: 660px;
+        height: calc(100svh - 70px);
+        min-height: 560px;
+        max-height: 700px;
       }
 
       .hero-art {
         object-fit: contain;
         object-position: center top;
-        transform: scale(1.02);
+        transform: scale(1.24);
         transform-origin: top center;
       }
 
       .primary-btn {
-        top: 62%;
+        top: 58%;
         height: 50px;
-        padding: 0 32px;
+        padding: 0 34px;
         font-size: 13px;
       }
 
       .signup-form {
-        top: 76%;
+        top: 72%;
         width: min(560px, 86vw);
       }
 
@@ -521,29 +535,48 @@
 
     @media (max-width: 520px) {
       .site-header {
-        padding-top: 22px;
+        height: 66px;
+        padding: 0 14px;
+      }
+
+      .logo-bar {
+        width: min(150px, 40vw);
+      }
+
+      .right-nav {
+        gap: 12px;
+      }
+
+      .right-nav .region-link {
+        font-size: 9.5px;
+      }
+
+      .icon-link svg {
+        width: 18px;
+        height: 18px;
       }
 
       .hero {
-        height: 88vh;
-        min-height: 620px;
+        height: calc(100svh - 66px);
+        min-height: 560px;
+        max-height: 660px;
       }
 
       .hero-art {
         object-fit: contain;
         object-position: center top;
-        transform: scale(1.06);
+        transform: scale(1.32);
       }
 
       .primary-btn {
-        top: 62%;
+        top: 57%;
         height: 46px;
-        padding: 0 28px;
+        padding: 0 30px;
         font-size: 12px;
       }
 
       .signup-form {
-        top: 76%;
+        top: 71%;
         width: 86vw;
       }
 
@@ -581,17 +614,35 @@
     }
 
     @media (max-width: 390px) {
-      .top-nav {
-        gap: 10px 14px;
+      .site-header {
+        height: 62px;
       }
 
-      .top-nav a,
-      .right-nav a {
-        font-size: 9.5px;
+      .logo-bar {
+        width: 132px;
+      }
+
+      .top-nav a:first-child,
+      .right-nav .region-link {
+        font-size: 9px;
+      }
+
+      .right-nav {
+        gap: 10px;
+      }
+
+      .icon-link svg {
+        width: 17px;
+        height: 17px;
       }
 
       .hero {
-        min-height: 600px;
+        height: calc(100svh - 62px);
+        min-height: 540px;
+      }
+
+      .hero-art {
+        transform: scale(1.38);
       }
 
       .section-heading {
