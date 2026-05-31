@@ -182,6 +182,7 @@
       font-size: 16px;
       background: transparent;
       color: #000;
+      min-width: 0;
     }
 
     .signup-pill button {
@@ -356,95 +357,139 @@
       .site-header {
         position: absolute;
         height: auto;
-        padding: 24px 20px;
+        padding: 24px 18px 0;
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 14px;
       }
 
       .logo-bar {
         order: 1;
-        width: min(230px, 62vw);
+        width: min(210px, 54vw);
       }
 
       .top-nav {
         order: 2;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 16px 20px;
+        gap: 12px 18px;
       }
 
       .right-nav {
         order: 3;
         justify-content: center;
+        gap: 18px;
       }
 
       .top-nav a,
       .right-nav a {
-        font-size: 11px;
+        font-size: 10px;
+        letter-spacing: .18em;
+      }
+
+      .icon-link svg {
+        width: 21px;
+        height: 21px;
       }
 
       .hero {
-        height: 88vh;
-        min-height: 720px;
+        height: 92vh;
+        min-height: 660px;
       }
 
       .hero-art {
-        object-fit: cover;
+        object-fit: contain;
         object-position: center top;
+        transform: scale(1.02);
+        transform-origin: top center;
       }
 
       .primary-btn {
-        top: 59%;
-        height: 52px;
-        padding: 0 34px;
-        font-size: 14px;
+        top: 62%;
+        height: 50px;
+        padding: 0 32px;
+        font-size: 13px;
       }
 
       .signup-form {
-        top: 73.5%;
+        top: 76%;
+        width: min(560px, 86vw);
       }
 
       .signup-pill {
         height: 56px;
+        padding-left: 22px;
       }
 
       .content-section {
-        padding: 52px 22px 64px;
+        padding: 48px 20px 58px;
       }
 
       .cards-section {
-        padding: 52px 16px 68px;
+        padding: 48px 16px 60px;
       }
 
       .section-kicker {
-        margin-bottom: 18px;
+        font-size: 11px;
+        letter-spacing: .34em;
+        margin-bottom: 16px;
       }
 
       .section-heading {
-        font-size: clamp(32px, 12vw, 48px);
-        margin-bottom: 34px;
+        font-size: clamp(34px, 10vw, 46px);
+        line-height: .98;
+        letter-spacing: -0.06em;
+        margin-bottom: 30px;
       }
 
       .figure-copy {
-        font-size: 15px;
-        line-height: 1.6;
+        font-size: 14px;
+        line-height: 1.62;
+        max-width: 92vw;
+      }
+
+      .figure-copy p {
+        margin-bottom: 22px;
+      }
+
+      .specs-wrap {
+        max-width: 92vw;
+      }
+
+      .spec-row {
+        align-items: flex-start;
+        gap: 14px;
+        padding: 17px 0;
+        font-size: 12px;
+        letter-spacing: .16em;
+      }
+
+      .spec-row span:first-child {
+        width: 42%;
+        flex: 0 0 42%;
+      }
+
+      .spec-row span:last-child {
+        width: 58%;
+        flex: 0 0 58%;
+        text-align: right;
+        overflow-wrap: anywhere;
       }
 
       .product-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
+        gap: 18px;
         max-width: 100%;
       }
 
       .ikon-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        max-width: 430px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        max-width: 100%;
       }
 
       .product-card {
-        padding: 10px 10px 18px;
+        padding: 10px 10px 16px;
         border-radius: 16px;
       }
 
@@ -453,23 +498,75 @@
       }
 
       .ikon-grid .product-card img {
-        height: 520px;
+        height: 270px;
       }
 
       .product-card h3 {
         font-size: 13px;
-        margin-top: 16px;
+        margin-top: 14px;
+      }
+
+      .product-card .status {
+        font-size: 9px;
+        letter-spacing: .2em;
       }
 
       .footer {
         flex-direction: column;
         text-align: center;
         align-items: center;
+        padding: 34px 24px;
       }
     }
 
     @media (max-width: 520px) {
-      .product-grid {
+      .site-header {
+        padding-top: 22px;
+      }
+
+      .hero {
+        height: 88vh;
+        min-height: 620px;
+      }
+
+      .hero-art {
+        object-fit: contain;
+        object-position: center top;
+        transform: scale(1.06);
+      }
+
+      .primary-btn {
+        top: 62%;
+        height: 46px;
+        padding: 0 28px;
+        font-size: 12px;
+      }
+
+      .signup-form {
+        top: 76%;
+        width: 86vw;
+      }
+
+      .signup-pill {
+        height: 54px;
+      }
+
+      .signup-pill input {
+        font-size: 14px;
+      }
+
+      .section-heading {
+        font-size: clamp(32px, 11vw, 43px);
+      }
+
+      .spec-section .section-heading,
+      .colourways-section .section-heading,
+      .ikons-section .section-heading {
+        font-size: clamp(30px, 10vw, 40px);
+      }
+
+      .product-grid,
+      .ikon-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
       }
@@ -478,26 +575,48 @@
         height: 220px;
       }
 
-      .ikon-grid {
-        max-width: 100%;
-      }
-
       .ikon-grid .product-card img {
-        height: 440px;
+        height: 245px;
       }
     }
 
-    @media (max-width: 380px) {
-      .product-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 390px) {
+      .top-nav {
+        gap: 10px 14px;
+      }
+
+      .top-nav a,
+      .right-nav a {
+        font-size: 9.5px;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .section-heading {
+        font-size: 34px;
+      }
+
+      .figure-copy {
+        font-size: 13.5px;
+      }
+
+      .spec-row {
+        font-size: 11px;
+        letter-spacing: .14em;
       }
 
       .product-card img {
-        height: 320px;
+        height: 205px;
       }
 
       .ikon-grid .product-card img {
-        height: 390px;
+        height: 230px;
+      }
+
+      .product-card h3 {
+        font-size: 12px;
       }
     }
   </style>
