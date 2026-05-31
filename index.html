@@ -71,6 +71,8 @@
     .top-nav a:hover,
     .right-nav a:hover { color: #000; }
 
+    .mobile-menu { display: none; }
+
     .logo-bar {
       width: min(280px, 18vw);
       pointer-events: auto;
@@ -119,6 +121,10 @@
       object-position: center top;
       display: block;
       z-index: 1;
+    }
+
+    .mobile-hero-copy {
+      display: none;
     }
 
     .hero-controls {
@@ -373,80 +379,174 @@
     @media (max-width: 900px) {
       .site-header {
         position: relative;
-        height: 70px;
+        height: 72px;
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
-        padding: 0 18px;
+        padding: 0 24px;
         background: #f6f5f2;
         border-bottom: 1px solid rgba(0,0,0,.06);
         pointer-events: auto;
       }
 
-      .logo-bar {
-        grid-column: 2;
-        width: min(170px, 44vw);
+      .top-nav {
+        display: none;
       }
 
-      .top-nav {
+      .mobile-menu {
+        display: block;
         grid-column: 1;
         grid-row: 1;
-        justify-content: flex-start;
-        gap: 0;
+        justify-self: start;
+        pointer-events: auto;
       }
 
-      .top-nav a { display: none; }
+      .mobile-menu summary {
+        list-style: none;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 7px;
+        cursor: pointer;
+      }
 
-      .top-nav a:first-child {
-        display: inline-flex;
-        font-size: 11px;
+      .mobile-menu summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .mobile-menu summary span {
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: #000;
+        border-radius: 999px;
+      }
+
+      .mobile-drawer {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: min(82vw, 320px);
+        background: #ffffff;
+        border-right: 1px solid rgba(0,0,0,.08);
+        border-bottom: 1px solid rgba(0,0,0,.08);
+        box-shadow: 0 22px 50px rgba(0,0,0,.08);
+        padding: 26px 28px 32px;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .mobile-drawer a {
+        font-size: 12px;
         letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.78);
+      }
+
+      .logo-bar {
+        grid-column: 2;
+        grid-row: 1;
+        width: min(170px, 44vw);
       }
 
       .right-nav {
         grid-column: 3;
         grid-row: 1;
         justify-content: flex-end;
-        gap: 14px;
+        gap: 18px;
       }
 
       .right-nav .region-link {
-        font-size: 10px;
-        letter-spacing: .12em;
+        display: none;
       }
 
       .icon-link svg {
-        width: 19px;
-        height: 19px;
+        width: 22px;
+        height: 22px;
       }
 
       .hero {
-        height: calc(100svh - 70px);
-        min-height: 650px;
-        max-height: 780px;
+        height: calc(100svh - 72px);
+        min-height: 600px;
+        max-height: 760px;
       }
 
       .hero-art {
-        inset: auto;
-        top: 0;
+        object-fit: cover;
+        object-position: center center;
+        opacity: .13;
+        transform: none;
+      }
+
+      .mobile-hero-copy {
+        display: block;
+        position: absolute;
         left: 50%;
-        width: 112vw;
-        height: auto;
-        max-width: none;
+        top: 16%;
         transform: translateX(-50%);
-        object-fit: unset;
-        object-position: unset;
+        z-index: 4;
+        width: 92vw;
+        text-align: center;
+        pointer-events: none;
+      }
+
+      .mobile-kicker {
+        margin: 0 0 18px;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: .34em;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.42);
+      }
+
+      .mobile-kicker::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #ff6a18;
+        border-radius: 50%;
+        margin-right: 9px;
+        vertical-align: 1px;
+      }
+
+      .mobile-title {
+        margin: 0;
+        font-size: clamp(48px, 16vw, 72px);
+        line-height: .86;
+        letter-spacing: -0.07em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .mobile-title span {
+        display: block;
+        color: #ff6a18;
+        letter-spacing: -0.065em;
+      }
+
+      .mobile-subtitle {
+        margin: 16px 0 0;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: .48em;
+        text-transform: uppercase;
+        color: #ff6a18;
       }
 
       .primary-btn {
-        top: 57%;
+        top: 55%;
         height: 50px;
-        padding: 0 34px;
+        padding: 0 36px;
         font-size: 13px;
       }
 
       .hero-email-label {
-        top: 68.2%;
+        top: 67.5%;
         width: 86vw;
         font-size: 9px;
         letter-spacing: .18em;
@@ -455,7 +555,7 @@
       }
 
       .signup-form {
-        top: 72%;
+        top: 71%;
         width: min(560px, 86vw);
       }
 
@@ -552,46 +652,58 @@
     @media (max-width: 520px) {
       .site-header {
         height: 66px;
-        padding: 0 14px;
+        padding: 0 20px;
+      }
+
+      .mobile-drawer {
+        top: 66px;
       }
 
       .logo-bar { width: min(150px, 40vw); }
 
-      .right-nav { gap: 12px; }
-
-      .right-nav .region-link { font-size: 9.5px; }
+      .right-nav { gap: 17px; }
 
       .icon-link svg {
-        width: 18px;
-        height: 18px;
+        width: 21px;
+        height: 21px;
       }
 
       .hero {
         height: calc(100svh - 66px);
-        min-height: 660px;
-        max-height: 780px;
+        min-height: 610px;
+        max-height: 740px;
       }
 
-      .hero-art {
-        width: 116vw;
+      .mobile-hero-copy {
+        top: 14.5%;
+        width: 94vw;
+      }
+
+      .mobile-title {
+        font-size: clamp(48px, 15.5vw, 68px);
+      }
+
+      .mobile-subtitle {
+        font-size: 8.5px;
+        letter-spacing: .42em;
       }
 
       .primary-btn {
-        top: 56.5%;
-        height: 46px;
-        padding: 0 30px;
+        top: 54.5%;
+        height: 48px;
+        padding: 0 34px;
         font-size: 12px;
       }
 
       .hero-email-label {
-        top: 67.7%;
-        width: 86vw;
+        top: 67%;
+        width: 88vw;
         font-size: 8.5px;
         letter-spacing: .16em;
       }
 
       .signup-form {
-        top: 71.3%;
+        top: 70.5%;
         width: 86vw;
       }
 
@@ -619,36 +731,47 @@
     }
 
     @media (max-width: 390px) {
-      .site-header { height: 62px; }
+      .site-header {
+        height: 62px;
+        padding: 0 16px;
+      }
+
+      .mobile-drawer {
+        top: 62px;
+      }
 
       .logo-bar { width: 132px; }
 
-      .top-nav a:first-child,
-      .right-nav .region-link {
-        font-size: 9px;
-      }
-
-      .right-nav { gap: 10px; }
+      .right-nav { gap: 14px; }
 
       .icon-link svg {
-        width: 17px;
-        height: 17px;
+        width: 19px;
+        height: 19px;
       }
 
       .hero {
         height: calc(100svh - 62px);
-        min-height: 635px;
+        min-height: 600px;
       }
 
-      .hero-art {
-        width: 118vw;
+      .mobile-hero-copy {
+        top: 14%;
       }
 
-      .primary-btn { top: 56.2%; }
+      .mobile-title {
+        font-size: 52px;
+      }
 
-      .hero-email-label { top: 67.6%; }
+      .mobile-subtitle {
+        font-size: 8px;
+        letter-spacing: .36em;
+      }
 
-      .signup-form { top: 71.2%; }
+      .primary-btn { top: 54.5%; }
+
+      .hero-email-label { top: 67%; }
+
+      .signup-form { top: 70.5%; }
 
       .section-heading { font-size: 34px; }
 
@@ -671,6 +794,20 @@
 <body>
 
   <header class="site-header">
+    <details class="mobile-menu">
+      <summary aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </summary>
+
+      <nav class="mobile-drawer">
+        <a href="https://shop.thestarface.com/">Shop</a>
+        <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
+        <a href="https://shop.thestarface.com/pages/contact">Contact</a>
+        <a href="https://instagram.com/thestarfaceco" target="_blank">Instagram</a>
+      </nav>
+    </details>
+
     <nav class="top-nav">
       <a href="https://shop.thestarface.com/">Shop</a>
       <a href="https://shop.thestarface.com/pages/faq">FAQ</a>
@@ -712,6 +849,12 @@
 
     <section class="hero">
       <img src="images/hero-desktop.webp" alt="Space Kid Series 01" class="hero-art" fetchpriority="high">
+
+      <div class="mobile-hero-copy">
+        <p class="mobile-kicker">Now Selling</p>
+        <h1 class="mobile-title">Space Kid <span>Series 01</span></h1>
+        <p class="mobile-subtitle">Limited Collectible</p>
+      </div>
 
       <div class="hero-controls">
         <a href="https://shop.thestarface.com/" class="primary-btn">Get Yours</a>
