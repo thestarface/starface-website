@@ -225,8 +225,15 @@
   min-width: 44px;
   color: rgba(0,0,0,.45);
 }
-    }
+    .signup-pill input::placeholder,
+.signup-pill button {
+  transition: color .2s ease;
+}
 
+.signup-pill:hover input::placeholder,
+.signup-pill:hover button {
+  color: rgba(0,0,0,.65);
+}
     .content-section {
       color: #000;
       min-height: auto;
