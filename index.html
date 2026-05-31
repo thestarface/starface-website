@@ -154,6 +154,23 @@
       opacity: .86;
     }
 
+    .hero-email-label {
+      position: absolute;
+      left: 50%;
+      top: 72%;
+      transform: translateX(-50%);
+      z-index: 6;
+      margin: 0;
+      pointer-events: none;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.5);
+      white-space: nowrap;
+    }
+
     .signup-form {
       position: absolute;
       left: 50%;
@@ -414,19 +431,28 @@
       .hero-art {
         object-fit: contain;
         object-position: center top;
-        transform: scale(1.24);
+        transform: scale(1.18);
         transform-origin: top center;
       }
 
       .primary-btn {
-        top: 58%;
+        top: 53%;
         height: 50px;
         padding: 0 34px;
         font-size: 13px;
       }
 
+      .hero-email-label {
+        top: 65%;
+        width: 86vw;
+        font-size: 9px;
+        letter-spacing: .18em;
+        white-space: normal;
+        line-height: 1.5;
+      }
+
       .signup-form {
-        top: 72%;
+        top: 70%;
         width: min(560px, 86vw);
       }
 
@@ -565,18 +591,25 @@
       .hero-art {
         object-fit: contain;
         object-position: center top;
-        transform: scale(1.32);
+        transform: scale(1.24);
       }
 
       .primary-btn {
-        top: 57%;
+        top: 52%;
         height: 46px;
         padding: 0 30px;
         font-size: 12px;
       }
 
+      .hero-email-label {
+        top: 64%;
+        width: 82vw;
+        font-size: 8.5px;
+        letter-spacing: .16em;
+      }
+
       .signup-form {
-        top: 71%;
+        top: 69%;
         width: 86vw;
       }
 
@@ -642,7 +675,19 @@
       }
 
       .hero-art {
-        transform: scale(1.38);
+        transform: scale(1.28);
+      }
+
+      .primary-btn {
+        top: 52%;
+      }
+
+      .hero-email-label {
+        top: 64%;
+      }
+
+      .signup-form {
+        top: 69%;
       }
 
       .section-heading {
@@ -720,6 +765,8 @@
 
       <div class="hero-controls">
         <a href="https://shop.thestarface.com/" class="primary-btn">Get Yours</a>
+
+        <p class="hero-email-label">Be first to hear about future STARFACE releases</p>
 
         <form class="signup-form" method="post" action="https://shop.thestarface.com/contact#contact_form">
           <div class="signup-pill">
