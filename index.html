@@ -180,7 +180,22 @@
       color: rgba(0,0,0,.5);
       white-space: nowrap;
     }
+    .hero-email-link {
+      pointer-events: auto !important;
+      cursor: pointer;
+      animation: softBlink 2.8s ease-in-out infinite;
+      text-decoration: none;
+      color: inherit;
+    }
 
+    @keyframes softBlink {
+      0%, 100% {
+      opacity: .5;
+      }
+      50% {
+      opacity: .95;
+      }
+    }
     .signup-form {
       position: absolute;
       left: 50%;
@@ -1030,10 +1045,8 @@
       <div class="hero-controls">
         <a href="https://shop.thestarface.com/collections/space-kid-series-01" class="primary-btn">Get Yours</a>
 
-        <p class="hero-email-label">Be first to hear about future STARFACE releases</p>
-        
-        <a href="https://shop.thestarface.com/pages/starface-waitlist" class="waitlist-pill">
-  EARLY ACCESS
+        <a href="https://shop.thestarface.com/pages/starface-waitlist" class="hero-email-label hero-email-link">
+  Get early access to future STARFACE releases →
 </a>
       </div>
     </section>
