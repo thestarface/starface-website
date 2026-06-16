@@ -181,21 +181,26 @@
       white-space: nowrap;
     }
     .hero-email-link {
-      pointer-events: auto !important;
-      cursor: pointer;
-      animation: softBlink 2.8s ease-in-out infinite;
-      text-decoration: none;
-      color: inherit;
-    }
+  pointer-events: auto !important;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
 
-    @keyframes softBlink {
-      0%, 100% {
-      opacity: .5;
-      }
-      50% {
-      opacity: .95;
-      }
-    }
+.hero-email-link::after {
+  content: " →";
+  display: inline-block;
+  animation: arrowNudge 1.4s ease-in-out infinite;
+}
+
+@keyframes arrowNudge {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
     .signup-form {
       position: absolute;
       left: 50%;
@@ -1046,7 +1051,7 @@
         <a href="https://shop.thestarface.com/collections/space-kid-series-01" class="primary-btn">Get Yours</a>
 
         <a href="https://shop.thestarface.com/pages/starface-waitlist" class="hero-email-label hero-email-link">
-  Get early access to future STARFACE releases →
+  Get early access to future STARFACE releases
 </a>
       </div>
     </section>
