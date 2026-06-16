@@ -202,33 +202,31 @@
       box-shadow: 0 10px 35px rgba(0,0,0,.04);
     }
 
-    .waitlist-pill {
+    .waitlist-btn {
   position: absolute;
   left: 50%;
   top: 78%;
   transform: translateX(-50%);
-  width: min(420px, 78vw);
-  height: 54px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 999px;
-  display: flex;
+  pointer-events: auto;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #000;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: .02em;
-  box-shadow: 0 10px 35px rgba(0,0,0,.04);
-  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  height: 48px;
+  padding: 0 34px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  transition: transform .2s ease, opacity .2s ease;
   z-index: 10;
-  pointer-events: auto;
 }
 
-.waitlist-pill:hover {
+.waitlist-btn:hover {
   transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 14px 38px rgba(0,0,0,.08);
-  opacity: .9;
+  opacity: .86;
 }
     
     .signup-pill input {
