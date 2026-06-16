@@ -207,8 +207,8 @@
   left: 50%;
   top: 78%;
   transform: translateX(-50%);
-  width: min(640px, 86vw);
-  height: 64px;
+  width: min(420px, 78vw);
+  height: 54px;
   background: #fff;
   border: 1px solid rgba(0,0,0,.08);
   border-radius: 999px;
@@ -216,16 +216,19 @@
   align-items: center;
   justify-content: center;
   color: #000;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .02em;
   box-shadow: 0 10px 35px rgba(0,0,0,.04);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
   z-index: 10;
+  pointer-events: auto;
 }
 
 .waitlist-pill:hover {
   transform: translateX(-50%) translateY(-2px);
   box-shadow: 0 14px 38px rgba(0,0,0,.08);
+  opacity: .9;
 }
     
     .signup-pill input {
@@ -1024,6 +1027,8 @@
       <div class="hero-controls">
         <a href="https://shop.thestarface.com/collections/space-kid-series-01" class="primary-btn">Get Yours</a>
 
+        <p class="hero-email-label">Be first to hear about future STARFACE releases</p>
+        
         <a href="https://q4bnd0-dm.myshopify.com/pages/starface-waitlist" class="waitlist-pill">
   Join the STARFACE List
 </a>
